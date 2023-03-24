@@ -1,0 +1,190 @@
+/**
+ * CMS Project - project.st.css
+ * 
+ * Your main project which is essentially a theme but it itself can have themes
+ * so project seems more appropriate. 
+ */
+/* @st-global-custom-property --vh; */
+@property st-global(--vh);
+
+@namespace "CMS";
+
+/* = Default project vars to be overridden. */
+:import {
+  -st-from: "@actionishope/shelley/styles/default/project.st.css";
+  -st-named:
+    --color-focus,
+    --color-error,
+    --color-form-base-border,
+    --color-form-selection-border,
+    --color-form-selection-notch,
+    --color-switch-notch,
+
+    --select-icon,
+    --grid-gap,
+    --grid-v1-cols-xs,
+    --grid-v1-cols-sm,
+    --grid-v1-cols-md,
+
+    --text-vol-10-max,
+    --text-vol-10-scale,
+    --text-vol-10-line-height;
+}
+
+
+/*=== BUILD-TIME 'VARIABLE' DEFINITIONS ===*/
+
+:vars {
+  /*=== TYPE AND TEXT ===*/
+
+  /** Fonts */
+  /* font-plain: Tahoma, Verdana, Segoe, sans-serif; */
+  font-plain:
+    Helvetica Neue, Helvetica, Arial, sans-serif;
+  /* Georgia, serif; */
+  /* font-special: Helvetica Neue, Helvetica, Arial, sans-serif; */
+  font-special: futura-pt, Helvetica Neue, Helvetica, Arial, sans-serif;
+  /* Georgia, serif; */
+  font-mono:
+    Menlo, Courier, Courier New, Andale Mono, monospace;
+}
+
+
+/*=== Root Level CSS Variables - 'run time' ===*/
+
+:root {
+
+  /*=== COLOURS - The Queens English darling... ===*/
+
+  /* = Core light - always light or dark regardless of theme. */
+  --light-01-raw: 255, 255, 255;
+  --light-01: rgb(255, 255, 255);
+  /* = Core dark . */
+  --dark-01-raw: 51, 51, 51;
+  --dark-01: rgb(51, 51, 51);
+  /* = 'raw' are just the rgb values we we can use them with rgba 
+   * where we can provide the alpha yet still have the raw value change
+   * for our style-switcher and within lots of alpha variant vars. 
+   * 
+   * e.g color: rgba(var(--color-ui-raw), 0.9);
+   */
+
+  /* = Forground colors - main and inverted plus rgb versions as 'raw'. */
+  --color-ui: var(--light-01);
+  --color-ui-inverse: var(--dark-01);
+  --color-ui-raw: var(--light-01-raw);
+  --color-ui-raw-inverse: var(--dark-01-raw);
+
+  /* = Accent colors */
+  --color-accent-1: #75eaff;
+  --color-accent-2: #75ffd4;
+  --color-accent-3: #c0eeff;
+  --color-accent-4: #f7e1b9;
+
+
+  /* = Background colors */
+  --color-background-1: #0f1118;
+  --color-background-2: hsl(220deg 27% 10%);
+  /* --color-background-3: #090a0e; */
+  --color-background-3: #000;
+  --color-background-4: rgba(11, 13, 18, 0.34);
+
+  /* = Border colors */
+  --color-border-1: #302e30;
+  --color-border-2: #5050506e;
+
+  /* = Modal colors */
+  --color-background-modal-1: #51a0af75;
+  --color-modal-border-1: #51a0af;
+  --color-background-modal-content-1: #000;
+
+  /* = Focus mode colors */
+  --color-focus-mode-background: #000;
+
+  /* = Header colors */
+  /* --color-header-background: #21525f; */
+  /* --color-header-background: var(--color-accent-1); */
+  --color-header-background: rgb(117 234 255 / 90%);
+  --color-header-border: #73e6fa63;
+
+  /* = Text colors */
+  --color-text-1: var(--light-01);
+  --color-text-2: rgba(var(--light-01-raw), 0.9);
+  --color-text-3: rgba(var(--light-01-raw), 0.8);
+  --color-text-4: #f7e1b9;
+
+  /* = Status colors */
+  /* --color-error: #b66b6e; */
+
+  /* = Indicator colors */
+  /* --color-focus: #09b1f1; */
+
+  /* = Form colors */
+  /* --color-form-base-border: rgba(119, 140, 157, 0.7); */
+  /* --color-form-selection-border: rgba(119, 140, 157, 1); */
+  --color-form-selection-notch: var(--color-accent-2);
+  /* --color-toggle-notch:  */
+
+  /* = Menu */
+  --color-menu-selected-background: hsl(211, 81%, 36%);
+  --color-menu-selected-text: white;
+
+  /* = Gradiants */
+  --grad-1: linear-gradient(0deg, rgba(15, 17, 24, 0.927608543417367) 43%, rgb(15 17 24 / 0%) 100%);
+
+  /* = Header */
+  --height-header-sm: 56px;
+  --height-header-md: 65px;
+
+  /* = Meta Data Social Preview */
+  --google-background: var(--color-background-1);
+  /* #303136; */
+  --google-title: #5b9be8;
+  --google-desc: #bbbdc0;
+  --google-url: #bbbdc0;
+  --google-font: arial, sans-serif;
+
+  --twitter-background: var(--color-background-1);
+  --twitter-listing-background: #151f2b;
+  --twitter-border: #313d46;
+  /* meta-border: #0b0d12 */
+  --twitter-title: #fff;
+  --twitter-desc: #8899a6;
+  --twitter-domain: #8899a6;
+  --twitter-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+
+  --facebook-background: var(--color-background-1);
+  --facebook-listing-background: rgb(58 59 60 / 75%);
+  --facebook-border: transparent;
+  --facebook-title: #fff;
+  --facebook-desc: #b0b3b8;
+  --facebook-domain: #b0b3b8;
+  --facebook-font: Helvetica, Arial, sans-serif;
+}
+
+/*=== Root Level CSS ===*/
+
+.root {
+  background-color: var(--color-background-1);
+}
+
+/** 
+ * This ideally will just be a spinkling of higher level styles that use 
+ * variables. For the reset globals we set them in ./allGlobals.st.css 
+ * which is pulled in within index.ts */
+.root {
+  font-family: value(font-plain);
+  color: var(--color-ui);
+  /* height: var(--vh);
+  height: calc(var(--vh, 1vh) * 100); */
+  /* overflow: hidden; */
+  /* width: 100vw; */
+}
+
+:global(#___gatsby) {
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+.root h1 {
+  font-family: value(font-special);
+}

@@ -1,0 +1,121 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import { PageActions } from "../../components/PageActions/PageActions";
+import { BasicExample, PageActionsPropsDocs } from "./PageActions.examples";
+
+<Meta
+  title="Editor/PageActions"
+  argTypes={{
+    reviewRequired: {
+      control: { type: "boolean" },
+    },
+  }}
+  component={PageActionsPropsDocs}
+  decorators={[
+    (Story) => (
+      <StoryGrid>
+        <Story />
+      </StoryGrid>
+    ),
+  ]}
+/>
+
+# Page Actions
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { PageActions } from "@actionishope/shelley-cms";
+  `}
+/>
+
+Used on the main edit screen, it controls the publishing and unpublishing of a page.
+
+## Events
+
+The `onAction` event is fired when either the main button or one of the menu options is selected.
+
+When the main button is pressed `onAction` is called with the correct action dependant on the `status` value. It will be called with `publish` unless:
+
+- the `reviewRequired` prop is on, in which case it will be `review`
+- status is set to `archived` in which case it will be `unarchive`
+- status is set to `published` in which case it will not be called and should appear disabled.
+
+When the menu items are selected `onAction` is called with the `key` specified on the Item.
+
+<Story
+  name="a) PageActions"
+  args={{
+    lastSaved: "5 minutes ago",
+  }}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+const [status, setStatus] = useState<statusOptions>("draft");
+  const [reviewRequired, setReviewRequired] = useState(true);
+  return (
+    <PageActions
+      // Provide a status
+      // status={status}
+      lastSaved="5 mins ago"
+      // Changes the main button to review state
+      reviewRequired={reviewRequired}
+      // Some positioning on the popup is available
+      position={{ portalSelector: "#portal" }}
+      // The main onAction
+      onAction={(actionKey) => {
+        switch (actionKey) {
+          case "archive":
+            console.log("archived!!");
+            break;
+          case "onUnarchive":
+            console.log("onUnarchive!!");
+            break;
+          case "unpublish":
+            console.log("UnPublish!!");
+            break;
+          case "publish":
+            console.log("publish!!");
+            break;
+          case "review":
+            console.log("review");
+            break;
+        }
+      }}
+      // Any keys within the menu to disable.
+      // disabledKeys={["archive"]}
+      // To assist testing and alalytics.
+      includeDataIds
+    >
+      <Item key="archive">Archive</Item>
+      <Item key="unpublish">Unpublish</Item>
+    </PageActions>`,
+      },
+    },
+  }}
+>
+  {BasicExample.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-pageactions--a-page-actions" />
+
+## TextField Props
+
+<ArgsTable of={PageActionsPropsDocs} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

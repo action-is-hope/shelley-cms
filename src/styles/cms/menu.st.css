@@ -1,0 +1,42 @@
+/**
+ * = Menu - menu.st.css
+ * 
+ * ========================================================================= */
+
+
+/* = Default project vars. */
+:import {
+  -st-from: "@actionishope/shelley/styles/default/project.st.css";
+  -st-named:
+    --spacing-unit,
+}
+
+/* = Shelley project scope and vars. */
+:import {
+  -st-from: "./project.st.css";
+  -st-default: CMS;
+  -st-named:
+    /* = CSS3 Switcher vars. */
+    --color-background-1,
+    --color-menu-selected-background,
+    --color-menu-selected-text;
+}
+
+/* = Components */
+
+:import {
+  -st-from: "@actionishope/shelley/components/MenuItem/menuItem.st.css";
+  -st-default: MenuItem;
+}
+
+@st-scope CMS {
+
+  MenuPopup {
+    background: var(--color-background-1);
+  }
+
+  MenuItem:isFocused {
+    background: var(--color-menu-selected-background);
+    color: var(--color-menu-selected-text);
+  }
+}
