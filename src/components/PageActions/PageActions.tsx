@@ -157,7 +157,7 @@ function PageActions<T extends { key: string }>(
           <strong>{strings.status}</strong> {strings[status]}
         </Text>
         {/* @todo: shelley -> Button group us adding extra props to the MenuTrigger in this scenario */}
-        <ButtonGroup className={classes.buttonGroup}>
+        <ButtonGroup className={classes.buttonGroup} splitButton>
           <Button
             vol={4}
             variant="primary"
@@ -173,7 +173,7 @@ function PageActions<T extends { key: string }>(
           >
             {reviewRequired ? strings.reviewRequired : lookUp[status].text}
           </Button>
-          <MenuTrigger {...position}>
+          <MenuTrigger offset={8} crossOffset={-80} {...position}>
             <Button
               icon={
                 <Icon alt={strings.publishMenu}>

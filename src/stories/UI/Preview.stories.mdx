@@ -1,0 +1,137 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import PreviewModes from "../../components/PreviewModes/PreviewModes";
+import { BasicExample } from "./Preview.examples";
+
+<Meta
+  title="Editor/Preview"
+  argTypes={{
+    reviewRequired: {
+      control: { type: "boolean" },
+    },
+  }}
+  component={PreviewModes}
+  decorators={[(Story) => <Story />]}
+/>
+
+# Preview
+
+<Source
+  language="tsx"
+  code={dedent`
+    import {
+      Preview,
+      PreviewModes,
+      PreviewChrome,
+      PreviewMetaData,
+      PreviewActions,
+      usePreview } from "@actionishope/shelley-cms";
+  `}
+/>
+
+Preview is made up of a few parts which can be included or omitted as the case maybe. There are two main states that the editor can be in when not in normal editing mode; 'fullscreen mode' and 'focus mode' (relates to users wanting to 'focus' on the content).
+
+{/_ @todo: Rename 'modes' to contentFullScreen and previewFullScreen _/}
+
+Due to the nature of the preview and its that fact that it needs to be accessible to various modal dialogs we use shards a lot. This means providing refs to the major parts of UI. This is hidden away inside `usePreview`.
+
+Also inside `usePreview` are all the various states and such that is required to get all the components hooked up and working together. Simply spread these to the relevant components.
+
+<Story
+  name="a) Preview"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+const {
+  previewMode,
+  // To spread to the other editor UI.
+  // blockEditorProps,
+  // contentProps,
+  // editorLayoutProps,
+  previewProps,
+  previewChromeProps,
+  previewActionsProps,
+} = usePreview();\n
+return (
+  <div className={classes.previewExample}>
+    <Preview
+      // className={editorLayout.preview}
+      {...previewProps}
+    >
+      {previewMode === "web" && (
+        <PreviewMetaData
+          title="Shelley Puma UI"
+          description="A joyfully easy to use CMS UI built upon a little known library called Shelley."
+          image="https://ik.imagekit.io/tcvka0ufln/pontoon_v3jIy64zcnwwx.jpeg?tr=w-1200,h-630,fo-auto"
+          slug="shelley.earth"
+          domain="shelley.earth"
+          fullScreenMode
+        />
+      )}
+      {previewMode !== "web" && (
+        <PreviewChrome {...previewChromeProps}>
+          {/* Children... */}
+          <div className={st(previewChrome.iframe)}>
+            {/* Mimic the preview styles. If the preview is not white, set height too 100% and round corners for mobile preview. */}
+            <div style={{ background: "white", color: "#333" }}>
+              <H2 vol={6}>Block1</H2>
+              <P>Block2</P>
+              <P>Block3</P>
+              <P>Block3</P>
+              <P>Block3</P>
+              <H2 vol={6}>Block1</H2>
+              <P>Block3</P>
+              <P>Block3</P>
+              <P>Block3</P>
+              <H2 vol={6}>Block1</H2>
+              <P>Block3</P>
+              <P>Block3</P>
+              <P>Block3</P>
+            </div>
+          </div>
+        </PreviewChrome>
+      )}
+    </Preview>
+    <PreviewActions
+      // className={editorLayout.previewActions}
+      {...previewActionsProps}
+    />
+  </div>
+);`,
+      },
+    },
+  }}
+>
+  {BasicExample.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-preview--a-preview" />
+
+## Content
+
+Preview is designed to take either single child; specifically PreviewMetaData or PreviewChrome depending on the `previewMode`. We can get access to the `previewMode` also via the `usePreview` hook.
+
+PreviewMetaData
+
+Currently PreviewModes is marked up as a RadioGroup, in future there might be better components that we could use. An `ActionGroup` (planned) might be slightly more appropriate semantically but this is fine too.
+
+## TextField Props
+
+<ArgsTable of={PreviewModes} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

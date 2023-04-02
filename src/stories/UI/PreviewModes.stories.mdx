@@ -1,0 +1,74 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import PreviewModes from "../../components/PreviewModes/PreviewModes";
+import { BasicExample } from "./PreviewModes.examples";
+
+<Meta
+  title="Editor/PreviewModes"
+  argTypes={{
+    reviewRequired: {
+      control: { type: "boolean" },
+    },
+  }}
+  component={PreviewModes}
+  decorators={[
+    (Story) => (
+      <StoryGrid>
+        <Story />
+      </StoryGrid>
+    ),
+  ]}
+/>
+
+# Preview Modes
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { PreviewModes } from "@actionishope/shelley-cms";
+  `}
+/>
+
+Used within the Preview, it controls the view mode of the Preview.
+
+## Events
+
+The `onChange` event is fired when a change is made.
+
+<Story
+  name="a) PreviewModes"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+TBC`,
+      },
+    },
+  }}
+>
+  {BasicExample.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-previewmodes--a-preview-modes" />
+
+Currently PreviewModes is marked up as a RadioGroup, in future there might be better components that we could use. An `ActionGroup` (planned) might be slightly more appropriate semantically but this is fine too.
+
+## TextField Props
+
+<ArgsTable of={PreviewModes} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

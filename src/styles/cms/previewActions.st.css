@@ -1,0 +1,43 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --height-header-md,
+  --color-background-2,
+  --color-border-1,
+] from "./project.st.css";
+/* = Root Component */
+@st-import PreviewActions from "../../components/PreviewActions/previewActions.st.css";
+/* = Child Components */
+@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
+
+
+@st-scope CMS {
+
+  PreviewActions {
+    grid-area: preview;
+    justify-self: flex-end;
+    z-index: 100;
+    /*  */
+    height: var(--height-header-md);
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 8px;
+    background-color: var(--color-background-2);
+  }
+
+  PreviewActions Button:vol(5) {
+    font-size: 1.15em;
+  }
+
+  PreviewActions Button {
+    height: var(--height-header-md);
+    border-width: 0;
+    border-radius: 0;
+    margin-right: -1px;
+    border-color: var(--color-border-1);
+    transition: opacity 80ms ease-in-out;
+  }
+
+  PreviewActions::toggleFocusButton {}
+
+  PreviewActions::toggleFullScreenButton {}
+}

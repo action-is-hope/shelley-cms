@@ -17,11 +17,11 @@ import "./text.st.css";
 // import "./editorLayout.st.css";
 // import "./finderLayout.st.css";
 import "./pageActions.st.css";
-// import "./preview.st.css";
-// import "./previewActions.st.css";
-// import "./previewChrome.st.css";
-// import "./previewMetaData.st.css";
-// import "./previewModes.st.css";
+import "./preview.st.css";
+import "./previewActions.st.css";
+import "./previewChrome.st.css";
+import "./previewMetaData.st.css";
+import "./previewModes.st.css";
 // import "./blockEditor.st.css";
 // import "./metaDataEditor.st.css";
 

@@ -1,0 +1,61 @@
+/* previewMetaData.st.css */
+
+.root {
+  -st-states: fullScreenMode;
+}
+
+.chrome {}
+
+.previewItem {}
+
+/** Google */
+
+.google {}
+
+.googleListing {}
+
+.googleLogo {}
+
+.googleTitle {}
+
+.googleUrl {}
+
+.googleDescription {}
+
+
+/** Twitter */
+
+.twitter {}
+
+.twitterListing {}
+
+.twitterLogo {}
+
+.twitterImage {}
+
+.twitterText {}
+
+.twitterTitle {}
+
+.twitterDescription {}
+
+.twitterDomain {}
+
+.twitterLinkIcon {}
+
+
+/** Facebook */
+
+.facebook {}
+
+.facebookListing {}
+
+.facebookLogo {}
+
+.facebookImage {}
+
+.facebookDomain {}
+
+.facebookTitle {}
+
+.facebookDescription {}

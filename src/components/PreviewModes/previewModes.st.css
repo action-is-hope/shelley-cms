@@ -1,0 +1,18 @@
+/* previewModes.st.css */
+@st-import RadioGroup from "@actionishope/shelley/components/RadioGroup/radioGroup.st.css";
+@st-import Radio from "@actionishope/shelley/components/Radio/radio.st.css";
+@st-import Icon from "@actionishope/shelley/components/Icon/icon.st.css";
+
+.root {}
+
+.controls {
+  -st-extends: RadioGroup;
+}
+
+.control {
+  -st-extends: Radio;
+}
+
+.icon {
+  -st-extends: Icon;
+}

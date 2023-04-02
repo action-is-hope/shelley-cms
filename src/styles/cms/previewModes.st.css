@@ -1,0 +1,45 @@
+/* = Project scope and vars. */
+@st-import CMS, [--color-background-1] from "./project.st.css";
+/* = Root Component */
+@st-import PreviewModes from "../../components/PreviewModes/previewModes.st.css";
+
+@st-scope CMS {
+  PreviewModes {
+    height: 64px;
+    width: 100%;
+    /* text-align: center; */
+    /* border-bottom: 1px dashed var(--color-border-2); */
+    background: var(--color-background-1);
+    z-index: 1;
+    padding-top: 18px;
+    transition: border 80ms ease-in-out, margin 80ms ease-in-out;
+    /* Hide borders to the left of itself. */
+    box-shadow: -1px 0px 0px 0 var(--color-background-1);
+    margin-top: -1px;
+  }
+
+  PreviewModes::controls {
+    justify-items: center;
+  }
+
+  PreviewModes::controls::group {
+    gap: 40px;
+  }
+
+  PreviewModes::control {
+    font-size: 0.95em;
+    gap: 0
+  }
+
+  PreviewModes::control::input {
+    border: none;
+  }
+
+  PreviewModes::control::input::before {
+    width: 100%;
+    height: 1px;
+    background: none;
+    border-bottom: 1px solid #89ffca;
+    box-shadow: 0 0 2px 1px #09b1f1;
+  }
+}

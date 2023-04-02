@@ -91,7 +91,7 @@ describe("PageActions", () => {
     });
   });
 
-  describe("Draft and onAction responses:", () => {
+  describe("Status and onAction responses:", () => {
     it("render as 'draft', onAction fires 'publish'.", () => {
       const onActionSpy = cy.spy().as("onActionSpy");
       cy.mount(<BasicExample status="draft" onAction={onActionSpy} />);
