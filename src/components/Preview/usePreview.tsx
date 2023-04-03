@@ -11,7 +11,7 @@ type EditorLayoutProps = {
   gridMode: "fullScreenMode" | "focusMode" | false;
 };
 
-type ContentProps = {
+type ContentAreaProps = {
   "data-id": string;
   focusOnProps: {
     enabled: boolean;
@@ -35,7 +35,7 @@ type usePreviewReturn = {
   previewMode: PreviewMode;
   // Props to spread to components.
   blockEditorProps: BlockEditorProps;
-  contentProps: ContentProps;
+  contentAreaProps: ContentAreaProps;
   editorLayoutProps: EditorLayoutProps;
   previewProps: PreviewProps;
   previewChromeProps: PreviewChromeProps;
@@ -68,7 +68,7 @@ const usePreview = (): usePreviewReturn => {
       : false,
   };
 
-  const contentProps: ContentProps = {
+  const contentAreaProps: ContentAreaProps = {
     "data-id": "Content",
     focusOnProps: {
       /**
@@ -132,7 +132,7 @@ const usePreview = (): usePreviewReturn => {
   return {
     previewMode,
     blockEditorProps,
-    contentProps,
+    contentAreaProps,
     editorLayoutProps,
     previewProps,
     previewChromeProps,

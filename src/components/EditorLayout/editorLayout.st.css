@@ -1,0 +1,26 @@
+/* editorLayout.st.css */
+@st-import Preview from "../../components/Preview/preview.st.css";
+@st-import PreviewActions from "../../components/PreviewActions/previewActions.st.css";
+@st-import ContentArea from "../../components/ContentArea/contentArea.st.css";
+@st-import PageActions from "../../components/PageActions/pageActions.st.css";
+
+.root {
+  -st-states:
+    gridMode(enum(fullScreenMode, focusMode));
+}
+
+.contentArea {
+  -st-extends: ContentArea;
+}
+
+.preview {
+  -st-extends: Preview;
+}
+
+.previewActions {
+  -st-extends: PreviewActions;
+}
+
+.pageActions {
+  -st-extends: PageActions;
+}

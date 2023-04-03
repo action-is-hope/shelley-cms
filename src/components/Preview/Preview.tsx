@@ -1,5 +1,5 @@
 import React from "react";
-
+import type { ReactFocusOnProps } from "react-focus-on/dist/es5/types";
 import PreviewModes, { PreviewMode } from "../PreviewModes/PreviewModes";
 import { FocusOn } from "react-focus-on";
 
@@ -7,8 +7,11 @@ import { st, classes } from "./preview.st.css";
 
 export interface PreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   "data-id"?: string;
-  /** See https://www.npmjs.com/package/react-focus-on */
-  focusOnProps: any;
+  /** Props for the internal `FocusOn` component see - https://github.com/theKashey/react-focus-on#api */
+  focusOnProps?: Pick<
+    ReactFocusOnProps,
+    Exclude<keyof ReactFocusOnProps, "children">
+  >;
   /** Set the preview mode. */
   previewMode: PreviewMode;
   /** A ref pointing to the PreviewMode component, used for FocusOn isolation. */

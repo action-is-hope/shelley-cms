@@ -8,31 +8,29 @@
 @property st-global(--vh);
 
 @namespace "CMS";
-
-/* = Default project vars to be overridden. */
-:import {
-  -st-from: "@actionishope/shelley/styles/default/project.st.css";
-  -st-named:
-    breakpoint-md,
-    breakpoint-md-max,
-    --color-focus,
-    --color-error,
-    --color-form-base-border,
-    --color-form-selection-border,
-    --color-form-selection-notch,
-    --color-switch-notch,
-    --spacing-unit,
-    --select-icon,
-    --grid-gap,
-    --grid-v1-cols-xs,
-    --grid-v1-cols-sm,
-    --grid-v1-cols-md,
-
-    --text-vol-10-max,
-    --text-vol-10-scale,
-    --text-vol-10-line-height;
-}
-
+/* = Default project vars to be overridden and used. */
+@st-import [
+  breakpoint-sm,
+  breakpoint-sm-max,
+  breakpoint-md,
+  breakpoint-md-max,
+  breakpoint-lg,
+  breakpoint-lg-max,
+  --color-focus,
+  --color-error,
+  --color-form-base-border,
+  --color-form-selection-border,
+  --color-form-selection-notch,
+  --color-switch-notch,
+  --spacing-unit,
+  --select-icon,
+  --grid-gap,
+  --grid-v1-cols-xs,
+  --grid-v1-cols-sm,
+  --grid-v1-cols-md,
+  --text-vol-10-max,
+  --text-vol-10-scale,
+  --text-vol-10-line-height] from "@actionishope/shelley/styles/default/project.st.css";
 
 /*=== BUILD-TIME 'VARIABLE' DEFINITIONS ===*/
 

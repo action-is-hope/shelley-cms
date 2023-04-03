@@ -47,7 +47,7 @@ export interface PageActionsProps<T>
     "placement" | "shouldFlip" | "offset" | "crossOffset" | "portalSelector"
   >;
   /** Add predefined data-id to ease testing or analytics. */
-  includeDataIds?: boolean;
+  "data-id"?: string;
 }
 
 function PageActions<T extends { key: string }>(
@@ -63,7 +63,8 @@ function PageActions<T extends { key: string }>(
     disabledKeys: disabledKeysProp,
     position,
     onAction: onActionProp,
-    includeDataIds,
+    // includeDataIds,
+    "data-id": dataId,
     ...rest
   } = props;
 
@@ -131,14 +132,14 @@ function PageActions<T extends { key: string }>(
       className={st(classes.root, classNameProp)}
       {...rest}
       ref={ref}
-      data-id={includeDataIds ? "pageActions" : undefined}
+      data-id={dataId}
     >
       <div className={classes.info}>
         <Text
           as="div"
           vol={1}
           className={st(spacing.mb1, classes.lastSaved)}
-          data-id={includeDataIds ? "pageActions--last-saved" : undefined}
+          data-id={dataId ? `${dataId}--last-saved` : undefined}
         >
           {lastSaved && `${strings.changesSaved} ${lastSaved}`}
         </Text>
@@ -150,7 +151,7 @@ function PageActions<T extends { key: string }>(
           as="div"
           vol={1}
           className={st(spacing.mb1, classes.statusText)}
-          data-id={includeDataIds ? "pageActions--status" : undefined}
+          data-id={dataId ? `${dataId}--status` : undefined}
         >
           {/* @todo: Convert to StatusIndicator component */}
           <span className={st(classes.led, classes[status])}></span>
@@ -163,7 +164,7 @@ function PageActions<T extends { key: string }>(
             variant="primary"
             tone={reviewRequired ? 2 : 1}
             className={classes.reviewButton}
-            data-id={includeDataIds ? "pageActions--actionButton" : undefined}
+            data-id={dataId ? `${dataId}--actionButton` : undefined}
             fullWidth
             onPress={() => {
               console.log(lookUp[status]);
@@ -181,7 +182,7 @@ function PageActions<T extends { key: string }>(
                 </Icon>
               }
               className={classes.menuTrigger}
-              data-id={includeDataIds ? "pageActions--menuTrigger" : undefined}
+              data-id={dataId ? `${dataId}--menuTrigger` : undefined}
               vol={4}
               tone={1}
             />
@@ -190,7 +191,7 @@ function PageActions<T extends { key: string }>(
               // disabledKeys={disabledKeys}
               disabledKeys={disabledKeysProp}
               className={classes.menu}
-              data-id={includeDataIds ? "pageActions--menu" : undefined}
+              data-id={dataId ? `${dataId}--menu` : undefined}
             >
               {children}
             </Menu>

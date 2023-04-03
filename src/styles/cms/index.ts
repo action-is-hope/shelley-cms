@@ -14,7 +14,7 @@ import "./text.st.css";
 // import "./footer.st.css";
 // import "./contentActions.st.css";
 // import "./card.st.css";
-// import "./editorLayout.st.css";
+import "./editorLayout.st.css";
 // import "./finderLayout.st.css";
 import "./pageActions.st.css";
 import "./preview.st.css";
