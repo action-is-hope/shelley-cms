@@ -1,4 +1,6 @@
 /* preview.st.css */
+@namespace "Preview";
+
 .root {
   -st-states: previewMode(enum(1, 2, 3, 4, 5, 6));
 }

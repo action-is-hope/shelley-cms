@@ -1,28 +1,32 @@
-import { H1, H2, P, Item } from "@actionishope/shelley";
+import {
+  H1,
+  H2,
+  P,
+  Item,
+  TextField,
+  ActionButton,
+} from "@actionishope/shelley";
+import BlockEditor from "../../components/BlockEditor/BlockEditor";
 import Preview from "../../components/Preview/Preview";
 import PreviewMetaData from "../../components/PreviewMetaData/PreviewMetaData";
 import PreviewChrome from "../../components/PreviewChrome/PreviewChrome";
 import PreviewActions from "../../components/PreviewActions/PreviewActions";
 import usePreview from "../../components/Preview/usePreview";
 import { PageActions } from "../../components/PageActions/PageActions";
+import EditorLayout from "../../components/EditorLayout/EditorLayout";
+import ContentArea from "../../components/ContentArea/ContentArea";
 
+import { classes as editorLayout } from "../../components/EditorLayout/editorLayout.st.css";
 import {
   st,
   classes as previewChrome,
 } from "../../components/PreviewChrome/previewChrome.st.css";
 
-import EditorLayout from "../../components/EditorLayout/EditorLayout";
-import ContentArea from "../../components/ContentArea/ContentArea";
-
-// import { classes as editorLayout } from "../../styles/cms/editorLayout.st.css";
-
-import { classes as editorLayout } from "../../components/EditorLayout/editorLayout.st.css";
-
 export const BasicExample = () => {
   const {
     previewMode,
     // To spread to the other editor UI.
-    // blockEditorProps,
+    blockEditorProps,
     contentAreaProps,
     editorLayoutProps,
     previewProps,
@@ -30,10 +34,39 @@ export const BasicExample = () => {
     previewActionsProps,
   } = usePreview();
 
+  const contentBlocks = [
+    "Title",
+    "Hero",
+    "Body",
+    "Content listing",
+    "Body",
+    "Body",
+    "Body",
+  ];
+
   return (
     <EditorLayout {...editorLayoutProps}>
       <ContentArea className={editorLayout.contentArea} {...contentAreaProps}>
         CONTENT BLOCKS
+        {contentBlocks.map((item) => (
+          <BlockEditor
+            data-testid="test"
+            label={item}
+            {...blockEditorProps}
+            settingsRender={() => (
+              <P>Select taxonomies to display in this listing.</P>
+            )}
+          >
+            <TextField
+              variant="quiet"
+              placeholder={item}
+              label={item}
+              labelPosition="hidden"
+              vol={6}
+            />
+            <ActionButton isQuiet>Usage</ActionButton>
+          </BlockEditor>
+        ))}
       </ContentArea>
       <Preview className={editorLayout.preview} {...previewProps}>
         {previewMode === "web" && (

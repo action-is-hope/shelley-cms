@@ -1,4 +1,5 @@
 /* previewMetaData.st.css */
+@namespace "PreviewMetaData";
 
 .root {
   -st-states: fullScreenMode;

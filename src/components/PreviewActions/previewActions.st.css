@@ -1,4 +1,6 @@
 /* previewActions.st.css */
+@namespace "PreviewActions";
+
 .root {}
 
 .toggleFocusButton {}

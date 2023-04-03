@@ -10,6 +10,7 @@ import "./text.st.css";
 // import "./dialog.st.css";
 
 // = Application Components
+import "./blockEditor.st.css";
 // import "./header.st.css";
 // import "./footer.st.css";
 // import "./contentActions.st.css";
@@ -22,7 +23,7 @@ import "./previewActions.st.css";
 import "./previewChrome.st.css";
 import "./previewMetaData.st.css";
 import "./previewModes.st.css";
-// import "./blockEditor.st.css";
+
 // import "./metaDataEditor.st.css";
 
 // = Project

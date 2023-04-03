@@ -1,0 +1,43 @@
+/* blockEditor.st.css */
+@namespace "BlockEditor";
+
+@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
+@st-import Menu from "@actionishope/shelley/components/Menu/menu.st.css";
+@st-import Modal from "@actionishope/shelley/components/Modal/modal.st.css";
+@st-import Preview from "../../components/Preview/preview.st.css";
+@st-import PreviewActions from "../../components/PreviewActions/previewActions.st.css";
+@st-import ContentArea from "../../components/ContentArea/contentArea.st.css";
+@st-import PageActions from "../../components/PageActions/pageActions.st.css";
+@st-import MenuItem from "@actionishope/shelley/components/MenuItem/menuItem.st.css";
+
+.root {}
+
+.menuTrigger {
+  -st-extends: Button;
+}
+
+.options {}
+
+.menu {
+  -st-extends: Menu
+}
+
+.menu MenuItem:isDisabled {
+  display: none
+}
+
+.modal {
+  -st-extends: Modal;
+}
+
+.message {}
+
+.mainContent {}
+
+.label {}
+
+.dialogTransition {}
+
+.dialogContentWithActions {}
+
+.settingsTitle {}

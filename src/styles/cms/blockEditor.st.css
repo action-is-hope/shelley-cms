@@ -1,0 +1,158 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --spacing-unit,
+  --color-text-2,
+  --color-accent-1,
+  --color-background-1,
+  --color-background-2,
+  --color-border-1,
+  --color-modal-border-1,
+  --color-background-modal-1,
+  --color-background-modal-content-1
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import BlockEditor, [menu] from "../../components/BlockEditor/blockEditor.st.css";
+
+@st-import TextField from "@actionishope/shelley/components/TextField/textField.st.css";
+
+/* 
+:import {
+  -st-from: "@actionishope/shelley/components/InputBase/inputBase.st.css";
+  -st-default: InputBase;
+} */
+
+:import {
+  -st-from: "@actionishope/shelley/components/Label/label.st.css";
+  -st-default: Label;
+}
+
+@st-scope CMS {
+
+
+  BlockEditor {
+    width: 100%;
+    display: grid;
+    grid-template-areas: "stack";
+    transition: filter 80ms ease-in-out, opacity 80ms ease-in-out;
+    /*  */
+    position: relative;
+  }
+
+  BlockEditor::options {
+    grid-area: stack;
+    justify-self: right;
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+    margin: 16px 30px;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+  /* Menu loads in a portal so needs to be accessed directly. */
+  .menu {
+    min-width: 120px;
+  }
+
+  /* Main content - the main editing items. */
+  BlockEditor::mainContent {
+    z-index: 0;
+    position: relative;
+    grid-area: stack;
+    /* padding: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 5); */
+    padding: 0.8rem 0 1.3rem;
+    border-bottom: 1px dashed var(--color-border-1);
+    background-color: var(--color-background-1);
+  }
+
+  BlockEditor:last-of-type::mainContent {
+    /* border-bottom-color: transparent; */
+  }
+
+  BlockEditor TextField::fieldInput {
+    padding-left: calc(var(--spacing-unit) * 3);
+    -webkit-font-smoothing: antialiased;
+  }
+
+
+  BlockEditor::label {
+    padding-left: calc(var(--spacing-unit) * 2);
+    margin-bottom: 14px;
+    color: var(--color-text-2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  BlockEditor::modal {
+    grid-area: stack;
+    z-index: 15;
+  }
+
+  BlockEditor::modal::backdrop {
+    background-color: var(--color-background-modal-1);
+    border-style: solid;
+    border-width: 1px 0;
+    border-color: var(--color-modal-border-1);
+  }
+
+  BlockEditor::modal::content {
+    position: relative;
+    margin: 60px 8px 60px 8px;
+    width: calc(100vw - 16px);
+    max-width: 650px;
+    padding-bottom: 1px;
+    /* Kicks in the inclusion of margin-bottom of the last item in the container. */
+    max-height: 85vh;
+    background-color: var(--color-background-modal-content-1);
+    align-self: flex-start;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-modal-border-1);
+  }
+
+
+  /* Overrides for the reorder Dialog */
+  BlockEditor::dialogContentWithActions {
+    padding-bottom: 53px;
+  }
+
+
+  /* .dialogActions {
+  margin: 0 -24px -53px;
+  background: #f2f2f2;
+  border-top: 1px solid #cacaca;
+  width: calc(100% + 48px);
+  position: sticky;
+  bottom: 0;
+  padding: 8px 20px;
+  border-radius: 0 0 4px 4px;
+} */
+
+
+  BlockEditor::settingsTitle {
+    margin: 0 0 12px;
+    padding: 12px 24px 12px;
+    border-bottom: 1px dashed var(--color-modal-border-1);
+  }
+
+
+  BlockEditor::message {
+    padding: 2px .57rem;
+    color: #ff5b5b;
+    background: #00000059;
+    margin-top: 1px;
+  }
+
+  BlockEditor::message:last-of-type {
+    margin-bottom: calc(0.25rem + 4px);
+
+  }
+
+}

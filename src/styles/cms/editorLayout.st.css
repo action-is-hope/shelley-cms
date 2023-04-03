@@ -11,10 +11,14 @@
   --color-background-1,
   --color-background-2,
   --color-background-3,
+  --color-modal-border-1
 ] from "./project.st.css";
 
 /* = Root Component */
 @st-import EditorLayout from "../../components/EditorLayout/editorLayout.st.css";
+
+
+@st-import PreviewMetaData from "../../components/PreviewMetaData/previewMetaData.st.css";
 
 @st-scope CMS {
 
@@ -159,6 +163,10 @@
     padding-right: 1px;
     /* Puts the preview on top of the header for border visibility. */
     z-index: 10;
+  }
+
+  :global(body.on) EditorLayout PreviewMetaData {
+    margin-left: -1px
   }
 
   :global(body.on) EditorLayout::preview::previewModes {

@@ -1,4 +1,6 @@
 /* contentArea.st.css */
+@namespace "ContentArea";
+
 @property st-global(--vh);
 
 .root {}
