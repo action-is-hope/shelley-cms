@@ -1,0 +1,11 @@
+@st-import Preview from "../../components/Preview/preview.st.css";
+@st-import CMS from "../../styles/cms/project.st.css";
+
+@st-scope CMS {
+  .previewExample {
+    display: grid;
+    grid-template-areas:
+      'preview';
+    height: 80vh;
+  }
+}

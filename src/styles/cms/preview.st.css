@@ -1,0 +1,45 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --spacing-unit,
+  --height-header-md,
+  --color-ui-inverse,
+  --color-border-2,
+  --color-background-1,
+  --color-background-3
+] from "./project.st.css";
+/* = Root Component */
+@st-import Preview from "../../components/Preview/preview.st.css";
+
+@st-scope CMS {
+  Preview {
+    grid-area: preview;
+    display: grid;
+    grid-template-rows: var(--height-header-md) 1fr;
+    grid-template-columns: 1fr;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    background-color: var(--color-background-3);
+    /* To position the meta scroll area within. */
+    position: relative;
+  }
+
+  Preview::previewModes {}
+
+  Preview .appWrap {}
+
+  Preview:previewMode(1) iframe,
+  Preview:previewMode(1) .appWrap {
+    position: relative;
+  }
+
+  Preview:previewMode(2) iframe,
+  Preview:previewMode(2) .appWrap {}
+
+  Preview:previewMode(3) iframe,
+  Preview:previewMode(3) .appWrap {}
+
+  Preview:previewMode(4) iframe,
+  Preview:previewMode(4) .appWrap {}
+
+}

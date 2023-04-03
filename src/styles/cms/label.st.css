@@ -23,7 +23,7 @@
 
 @st-scope CMS {
 
-  Label::textContainer {
+  Label::labelText {
     color: var(--color-text-2);
   }
 

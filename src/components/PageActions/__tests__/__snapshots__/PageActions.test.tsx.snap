@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageActions renders page actions block with custom className 1`] = `
+<div
+  className="pageActions__Test__root custom-classname"
+>
+  <div
+    className="pageActions__Test__info"
+  >
+    <div
+      className="Text__Test__root Text__Test---vol-1-1 spacing__Test__mb1 pageActions__Test__lastSaved"
+    >
+      Changes saved: 5 mins ago
+    </div>
+  </div>
+  <div
+    className="pageActions__Test__actions"
+  >
+    <div
+      className="Text__Test__root Text__Test---vol-1-1 spacing__Test__mb1 pageActions__Test__statusText"
+    >
+      <span
+        className="pageActions__Test__led pageActions__Test__draft"
+      />
+      <strong>
+        Status:
+      </strong>
+       
+      Draft
+    </div>
+    <div
+      className="buttonGroup__Test__root buttonGroup__Test---orientation-10-horizontal buttonGroup__Test--splitButton pageActions__Test__buttonGroup"
+    >
+      <button
+        className="Button__Test__root Button__Test--fullWidth Button__Test---tone-1-1 Button__Test---variant-7-primary Button__Test---vol-1-4 pageActions__Test__reviewButton"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        type="button"
+      >
+        <span
+          className="Button__Test__inner"
+        >
+          Publish
+        </span>
+      </button>
+      <button
+        aria-controls={null}
+        aria-expanded={false}
+        aria-haspopup={true}
+        className="Button__Test__root Button__Test---iconPos-3-end Button__Test---tone-1-1 Button__Test---variant-7-primary Button__Test---vol-1-4 pageActions__Test__menuTrigger"
+        id="react-aria-1"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden={true}
+          className="Icon__Test__root"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M13 4v2l-5 5-5-5v-2l5 5z"
+          />
+        </svg>
+        <span
+          className="visuallyHidden__Test__root"
+        >
+          Publish menu
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

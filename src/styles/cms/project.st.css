@@ -13,13 +13,15 @@
 :import {
   -st-from: "@actionishope/shelley/styles/default/project.st.css";
   -st-named:
+    breakpoint-md,
+    breakpoint-md-max,
     --color-focus,
     --color-error,
     --color-form-base-border,
     --color-form-selection-border,
     --color-form-selection-notch,
     --color-switch-notch,
-
+    --spacing-unit,
     --select-icon,
     --grid-gap,
     --grid-v1-cols-xs,

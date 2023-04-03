@@ -91,7 +91,7 @@ describe("PageActions", () => {
     });
   });
 
-  describe("Draft and onAction responses:", () => {
+  describe("Status and onAction responses:", () => {
     it("render as 'draft', onAction fires 'publish'.", () => {
       const onActionSpy = cy.spy().as("onActionSpy");
       cy.mount(<BasicExample status="draft" onAction={onActionSpy} />);
@@ -128,7 +128,7 @@ describe("PageActions", () => {
       cy.get("@onActionSpy").should("have.been.calledOnceWith", "publish");
     });
 
-    it("render as 'published', onAction had disabled class and does not fire.", () => {
+    it("render as 'published', onAction has disabled class and does not fire.", () => {
       const onActionSpy = cy.spy().as("onActionSpy");
       cy.mount(<BasicExample status="published" onAction={onActionSpy} />);
       cy.get(pageActions).should("be.visible");
@@ -136,8 +136,7 @@ describe("PageActions", () => {
       cy.get(actionButton)
         .should("have.attr", "class")
         .and("to.have.string", "isDisabled");
-      cy.get(actionButton).click();
-      cy.get("@onActionSpy").should("not.have.been.called");
+      cy.get(actionButton).should("be.disabled");
     });
   });
 });

@@ -1,0 +1,128 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --spacing-unit,
+  --color-accent-1,
+  --color-background-1,
+  --color-background-2,
+  --color-border-1,
+  --color-modal-border-1
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import PreviewChrome, [iframe, chrome] from "../../components/PreviewChrome/previewChrome.st.css";
+
+@st-scope CMS {
+
+  /* Mimic styles inside iframe */
+  .appWrapper {
+    background: #fff;
+    color: #333;
+  }
+
+  PreviewChrome {}
+
+  /* Social/Web preview - Provided by PreviewMeta. */
+  PreviewChrome:previewMode(web) {}
+
+  /* Laptop */
+  PreviewChrome:previewMode(laptop) .chrome {
+    background-image: url("https://ik.imagekit.io/tcvka0ufln/dasktop_MqyUc9KU_.png");
+    padding: 53px 181px 150px 181px;
+    transform-origin: center 20vh;
+    transform: scale(0.3);
+    opacity: .95;
+  }
+
+  PreviewChrome:previewMode(laptop) .iframe {
+    width: 1452px;
+    height: 921px;
+  }
+
+  PreviewChrome:previewMode(laptop):fullScreenMode .chrome {
+    transform: scale(.6);
+  }
+
+  /* Tablet */
+  PreviewChrome:previewMode(tablet) .chrome {
+    padding: 123px 65px 129px 65px;
+    background-image: url("https://ik.imagekit.io/tcvka0ufln/ipad-chrome_xobepnrZS.png");
+    transform: scale(0.4);
+    transform-origin: center 10vh;
+  }
+
+  PreviewChrome:previewMode(tablet) .iframe {
+    width: 768px;
+    height: 1024px;
+  }
+
+  PreviewChrome:previewMode(tablet):fullScreenMode .chrome {
+    transform: scale(.6);
+  }
+
+
+  /* Mobile */
+  PreviewChrome:previewMode(mobile) {
+    max-height: 68vh;
+  }
+
+  PreviewChrome:previewMode(mobile) .chrome {
+    margin-top: 0;
+    background-image: url("https://ik.imagekit.io/tcvka0ufln/iphone-chrome_2__oyoL8Ek9jZ0i.png");
+    padding: 66px 32px 40px;
+    transform-origin: center 10%;
+    transform: scale(0.45);
+  }
+
+  PreviewChrome:previewMode(mobile) .iframe {
+    width: 375px;
+    height: 784px;
+    background: #fff;
+    border-radius: 0 0 40px 40px;
+  }
+
+
+  PreviewChrome:previewMode(mobile):fullScreenMode {
+    max-height: 88vh;
+  }
+
+  PreviewChrome:previewMode(mobile):fullScreenMode .chrome {
+    margin-top: 9vh;
+    transform: scale(0.75);
+    /* transform-origin: center 10%; */
+  }
+}
+
+
+@media screen and (min-height: 915px) {
+  @st-scope CMS {
+    PreviewChrome:previewMode(mobile) .chrome {
+      transform: scale(0.55);
+      transform-origin: center 0%;
+    }
+  }
+}
+
+@media screen and (min-height: 1000px) {
+  @st-scope CMS {
+    PreviewChrome:previewMode(mobile) .chrome {
+      transform: scale(0.65);
+    }
+  }
+}
+
+@media screen and (max-width: 950px),
+screen and (min-height: 1000px) {
+  @st-scope CMS {
+    PreviewChrome:previewMode(mobile) .chrome {
+      transform-origin: center 10%;
+    }
+  }
+}
+
+@media screen and (min-width: 950px) {
+  @st-scope CMS {
+    PreviewChrome:previewMode(mobile) .chrome {
+      transform-origin: center 0%;
+    }
+  }
+}
