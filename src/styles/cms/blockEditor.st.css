@@ -2,19 +2,20 @@
 @st-import CMS, [
   --spacing-unit,
   --color-text-2,
-  --color-accent-1,
   --color-background-1,
-  --color-background-2,
+  --grad-1,
   --color-border-1,
-  --color-modal-border-1,
-  --color-background-modal-1,
-  --color-background-modal-content-1
+  --color-border-dialog
 ] from "./project.st.css";
 
 /* = Root Component */
 @st-import BlockEditor, [menu] from "../../components/BlockEditor/blockEditor.st.css";
 
 @st-import TextField from "@actionishope/shelley/components/TextField/textField.st.css";
+
+@st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
+
+
 
 /* 
 :import {
@@ -62,8 +63,6 @@
     z-index: 0;
     position: relative;
     grid-area: stack;
-    /* padding: calc(var(--spacing-unit) * 2);
-    padding-bottom: calc(var(--spacing-unit) * 5); */
     padding: 0.8rem 0 1.3rem;
     border-bottom: 1px dashed var(--color-border-1);
     background-color: var(--color-background-1);
@@ -73,9 +72,32 @@
     /* border-bottom-color: transparent; */
   }
 
-  BlockEditor TextField::fieldInput {
-    padding-left: calc(var(--spacing-unit) * 3);
+  BlockEditor::mainContent > form > TextField::fieldInput {
+    padding-left: calc(var(--spacing-unit) * 3.2);
     -webkit-font-smoothing: antialiased;
+  }
+
+  /* ReorderItems - Overrides*/
+  BlockEditor::mainContent ReorderItems {
+    margin-bottom: -1.3rem;
+  }
+
+  BlockEditor::mainContent ReorderItems {
+    background: var(--grad-1);
+  }
+
+  BlockEditor::mainContent ReorderItems::dragContainer {
+    padding-bottom: calc(var(--spacing-unit) * 1.5);
+    margin-top: calc(var(--spacing-unit));
+  }
+
+  BlockEditor::mainContent ReorderItems::dragContainer:isDragging {
+    background-color: #83838312;
+  }
+
+  BlockEditor::mainContent ReorderItems::item {
+    /* Limit width of items to shorten reading width. */
+    max-width: 80%;
   }
 
 
@@ -95,34 +117,23 @@
   }
 
   BlockEditor::modal::backdrop {
-    background-color: var(--color-background-modal-1);
     border-style: solid;
     border-width: 1px 0;
-    border-color: var(--color-modal-border-1);
+    border-color: var(--color-border-dialog);
   }
 
   BlockEditor::modal::content {
     position: relative;
     margin: 60px 8px 60px 8px;
-    width: calc(100vw - 16px);
-    max-width: 650px;
     padding-bottom: 1px;
     /* Kicks in the inclusion of margin-bottom of the last item in the container. */
     max-height: 85vh;
-    background-color: var(--color-background-modal-content-1);
     align-self: flex-start;
 
-    border-style: solid;
+    /* border-style: solid;
     border-width: 1px;
-    border-color: var(--color-modal-border-1);
+    border-color: var(--color-border-dialog); */
   }
-
-
-  /* Overrides for the reorder Dialog */
-  BlockEditor::dialogContentWithActions {
-    padding-bottom: 53px;
-  }
-
 
   /* .dialogActions {
   margin: 0 -24px -53px;
@@ -139,7 +150,7 @@
   BlockEditor::settingsTitle {
     margin: 0 0 12px;
     padding: 12px 24px 12px;
-    border-bottom: 1px dashed var(--color-modal-border-1);
+    border-bottom: 1px dashed var(--color-border-dialog);
   }
 
 

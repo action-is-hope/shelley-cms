@@ -161,4 +161,7 @@
     opacity: 1;
   }
 
+  Button:tone(10):variant(fab) {
+    background-color: var(--color-background-2);
+  }
 }

@@ -22,6 +22,9 @@
   --color-form-selection-border,
   --color-form-selection-notch,
   --color-switch-notch,
+  --color-dialog,
+  --background-color-dialog,
+  --background-color-modal-backdrop,
   --spacing-unit,
   --select-icon,
   --grid-gap,
@@ -94,9 +97,12 @@
   --color-border-2: #5050506e;
 
   /* = Modal colors */
-  --color-background-modal-1: #51a0af75;
-  --color-modal-border-1: #51a0af;
-  --color-background-modal-content-1: #000;
+  --background-color-modal-backdrop: #51a0af75;
+
+  /* Dialog colors */
+  --background-color-dialog: #000;
+  --color-border-dialog: #51a0af;
+  --color-dialog: var(--color-ui);
 
   /* = Focus mode colors */
   --color-focus-mode-background: #000;
@@ -130,7 +136,8 @@
   --color-menu-selected-text: white;
 
   /* = Gradiants */
-  --grad-1: linear-gradient(0deg, rgba(15, 17, 24, 0.927608543417367) 43%, rgb(15 17 24 / 0%) 100%);
+  --grad-1: linear-gradient(90deg, #404b710d, transparent);
+  --grad-2: linear-gradient(0deg, rgba(15, 17, 24, 0.927608543417367) 43%, rgb(15 17 24 / 0%) 100%);
 
   /* = Header */
   --height-header-sm: 56px;

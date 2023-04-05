@@ -1,11 +1,6 @@
 /* = Project scope and vars. */
 @st-import CMS, [
   --spacing-unit,
-  --color-accent-1,
-  --color-background-1,
-  --color-background-2,
-  --color-border-1,
-  --color-modal-border-1
 ] from "./project.st.css";
 
 /* = Root Component */

@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 // import classnames from "classnames";
 
 // import Dialog from "../Dialog/Dialog";
 import {
   Button,
+  ButtonGroup,
   H2,
   Menu,
   MenuTrigger,
   Modal,
   Item,
+  Dialog,
 } from "@actionishope/shelley";
+
+import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
 
 import { st, classes } from "./blockEditor.st.css";
 import MoreHor from "../icons/MoreHor";
@@ -26,18 +30,19 @@ export type message = {
   content: string;
   settings?: boolean;
   type: "warning" | "error" | "info";
+  "data-id"?: string;
 };
 
 export interface BlockEditorProps
   extends Omit<React.HTMLAttributes<HTMLBaseElement>, "onFocus"> {
-  /** Set data-testid for use by end to end tests. */
-  "data-testid": string;
+  /** Set data-id for use by end to end tests / analytics. */
+  "data-id"?: string;
   /** Provide function to invoke content manager. */
   setContentManager?: SetContentManager;
   /** Disable the clickaway listener. */
   disableClickAwayListener?: boolean;
   /** Callback fired on removing the block. */
-  removeBlock?: (index?: number) => void;
+  removeItem?: (index?: number) => void;
   /** Focus function to fire in order to focus the preview instance.  */
   onFocus?: (index?: number) => void;
   /** Callback fired when settings overlay is closed. */
@@ -60,7 +65,7 @@ export interface BlockEditorState {
 const BlockEditor = ({
   className: classNameProp,
   children,
-  removeBlock,
+  removeItem,
   settingsRender,
   onFocus,
   onSettingsClose,
@@ -69,6 +74,7 @@ const BlockEditor = ({
   setContentManager,
   disableClickAwayListener,
   shards = [],
+  "data-id": dataId,
   ...rest
 }: BlockEditorProps) => {
   const strings = {
@@ -80,7 +86,7 @@ const BlockEditor = ({
 
   const [overlayOpen, setOverlayOpen] = useState<overlayStatus>(false);
 
-  const provideMenu = settingsRender || setContentManager || removeBlock;
+  const provideMenu = settingsRender || setContentManager || removeItem;
 
   const invokeSettings = (onFocus: BlockEditorProps["onFocus"]) => {
     // emit onFocus to scroll the preview area into view.
@@ -102,14 +108,20 @@ const BlockEditor = ({
 
   // const mainMessages: message[] = messages.filter(item => !item.settings);
   const settingsMessages: message[] = messages.filter((item) => item.settings);
+
   console.log(settingsMessages);
-  console.log(classes);
-  let disabledKeys = [];
+
+  const disabledKeys = [];
   !setContentManager && disabledKeys.push("manage");
   !settingsRender && disabledKeys.push("settings");
-  !removeBlock && disabledKeys.push("remove");
+  !removeItem && disabledKeys.push("remove");
+
   return (
-    <section className={st(classes.root, classNameProp)} {...rest}>
+    <section
+      className={st(classes.root, classNameProp)}
+      data-id={dataId}
+      {...rest}
+    >
       <nav className={classes.options}>
         {provideMenu && (
           <MenuTrigger portalSelector="#portal" crossOffset={-50}>
@@ -119,6 +131,7 @@ const BlockEditor = ({
               tone={10}
               aria-label="Block menu"
               vol={1}
+              data-id={dataId ? `${dataId}--menuTrigger` : undefined}
               // icon={
               //   <Badge badgeContent={messages?.length}>
               //     <MoreHor />
@@ -129,6 +142,7 @@ const BlockEditor = ({
             <Menu
               className={classes.menu}
               disabledKeys={disabledKeys}
+              data-id={dataId ? `${dataId}--menu` : undefined}
               onAction={(actionKey) => {
                 switch (actionKey) {
                   case "manage":
@@ -139,7 +153,7 @@ const BlockEditor = ({
                     invokeSettings(onFocus);
                     break;
                   case "remove":
-                    removeBlock && removeBlock();
+                    removeItem && removeItem();
                     break;
                 }
               }}
@@ -153,17 +167,13 @@ const BlockEditor = ({
       </nav>
 
       <Modal
+        data-id={dataId ? `${dataId}--modal` : undefined}
         isOpen={overlayOpen !== false}
         onDismiss={() => !disableClickAwayListener && closeOverlay()}
-        // initialFocusRef={inputRef}
-        // transition={"up"}
         className={classes.modal}
         portalSelector={false}
         variant={false}
-        // className=
-        // variant={2}
-        // entryNode={false}
-        focusOnProps={{ shards: shards }}
+        focusOnProps={{ shards: shards, returnFocus: true }}
         // disableBackgroundClick
         // disableEscapeKey
         // disableFocusLock
@@ -175,36 +185,40 @@ const BlockEditor = ({
         }}
       >
         {settingsRender && (
-          <div
-            className={classes.dialogContentWithActions}
-            aria-hidden={!overlayOpen}
-            style={{
-              transition: "transform 190ms",
-              // We need this in the DOM for the Dialog transitions to work.
-              transform: overlayOpen ? `scale(1)` : `scale(1)`,
-            }}
-          >
-            <H2 className={classes.settingsTitle} vol={2} uppercase>
-              Block settings
+          // className={classes.dialogContentWithActions}
+          // aria-hidden={!overlayOpen}
+          // data-id={dataId ? `${dataId}--settings` : undefined}
+          <Dialog data-id={dataId ? `${dataId}--settings` : undefined}>
+            <H2 className={dialog.title} vol={4} data-title>
+              {label} settings
             </H2>
-            {settingsRender({
-              // Provide overlay state to render.
-              overlayOpen,
-            })}
-            <Button
-              onPress={() => {
-                onSettingsClose && onSettingsClose();
-                return closeOverlay();
-              }}
-            >
-              Close
-            </Button>
-          </div>
+            <hr className={dialog.divider} />
+            <div className={dialog.content}>
+              {settingsRender({
+                // Provide overlay state to render.
+                overlayOpen,
+              })}
+            </div>
+            <ButtonGroup className={dialog.buttonGroup}>
+              <Button
+                variant="secondary"
+                onPress={() => {
+                  onSettingsClose && onSettingsClose();
+                  return closeOverlay();
+                }}
+              >
+                Cancel
+              </Button>
+            </ButtonGroup>
+          </Dialog>
         )}
       </Modal>
 
       {/* Main content */}
-      <div className={classes.mainContent}>
+      <div
+        className={classes.mainContent}
+        data-id={dataId ? `${dataId}--content` : undefined}
+      >
         {label && <H2 className={classes.label}>{label}</H2>}
         {children}
       </div>

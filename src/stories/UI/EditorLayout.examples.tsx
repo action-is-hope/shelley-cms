@@ -1,12 +1,5 @@
-import {
-  H1,
-  H2,
-  P,
-  Item,
-  TextField,
-  ActionButton,
-} from "@actionishope/shelley";
-import BlockEditor from "../../components/BlockEditor/BlockEditor";
+import { H1, H2, P, Item } from "@actionishope/shelley";
+// import BlockEditor from "../../components/BlockEditor/BlockEditor";
 import Preview from "../../components/Preview/Preview";
 import PreviewMetaData from "../../components/PreviewMetaData/PreviewMetaData";
 import PreviewChrome from "../../components/PreviewChrome/PreviewChrome";
@@ -21,6 +14,7 @@ import {
   st,
   classes as previewChrome,
 } from "../../components/PreviewChrome/previewChrome.st.css";
+import { BlockEditorExample } from "./BlockEditor.examples";
 
 export const BasicExample = () => {
   const {
@@ -34,20 +28,21 @@ export const BasicExample = () => {
     previewActionsProps,
   } = usePreview();
 
-  const contentBlocks = [
-    "Title",
-    "Hero",
-    "Body",
-    "Content listing",
-    "Body",
-    "Body",
-    "Body",
-  ];
+  // const contentBlocks = [
+  //   "Title",
+  //   "Hero",
+  //   "Body",
+  //   "Content listing",
+  //   "Body",
+  //   "Body",
+  //   "Body",
+  // ];
 
   return (
     <EditorLayout {...editorLayoutProps}>
       <ContentArea className={editorLayout.contentArea} {...contentAreaProps}>
-        CONTENT BLOCKS
+        <BlockEditorExample {...blockEditorProps} />
+        {/* CONTENT BLOCKS:
         {contentBlocks.map((item) => (
           <BlockEditor
             data-testid="test"
@@ -66,7 +61,7 @@ export const BasicExample = () => {
             />
             <ActionButton isQuiet>Usage</ActionButton>
           </BlockEditor>
-        ))}
+        ))} */}
       </ContentArea>
       <Preview className={editorLayout.preview} {...previewProps}>
         {previewMode === "web" && (

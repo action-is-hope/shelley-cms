@@ -1,0 +1,16 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+    --color-border-dialog,
+    --background-color-modal-backdrop,
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import Dialog from "@actionishope/shelley/components/Dialog/dialog.st.css";
+
+@st-scope CMS {
+
+  Dialog {
+    border-radius: 0;
+    border: 1px solid var(--color-border-dialog)
+  }
+}
