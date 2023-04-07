@@ -28,7 +28,7 @@ export const ReorderBlocksExample = () => {
       // From existing: entryBlockIndex
       // (i?: number) =>
       //       i
-      //         ? setContentManagerState({
+      //         ? onManageSelectState({
       //             ...contentManagerState,
       //             contentManagerEntryBlockIndex: i
       //           })
@@ -36,7 +36,7 @@ export const ReorderBlocksExample = () => {
       //     }
       title={"Reorder Content Blocks"}
       items={blocks}
-      removeItem={(index) => console.log("Index", index)}
+      onRemoveSelect={(index) => console.log("Index", index)}
       moveItem={({ fromIndex, toIndex }) => {
         const items = Array.from(blocks);
         const [reorderedItem] = items.splice(fromIndex, 1);
@@ -103,7 +103,7 @@ export const ReorderFieldGroupsExample = () => {
   return (
     <ReorderItems
       items={blockItems}
-      removeItem={(index) => console.log("Index", index)}
+      onRemoveSelect={(index) => console.log("Index", index)}
       moveItem={({ fromIndex, toIndex, result }) => {
         console.log(result);
         const items = Array.from(blockItems);
@@ -146,14 +146,14 @@ export const TestMenu = () => (
   //     onAction={(actionKey) => {
   //       switch (actionKey) {
   //         case "manage":
-  //           setContentManager &&
-  //             invokeContentManager(setContentManager, onFocus);
+  //           onManageSelect &&
+  //             invokeContentManager(onManageSelect, onFocus);
   //           break;
   //         case "settings":
   //           invokeSettings(onFocus);
   //           break;
   //         case "remove":
-  //           removeItem && removeItem();
+  //           onRemoveSelect && onRemoveSelect();
   //           break;
   //       }
   //     }}

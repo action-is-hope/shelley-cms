@@ -14,7 +14,7 @@ import {
   st,
   classes as previewChrome,
 } from "../../components/PreviewChrome/previewChrome.st.css";
-import { BlockEditorExample } from "./BlockEditor.examples";
+import { BlockEditorExampleWithReorder } from "./BlockEditor.examples";
 
 export const BasicExample = () => {
   const {
@@ -41,7 +41,7 @@ export const BasicExample = () => {
   return (
     <EditorLayout {...editorLayoutProps}>
       <ContentArea className={editorLayout.contentArea} {...contentAreaProps}>
-        <BlockEditorExample {...blockEditorProps} />
+        <BlockEditorExampleWithReorder {...blockEditorProps} />
         {/* CONTENT BLOCKS:
         {contentBlocks.map((item) => (
           <BlockEditor

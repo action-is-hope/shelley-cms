@@ -1,7 +1,4 @@
-import React, { useRef, useState } from "react";
-// import classnames from "classnames";
-
-// import Dialog from "../Dialog/Dialog";
+import React, { useState, ReactElement } from "react";
 import {
   Button,
   ButtonGroup,
@@ -14,16 +11,14 @@ import {
 } from "@actionishope/shelley";
 
 import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
-
 import { st, classes } from "./blockEditor.st.css";
 import MoreHor from "../icons/MoreHor";
-// import Badge from "../Badge/Badge";
+import Badge from "../Badge/Badge";
 
-// TEMP
-export type SetContentManager = (
-  visibility: boolean,
-  activeTab: number
-) => void;
+export type DialogClose = (close: () => void) => ReactElement;
+
+//TEMP
+export type onManageSelect = (visibility: boolean, activeTab: number) => void;
 
 export type message = {
   id: string | number;
@@ -38,41 +33,45 @@ export interface BlockEditorProps
   /** Set data-id for use by end to end tests / analytics. */
   "data-id"?: string;
   /** Provide function to invoke content manager. */
-  setContentManager?: SetContentManager;
+  onManageSelect?: onManageSelect;
   /** Disable the clickaway listener. */
   disableClickAwayListener?: boolean;
   /** Callback fired on removing the block. */
-  removeItem?: (index?: number) => void;
+  onRemoveSelect?: (index?: number) => void;
   /** Focus function to fire in order to focus the preview instance.  */
   onFocus?: (index?: number) => void;
   /** Callback fired when settings overlay is closed. */
   onSettingsClose?: () => void;
-  /** The settings UI to render, overlay status available as arg. */
-  settingsRender?: (state: BlockEditorState) => void;
-  /** Error/Hint messages... TBC Define this */
-  messages?: message[];
-
+  /** The settings UI to render in the Modal. */
+  settingsRender?: DialogClose | ReactElement;
+  /** Warning message altering users to issues */
+  warningMessage?: string;
+  /** Set the number to show in the menu button badge. Combine with a warningMessage */
+  errorCount?: number;
+  /** Array of refs to remain accessible when the settings modal is open. */
   shards?: Array<React.RefObject<any> | HTMLElement>;
+  /** A label, typically the block name. */
   label?: string;
 }
 
 type overlayStatus = boolean;
 
 export interface BlockEditorState {
-  overlayOpen: overlayStatus;
+  isOverlayOpen: overlayStatus;
 }
 
 const BlockEditor = ({
   className: classNameProp,
   children,
-  removeItem,
+  onRemoveSelect,
   settingsRender,
   onFocus,
   onSettingsClose,
   label,
-  messages = [],
-  setContentManager,
+  onManageSelect,
   disableClickAwayListener,
+  warningMessage,
+  errorCount = 0,
   shards = [],
   "data-id": dataId,
   ...rest
@@ -84,9 +83,9 @@ const BlockEditor = ({
     removeTitle: "Delete block",
   };
 
-  const [overlayOpen, setOverlayOpen] = useState<overlayStatus>(false);
+  const [isOverlayOpen, setOverlayOpen] = useState<overlayStatus>(false);
 
-  const provideMenu = settingsRender || setContentManager || removeItem;
+  const provideMenu = settingsRender || onManageSelect || onRemoveSelect;
 
   const invokeSettings = (onFocus: BlockEditorProps["onFocus"]) => {
     // emit onFocus to scroll the preview area into view.
@@ -95,26 +94,21 @@ const BlockEditor = ({
   };
 
   const invokeContentManager = (
-    setContentManager: SetContentManager,
+    onManageSelect: onManageSelect,
     onFocus: BlockEditorProps["onFocus"]
   ) => {
     onFocus && onFocus();
-    setContentManager(true, 1);
+    onManageSelect(true, 1);
   };
 
   const closeOverlay = () => {
     setOverlayOpen(false);
   };
 
-  // const mainMessages: message[] = messages.filter(item => !item.settings);
-  const settingsMessages: message[] = messages.filter((item) => item.settings);
-
-  console.log(settingsMessages);
-
   const disabledKeys = [];
-  !setContentManager && disabledKeys.push("manage");
+  !onManageSelect && disabledKeys.push("manage");
   !settingsRender && disabledKeys.push("settings");
-  !removeItem && disabledKeys.push("remove");
+  !onRemoveSelect && disabledKeys.push("remove");
 
   return (
     <section
@@ -132,12 +126,12 @@ const BlockEditor = ({
               aria-label="Block menu"
               vol={1}
               data-id={dataId ? `${dataId}--menuTrigger` : undefined}
-              // icon={
-              //   <Badge badgeContent={messages?.length}>
-              //     <MoreHor />
-              //   </Badge>
-              // }
-              icon={<MoreHor />}
+              icon={
+                <Badge badgeContent={errorCount}>
+                  <MoreHor />
+                </Badge>
+              }
+              // icon={<MoreHor />}
             />
             <Menu
               className={classes.menu}
@@ -146,18 +140,19 @@ const BlockEditor = ({
               onAction={(actionKey) => {
                 switch (actionKey) {
                   case "manage":
-                    setContentManager &&
-                      invokeContentManager(setContentManager, onFocus);
+                    onManageSelect &&
+                      invokeContentManager(onManageSelect, onFocus);
                     break;
                   case "settings":
                     invokeSettings(onFocus);
                     break;
                   case "remove":
-                    removeItem && removeItem();
+                    onRemoveSelect && onRemoveSelect();
                     break;
                 }
               }}
             >
+              {/* Check support for text non-select items for message */}
               <Item key="manage">{strings.manageTitle}</Item>
               <Item key="settings">{strings.settingsTitle}</Item>
               <Item key="remove">{strings.removeTitle}</Item>
@@ -168,36 +163,28 @@ const BlockEditor = ({
 
       <Modal
         data-id={dataId ? `${dataId}--modal` : undefined}
-        isOpen={overlayOpen !== false}
+        isOpen={isOverlayOpen !== false}
         onDismiss={() => !disableClickAwayListener && closeOverlay()}
         className={classes.modal}
         portalSelector={false}
         variant={false}
         focusOnProps={{ shards: shards, returnFocus: true }}
-        // disableBackgroundClick
-        // disableEscapeKey
-        // disableFocusLock
-        data-testid="modal-window"
         transitionProps={{
-          timeout: 190,
-          onEntering: () => document.body.classList.add("on"),
-          onExiting: () => document.body.classList.remove("on"),
+          // Add style hook for other sections of app UI when modal is up.
+          onEntering: () => document.body.classList.add("blockEditorModalOn"),
+          onExiting: () => document.body.classList.remove("blockEditorModalOn"),
         }}
       >
         {settingsRender && (
-          // className={classes.dialogContentWithActions}
-          // aria-hidden={!overlayOpen}
-          // data-id={dataId ? `${dataId}--settings` : undefined}
           <Dialog data-id={dataId ? `${dataId}--settings` : undefined}>
             <H2 className={dialog.title} vol={4} data-title>
               {label} settings
             </H2>
             <hr className={dialog.divider} />
             <div className={dialog.content}>
-              {settingsRender({
-                // Provide overlay state to render.
-                overlayOpen,
-              })}
+              {typeof settingsRender === "function"
+                ? settingsRender(() => closeOverlay())
+                : settingsRender}
             </div>
             <ButtonGroup className={dialog.buttonGroup}>
               <Button
@@ -219,7 +206,16 @@ const BlockEditor = ({
         className={classes.mainContent}
         data-id={dataId ? `${dataId}--content` : undefined}
       >
-        {label && <H2 className={classes.label}>{label}</H2>}
+        {label && (
+          <H2 className={classes.label}>
+            {label}
+            {warningMessage && (
+              <span className={classes.warningMessage}>
+                &nbsp;- {warningMessage}
+              </span>
+            )}
+          </H2>
+        )}
         {children}
       </div>
     </section>

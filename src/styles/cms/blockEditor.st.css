@@ -10,26 +10,11 @@
 
 /* = Root Component */
 @st-import BlockEditor, [menu] from "../../components/BlockEditor/blockEditor.st.css";
-
 @st-import TextField from "@actionishope/shelley/components/TextField/textField.st.css";
-
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
 
 
-
-/* 
-:import {
-  -st-from: "@actionishope/shelley/components/InputBase/inputBase.st.css";
-  -st-default: InputBase;
-} */
-
-:import {
-  -st-from: "@actionishope/shelley/components/Label/label.st.css";
-  -st-default: Label;
-}
-
 @st-scope CMS {
-
 
   BlockEditor {
     width: 100%;
@@ -100,7 +85,6 @@
     max-width: 80%;
   }
 
-
   BlockEditor::label {
     padding-left: calc(var(--spacing-unit) * 2);
     margin-bottom: 14px;
@@ -108,7 +92,11 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 400;
+  }
+
+  BlockEditor::warningMessage {
+    color: #e5990d;
   }
 
   BlockEditor::modal {
@@ -129,41 +117,12 @@
     /* Kicks in the inclusion of margin-bottom of the last item in the container. */
     max-height: 85vh;
     align-self: flex-start;
-
-    /* border-style: solid;
-    border-width: 1px;
-    border-color: var(--color-border-dialog); */
   }
-
-  /* .dialogActions {
-  margin: 0 -24px -53px;
-  background: #f2f2f2;
-  border-top: 1px solid #cacaca;
-  width: calc(100% + 48px);
-  position: sticky;
-  bottom: 0;
-  padding: 8px 20px;
-  border-radius: 0 0 4px 4px;
-} */
-
 
   BlockEditor::settingsTitle {
     margin: 0 0 12px;
     padding: 12px 24px 12px;
     border-bottom: 1px dashed var(--color-border-dialog);
-  }
-
-
-  BlockEditor::message {
-    padding: 2px .57rem;
-    color: #ff5b5b;
-    background: #00000059;
-    margin-top: 1px;
-  }
-
-  BlockEditor::message:last-of-type {
-    margin-bottom: calc(0.25rem + 4px);
-
   }
 
 }

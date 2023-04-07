@@ -2,7 +2,10 @@ import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
 import dedent from "ts-dedent";
 import { StoryGrid } from "../StoryLayout";
 import BlockEditor from "../../components/BlockEditor/BlockEditor";
-import { BlockEditorExample } from "./BlockEditor.examples";
+import {
+  BasicBlockEditor,
+  BlockEditorExampleWithReorder,
+} from "./BlockEditor.examples";
 
 <Meta
   title="Editor/BlockEditor"
@@ -19,80 +22,134 @@ import { BlockEditorExample } from "./BlockEditor.examples";
   `}
 />
 
-BlockEditor TBC
+BlockEditor holds the input fields and the settings for the content blocks.
 
 <Story
   name="a) BlockEditor"
+  args={{
+    errorCount: undefined,
+  }}
   parameters={{
     docs: {
       source: {
         code: dedent`
-const {
-  previewMode,
-  // To spread to the other editor UI.
-  // blockEditorProps,
-  // contentProps,
-  // editorLayoutProps,
-  previewProps,
-  previewChromeProps,
-  previewActionsProps,
-} = usePreview();\n
-return (
-  <div className={classes.previewExample}>
-    <Preview
-      // className={editorLayout.preview}
-      {...previewProps}
-    >
-      {previewMode === "web" && (
-        <PreviewMetaData
-          title="Shelley Puma UI"
-          description="A joyfully easy to use CMS UI built upon a little known library called Shelley."
-          image="https://ik.imagekit.io/tcvka0ufln/pontoon_v3jIy64zcnwwx.jpeg?tr=w-1200,h-630,fo-auto"
-          slug="shelley.earth"
-          domain="shelley.earth"
-          fullScreenMode
-        />
-      )}
-      {previewMode !== "web" && (
-        <PreviewChrome {...previewChromeProps}>
-          {/* Children... */}
-          <div className={st(previewChrome.iframe)}>
-            {/* Mimic the preview styles. If the preview is not white, set height too 100% and round corners for mobile preview. */}
-            <div style={{ background: "white", color: "#333" }}>
-              <H2 vol={6}>Block1</H2>
-              <P>Block2</P>
-              <P>Block3</P>
-              <P>Block3</P>
-              <P>Block3</P>
-              <H2 vol={6}>Block1</H2>
-              <P>Block3</P>
-              <P>Block3</P>
-              <P>Block3</P>
-              <H2 vol={6}>Block1</H2>
-              <P>Block3</P>
-              <P>Block3</P>
-              <P>Block3</P>
-            </div>
-          </div>
-        </PreviewChrome>
-      )}
-    </Preview>
-    <PreviewActions
-      // className={editorLayout.previewActions}
-      {...previewActionsProps}
+<BlockEditor
+  data-id="TEST123"
+  label={"Block name"}
+  // errorCount={2}
+  // onManageSelect={() => console.log("onManageSelect")}
+  // onRemoveSelect={() => console.log("onRemoveSelect")}
+  // onSettingsClose={() => console.log("onSettingsClose")}
+  // disableClickAwayListener
+  settingsRender={(close) => (
+    <div>
+      <P>Setting form etc.</P>
+      <Button onPress={() => close()}>Close</Button>
+    </div>
+  )}
+  {...args}
+>
+  {/* @todo: provide a form comp defining alignment. */}
+  <form action="">
+    <TextField
+      variant="quiet"
+      placeholder={"Title"}
+      label={"Title"}
+      labelPosition="hidden"
+      vol={6}
     />
-  </div>
+    <TextField
+      variant="quiet"
+      placeholder={"Description"}
+      label={"Description"}
+      labelPosition="hidden"
+      vol={2}
+    />
+  </form>
+</BlockEditor>
 );`,
       },
     },
   }}
 >
-  {BlockEditorExample.bind({})}
+  {BasicBlockEditor.bind({})}
 </Story>
 
 <Source language="tsx" id="editor-blockeditor--a-block-editor" />
 
-## Content
+## Children
+
+BlockEditor takes and children and renders them inside a `mainContent` container.
+
+Block settings should be provided via the `blockSettings` prop and render in a Dialog when selecting 'Setting' from the menu. If you need to invoke the close from within the settings Dialog you must wrap the Dialog in a function in order to propagate the Blockeditors's close function to the Dialog's children.
+
+## Reorder as Child
+
+The following example shows the ReorderComponent being used with a few of the Blocks. Scroll down the list below to see them.
+
+<Story
+  name="b) Reorder as child"
+  args={{
+    errorCount: undefined,
+  }}
+  parameters={{
+    controls: {
+      include: [
+        "disableClickAwayListener",
+        "warningMessage",
+        "errorCount",
+        "label",
+      ],
+    },
+    docs: {
+      source: {
+        code: dedent`
+  <ContentArea {...contentAreaProps}>
+    {contentBlocksData.map((item) => (
+      <BlockEditor
+        data-id="TEST123"
+        label={item.label}
+        // errorCount={2}
+        // onManageSelect={() => console.log("onManageSelect")}
+        // onRemoveSelect={() => console.log("onRemoveSelect")}
+        // onSettingsClose={() => console.log("onSettingsClose")}
+        // disableClickAwayListener
+        settingsRender={() => (
+          <P>Select taxonomies to display in this listing.</P>
+        )}
+      >
+        {/* @todo: provide a form comp defining alignment. */}
+        <form action="">
+          <TextField
+            variant="quiet"
+            placeholder={item.label}
+            label={item.label}
+            labelPosition="hidden"
+            vol={6}
+          />
+          <TextField
+            variant="quiet"
+            placeholder={item.description}
+            label={item.description}
+            labelPosition="hidden"
+            vol={2}
+          />
+        </form>
+        <ReorderFieldGroupsExample />
+      </BlockEditor>
+    ))}
+  </ContentArea>
+);`,
+      },
+    },
+  }}
+>
+  {BlockEditorExampleWithReorder.bind({})}
+</Story>
+
+<ArgsTable story="b) Reorder as child" />
+
+<Source language="tsx" id="editor-blockeditor--b-reorder-as-child" />
 
 ...
 

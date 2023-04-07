@@ -167,11 +167,11 @@
   }
 
   /* @todo Is this used - check after moving everything.. */
-  :global(body.on) .previewVisibility[data-focus-on-hidden] + EditorLayout::preview::previewModes {
+  :global(body.blockEditorModalOn) .previewVisibility[data-focus-on-hidden] + EditorLayout::preview::previewModes {
     border-color: var(--color-border-dialog);
   }
 
-  :global(body.on) EditorLayout::preview {
+  :global(body.blockEditorModalOn) EditorLayout::preview {
     border-color: var(--color-border-dialog);
     /* Border left width applied now else we see the transparent border down the left of previewModes when overlay is off. */
     border-left-width: 1px;
@@ -181,11 +181,11 @@
     z-index: 10;
   }
 
-  :global(body.on) EditorLayout PreviewMetaData {
+  :global(body.blockEditorModalOn) EditorLayout PreviewMetaData {
     margin-left: -1px
   }
 
-  :global(body.on) EditorLayout::preview::previewModes {
+  :global(body.blockEditorModalOn) EditorLayout::preview::previewModes {
     /* We want to show the border (see above) when the BlockEditor overlay is on. */
     box-shadow: none;
   }

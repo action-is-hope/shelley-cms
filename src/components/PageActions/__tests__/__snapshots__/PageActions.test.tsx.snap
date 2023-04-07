@@ -2,25 +2,25 @@
 
 exports[`PageActions renders page actions block with custom className 1`] = `
 <div
-  className="pageActions__Test__root custom-classname"
+  className="PageActions__Test__root custom-classname"
 >
   <div
-    className="pageActions__Test__info"
+    className="PageActions__Test__info"
   >
     <div
-      className="Text__Test__root Text__Test---vol-1-1 spacing__Test__mb1 pageActions__Test__lastSaved"
+      className="Text__Test__root Text__Test---vol-1-1 spacing__Test__mb1 PageActions__Test__lastSaved"
     >
       Changes saved: 5 mins ago
     </div>
   </div>
   <div
-    className="pageActions__Test__actions"
+    className="PageActions__Test__actions"
   >
     <div
-      className="Text__Test__root Text__Test---vol-1-1 spacing__Test__mb1 pageActions__Test__statusText"
+      className="Text__Test__root Text__Test---vol-1-1 spacing__Test__mb1 PageActions__Test__statusText"
     >
       <span
-        className="pageActions__Test__led pageActions__Test__draft"
+        className="PageActions__Test__led PageActions__Test__draft"
       />
       <strong>
         Status:
@@ -29,10 +29,10 @@ exports[`PageActions renders page actions block with custom className 1`] = `
       Draft
     </div>
     <div
-      className="buttonGroup__Test__root buttonGroup__Test---orientation-10-horizontal buttonGroup__Test--splitButton pageActions__Test__buttonGroup"
+      className="buttonGroup__Test__root buttonGroup__Test---orientation-10-horizontal buttonGroup__Test--splitButton PageActions__Test__buttonGroup"
     >
       <button
-        className="Button__Test__root Button__Test--fullWidth Button__Test---tone-1-1 Button__Test---variant-7-primary Button__Test---vol-1-4 pageActions__Test__reviewButton"
+        className="Button__Test__root Button__Test--fullWidth Button__Test---tone-1-1 Button__Test---variant-7-primary Button__Test---vol-1-4 PageActions__Test__reviewButton"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -60,7 +60,7 @@ exports[`PageActions renders page actions block with custom className 1`] = `
         aria-controls={null}
         aria-expanded={false}
         aria-haspopup={true}
-        className="Button__Test__root Button__Test---iconPos-3-end Button__Test---tone-1-1 Button__Test---variant-7-primary Button__Test---vol-1-4 pageActions__Test__menuTrigger"
+        className="Button__Test__root Button__Test---iconPos-3-end Button__Test---tone-1-1 Button__Test---variant-7-primary Button__Test---vol-1-4 PageActions__Test__menuTrigger"
         id="react-aria-1"
         onBlur={[Function]}
         onClick={[Function]}

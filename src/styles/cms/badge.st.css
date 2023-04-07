@@ -1,0 +1,15 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --color-ui,
+  --color-ui-inverse
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import Badge from "../../components/Badge/badge.st.css";
+
+@st-scope CMS {
+  Badge::badge {
+    background-color: var(--color-ui);
+    color: var(--color-ui-inverse);
+  }
+}

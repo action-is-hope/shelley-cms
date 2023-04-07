@@ -46,7 +46,7 @@ export const ReorderBlocksExample = () => {
       hightlightItemIndex={(i) => 3}
       title={"Reorder Content Blocks"}
       items={blocks}
-      removeItem={(index) => console.log("Index", index)}
+      onRemoveSelect={(index) => console.log("Index", index)}
       moveItem={({ fromIndex, toIndex }) => {
         const items = Array.from(blocks);
         const [reorderedItem] = items.splice(fromIndex, 1);
@@ -127,7 +127,7 @@ The Reorder component can be also be used to reorder things _inside_ a content b
   return (
     <ReorderItems
       items={blockItems}
-      removeItem={(index) => console.log("Index", index)}
+      onRemoveSelect={(index) => console.log("Index", index)}
       moveItem={({ fromIndex, toIndex, result }) => {
         console.log(result);
         const items = Array.from(blockItems);

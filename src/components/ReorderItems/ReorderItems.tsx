@@ -36,7 +36,7 @@ export interface ReorderItemsProps extends Partial<Responders> {
   /** Items to render */
   items: ReorderItem[];
   /** Remove item callback */
-  removeItem: (index?: number) => void;
+  onRemoveSelect: (index?: number) => void;
   /** Highlights entry item - check existing functionality... */
   hightlightItemIndex?: (index?: number) => number | void;
   /** Move callback, responds with fromIndex, toIndex and result */
@@ -48,7 +48,7 @@ const ReorderItems = ({
   items,
   className: classNameProp,
   title,
-  removeItem,
+  onRemoveSelect,
   moveItem,
   hightlightItemIndex,
   onDragEnd: onDragEndProp,
@@ -118,7 +118,7 @@ const ReorderItems = ({
                             tone={10}
                             className={classes.deleteButton}
                             aria-label="Remove list item"
-                            onPress={() => removeItem(index)}
+                            onPress={() => onRemoveSelect(index)}
                             icon={<CloseSmall />}
                           />
                           {item?.label && (

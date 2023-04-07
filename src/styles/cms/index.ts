@@ -1,4 +1,5 @@
 // = Foundation Components
+import "./badge.st.css";
 import "./button.st.css";
 import "./dialog.st.css";
 import "./grid.st.css";
