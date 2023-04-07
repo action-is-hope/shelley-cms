@@ -1,0 +1,98 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import ContentArea from "../../components/ContentArea/ContentArea";
+import { BasicExample } from "./EditorLayout.examples";
+
+<Meta
+  title="Editor/ContentArea"
+  argTypes={{
+    reviewRequired: {
+      control: { type: "boolean" },
+    },
+  }}
+  component={ContentArea}
+  decorators={[(Story) => <Story />]}
+/>
+
+# Content Area
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { ContentArea } from "@actionishope/shelley-cms";
+  `}
+/>
+
+ContentArea is a simple container with a Focus-on container to lock the ContentArea in a focus-lock whilst FocusMode editing is on.
+
+Designed to work within the EditorLayout it's height is probably the most noteworthy; it defines the height of the editor layout and will need to be adjusted from it's default height (80vh) which is for testing. For Editor layout it is set to `calc(100vh - var($headerHeight))` or something to that effect. On mobile things are a little tricky as `100vh` can mean different things on device as the addressbars pop in and out. The only real sure-fire way is to measure the `innerHeight` with JS and set a CSS variable equal to 1% of that instead.
+
+```tsx
+React.useEffect(() => {
+  // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+  const vh = window.innerHeight * 0.01;
+  // Then we set the value in the --vh custom property to the root of the document
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+  // We listen to the resize event
+  window.addEventListener("resize", () => {
+    // We execute the same script as before
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  });
+}, []);
+```
+
+Then in your CSS you can use `height: calc(var(--vh, 1vh) * 100 - 65px)`. Boom.
+
+Back to ContentArea, there really isn't much to look at as I shall now demonstrate:
+
+<Story
+  name="a) ContentArea"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+{/* Toggle enabled on and off with the setting of 'FocusMode' editing. Pass a shard containing the control itself so users can exit back into normal editing mode. */}
+<ContentArea focusOnProps={{ enabled: false }}>
+  <p>MetaDataEditor</p>
+  <p>BlockEditors</p>
+  </ContentArea>
+);`,
+      },
+    },
+  }}
+>
+  <ContentArea focusOnProps={{ enabled: false }}>
+    <p>MetaDataEditor</p>
+    <p>BlockEditors</p>
+  </ContentArea>
+</Story>
+
+Check EditorLayout page for proper example in context.
+
+<Source language="tsx" id="editor-contentarea--a-content-area" />
+
+## Content
+
+Takes any children but designed to work with BlockEditor, MetaDataEditor and any other compoent geared around content editing in a page context.
+
+## TextField Props
+
+<ArgsTable of={ContentArea} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

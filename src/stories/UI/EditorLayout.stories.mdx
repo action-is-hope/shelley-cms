@@ -30,7 +30,7 @@ import { BasicExample } from "./EditorLayout.examples";
   `}
 />
 
-EditorLayout is in fact a very simple component that defines the main grid for the editor screens and some variants on that grid for fullScreenMode and focusMode editing.
+EditorLayout is in fact a very simple component that defines the main grid for the editor screens and some variants on that grid for `fullScreenMode` and `focusMode` editing.
 
 <Story
   name="a) EditorLayout"
@@ -107,9 +107,9 @@ return (
 
 Preview is designed to take either single child; specifically PreviewMetaData or PreviewChrome depending on the `previewMode`. We can get access to the `previewMode` also via the `usePreview` hook.
 
-PreviewMetaData
+PreviewMetaData handles the 'web' preview which includes things like Google result or a Twitter share etc.
 
-Currently PreviewModes is marked up as a RadioGroup, in future there might be better components that we could use. An `ActionGroup` (planned) might be slightly more appropriate semantically but this is fine too.
+PreviewChrome handles the actual device preview with the device chrome.
 
 ## TextField Props
 
