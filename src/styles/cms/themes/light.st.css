@@ -106,7 +106,7 @@
   --color-background-1: #e8e8e8;
   --color-background-2: #e2e2e2;
   --color-background-3: #f3f3f3;
-  --color-background-4: rgb(255, 255, 255, 0.8);
+  --color-background-4: rgb(255, 255, 255, 0.25);
   --color-background-modal: rgba(249, 249, 249, 0.98);
 
   /* = Border colors */

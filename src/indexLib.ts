@@ -6,6 +6,15 @@
 // export * from "./typings/shared-types";
 
 /** Default components in alphabetical order */
+export { default as BlockEditor } from "./components/BlockEditor/BlockEditor";
+export * from "./components/BlockEditor/BlockEditor";
+export { default as ContentArea } from "./components/ContentArea/ContentArea";
+export * from "./components/ContentArea/ContentArea";
+export { default as EditorLayout } from "./components/EditorLayout/EditorLayout";
+export * from "./components/EditorLayout/EditorLayout";
+
+export * from "./components/MetaDataEditor/MetaDataEditor";
+
 export * from "./components/PageActions/PageActions";
 export { default as Preview } from "./components/Preview/Preview";
 export * from "./components/Preview/Preview";
