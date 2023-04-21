@@ -1,6 +1,11 @@
 import React, { forwardRef } from "react";
 import { st, classes } from "./header.st.css";
-import { Toolbar, Icon, Button, Switch } from "@actionishope/shelley";
+import {
+  Toolbar,
+  // Icon,
+  Button,
+  // Switch
+} from "@actionishope/shelley";
 import Menu from "../icons/Menu";
 
 export interface LayoutProps extends React.HTMLAttributes<HTMLDivElement> {
