@@ -40,7 +40,7 @@
 
   ReorderItems::item {
     /* border: 1px dashed rgb(158 158 158 / 12%); */
-    border: 1px dashed var(--color-border-2);
+    /* border: 1px dashed var(--color-border-2); */
     padding: var(--spacing-unit);
     /* borderColor: isDragging ? "rgb(0, 157, 106)" : "#cacaca", */
 

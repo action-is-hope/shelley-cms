@@ -43,3 +43,7 @@
 .dialogContentWithActions {}
 
 .settingsTitle {}
+
+.root form {
+  padding-right: 70px;
+}

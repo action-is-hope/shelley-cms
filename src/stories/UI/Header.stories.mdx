@@ -1,0 +1,73 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import Header from "../../components/Header/Header";
+import { BasicHeader } from "./Header.examples";
+
+<Meta
+  title="PageLayout/Header"
+  argTypes={{
+    reviewRequired: {
+      control: { type: "boolean" },
+    },
+  }}
+  component={Header}
+  decorators={[(Story) => <Story />]}
+/>
+
+# Header
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { Header } from "@actionishope/shelley-cms";
+  `}
+/>
+
+TBC
+
+<Story
+  name="a) Header"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+{/* Toggle enabled on and off with the setting of 'FocusMode' editing. Pass a shard containing the control itself so users can exit back into normal editing mode. */}
+<Header focusOnProps={{ enabled: false }}>
+  <p>MetaDataEditor</p>
+  <p>BlockEditors</p>
+  </Header>
+);`,
+      },
+    },
+  }}
+>
+  <BasicHeader />
+</Story>
+
+Check EditorLayout page for proper example in context.
+
+<Source language="tsx" id="editor-header--a-header" />
+
+## Content
+
+Takes any children but designed to work with BlockEditor, MetaDataEditor and any other compoent geared around content editing in a page context.
+
+## TextField Props
+
+<ArgsTable of={Header} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

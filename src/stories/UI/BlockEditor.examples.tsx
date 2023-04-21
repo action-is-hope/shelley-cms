@@ -55,6 +55,8 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
       {/* @todo: provide a form comp defining alignment. */}
       <form action="">
         <TextField
+          type="textarea"
+          rows={1}
           variant="quiet"
           placeholder={"Title"}
           label={"Title"}
@@ -62,6 +64,8 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
           vol={6}
         />
         <TextField
+          type="textarea"
+          rows={1}
           variant="quiet"
           placeholder={"Description"}
           label={"Description"}
@@ -93,6 +97,8 @@ export const BlockEditorExampleWithReorder = (
           {/* @todo: provide a form comp defining alignment. */}
           <form action="">
             <TextField
+              type="textarea"
+              rows={1}
               variant="quiet"
               placeholder={item.label}
               label={item.label}
@@ -100,6 +106,8 @@ export const BlockEditorExampleWithReorder = (
               vol={6}
             />
             <TextField
+              type="textarea"
+              rows={1}
               variant="quiet"
               placeholder={item.description}
               label={item.description}

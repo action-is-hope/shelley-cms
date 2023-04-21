@@ -14,7 +14,7 @@ import "./text.st.css";
 
 // = Application Components
 import "./blockEditor.st.css";
-// import "./header.st.css";
+import "./header.st.css";
 // import "./footer.st.css";
 // import "./contentActions.st.css";
 // import "./card.st.css";

@@ -33,13 +33,16 @@
   MetaDataEditor {
     background: var(--color-background-2);
     margin-top: 0;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     position: sticky;
     top: 0;
     z-index: 20;
     /* = Enables smooth transition for externally induced focusOn dialog behavior. */
     transition: filter 80ms ease-in-out, opacity 80ms ease-in-out;
     padding-left: calc(var(--spacing-unit) * 2);
+    /* box-shadow: 0px 5px 16px 4px #f1f1; */
+    /* box-shadow: 0px 2px 9px 2px #f3f3f3; */
+    box-shadow: 0px 0px 8px 2px #f3f3f3;
   }
 
   MetaDataEditor::inner {
@@ -123,7 +126,7 @@
   }
 
   /* Generic Fields */
-  MetaDataEditor Field::fieldset {
+  MetaDataEditor Field::fieldContainer {
     /* background for all textbased fields. */
     background-color: var(--color-background-4);
   }

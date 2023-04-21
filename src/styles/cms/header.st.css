@@ -1,0 +1,131 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+    --color-ui,
+    --color-ui-inverse,
+    --color-accent-1,
+    --color-accent-2,
+    --color-accent-3,
+    --color-accent-4,
+    --color-background-2,
+    --color-header-background,
+    --color-header-border,
+
+      breakpoint-md,
+    breakpoint-md-max
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import Header from "../../components/Header/header.st.css";
+@st-import Text from "@actionishope/shelley/components/Text/text.st.css";
+@st-import Icon from "@actionishope/shelley/components/Icon/icon.st.css";
+
+
+@st-scope CMS {
+  Header {
+    /* background: var(--color-background-2); */
+    /* background: #75eaff36; */
+    /* background-color: #75eaff52;
+    background-color: #34616d; */
+    background-color: var(--color-header-background);
+
+    /* #242b2d, rgb(101 86 93), g16a78e */
+    color: var(--color-ui-inverse);
+    /* border-style: solid; */
+    /* border-color: #777b7b; */
+    border-color: var(--color-header-border);
+    border-width: 0 0 1px;
+    /* border-width: 0; */
+    height: 56px;
+    position: relative;
+    z-index: 1;
+    justify-content: space-between;
+  }
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+
+    Header {
+      height: 65px;
+    }
+  }
+}
+
+@st-scope CMS {
+  Header > nav {
+    flex-grow: 1;
+    /* display: flex;
+    justify-content: flex-end; */
+    margin-left: 14px
+  }
+
+  Header > nav > a {
+    display: inline-block;
+    min-height: 65px;
+    padding: 24px 24px;
+    /* border-left: 1px solid #8c9c9f4d; */
+    border-left: 1px solid #73e6fa26;
+    /* 1px solid #8c9c9f4d */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: 400;
+    color: inherit;
+  }
+
+  Header::controls {
+    /* display: inline-flex;
+    justify-content: flex-end; */
+
+  }
+
+  Header::flag {
+    width: 20px;
+    top: 1px;
+    opacity: .6;
+    border: 1px solid #ffffffd1;
+    position: relative;
+    left: 6px;
+    filter: grayscale(80%);
+    transition: opacity 0.3s ease, color 0.3s ease;
+  }
+
+  Header::title {
+
+    text-decoration: none;
+    display: inline-flex;
+    margin-left: 27px;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 10px;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  Header::siteSelectButton {
+    letter-spacing: 6px;
+    font-size: 15px;
+    /* font-family: futura-pt, Helvetica Neue, Helvetica, Arial, sans-serif; */
+    font-weight: 400;
+    opacity: 1;
+  }
+
+  Header::siteSelectButton Icon {
+    font-size: calc(1em + 8px);
+    /* opacity: .6; */
+    transition: opacity 0.3s ease, color 0.3s ease;
+  }
+
+  Header::siteSelectButton:hover Icon {
+    opacity: 1;
+  }
+
+
+
+  Header::siteSelectButton:hover .flag {
+    opacity: 1;
+  }
+
+
+
+}

@@ -3,6 +3,8 @@
   --spacing-unit,
   --color-text-2,
   --color-background-1,
+  --color-background-2,
+  --color-background-3,
   --grad-1,
   --color-border-1,
   --color-border-dialog
@@ -49,7 +51,7 @@
     position: relative;
     grid-area: stack;
     padding: 0.8rem 0 1.3rem;
-    border-bottom: 1px dashed var(--color-border-1);
+    border-bottom: 12px solid var(--color-background-3);
     background-color: var(--color-background-1);
   }
 
@@ -68,12 +70,14 @@
   }
 
   BlockEditor::mainContent ReorderItems {
-    background: var(--grad-1);
+    /* background: var(--grad-1); */
+    background-color: var(--color-background-2);
   }
 
   BlockEditor::mainContent ReorderItems::dragContainer {
     padding-bottom: calc(var(--spacing-unit) * 1.5);
     margin-top: calc(var(--spacing-unit));
+    padding-left: 56px
   }
 
   BlockEditor::mainContent ReorderItems::dragContainer:isDragging {
@@ -81,13 +85,14 @@
   }
 
   BlockEditor::mainContent ReorderItems::item {
+    background-color: var(--color-background-3);
     /* Limit width of items to shorten reading width. */
     max-width: 80%;
   }
 
   BlockEditor::label {
     padding-left: calc(var(--spacing-unit) * 2);
-    margin-bottom: 14px;
+    margin-bottom: 4px;
     color: var(--color-text-2);
     text-transform: uppercase;
     letter-spacing: 2px;
