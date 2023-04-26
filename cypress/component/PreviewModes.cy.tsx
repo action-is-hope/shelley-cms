@@ -1,5 +1,6 @@
 import React from "react";
-import PreviewModes, {
+import {
+  PreviewModes,
   PreviewModesProps,
 } from "../../src/components/PreviewModes/PreviewModes";
 

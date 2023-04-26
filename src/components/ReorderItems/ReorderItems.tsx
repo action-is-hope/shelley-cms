@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { useId } from "react-aria";
 import {
   DragDropContext,
@@ -41,20 +41,28 @@ export interface ReorderItemsProps extends Partial<Responders> {
   hightlightItemIndex?: (index?: number) => number | void;
   /** Move callback, responds with fromIndex, toIndex and result */
   moveItem?: ({ fromIndex, toIndex, result }: moveItemParams) => void;
+  /** Remove item string */
+  removeItemString?: string;
 }
 
-const ReorderItems = ({
-  id: idProp,
-  items,
-  className: classNameProp,
-  title,
-  onRemoveSelect,
-  moveItem,
-  hightlightItemIndex,
-  onDragEnd: onDragEndProp,
-  "data-id": dataId,
-  ...rest
-}: ReorderItemsProps) => {
+function ReorderItems(
+  props: ReorderItemsProps,
+  ref?: React.Ref<HTMLDivElement>
+) {
+  const {
+    id: idProp,
+    items,
+    className: classNameProp,
+    title,
+    onRemoveSelect,
+    removeItemString = "Remove list item",
+    moveItem,
+    hightlightItemIndex,
+    onDragEnd: onDragEndProp,
+    "data-id": dataId,
+    ...rest
+  } = props;
+
   const onDragEnd = (result: DropResult, provided: ResponderProvided) => {
     if (!result.destination) {
       return;
@@ -77,6 +85,7 @@ const ReorderItems = ({
     <section
       id={id}
       className={st(classes.root, classNameProp)}
+      ref={ref}
       data-id={dataId}
     >
       <React.Fragment>
@@ -117,7 +126,7 @@ const ReorderItems = ({
                             variant="fab"
                             tone={10}
                             className={classes.deleteButton}
-                            aria-label="Remove list item"
+                            aria-label={removeItemString}
                             onPress={() => onRemoveSelect(index)}
                             icon={<CloseSmall />}
                           />
@@ -149,6 +158,12 @@ const ReorderItems = ({
       </React.Fragment>
     </section>
   );
-};
+}
+
+/**
+ * ReorderItems can be used to reorder lists of things like content blocks.
+ */
+const _ReorderItems = forwardRef(ReorderItems);
+export { _ReorderItems as ReorderItems };
 
 export default ReorderItems;

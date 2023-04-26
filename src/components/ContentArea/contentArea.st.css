@@ -2,6 +2,7 @@
 @namespace "ContentArea";
 
 @property st-global(--vh);
+@st-import BlockEditor from "../BlockEditor/blockEditor.st.css";
 
 .root {}
 
@@ -15,4 +16,8 @@
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
+}
+
+.scroll BlockEditor:last-of-type {
+  padding-bottom: 120px
 }

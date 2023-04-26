@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from "react";
+import React, { useState, ReactElement, forwardRef } from "react";
 import {
   Button,
   ButtonGroup,
@@ -60,22 +60,24 @@ export interface BlockEditorState {
   isOverlayOpen: overlayStatus;
 }
 
-const BlockEditor = ({
-  className: classNameProp,
-  children,
-  onRemoveSelect,
-  settingsRender,
-  onFocus,
-  onSettingsClose,
-  label,
-  onManageSelect,
-  disableClickAwayListener,
-  warningMessage,
-  errorCount = 0,
-  shards = [],
-  "data-id": dataId,
-  ...rest
-}: BlockEditorProps) => {
+function BlockEditor(props: BlockEditorProps, ref?: React.Ref<HTMLDivElement>) {
+  const {
+    className: classNameProp,
+    children,
+    onRemoveSelect,
+    settingsRender,
+    onFocus,
+    onSettingsClose,
+    label,
+    onManageSelect,
+    disableClickAwayListener,
+    warningMessage,
+    errorCount = 0,
+    shards = [],
+    "data-id": dataId,
+    ...rest
+  } = props;
+
   const strings = {
     settingsTitle: "Block settings",
     manageItems: "Manage items",
@@ -114,6 +116,7 @@ const BlockEditor = ({
     <section
       className={st(classes.root, classNameProp)}
       data-id={dataId}
+      ref={ref}
       {...rest}
     >
       <nav className={classes.options}>
@@ -220,6 +223,10 @@ const BlockEditor = ({
       </div>
     </section>
   );
-};
+}
 
-export default BlockEditor;
+/**
+ * BlockEditor holds the input fields and the settings for the content blocks.
+ */
+const _BlockEditor = forwardRef(BlockEditor);
+export { _BlockEditor as BlockEditor };

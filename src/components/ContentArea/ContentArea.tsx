@@ -11,17 +11,16 @@ export interface ContentAreaProps extends React.HTMLAttributes<HTMLDivElement> {
     Exclude<keyof ReactFocusOnProps, "children">
   >;
 }
+function ContentArea(props: ContentAreaProps, ref?: React.Ref<HTMLDivElement>) {
+  const {
+    className: classNameProp,
+    children,
+    focusOnProps,
+    // "data-id": dataId,
+    ...rest
+  } = props;
 
-const ContentArea = forwardRef(
-  (
-    {
-      className: classNameProp,
-      children,
-      focusOnProps,
-      ...rest
-    }: ContentAreaProps,
-    ref?: React.Ref<HTMLDivElement>
-  ) => (
+  return (
     <FocusOn
       className={st(classes.root, classNameProp)}
       ref={ref}
@@ -30,9 +29,11 @@ const ContentArea = forwardRef(
     >
       <div className={classes.scroll}>{children}</div>
     </FocusOn>
-  )
-);
+  );
+}
 
-ContentArea.displayName = "ContentArea";
-
-export default ContentArea;
+/**
+ * BlockEditor holds the input fields and the settings for the content blocks.
+ */
+const _ContentArea = forwardRef(ContentArea);
+export { _ContentArea as ContentArea };

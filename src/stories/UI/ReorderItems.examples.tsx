@@ -6,7 +6,7 @@ import {
   Button,
   Item,
 } from "@actionishope/shelley";
-import ReorderItems from "../../components/ReorderItems/ReorderItems";
+import { ReorderItems } from "../../components/ReorderItems/ReorderItems";
 import { useState } from "react";
 
 export const ReorderBlocksExample = () => {

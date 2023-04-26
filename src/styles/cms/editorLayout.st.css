@@ -22,6 +22,14 @@
 
 @st-scope CMS {
 
+  :global(body) {
+    overflow: hidden;
+  }
+
+  EditorLayout::preview {
+    /* position: relative !important; */
+  }
+
   EditorLayout {
     display: grid;
     grid-template-columns: 100vw 100vw;

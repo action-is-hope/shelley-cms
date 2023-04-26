@@ -8,37 +8,40 @@ export interface PreviewChromeProps
   previewMode?: PreviewMode;
   fullScreenMode?: boolean;
 }
+function PreviewChrome(
+  props: PreviewChromeProps,
+  ref?: React.Ref<HTMLDivElement>
+) {
+  const {
+    className: classNameProp,
+    children,
+    fullScreenMode = false,
+    previewMode = "web",
+    "data-id": dataId,
+    ...rest
+  } = props;
 
-const PreviewChrome = forwardRef(
-  (
-    {
-      className: classNameProp,
-      children,
-      fullScreenMode = false,
-      previewMode = "web",
-      ...rest
-    }: PreviewChromeProps,
-    ref?: React.Ref<HTMLDivElement>
-  ) => {
-    return (
-      <div
-        className={st(
-          classes.root,
-          {
-            previewMode,
-            fullScreenMode,
-          },
-          classNameProp
-        )}
-        ref={ref}
-        {...rest}
-      >
-        <div className={classes.chrome}>{children}</div>
-      </div>
-    );
-  }
-);
+  return (
+    <div
+      className={st(
+        classes.root,
+        {
+          previewMode,
+          fullScreenMode,
+        },
+        classNameProp
+      )}
+      ref={ref}
+      data-id={dataId}
+      {...rest}
+    >
+      <div className={classes.chrome}>{children}</div>
+    </div>
+  );
+}
 
-PreviewChrome.displayName = "PreviewChrome";
-
-export default PreviewChrome;
+/**
+ * PreviewChrome holds the input fields and the settings for the content blocks.
+ */
+const _PreviewChrome = forwardRef(PreviewChrome);
+export { _PreviewChrome as PreviewChrome };

@@ -1,7 +1,7 @@
 import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
 import dedent from "ts-dedent";
 import { StoryGrid } from "../StoryLayout";
-import PreviewModes from "../../components/PreviewModes/PreviewModes";
+import { Preview } from "../../components/Preview/Preview";
 import { BasicExample } from "./Preview.examples";
 
 <Meta
@@ -11,7 +11,7 @@ import { BasicExample } from "./Preview.examples";
       control: { type: "boolean" },
     },
   }}
-  component={PreviewModes}
+  component={Preview}
   decorators={[(Story) => <Story />]}
 />
 
@@ -117,9 +117,9 @@ PreviewMetaData
 
 Currently PreviewModes is marked up as a RadioGroup, in future there might be better components that we could use. An `ActionGroup` (planned) might be slightly more appropriate semantically but this is fine too.
 
-## TextField Props
+## Preview Props
 
-<ArgsTable of={PreviewModes} />
+<ArgsTable of={Preview} />
 
 ## Stying
 

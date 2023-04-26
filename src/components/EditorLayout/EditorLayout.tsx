@@ -1,16 +1,22 @@
-import type React from "react";
+import React, { forwardRef } from "react";
 import { st, classes } from "./editorLayout.st.css";
 
 export interface EditorLayoutProps
   extends React.HTMLAttributes<HTMLDivElement> {
   gridMode: "fullScreenMode" | "focusMode" | false;
 }
-const EditorLayout = ({
-  className: classNameProp,
-  children,
-  gridMode = false,
-  ...rest
-}: EditorLayoutProps) => {
+
+function EditorLayout(
+  props: EditorLayoutProps,
+  ref?: React.Ref<HTMLDivElement>
+) {
+  const {
+    className: classNameProp,
+    children,
+    gridMode = false,
+    // "data-id": dataId,
+    ...rest
+  } = props;
   return (
     <div
       className={st(
@@ -18,11 +24,17 @@ const EditorLayout = ({
         { gridMode: gridMode || undefined },
         classNameProp
       )}
+      ref={ref}
       {...rest}
     >
       {children}
     </div>
   );
-};
+}
 
-export default EditorLayout;
+/**
+ * EditorLayout defines the main grid for the editor screens and
+ * some variants on that grid for fullScreenMode and focusMode editing.
+ */
+const _EditorLayout = forwardRef(EditorLayout);
+export { _EditorLayout as EditorLayout };

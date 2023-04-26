@@ -14,7 +14,10 @@
     color: #333;
   }
 
-  PreviewChrome {}
+  PreviewChrome {
+    height: 60vh;
+    overflow: hidden
+  }
 
   /* Social/Web preview - Provided by PreviewMeta. */
   PreviewChrome:previewMode(web) {}
@@ -111,6 +114,12 @@ screen and (min-height: 1000px) {
     PreviewChrome:previewMode(mobile) .chrome {
       transform-origin: center 10%;
     }
+
+    PreviewChrome:previewMode(laptop) .chrome {
+      transform: scale(0.21);
+      /* opacity: .95; */
+    }
+
   }
 }
 

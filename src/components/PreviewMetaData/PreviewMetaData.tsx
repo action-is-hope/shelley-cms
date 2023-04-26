@@ -140,21 +140,24 @@ export const Facebook = ({
   </article>
 );
 
-const PreviewMetaData = forwardRef(
-  (
-    {
-      className: classNameProp,
-      children,
-      title,
-      description,
-      fullScreenMode = false,
-      image,
-      slug,
-      domain,
-      ...rest
-    }: PreviewMetaDataProps,
-    ref?: React.Ref<HTMLDivElement>
-  ) => (
+function PreviewMetaData(
+  props: PreviewMetaDataProps,
+  ref?: React.Ref<HTMLDivElement>
+) {
+  const {
+    className: classNameProp,
+    children,
+    title,
+    description,
+    fullScreenMode = false,
+    image,
+    slug,
+    domain,
+    // "data-id": dataId,
+    ...rest
+  } = props;
+
+  return (
     <div
       className={st(
         classes.root,
@@ -173,9 +176,11 @@ const PreviewMetaData = forwardRef(
         {children}
       </div>
     </div>
-  )
-);
+  );
+}
 
-PreviewMetaData.displayName = "PreviewMetaData";
-
-export default PreviewMetaData;
+/**
+ * PreviewMetaData handles the Google listing and social sharing previews.
+ */
+const _PreviewMetaData = forwardRef(PreviewMetaData);
+export { _PreviewMetaData as PreviewMetaData };

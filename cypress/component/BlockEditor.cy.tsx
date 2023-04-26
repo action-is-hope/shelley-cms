@@ -1,9 +1,10 @@
 import React from "react";
 import { Item, P, TextField } from "@actionishope/shelley";
-import BlockEditor, {
+import {
+  BlockEditor,
   BlockEditorProps,
 } from "../../src/components/BlockEditor/BlockEditor";
-import ContentArea from "../../src/components/ContentArea/ContentArea";
+import { ContentArea } from "../../src/components/ContentArea/ContentArea";
 
 const menuTrigger = '[data-id="blockEditor--menuTrigger"]';
 const menu = '[data-id="blockEditor--menu"]';

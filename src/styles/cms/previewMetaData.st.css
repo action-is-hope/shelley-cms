@@ -1,5 +1,9 @@
 /* = Project scope and vars. */
 @st-import CMS, [
+  breakpoint-lg,
+  breakpoint-sm-max,
+  breakpoint-md,
+  breakpoint-md-max,
   --spacing-unit,
   --google-background,
   --google-title,
@@ -33,7 +37,20 @@
     top: 100px;
     bottom: 50px
   }
+}
 
+@media value(breakpoint-md-max) {
+  @st-scope CMS {
+    PreviewMetaData {
+      right: -100vw;
+      width: 100vw;
+      max-width: 550px;
+      bottom: 150px
+    }
+  }
+}
+
+@st-scope CMS {
   PreviewMetaData::chrome {
     display: grid;
     grid-gap: 24px;

@@ -1,4 +1,4 @@
-import Header from "../../components/Header/Header";
+import { Header } from "../../components/Header/Header";
 
 export const BasicHeader = () => {
   return (
@@ -12,7 +12,7 @@ export const BasicHeader = () => {
         >
           Content
         </a>
-        <a
+        {/* <a
           href="/finder"
           style={{
             textDecoration: "none",
@@ -27,7 +27,7 @@ export const BasicHeader = () => {
           }}
         >
           Settings
-        </a>
+        </a> */}
       </nav>
     </Header>
   );

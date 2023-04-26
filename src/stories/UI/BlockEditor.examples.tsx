@@ -1,8 +1,9 @@
 import { P, TextField, Button } from "@actionishope/shelley";
-import BlockEditor, {
+import {
+  BlockEditor,
   BlockEditorProps,
 } from "../../components/BlockEditor/BlockEditor";
-import ContentArea from "../../components/ContentArea/ContentArea";
+import { ContentArea } from "../../components/ContentArea/ContentArea";
 
 // import ReorderItems from "../../components/ReorderItems/ReorderItems";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";

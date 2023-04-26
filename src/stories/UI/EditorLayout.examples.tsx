@@ -1,19 +1,22 @@
 import { H1, H2, P, Item } from "@actionishope/shelley";
-import Preview from "../../components/Preview/Preview";
-import PreviewMetaData from "../../components/PreviewMetaData/PreviewMetaData";
-import PreviewChrome from "../../components/PreviewChrome/PreviewChrome";
-import PreviewActions from "../../components/PreviewActions/PreviewActions";
+import { Preview } from "../../components/Preview/Preview";
+import { PreviewMetaData } from "../../components/PreviewMetaData/PreviewMetaData";
+import { PreviewChrome } from "../../components/PreviewChrome/PreviewChrome";
+import { PreviewActions } from "../../components/PreviewActions/PreviewActions";
 import usePreview from "../../components/Preview/usePreview";
 import { PageActions } from "../../components/PageActions/PageActions";
-import EditorLayout from "../../components/EditorLayout/EditorLayout";
-import ContentArea from "../../components/ContentArea/ContentArea";
+import { EditorLayout } from "../../components/EditorLayout/EditorLayout";
+import { ContentArea } from "../../components/ContentArea/ContentArea";
 
 import { classes as editorLayout } from "../../components/EditorLayout/editorLayout.st.css";
 import {
   st,
   classes as previewChrome,
 } from "../../components/PreviewChrome/previewChrome.st.css";
-import { BlockEditorExampleWithReorder } from "./BlockEditor.examples";
+import {
+  BlockEditorExampleWithReorder,
+  BasicBlockEditor,
+} from "./BlockEditor.examples";
 import { MetaDataEditorWithChildrenExample } from "./MetaDataEditor.examples";
 import { BasicHeader } from "./Header.examples";
 
@@ -37,7 +40,12 @@ export const BasicExample = () => {
           {/* MetaDataEditor */}
           <MetaDataEditorWithChildrenExample />
           {/* BlockEditors */}
-          <BlockEditorExampleWithReorder {...blockEditorProps} />
+          <BasicBlockEditor {...blockEditorProps} />
+          <BasicBlockEditor {...blockEditorProps} />
+          <BasicBlockEditor {...blockEditorProps} />
+          <BasicBlockEditor {...blockEditorProps} />
+          <BasicBlockEditor {...blockEditorProps} />
+          {/* <BlockEditorExampleWithReorder {...blockEditorProps} /> */}
         </ContentArea>
         <Preview className={editorLayout.preview} {...previewProps}>
           {previewMode === "web" && (
