@@ -8,6 +8,7 @@ import {
   Modal,
   Item,
   Dialog,
+  ComponentBase,
 } from "@actionishope/shelley";
 
 import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
@@ -20,18 +21,17 @@ export type DialogClose = (close: () => void) => ReactElement;
 //TEMP
 export type onManageSelect = (visibility: boolean, activeTab: number) => void;
 
-export type message = {
-  id: string | number;
-  content: string;
-  settings?: boolean;
-  type: "warning" | "error" | "info";
-  "data-id"?: string;
-};
+// export type message = {
+//   id: string | number;
+//   content: string;
+//   settings?: boolean;
+//   type: "warning" | "error" | "info";
+//   "data-id"?: string;
+// };
 
 export interface BlockEditorProps
-  extends Omit<React.HTMLAttributes<HTMLBaseElement>, "onFocus"> {
-  /** Set data-id for use by end to end tests / analytics. */
-  "data-id"?: string;
+  extends Omit<React.HTMLAttributes<HTMLBaseElement>, "onFocus">,
+    ComponentBase {
   /** Provide function to invoke content manager. */
   onManageSelect?: onManageSelect;
   /** Disable the clickaway listener. */
@@ -44,7 +44,7 @@ export interface BlockEditorProps
   onSettingsClose?: () => void;
   /** The settings UI to render in the Modal. */
   settingsRender?: DialogClose | ReactElement;
-  /** Warning message altering users to issues */
+  /** Warning message alerting users to issues */
   warningMessage?: string;
   /** Set the number to show in the menu button badge. Combine with a warningMessage */
   errorCount?: number;

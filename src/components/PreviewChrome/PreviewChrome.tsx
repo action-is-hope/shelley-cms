@@ -1,11 +1,12 @@
 import React, { forwardRef } from "react";
 import { st, classes } from "./previewChrome.st.css";
-import type { PreviewMode } from "../PreviewModes/PreviewModes";
+import type { PreviewModeType } from "../PreviewModes/PreviewModes";
+import type { ComponentBase } from "@actionishope/shelley";
 
 export interface PreviewChromeProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  "data-id"?: string;
-  previewMode?: PreviewMode;
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ComponentBase {
+  previewMode?: PreviewModeType;
   fullScreenMode?: boolean;
 }
 function PreviewChrome(
@@ -35,7 +36,12 @@ function PreviewChrome(
       data-id={dataId}
       {...rest}
     >
-      <div className={classes.chrome}>{children}</div>
+      <div
+        className={classes.chrome}
+        data-id={dataId ? `${dataId}--chrome` : undefined}
+      >
+        {children}
+      </div>
     </div>
   );
 }

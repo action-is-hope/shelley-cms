@@ -14,7 +14,7 @@ import {
   classes as previewChrome,
 } from "../../components/PreviewChrome/previewChrome.st.css";
 import {
-  BlockEditorExampleWithReorder,
+  // BlockEditorExampleWithReorder,
   BasicBlockEditor,
 } from "./BlockEditor.examples";
 import { MetaDataEditorWithChildrenExample } from "./MetaDataEditor.examples";

@@ -11,6 +11,7 @@ import {
   Select,
   SelectProps,
   Item,
+  ComponentBase,
 } from "@actionishope/shelley";
 
 type languageOptions = {
@@ -22,7 +23,8 @@ interface LanguageSelector<T> extends Partial<SelectProps<T>> {
   options: languageOptions[];
 }
 export interface MetaDataEditorProps<T>
-  extends React.HTMLAttributes<HTMLDivElement> {
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ComponentBase {
   /** Uploader widget */
   mediaUploader: React.ReactNode;
   /** URL Picker ComboBox */
@@ -50,6 +52,7 @@ function MetaDataEditor<T extends object>(
     mediaUploader,
     urlPicker,
     isOpen: isOpenProp = false,
+    "data-id": dataId,
     ...rest
   } = props;
 
@@ -67,15 +70,19 @@ function MetaDataEditor<T extends object>(
         className={st(classes.root, { isOpen }, classNameProp)}
         {...rest}
         ref={ref}
+        data-id={dataId}
       >
         <div
           className={classes.inner}
           style={{ height: isOpen ? `${innerHeight}px` : undefined }}
+          data-id={dataId ? `${dataId}--inner` : undefined}
         >
           <div ref={measureRef}>
             <div className={classes.grid}>
               <VisuallyHidden>
-                <Label>Meta data</Label>
+                <Label data-id={dataId ? `${dataId}--label` : undefined}>
+                  Meta data
+                </Label>
               </VisuallyHidden>
               <div className={classes.mediaUploader}>{mediaUploader}</div>
               {urlPicker}
@@ -88,6 +95,7 @@ function MetaDataEditor<T extends object>(
                 label={titleProps.label || "Meta title"}
                 placeholder={titleProps.placeholder || "Meta title"}
                 onFocus={() => setIsOpen(true)}
+                data-id={dataId ? `${dataId}--titleField` : undefined}
               />
               <Select
                 className={classes.languageField}
@@ -96,6 +104,7 @@ function MetaDataEditor<T extends object>(
                 portalSelector="#portal"
                 labelPosition="hidden"
                 {...restLangSelector}
+                data-id={dataId ? `${dataId}--languageField` : undefined}
               >
                 {languageOptions.map((option) => (
                   <Item key={option.key}>{option.name}</Item>
@@ -118,12 +127,16 @@ function MetaDataEditor<T extends object>(
                     descriptionProps.description ||
                     "A short description that is seen in a Google search result or a social share link."
                   }
+                  data-id={dataId ? `${dataId}--descriptionField` : undefined}
                 />
                 {children}
               </div>
             </div>
           </div>
-          <div id="metaPortal" />
+          <div
+            id="metaPortal"
+            data-id={dataId ? `${dataId}--portal` : undefined}
+          />
         </div>
       </div>
     </ClickAwayListener>

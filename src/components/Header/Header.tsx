@@ -4,11 +4,14 @@ import {
   Toolbar,
   // Icon,
   Button,
+  ComponentBase,
   // Switch
 } from "@actionishope/shelley";
 import Menu from "../icons/Menu";
 
-export interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface HeaderProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ComponentBase {
   altThemeEnabled?: boolean;
   toggleTheme?: () => void;
 }
@@ -19,6 +22,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
     className: classNameProp,
     children,
     toggleTheme,
+    "data-id": dataId,
     ...rest
   } = props;
 
@@ -28,6 +32,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
       className={st(classes.root, classNameProp)}
       {...rest}
       ref={ref}
+      data-id={dataId}
     >
       <Button
         className={classes.siteSelectButton}
@@ -36,6 +41,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
         vol={5}
         icon={<Menu />}
         iconPos="start"
+        data-id={dataId ? `${dataId}--menuButton` : undefined}
       >
         <span>Publisher -</span> <span>USA</span>
       </Button>

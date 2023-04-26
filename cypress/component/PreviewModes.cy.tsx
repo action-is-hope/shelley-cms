@@ -10,19 +10,13 @@ const tablet = `[data-id="tablet"]`;
 const mobile = '[data-id="mobile"]';
 
 export const BasicExample = (args: PreviewModesProps) => {
-  return (
-    <PreviewModes
-      className={"custom-class"}
-      {...args}
-      // ref={previewModesRef}
-    />
-  );
+  return <PreviewModes className={"custom-class"} {...args} />;
 };
 
 describe("PreviewModes", () => {
   describe("Basics", () => {
     // Need to allow data-id's through to Radios in Shelley on everything
-    // it("renders all the icons and hidden alt text", () => {
+    it("renders all the icons and hidden alt text", () => {});
     it("renders all the icons", () => {
       cy.mount(<BasicExample />);
       cy.get(web).should("exist");

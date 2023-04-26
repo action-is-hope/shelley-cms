@@ -57,12 +57,12 @@ export const BlockEditorTemplate = (
 
 describe("BlockEditor", () => {
   describe("Basics", () => {
-    it("renders last saved text", () => {
+    it("renders block options menu", () => {
       const onActionSpy = cy.spy().as("onActionSpy");
       cy.mount(<BlockEditorTemplate />);
       cy.get(menuTrigger).realClick();
       cy.get(menu).should("exist");
-      // cy.get(lastSaved).should("exist").and("include.text", "5 mins ago");
     });
+    // @todo Add more :-)
   });
 });

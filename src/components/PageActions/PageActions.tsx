@@ -166,10 +166,9 @@ function PageActions<T extends { key: string }>(
             className={classes.reviewButton}
             data-id={dataId ? `${dataId}--actionButton` : undefined}
             fullWidth
-            onPress={() => {
-              console.log(lookUp[status]);
-              onActionProp(reviewRequired ? "review" : lookUp[status].action);
-            }}
+            onPress={() =>
+              onActionProp(reviewRequired ? "review" : lookUp[status].action)
+            }
             isDisabled={reviewRequired ? false : lookUp[status].disabled}
           >
             {reviewRequired ? strings.reviewRequired : lookUp[status].text}

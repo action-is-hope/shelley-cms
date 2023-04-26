@@ -6,11 +6,11 @@ import PreviewOffIcon from "../icons/PreviewOff";
 import ExpandIcon from "../icons/ExpandScreen";
 import CompressIcon from "../icons/CompressScreen";
 
-import { Button } from "@actionishope/shelley";
+import { Button, ComponentBase } from "@actionishope/shelley";
 
 export interface PreviewActionsProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  "data-id"?: string;
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ComponentBase {
   focusMode: boolean;
   focusModeButtonRef: React.Ref<HTMLButtonElement>;
   onFocusModeClick: (mode: boolean) => void;
@@ -34,25 +34,36 @@ function PreviewActions(
     fullScreenMode,
     fullScreenModeButtonRef,
     onFullScreenModeClick,
-    // "data-id": dataId,
+    "data-id": dataId,
     ...rest
   } = props;
 
   return (
-    <div className={st(classes.root, classNameProp)} {...rest} ref={ref}>
+    <div
+      className={st(classes.root, classNameProp)}
+      {...rest}
+      ref={ref}
+      data-id={dataId}
+    >
       {children}
-
       <Button
         onPress={() => onFocusModeClick(!focusMode)}
         variant="secondary"
         vol={5}
         ref={focusModeButtonRef}
         className={classes.toggleFocusButton}
+        data-id={dataId ? `${dataId}--focusModeButton` : undefined}
         icon={
           focusMode ? (
-            <PreviewOffIcon alt="Toggle preview on" />
+            <PreviewOffIcon
+              alt="Toggle preview on"
+              data-id={dataId ? `${dataId}--previewOffIcon` : undefined}
+            />
           ) : (
-            <PreviewIcon alt="Toggle preview off" />
+            <PreviewIcon
+              alt="Toggle preview off"
+              data-id={dataId ? `${dataId}--previewOnIcon` : undefined}
+            />
           )
         }
       />
@@ -62,11 +73,18 @@ function PreviewActions(
         ref={fullScreenModeButtonRef}
         className={classes.toggleFullScreenButton}
         onPress={() => onFullScreenModeClick(!fullScreenMode)}
+        data-id={dataId ? `${dataId}--fullScreenModeButton` : undefined}
         icon={
           !fullScreenMode ? (
-            <ExpandIcon alt="Toggle full screen on" />
+            <ExpandIcon
+              alt="Toggle full screen on"
+              data-id={dataId ? `${dataId}--fullScreenOnIcon` : undefined}
+            />
           ) : (
-            <CompressIcon alt="Toggle full screen off" />
+            <CompressIcon
+              alt="Toggle full screen off"
+              data-id={dataId ? `${dataId}--fullScreenOffIcon` : undefined}
+            />
           )
         }
       />

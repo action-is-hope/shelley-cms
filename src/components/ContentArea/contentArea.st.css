@@ -6,7 +6,7 @@
 
 .root {}
 
-.scroll {
+.scroller {
   /* This dictates the height of the whole 
    * layout. It is overridden in editorLayout 
    theme file, this is for the demo purposes */
@@ -18,6 +18,6 @@
   flex-direction: column;
 }
 
-.scroll BlockEditor:last-of-type {
+.scroller BlockEditor:last-of-type {
   padding-bottom: 120px
 }

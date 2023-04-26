@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import { st, classes } from "./editorLayout.st.css";
-
 export interface EditorLayoutProps
   extends React.HTMLAttributes<HTMLDivElement> {
   gridMode: "fullScreenMode" | "focusMode" | false;
@@ -14,7 +13,6 @@ function EditorLayout(
     className: classNameProp,
     children,
     gridMode = false,
-    // "data-id": dataId,
     ...rest
   } = props;
   return (

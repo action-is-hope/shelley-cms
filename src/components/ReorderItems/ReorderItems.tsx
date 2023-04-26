@@ -9,7 +9,7 @@ import {
   Responders,
 } from "react-beautiful-dnd";
 import { st, classes } from "./reorderItems.st.css";
-import { Button, H2, P } from "@actionishope/shelley";
+import { Button, ComponentBase, H2, P } from "@actionishope/shelley";
 import CloseSmall from "../icons/CloseSmall";
 
 export interface moveItemParams {
@@ -25,8 +25,7 @@ export type ReorderItem = {
   content?: React.ReactNode;
 };
 
-export interface ReorderItemsProps extends Partial<Responders> {
-  "data-id"?: string;
+export interface ReorderItemsProps extends Partial<Responders>, ComponentBase {
   /** Optional id, one is auto-generated for the Draggable */
   id?: string;
   /** Add a class style hook */
@@ -91,7 +90,12 @@ function ReorderItems(
       <React.Fragment>
         {title && (
           <header className={classes.header}>
-            <H2 vol={2} className={classes.title} uppercase>
+            <H2
+              vol={2}
+              className={classes.title}
+              uppercase
+              data-id={dataId ? `${dataId}--title` : undefined}
+            >
               {title}
             </H2>
             {/* @todo add help in for keyboard users. */}
@@ -129,18 +133,32 @@ function ReorderItems(
                             aria-label={removeItemString}
                             onPress={() => onRemoveSelect(index)}
                             icon={<CloseSmall />}
+                            data-id={
+                              dataId ? `${dataId}--deleteButton` : undefined
+                            }
                           />
                           {item?.label && (
                             <P
                               vol={false}
                               uppercase
                               className={classes.contentLabel}
+                              data-id={
+                                dataId ? `${dataId}--itemLabel` : undefined
+                              }
                             >
                               {item.label}
                             </P>
                           )}
                           {item?.description && (
-                            <P vol={2} className={classes.contentDescription}>
+                            <P
+                              vol={2}
+                              className={classes.contentDescription}
+                              data-id={
+                                dataId
+                                  ? `${dataId}--itemDescription`
+                                  : undefined
+                              }
+                            >
                               {item.description}
                             </P>
                           )}

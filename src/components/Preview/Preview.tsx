@@ -1,23 +1,25 @@
 import React, { forwardRef } from "react";
 import type { ReactFocusOnProps } from "react-focus-on/dist/es5/types";
-import { PreviewModes, PreviewMode } from "../PreviewModes/PreviewModes";
+import { PreviewModes, PreviewModeType } from "../PreviewModes/PreviewModes";
 import { FocusOn } from "react-focus-on";
 
 import { st, classes } from "./preview.st.css";
+import type { ComponentBase } from "@actionishope/shelley";
 
-export interface PreviewProps extends React.HTMLAttributes<HTMLDivElement> {
-  "data-id"?: string;
+export interface PreviewProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ComponentBase {
   /** Props for the internal `FocusOn` component see - https://github.com/theKashey/react-focus-on#api */
   focusOnProps?: Pick<
     ReactFocusOnProps,
     Exclude<keyof ReactFocusOnProps, "children">
   >;
   /** Set the preview mode. */
-  previewMode: PreviewMode;
+  previewMode: PreviewModeType;
   /** A ref pointing to the PreviewMode component, used for FocusOn isolation. */
   previewModesRef: React.Ref<HTMLDivElement>;
   /** Callback with mode as a single arg. */
-  onModeChange: (mode: PreviewMode) => void;
+  onModeChange: (mode: PreviewModeType) => void;
   // Required for usePreview.
   ref?: React.Ref<HTMLDivElement>;
 }
@@ -40,11 +42,13 @@ function Preview(props: PreviewProps, ref?: React.Ref<HTMLDivElement>) {
       ref={ref}
       {...rest}
       {...focusOnProps}
+      data-id={dataId}
     >
       <PreviewModes
         className={classes.previewModes}
         onChange={onModeChange}
         defaultValue={previewMode}
+        data-id={dataId ? `${dataId}--previewModes` : undefined}
         ref={previewModesRef}
       />
       {children}
@@ -52,7 +56,6 @@ function Preview(props: PreviewProps, ref?: React.Ref<HTMLDivElement>) {
   );
 }
 
-Preview.displayName = "Preview";
 /**
  * Preview is made up of a few parts which can be included or omitted as the case maybe.
  */

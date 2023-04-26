@@ -29,7 +29,7 @@ exports[`PageActions renders page actions block with custom className 1`] = `
       Draft
     </div>
     <div
-      className="buttonGroup__Test__root buttonGroup__Test---orientation-10-horizontal buttonGroup__Test--splitButton PageActions__Test__buttonGroup"
+      className="ButtonGroup__Test__root ButtonGroup__Test---orientation-10-horizontal ButtonGroup__Test--splitButton PageActions__Test__buttonGroup"
     >
       <button
         className="Button__Test__root Button__Test--fullWidth Button__Test---tone-1-1 Button__Test---variant-7-primary Button__Test---vol-1-4 PageActions__Test__reviewButton"
@@ -60,7 +60,7 @@ exports[`PageActions renders page actions block with custom className 1`] = `
         aria-controls={null}
         aria-expanded={false}
         aria-haspopup={true}
-        className="Button__Test__root Button__Test---iconPos-3-end Button__Test---tone-1-1 Button__Test---variant-7-primary Button__Test---vol-1-4 PageActions__Test__menuTrigger"
+        className="Button__Test__root Button__Test---tone-1-1 Button__Test---variant-7-primary Button__Test---vol-1-4 PageActions__Test__menuTrigger"
         id="react-aria-1"
         onBlur={[Function]}
         onClick={[Function]}

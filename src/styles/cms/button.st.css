@@ -69,6 +69,7 @@
 
   /* = = The base <button> element. */
   Button {
+    text-transform: uppercase;
     /* We'll assign this via our variants but set it with our tones. */
     --accent: initial;
     -webkit-font-smoothing: antialiased;
