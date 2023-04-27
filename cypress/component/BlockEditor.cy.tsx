@@ -1,5 +1,5 @@
 import React from "react";
-import { Item, P, TextField } from "@actionishope/shelley";
+import { P, TextField } from "@actionishope/shelley";
 import {
   BlockEditor,
   BlockEditorProps,
@@ -58,7 +58,6 @@ export const BlockEditorTemplate = (
 describe("BlockEditor", () => {
   describe("Basics", () => {
     it("renders block options menu", () => {
-      const onActionSpy = cy.spy().as("onActionSpy");
       cy.mount(<BlockEditorTemplate />);
       cy.get(menuTrigger).realClick();
       cy.get(menu).should("exist");

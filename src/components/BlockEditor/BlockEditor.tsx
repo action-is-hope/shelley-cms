@@ -179,7 +179,10 @@ function BlockEditor(props: BlockEditorProps, ref?: React.Ref<HTMLDivElement>) {
         }}
       >
         {settingsRender && (
-          <Dialog data-id={dataId ? `${dataId}--settings` : undefined}>
+          <Dialog
+            className={classes.dialog}
+            data-id={dataId ? `${dataId}--settings` : undefined}
+          >
             <H2 className={dialog.title} vol={4} data-title>
               {label} settings
             </H2>

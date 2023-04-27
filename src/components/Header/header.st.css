@@ -1,4 +1,6 @@
 /* header.st.css CSS API */
+@st-import Dialog from "@actionishope/shelley/components/Dialog/dialog.st.css";
+@st-import Switch from "@actionishope/shelley/components/Switch/switch.st.css";
 
 .root {}
 
@@ -6,8 +8,47 @@
 
 .title {}
 
+.publisherName {}
+
+.siteName {}
+
 .siteSelectButton {}
 
-.flag {}
+.sitesDialog {
+  -st-extends: Dialog;
+}
 
-.controls {}
+.sitesDialogTitle {}
+
+.sitesDialogContent {}
+
+.themeSwitcher {
+  -st-extends: Switch;
+}
+
+.userDialog {}
+
+.userDetails {}
+
+.userDetailsHeader {}
+
+/* @todo Create avatar component  */
+.avatar {
+  display: flex;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  line-height: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  user-select: none;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  object-fit: cover;
+  color: transparent;
+  text-indent: 10000px;
+}

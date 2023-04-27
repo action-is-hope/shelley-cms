@@ -22,13 +22,7 @@
 
 @st-scope CMS {
 
-  :global(body) {
-    overflow: hidden;
-  }
-
-  EditorLayout::preview {
-    /* position: relative !important; */
-  }
+  EditorLayout::preview {}
 
   EditorLayout {
     display: grid;

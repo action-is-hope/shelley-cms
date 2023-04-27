@@ -9,6 +9,7 @@
 @st-import ContentArea from "../../components/ContentArea/contentArea.st.css";
 @st-import PageActions from "../../components/PageActions/pageActions.st.css";
 @st-import MenuItem from "@actionishope/shelley/components/MenuItem/menuItem.st.css";
+@st-import Dialog from "@actionishope/shelley/components/Dialog/dialog.st.css";
 
 .root {}
 
@@ -28,6 +29,10 @@
 
 .modal {
   -st-extends: Modal;
+}
+
+.dialog {
+  -st-extends: Dialog;
 }
 
 .message {}
