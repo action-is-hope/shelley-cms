@@ -21,14 +21,14 @@ import "./commands";
 
 import { mount } from "cypress/react";
 
-// import { Project as Default } from "../../src/styles/default";
-// import { Project as Shelley, Light, Dark } from "../../src/styles/shelley";
+import { Project as Default } from "@actionishope/shelley/styles/default";
+import { Project as CMS, Light, Dark } from "../../src/styles/cms";
 
 // Add Mount
 Cypress.Commands.add("mount", mount);
 // Example use:
 // cy.mount(<MyComponent />)
 
-// const ShelleyDark = `${Default}`;
-// const ShelleyLight = `${Default} ${Shelley} ${Light}`;
-// document.body.className = ShelleyDark;
+const ShelleyDark = `${Default} ${CMS}`;
+// const ShelleyLight = `${Default} ${CMS} ${Light}`;
+document.body.className = ShelleyDark;

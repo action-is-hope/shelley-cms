@@ -1,0 +1,21 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --spacing-unit,
+  --color-text-3
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import Field from "@actionishope/shelley/components/Field/field.st.css";
+
+@st-scope body CMS {
+
+  Field:variant(outlined)::fieldContainer,
+  Field:variant(outlined)::fieldset {
+    border-radius: 0;
+  }
+
+  Field:labelPosition(side)::helpText {
+    padding-left: var(--spacing-unit);
+    color: var(--color-text-3);
+  }
+}

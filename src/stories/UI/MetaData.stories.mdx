@@ -1,0 +1,186 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import MetaDataEditor from "../../components/MetaDataEditor/MetaDataEditor";
+import {
+  MetaDataEditorExample,
+  MetaDataEditorWithChildrenExample,
+} from "./MetaDataEditor.examples";
+
+<Meta
+  title="Editor/MetaDataEditor"
+  component={MetaDataEditor}
+  decorators={[(Story) => <Story />]}
+/>
+
+# MetaData Editor
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { MetaDataEditor } from "@actionishope/shelley-cms";
+  `}
+/>
+
+MetaDataEditor holds the inputs for the page meta-data. It is designed to be the first item inside the [ContentArea](?path=/docs/editor-contentarea--a-content-area) sitting adjacent to multiple [BlockEditor](?path=/docs/editor-blockeditor--a-block-editor) components.
+
+At a minimum MetaDataEditor caters for the following inputs and more can be provided as `children`.
+
+- URL picker - provide component via `urlPicker` prop.
+- Media uploader - provide component via `mediaUploader` prop.
+- Title field - access props via `titleProps`
+- Description field - access props via `descriptionProps`
+
+## Example
+
+The following example shows the most basic configuration expected. Note that the internal langauge selector is a [Select component](https://www.shelley.earth/?path=/docs/inputs-select--a-select) and here we are using it in a controlled fashion.
+
+The title field is the trigger to open the MetaDataEditor which interally sets `isOpen` to true. This will reveal the additional fields. There is a click-away listener that will close it again when selected anywhere outside of the MetaDataEditor.
+
+<Story
+  name="a) MetaDataEditor"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+import { classes } from "@actionishope/shelley-cms/components/MetaDataEditor/metaDataEditor.st.css";\n
+const [langauge, setLanguage] = useState("en");\n
+return (
+  <MetaDataEditor
+    data-id="TEST-123"
+    // Provide URL Picker
+    urlPicker={
+      <TextField
+        className={classes.urlField}
+        labelPosition="hidden"
+        vol={1}
+        variant="quiet"
+        label={"URL"}
+        placeholder={"URL"}
+      />
+    }
+    // Provide Media Uploader
+    mediaUploader={
+      <img
+        src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
+        alt=""
+      />
+    }
+    // Title field props
+    titleProps={{
+      label: "Meta title",
+      onChange: () => console.log("hi"),
+    }}
+    // Description field props
+    descriptionProps={{
+      defaultValue:
+        "This is a lovely long description that even covers two lines but to be honest I'm not sure that I can even make it that far; fear not that was enough waffle.",
+      onChange: (value) => console.log(value),
+    }}
+    // Langauge selector props
+    languageSelectorProps={{
+      selectedKey: langauge,
+      onSelectionChange: (key) => {
+        // If key is equal to 'create' don't set the langauge.
+        key !== "create" && setLanguage(key as SetStateAction<string>);
+        // Create new langauge and when done set it as selected...
+        key === "create" && console.log("Create tranlation");
+      },
+      options: [
+        { key: "en", name: "EN" },
+        { key: "pt", name: "PT" },
+        { key: "fr", name: "FR" },
+        { key: "create", name: "Create translated page" },
+      ],
+    }}
+  >
+    {/* Provide additional inputs as children */}
+  </MetaDataEditor>
+);`,
+      },
+    },
+  }}
+>
+  {MetaDataEditorExample.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-metadataeditor--a-meta-data-editor" />
+
+## Children
+
+MetaDataEditor takes any children and renders them adjacent to the description field.
+
+Shelley inputs will be styled by default but require `labelPosition="side"` to be set along with other props.
+
+If using portals inside of MetaDataEditor you may find that it will close when interacting with overlays. You can portal any overlays inside using the selector `#metaPortal` meaning clicks to the overlay will not trigger the click-away.
+
+<Story
+  name="b) With children "
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+import { classes } from "@actionishope/shelley-cms/components/MetaDataEditor/metaDataEditor.st.css";\n
+const [langauge, setLanguage] = useState("en");\n
+return (
+  <MetaDataEditor
+    // ...
+    // Langauge selector props
+    languageSelectorProps={{
+      options: [
+        { key: "en", name: "EN" },
+        { key: "pt", name: "PT" },
+        { key: "fr", name: "FR" },
+        { key: "create", name: "Create translated page" },
+      ],
+    }}
+  >
+    {/* Additional inputs as children */}
+      <TextField
+        labelPosition="side"
+        variant="quiet"
+        label={"Tagging"}
+        description="Select some tags to associate with this content."
+        placeholder={"Tagging"}
+      />
+      <Select
+        label="Structured data"
+        vol={1}
+        labelPosition="side"
+        onSelectionChange={(key) => console.log(key)}
+        variant="outlined"
+        portalSelector={"#metaPortal"}
+      >
+        <Item key="rarely">Rarely</Item>
+        <Item key="sometimes">Sometimes</Item>
+        <Item key="always">Always</Item>
+      </Select>
+  </MetaDataEditor>
+);`,
+      },
+    },
+  }}
+>
+  {MetaDataEditorWithChildrenExample.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-metadataeditor--b-with-children" />
+
+## MetaDataEditor Props
+
+<ArgsTable of={MetaDataEditor} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

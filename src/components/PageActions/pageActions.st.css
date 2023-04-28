@@ -1,4 +1,5 @@
-/* pageActions.st.css CSS API */
+/* pageActions.st.css */
+@namespace "PageActions";
 @st-import Button from "@actionishope/shelley/components/Button/button.st.css";
 @st-import ButtonGroup from "@actionishope/shelley/components/ButtonGroup/buttonGroup.st.css";
 @st-import Menu from "@actionishope/shelley/components/Menu/menu.st.css";

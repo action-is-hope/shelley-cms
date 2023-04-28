@@ -1,44 +1,53 @@
 import React, { forwardRef } from "react";
 import { st, classes } from "./previewChrome.st.css";
-import type { PreviewMode } from "../PreviewModes/PreviewModes";
+import type { PreviewModeType } from "../PreviewModes/PreviewModes";
+import type { ComponentBase } from "@actionishope/shelley";
 
 export interface PreviewChromeProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  "data-id"?: string;
-  previewMode?: PreviewMode;
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ComponentBase {
+  previewMode?: PreviewModeType;
   fullScreenMode?: boolean;
 }
+function PreviewChrome(
+  props: PreviewChromeProps,
+  ref?: React.Ref<HTMLDivElement>
+) {
+  const {
+    className: classNameProp,
+    children,
+    fullScreenMode = false,
+    previewMode = "web",
+    "data-id": dataId,
+    ...rest
+  } = props;
 
-const PreviewChrome = forwardRef(
-  (
-    {
-      className: classNameProp,
-      children,
-      fullScreenMode = false,
-      previewMode = "web",
-      ...rest
-    }: PreviewChromeProps,
-    ref?: React.Ref<HTMLDivElement>
-  ) => {
-    return (
+  return (
+    <div
+      className={st(
+        classes.root,
+        {
+          previewMode,
+          fullScreenMode,
+        },
+        classNameProp
+      )}
+      ref={ref}
+      data-id={dataId}
+      {...rest}
+    >
       <div
-        className={st(
-          classes.root,
-          {
-            previewMode,
-            fullScreenMode,
-          },
-          classNameProp
-        )}
-        ref={ref}
-        {...rest}
+        className={classes.chrome}
+        data-id={dataId ? `${dataId}--chrome` : undefined}
       >
-        <div className={classes.chrome}>{children}</div>
+        {children}
       </div>
-    );
-  }
-);
+    </div>
+  );
+}
 
-PreviewChrome.displayName = "PreviewChrome";
-
-export default PreviewChrome;
+/**
+ * PreviewChrome holds the input fields and the settings for the content blocks.
+ */
+const _PreviewChrome = forwardRef(PreviewChrome);
+export { _PreviewChrome as PreviewChrome };

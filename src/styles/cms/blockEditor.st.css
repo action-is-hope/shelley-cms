@@ -1,0 +1,136 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --spacing-unit,
+  --color-text-2,
+  --color-background-1,
+  --color-background-2,
+  --color-background-3,
+  --grad-1,
+  --color-border-1,
+  --color-border-dialog
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import BlockEditor, [menu] from "../../components/BlockEditor/blockEditor.st.css";
+@st-import TextField from "@actionishope/shelley/components/TextField/textField.st.css";
+@st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
+
+
+@st-scope CMS {
+
+  BlockEditor {
+    width: 100%;
+    display: grid;
+    grid-template-areas: "stack";
+    transition: filter 80ms ease-in-out, opacity 80ms ease-in-out;
+    /*  */
+    position: relative;
+  }
+
+  BlockEditor::options {
+    grid-area: stack;
+    justify-self: right;
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+    margin: 16px 30px;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+  /* Menu loads in a portal so needs to be accessed directly. */
+  .menu {
+    min-width: 120px;
+  }
+
+  /* Main content - the main editing items. */
+  BlockEditor::mainContent {
+    z-index: 0;
+    position: relative;
+    grid-area: stack;
+    padding: 0.8rem 0 1.3rem;
+    border-bottom: 12px solid var(--color-background-3);
+    background-color: var(--color-background-1);
+  }
+
+  BlockEditor:last-of-type::mainContent {
+    /* border-bottom-color: transparent; */
+  }
+
+  BlockEditor::mainContent > form > TextField::fieldInput {
+    padding-left: calc(var(--spacing-unit) * 3.2);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ReorderItems - Overrides*/
+  BlockEditor::mainContent ReorderItems {
+    margin-bottom: -1.3rem;
+  }
+
+  BlockEditor::mainContent ReorderItems {
+    /* background: var(--grad-1); */
+    background-color: var(--color-background-2);
+  }
+
+  BlockEditor::mainContent ReorderItems::dragContainer {
+    padding-bottom: calc(var(--spacing-unit) * 1.5);
+    margin-top: calc(var(--spacing-unit));
+    padding-left: 56px
+  }
+
+  BlockEditor::mainContent ReorderItems::dragContainer:isDragging {
+    background-color: #83838312;
+  }
+
+  BlockEditor::mainContent ReorderItems::item {
+    background-color: var(--color-background-3);
+    /* Limit width of items to shorten reading width. */
+    max-width: 80%;
+  }
+
+  BlockEditor::label {
+    padding-left: calc(var(--spacing-unit) * 2);
+    margin-bottom: 4px;
+    color: var(--color-text-2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  BlockEditor::warningMessage {
+    color: #e5990d;
+  }
+
+  BlockEditor::modal {
+    grid-area: stack;
+    z-index: 15;
+  }
+
+  BlockEditor::modal::backdrop {
+    border-style: solid;
+    border-width: 1px 0;
+    border-color: var(--color-border-dialog);
+  }
+
+  BlockEditor::modal::content {
+    position: relative;
+    margin: 60px 8px 60px 8px;
+    padding-bottom: 1px;
+    /* Kicks in the inclusion of margin-bottom of the last item in the container. */
+    max-height: 85vh;
+    align-self: flex-start;
+  }
+
+  BlockEditor::settingsTitle {
+    margin: 0 0 12px;
+    padding: 12px 24px 12px;
+    border-bottom: 1px dashed var(--color-border-dialog);
+  }
+
+  BlockEditor::dialog {
+    border: 1px solid var(--color-border-dialog);
+  }
+}

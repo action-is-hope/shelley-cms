@@ -1,0 +1,160 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  breakpoint-md,
+  --color-background-2,
+  --color-background-4,
+  --height-header-sm,
+  --height-header-md,
+  --spacing-unit,
+  --box-shadow-metaData,
+  --color-form-base-border
+] from "./project.st.css";
+/* = Root Component */
+@st-import MetaDataEditor from "../../components/MetaDataEditor/metaDataEditor.st.css";
+/* Children */
+@st-import Field from "@actionishope/shelley/components/Field/field.st.css";
+
+@st-scope CMS {
+
+  /* State */
+  MetaDataEditor {
+    /* --currentHeight: var(--height-header-sm); */
+    --currentHeight: var(--height-header-md);
+  }
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    MetaDataEditor {
+      --currentHeight: var(--height-header-md);
+    }
+  }
+}
+
+@st-scope CMS {
+  MetaDataEditor {
+    background: var(--color-background-2);
+    margin-top: 0;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    /* = Enables smooth transition for externally induced focusOn dialog behavior. */
+    transition: filter 80ms ease-in-out, opacity 80ms ease-in-out;
+    padding-left: calc(var(--spacing-unit) * 2);
+    box-shadow: var(--box-shadow-metaData);
+  }
+
+  MetaDataEditor::inner {
+    border-width: 1px 0;
+    height: var(--currentHeight);
+    transition: height ease-in 170ms;
+    overflow: hidden;
+  }
+
+  MetaDataEditor::grid {
+    display: grid;
+    grid-column-gap: var(--spacing-unit);
+    grid-row-gap: 0;
+    grid-template-columns: 96px 1fr 1fr 47px 10px;
+    grid-template-areas:
+      'media url url language .'
+      'media title title language .'
+      'children children children children .';
+  }
+
+  MetaDataEditor::mediaUploader {
+    grid-area: media;
+    display: flex;
+    align-items: center;
+    height: var(--currentHeight);
+  }
+
+  MetaDataEditor::mediaUploader img {
+    max-width: 100%;
+  }
+
+  /* URL ComboBox */
+  MetaDataEditor::urlField:vol(1) {
+    grid-area: url;
+    align-self: baseline;
+    margin-top: 7px;
+    font-size: 14px;
+  }
+
+  MetaDataEditor::urlField::fieldInput {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* Title  */
+  MetaDataEditor::titleField {
+    grid-area: title;
+    align-self: baseline;
+    transition: margin-top ease-in 160ms;
+    margin-top: -1px;
+  }
+
+  MetaDataEditor::titleField::fieldInput {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* Langauge  */
+  MetaDataEditor::languageField {
+    grid-area: language;
+    align-self: center;
+    justify-self: flex-end;
+    font-size: 14px;
+  }
+
+  MetaDataEditor::languageField::trigger {
+    padding: 4px 9px;
+    background: none;
+    border-radius: 0;
+  }
+
+  MetaDataEditor::languageField:focus-within::trigger::after {
+    opacity: 1;
+  }
+
+  MetaDataEditor::languageField::trigger::divider,
+  MetaDataEditor::languageField::trigger > svg {
+    display: none;
+  }
+
+
+  MetaDataEditor::languageField:focus-within::fieldset,
+  MetaDataEditor::languageField:focus-within::fieldContainer {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  MetaDataEditor::languageField:focus-within::fieldset {
+    border-left-color: var(--color-form-base-border);
+  }
+
+  /* Childen container - also contains description as first item */
+  MetaDataEditor::children {
+    grid-area: children;
+    display: grid;
+    gap: calc(var(--spacing-unit) * 1.5);
+    padding: 4px calc(47px + var(--spacing-unit)) calc(var(--spacing-unit) * 1.5) 0
+  }
+
+  /* Generic Fields */
+  MetaDataEditor Field::fieldContainer {
+    /* background for all textbased fields. */
+    background-color: var(--color-background-4);
+  }
+
+  /* Target fields with label by side as designed. */
+  MetaDataEditor Field:labelPosition(side) {
+    grid-template-columns: 96px 1fr;
+  }
+
+  MetaDataEditor Field:labelPosition(side)::inputLabel {
+    font-size: .85em;
+    text-align: end;
+  }
+
+}

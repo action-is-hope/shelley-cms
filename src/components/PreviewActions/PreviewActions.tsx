@@ -6,11 +6,11 @@ import PreviewOffIcon from "../icons/PreviewOff";
 import ExpandIcon from "../icons/ExpandScreen";
 import CompressIcon from "../icons/CompressScreen";
 
-import { Button } from "@actionishope/shelley";
+import { Button, ComponentBase } from "@actionishope/shelley";
 
 export interface PreviewActionsProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  "data-id"?: string;
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ComponentBase {
   focusMode: boolean;
   focusModeButtonRef: React.Ref<HTMLButtonElement>;
   onFocusModeClick: (mode: boolean) => void;
@@ -21,58 +21,79 @@ export interface PreviewActionsProps
   ref?: React.Ref<HTMLDivElement>;
 }
 
-const PreviewActions = forwardRef(
-  (
-    {
-      className: classNameProp,
-      children,
-      focusMode,
-      focusModeButtonRef,
-      onFocusModeClick,
-      fullScreenMode,
-      fullScreenModeButtonRef,
-      onFullScreenModeClick,
-      ...rest
-    }: PreviewActionsProps,
-    ref?: React.Ref<HTMLDivElement>
-  ) => {
-    return (
-      <div className={st(classes.root, classNameProp)} {...rest} ref={ref}>
-        {children}
+function PreviewActions(
+  props: PreviewActionsProps,
+  ref?: React.Ref<HTMLDivElement>
+) {
+  const {
+    className: classNameProp,
+    children,
+    focusMode,
+    focusModeButtonRef,
+    onFocusModeClick,
+    fullScreenMode,
+    fullScreenModeButtonRef,
+    onFullScreenModeClick,
+    "data-id": dataId,
+    ...rest
+  } = props;
 
-        <Button
-          onPress={() => onFocusModeClick(!focusMode)}
-          variant="secondary"
-          vol={5}
-          ref={focusModeButtonRef}
-          className={classes.toggleFocusButton}
-          icon={
-            focusMode ? (
-              <PreviewOffIcon alt="Toggle preview on" />
-            ) : (
-              <PreviewIcon alt="Toggle preview off" />
-            )
-          }
-        />
-        <Button
-          variant="secondary"
-          vol={5}
-          ref={fullScreenModeButtonRef}
-          className={classes.toggleFullScreenButton}
-          onPress={() => onFullScreenModeClick(!fullScreenMode)}
-          icon={
-            !fullScreenMode ? (
-              <ExpandIcon alt="Toggle full screen on" />
-            ) : (
-              <CompressIcon alt="Toggle full screen off" />
-            )
-          }
-        />
-      </div>
-    );
-  }
-);
+  return (
+    <div
+      className={st(classes.root, classNameProp)}
+      {...rest}
+      ref={ref}
+      data-id={dataId}
+    >
+      {children}
+      <Button
+        onPress={() => onFocusModeClick(!focusMode)}
+        variant="secondary"
+        vol={5}
+        ref={focusModeButtonRef}
+        className={classes.toggleFocusButton}
+        data-id={dataId ? `${dataId}--focusModeButton` : undefined}
+        icon={
+          focusMode ? (
+            <PreviewOffIcon
+              alt="Toggle preview on"
+              data-id={dataId ? `${dataId}--previewOffIcon` : undefined}
+            />
+          ) : (
+            <PreviewIcon
+              alt="Toggle preview off"
+              data-id={dataId ? `${dataId}--previewOnIcon` : undefined}
+            />
+          )
+        }
+      />
+      <Button
+        variant="secondary"
+        vol={5}
+        ref={fullScreenModeButtonRef}
+        className={classes.toggleFullScreenButton}
+        onPress={() => onFullScreenModeClick(!fullScreenMode)}
+        data-id={dataId ? `${dataId}--fullScreenModeButton` : undefined}
+        icon={
+          !fullScreenMode ? (
+            <ExpandIcon
+              alt="Toggle full screen on"
+              data-id={dataId ? `${dataId}--fullScreenOnIcon` : undefined}
+            />
+          ) : (
+            <CompressIcon
+              alt="Toggle full screen off"
+              data-id={dataId ? `${dataId}--fullScreenOffIcon` : undefined}
+            />
+          )
+        }
+      />
+    </div>
+  );
+}
 
-PreviewActions.displayName = "PreviewActions";
-
-export default PreviewActions;
+/**
+ * Used on the main edit screen, it controls the publishing and unpublishing of a page.
+ */
+const _PreviewActions = forwardRef(PreviewActions);
+export { _PreviewActions as PreviewActions };

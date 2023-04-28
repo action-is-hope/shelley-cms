@@ -22,8 +22,8 @@ export const BasicExample = (
   return (
     <PageActions
       // className={"custom classname"}
+      data-id="pageActions"
       lastSaved="5 mins ago"
-      includeDataIds
       {...args}
     >
       <Item key="archive">Archive</Item>

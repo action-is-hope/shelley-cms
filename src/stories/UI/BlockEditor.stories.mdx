@@ -1,0 +1,173 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import { BlockEditor } from "../../components/BlockEditor/BlockEditor";
+import {
+  BasicBlockEditor,
+  BlockEditorExampleWithReorder,
+} from "./BlockEditor.examples";
+
+<Meta
+  title="Editor/BlockEditor"
+  component={BlockEditor}
+  decorators={[(Story) => <Story />]}
+/>
+
+# BlockEditor
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { BlockEditor } from "@actionishope/shelley-cms";
+  `}
+/>
+
+BlockEditor holds the input fields and the settings for the content blocks.
+
+<Story
+  name="a) BlockEditor"
+  args={{
+    errorCount: undefined,
+  }}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<BlockEditor
+  data-id="TEST123"
+  label={"Block name"}
+  // errorCount={2}
+  // onManageSelect={() => console.log("onManageSelect")}
+  // onRemoveSelect={() => console.log("onRemoveSelect")}
+  // onSettingsClose={() => console.log("onSettingsClose")}
+  // disableClickAwayListener
+  settingsRender={(close) => (
+    <div>
+      <P>Setting form etc.</P>
+      <Button onPress={() => close()}>Close</Button>
+    </div>
+  )}
+  {...args}
+>
+  {/* @todo: provide a form comp defining alignment. */}
+  <form action="">
+    <TextField
+      variant="quiet"
+      placeholder={"Title"}
+      label={"Title"}
+      labelPosition="hidden"
+      vol={6}
+    />
+    <TextField
+      variant="quiet"
+      placeholder={"Description"}
+      label={"Description"}
+      labelPosition="hidden"
+      vol={2}
+    />
+  </form>
+</BlockEditor>
+);`,
+      },
+    },
+  }}
+>
+  {BasicBlockEditor.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-blockeditor--a-block-editor" />
+
+## Children
+
+BlockEditor takes and children and renders them inside a `mainContent` container.
+
+Block settings should be provided via the `blockSettings` prop and render in a Dialog when selecting 'Setting' from the menu. If you need to invoke the close from within the settings Dialog you must wrap the Dialog in a function in order to propagate the Blockeditors's close function to the Dialog's children.
+
+## Reorder as Child
+
+The following example shows the ReorderComponent being used with a few of the Blocks. Scroll down the list below to see them.
+
+<Story
+  name="b) Reorder as child"
+  args={{
+    errorCount: undefined,
+  }}
+  parameters={{
+    controls: {
+      include: [
+        "disableClickAwayListener",
+        "warningMessage",
+        "errorCount",
+        "label",
+      ],
+    },
+    docs: {
+      source: {
+        code: dedent`
+  <ContentArea {...contentAreaProps}>
+    {contentBlocksData.map((item) => (
+      <BlockEditor
+        data-id="TEST123"
+        label={item.label}
+        // errorCount={2}
+        // onManageSelect={() => console.log("onManageSelect")}
+        // onRemoveSelect={() => console.log("onRemoveSelect")}
+        // onSettingsClose={() => console.log("onSettingsClose")}
+        // disableClickAwayListener
+        settingsRender={() => (
+          <P>Select taxonomies to display in this listing.</P>
+        )}
+      >
+        {/* @todo: provide a form comp defining alignment. */}
+        <form action="">
+          <TextField
+            variant="quiet"
+            placeholder={item.label}
+            label={item.label}
+            labelPosition="hidden"
+            vol={6}
+          />
+          <TextField
+            variant="quiet"
+            placeholder={item.description}
+            label={item.description}
+            labelPosition="hidden"
+            vol={2}
+          />
+        </form>
+        <ReorderFieldGroupsExample />
+      </BlockEditor>
+    ))}
+  </ContentArea>
+);`,
+      },
+    },
+  }}
+>
+  {BlockEditorExampleWithReorder.bind({})}
+</Story>
+
+<ArgsTable story="b) Reorder as child" />
+
+<Source language="tsx" id="editor-blockeditor--b-reorder-as-child" />
+
+...
+
+## BlockEditor Props
+
+<ArgsTable of={BlockEditor} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

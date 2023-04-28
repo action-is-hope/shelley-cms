@@ -1,0 +1,87 @@
+/* badge.st.css */
+@namespace "Badge";
+
+.root {
+  -st-states:
+    position(enum(topStart, topEnd, bottomStart, bottomEnd)),
+    invisible,
+    dot;
+  display: inline-flex;
+  position: relative;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.badge {
+  height: 18px;
+  display: flex;
+  padding: 0 4px;
+  z-index: 1;
+  position: absolute;
+  flex-wrap: wrap;
+  font-size: 12px;
+  /* font-size: 0.5rem; */
+  min-width: 18px;
+  box-sizing: border-box;
+  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  align-items: center;
+  font-weight: 500;
+  line-height: 1;
+  align-content: center;
+  border-radius: 10px;
+  flex-direction: row;
+  justify-content: center;
+
+  text-indent: 1px;
+  background-color: #fff;
+  color: #000;
+}
+
+
+.root:position(topStart) .badge {
+  top: 0;
+  left: 0;
+  transform: scale(1) translate(-75%, -75%);
+  transform-origin: 0% 0%;
+}
+
+.root:position(topStart):invisible .badge {
+  transform: scale(0) translate(-75%, -75%);
+}
+
+.root:position(topEnd) .badge {
+  top: 0;
+  right: 0;
+  transform: scale(1) translate(75%, -75%);
+  transform-origin: 100% 0%;
+}
+
+.root:position(topEnd):invisible .badge {
+  transform: scale(0) translate(75%, -75%);
+}
+
+.root:position(bottomStart) .badge {
+  left: 0;
+  bottom: 0;
+  transform: scale(1) translate(-75%, 75%);
+  transform-origin: 0% 100%;
+}
+
+.root:position(bottomStart):invisible .badge {
+  transform: scale(0) translate(-75%, 75%);
+}
+
+.root:position(bottomEnd) .badge {
+  right: 0;
+  bottom: 0;
+  transform: scale(1) translate(75%, 75%);
+  transform-origin: 100% 100%;
+}
+
+.root:position(bottomEnd):invisible .badge {
+  transform: scale(0) translate(75%, 75%);
+}
+
+.root:invisible .badge {
+  transition: transform 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}

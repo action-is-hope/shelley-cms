@@ -7,7 +7,7 @@ import {
 
 import { Item } from "@actionishope/shelley";
 
-// @todo Attempt (again) to get the automatic args table working in storybook.
+// @todo Attempt (again) to get the automatic args table working in storybook. This is cause seemingly by using Omit, Pick etc
 export type PageActionsPropsDocs = PageActionsProps<object>;
 export function PageActionsType(props: PageActionsPropsDocs) {
   <>{props}</>;
@@ -24,7 +24,6 @@ export const BasicExample = (args: PageActionsPropsDocs) => {
       reviewRequired={reviewRequired}
       position={{ portalSelector: "#portal" }}
       {...args}
-      includeDataIds
       onAction={(actionKey) => {
         switch (actionKey) {
           case "archive":

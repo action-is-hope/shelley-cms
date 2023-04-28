@@ -1,0 +1,83 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --spacing-unit,
+  --color-background-1,
+  --color-border-2
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
+@st-import TextField from "@actionishope/shelley/components/TextField/textField.st.css";
+
+@st-scope CMS {
+  ReorderItems {
+    /* background-color: yellow !important; */
+  }
+
+  ReorderItems::header {
+    padding: 16px 24px;
+    top: 0;
+    display: flex;
+    z-index: 10;
+    position: sticky;
+    align-items: center;
+    border-bottom: 1px solid #8989897e;
+  }
+
+  ReorderItems::title {
+    font-weight: 400;
+  }
+
+  ReorderItems::dragContainer {
+    padding: calc(var(--spacing-unit) * 2);
+    min-width: 250px;
+    padding-bottom: 1px;
+  }
+
+  ReorderItems::dragContainer:isDragging {
+    background-color: #121821;
+  }
+
+  ReorderItems::item {
+    /* border: 1px dashed rgb(158 158 158 / 12%); */
+    /* border: 1px dashed var(--color-border-2); */
+    padding: var(--spacing-unit);
+    /* borderColor: isDragging ? "rgb(0, 157, 106)" : "#cacaca", */
+
+    border-radius: 4px;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  ReorderItems::item:isDragging {
+    background-color: rgba(0, 157, 106, .3);
+  }
+
+  ReorderItems::item:highlight {
+    box-shadow: 0 0 1px 1px rgb(0 157 105 / 57%);
+    border-color: #009d69;
+  }
+
+
+  ReorderItems::content {
+    position: relative;
+    /* Something to grab if fields are present. */
+    padding-top: calc(var(--spacing-unit) / 2);
+  }
+
+  ReorderItems::deleteButton:variant("fab") {
+    border: 1px solid var(--color-border-2);
+    top: -28px;
+    left: -28px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    /* background-color: #000; */
+  }
+
+  ReorderItems::contentLabel {
+    font-size: 0.8em;
+    margin-bottom: calc(var(--spacing-unit) / 4);
+  }
+
+  ReorderItems::contentDescription {}
+}

@@ -32,9 +32,9 @@
 
 @st-scope CMS {
   Text {
-    /* font-weight: 400; */
+    font-weight: 400;
     /* = switch off for light / dark bgs.... */
-    /* -webkit-font-smoothing: antialiased; */
+    -webkit-font-smoothing: antialiased;
   }
 
   /* = Uppercase */

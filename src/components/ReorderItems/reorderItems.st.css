@@ -1,0 +1,64 @@
+/* reorderItems.st.css */
+@namespace "ReorderItems";
+@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
+@st-import Text from "@actionishope/shelley/components/Text/text.st.css";
+
+:global(.noScroll) {
+  overflow: hidden;
+}
+
+.root {}
+
+.header {}
+
+.title {
+  -st-extends: Text;
+}
+
+.dragContainer {
+  -st-states: isDragging;
+  background-color: transparent;
+  transition: background 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.dragContainer:isDragging {
+  background-color: #dddddd1a;
+}
+
+.item {
+  -st-states: highlight, isDragging;
+  transition: background 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.item:isDragging {
+  background-color: rgba(0, 157, 106, .3);
+}
+
+.item:highlight {
+  border-color: green;
+}
+
+.deleteButton {
+  -st-extends: Button;
+  top: -28px;
+  left: -28px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+}
+
+.content {
+  position: relative;
+  /* Something to grab if fields are present. */
+  padding-top: 4px;
+}
+
+.contentLabel {
+  -st-extends: Text;
+}
+
+.contentDescription {
+  -st-extends: Text;
+}

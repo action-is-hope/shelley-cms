@@ -1,0 +1,201 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  breakpoint-lg,
+  breakpoint-sm-max,
+  breakpoint-md,
+  breakpoint-md-max,
+  --height-header-sm,
+  --height-header-md,
+  --color-ui-inverse,
+  --color-border-1,
+  --color-background-1,
+  --color-background-2,
+  --color-background-3,
+  --color-border-dialog
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import EditorLayout from "../../components/EditorLayout/editorLayout.st.css";
+
+
+@st-import PreviewMetaData from "../../components/PreviewMetaData/previewMetaData.st.css";
+
+@st-scope CMS {
+
+  EditorLayout::preview {}
+
+  EditorLayout {
+    display: grid;
+    grid-template-columns: 100vw 100vw;
+    grid-template-rows: var(--height-header-sm) 1fr 120px;
+    grid-template-areas:
+      'content preview'
+      'content preview'
+      'content actions';
+    background-color: transparent;
+    transition: background-color 160ms ease-in-out;
+    /* Afffect previews absolute positioning. */
+    position: relative;
+  }
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    EditorLayout {
+      grid-template-columns: 55% 45%;
+      grid-template-rows: var(--height-header-md) 1fr 120px;
+    }
+  }
+}
+
+@media value(breakpoint-md-max) {
+  @st-scope CMS {
+    EditorLayout {
+      /* Use snap-scrolling on mobile to give 'editor content' -> swipe -> 'preview'. */
+      scroll-snap-type: x mandatory;
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+
+    EditorLayout::contentArea,
+    EditorLayout::preview {
+      scroll-snap-align: start;
+    }
+  }
+}
+
+@st-scope CMS {
+  EditorLayout::preview {
+    transition: width 160ms, left 160ms, opacity 160ms;
+    position: static;
+    width: 100vw;
+  }
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    EditorLayout::preview {
+      width: 45vw;
+      position: absolute;
+      left: 0;
+      /* top: -1px */
+      top: 0;
+      bottom: 0;
+      /* Stops bottom scroll forced by preview contents.*/
+      overflow: hidden;
+    }
+
+    EditorLayout:gridMode(fullScreenMode)::preview {
+      left: -55vw;
+      z-index: 50;
+      width: 100vw;
+      bottom: 0;
+    }
+  }
+}
+
+@st-scope CMS {
+
+  EditorLayout:gridMode(fullScreenMode)::previewActions::toggleFocusButton {
+    opacity: 0.3;
+  }
+
+  EditorLayout:gridMode(focusMode)::previewActions::toggleFullScreenButton {
+    opacity: 0.3;
+  }
+
+  EditorLayout:gridMode(focusMode)::pageActions {
+    opacity: 0;
+  }
+
+  EditorLayout:gridMode(focusMode) {
+    background-color: var(--color-focus-mode-background);
+  }
+
+  EditorLayout:gridMode(focusMode)::contentArea {
+    transform: translateX(22.5vw);
+  }
+
+  EditorLayout:gridMode(focusMode)::preview {
+    opacity: 0;
+  }
+}
+
+@st-scope CMS {
+
+  /* = Child classes used in conjuntion with the grid main component. */
+  EditorLayout::contentArea {
+    grid-area: content;
+    transition: transform 160ms ease-in-out;
+    background-color: var(--color-background-1);
+    z-index: 50;
+    position: relative;
+    /**
+     The below requires a global --vh unit to be set with JS. The reason
+     is that mobile doesn't register height as you might expect dependant
+     on if the taskbar is up or not. Differences in device behavour also
+     is an issue. This measures and sets a CSS variable so we can use that
+     or it will fallback to the native 1vh.
+     e.g:   
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+      --
+    This height is what sets the layout. It is essentially 100% - the header.
+    */
+    height: calc(var(--vh, 1vh) * 100 - var(--height-header-md));
+  }
+}
+
+
+@media value(breakpoint-md-max) {
+  @st-scope CMS {
+    EditorLayout::contentArea {
+      height: calc(var(--vh, 1vh) * 100 - var(--height-header-sm));
+    }
+
+    EditorLayout::previewActions {
+      display: none;
+    }
+  }
+}
+
+@st-scope CMS {
+  EditorLayout::preview {
+    /* grid-area: preview; */
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: var(--color-background-3);
+    border-width: 1px 0 1px 0;
+  }
+
+  /* @todo Is this used - check after moving everything.. */
+  :global(body.blockEditorModalOn) .previewVisibility[data-focus-on-hidden] + EditorLayout::preview::previewModes {
+    border-color: var(--color-border-dialog);
+  }
+
+  :global(body.blockEditorModalOn) EditorLayout::preview {
+    border-color: var(--color-border-dialog);
+    /* Border left width applied now else we see the transparent border down the left of previewModes when overlay is off. */
+    border-left-width: 1px;
+    /* Offset the width of the border being added to stop things moving 1px. */
+    padding-right: 1px;
+    /* Puts the preview on top of the header for border visibility. */
+    z-index: 10;
+  }
+
+  :global(body.blockEditorModalOn) EditorLayout PreviewMetaData {
+    margin-left: -1px
+  }
+
+  :global(body.blockEditorModalOn) EditorLayout::preview::previewModes {
+    /* We want to show the border (see above) when the BlockEditor overlay is on. */
+    box-shadow: none;
+  }
+
+  EditorLayout::pageActions {
+    z-index: 10;
+    grid-area: actions;
+    transition: opacity 80ms ease-in-out;
+  }
+
+}

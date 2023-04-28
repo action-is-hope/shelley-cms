@@ -1,6 +1,6 @@
 import { P } from "@actionishope/shelley";
 import { useState } from "react";
-import PreviewModes from "../../components/PreviewModes/PreviewModes";
+import { PreviewModes } from "../../components/PreviewModes/PreviewModes";
 
 export const BasicExample = () => {
   const [mode, setMode] = useState("web");

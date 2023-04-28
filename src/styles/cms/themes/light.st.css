@@ -20,7 +20,6 @@
     --select-icon;
 }
 
-
 :import {
   -st-from: "../project.st.css";
   -st-named:
@@ -44,13 +43,19 @@
     --color-background-2,
     --color-background-3,
     --color-background-4,
+    --color-background-listBox-option-hover,
     /* = Border colors */
     --color-border-1,
     --color-border-2,
     /* = Modal colors */
-    --color-background-modal-1,
-    --color-modal-border-1,
-    --color-background-modal-content-1,
+    --background-color-modal-backdrop,
+    --color-border-dialog,
+    --background-color-popup,
+    --color-popup,
+    --border-color-popup,
+    /* = Dialog colors */
+    --background-color-dialog,
+    --color-dialog,
     /* = Focus mode colors */
     --color-focus-mode-background,
     /* = Header colors */
@@ -60,15 +65,6 @@
     --color-text-1,
     --color-text-2,
     --color-text-3,
-    --color-text-4,
-    /* = Status colors */
-    /* --color-error, */
-    /* = Indicator colors */
-    /* --color-focus, */
-    /* = Form colors */
-    /* --color-form-mark,
-    --color-form-selection-track,
-    --color-form-selection-mark, */
     /* = Gradiants */
     --grad-1,
     /* = Meta Data / Social */
@@ -87,7 +83,8 @@
     --facebook-border,
     --facebook-title,
     --facebook-desc,
-    --facebook-domain;
+    --facebook-domain,
+    --box-shadow-metaData
 }
 
 /* 
@@ -105,37 +102,35 @@
 
   /* = Accent colors */
   --color-accent-1: #16a78e;
-  /*#1495b7;*/
-  /* --color-accent-2: rgb(15, 108, 189); */
-  /* --color-accent-2: rgb(101 86 93); */
   --color-accent-2: rgb(68 134 136);
   --color-accent-3: rgb(37 43 45 / 80%);
-  --color-accent-4: rgb(134, 102, 30);
 
   /* = Background colors */
   --color-background-1: #e8e8e8;
   --color-background-2: #e2e2e2;
   --color-background-3: #f3f3f3;
-  --color-background-4: rgb(255, 255, 255, 0.8);
+  --color-background-4: rgb(255, 255, 255, 0.25);
   --color-background-modal: rgba(249, 249, 249, 0.98);
+  --color-background-listBox-option-hover: rgba(255, 255, 255, 0.8);
+
+  --border-color-popup: rgba(var(--color-ui-raw), 0.2);
+  --background-color-popup: var(--color-background-modal);
+  --color-popup: var(--color-ui);
 
   /* = Border colors */
-  /* --color-border-1: #a8b9bd; */
   --color-border-1: #fff;
-  /* --color-border-2: green; */
+  --color-border-2: rgba(var(--color-ui-raw-inverse), .7);
 
   /* = Modal colors */
-  --color-background-modal-1: rgb(0 0 0 / 40%);
-  --color-modal-border-1: #fff;
-  --color-background-modal-content-1: var(--color-background-1);
+  --background-color-modal-backdrop: rgb(0 0 0 / 40%);
+  --color-border-dialog: #fff;
+
+  /* Dialog colors */
+  --color-dialog: var(--color-ui);
+  --background-color-dialog: var(--color-background-1);
 
   /* = Focus mode colors*/
   --color-focus-mode-background: #d2d2d2;
-
-  /* = Header colors */
-  --color-header-background: var(--color-accent-1);
-  --color-header-border: #000;
-
 
   /* = Text colors */
   --color-text-1: var(--dark-01);
@@ -146,17 +141,19 @@
   /* = Status colors - TBC */
   --color-error: red;
 
-  /* = Indicator colors */
-  /* --color-focus: pink; */
-
   /* = Form colors */
   --color-form-base-border: rgba(121, 170, 216, 0.5);
   --color-form-selection-border: rgba(121, 170, 216, 1);
   --color-form-selection-notch: #20af68;
-  --color-toggle-notch: #a5a5a5;
+  --color-switch-notch: #a5a5a5;
 
   /* = Gradiants */
-  --grad-1: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 200px, rgba(255, 255, 255, 0.5) 500px, rgba(255, 255, 255, 0.8) 100%);
+  /* --grad-1: linear-gradient(90deg, #404b7105, transparent); */
+  --grad-1: linear-gradient(90deg, #9898982b, transparent);
+  --grad-2: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 200px, rgba(255, 255, 255, 0.5) 500px, rgba(255, 255, 255, 0.8) 100%);
+
+  /* = MetaDataEditor */
+  --box-shadow-metaData: 0 0 8px 2px #f3f3f3;
 
   /* = Meta Data Social Preview */
   --google-background: #fff;
@@ -179,7 +176,6 @@
   --facebook-domain: #606770;
 
   /* = Misc */
-  /* --select-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='333333' xml:space='preserve'><path d='M13 4v2l-5 5-5-5v-2l5 5z'></path></svg>"); */
   --select-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='333333' xml:space='preserve'><path d='M3 2v2l5 5 5-5v-2l-5 5z'></path><path d='M3 7v2l5 5 5-5v-2l-5 5z'></path></svg>");
 
 }

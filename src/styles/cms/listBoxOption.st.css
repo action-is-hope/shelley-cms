@@ -1,0 +1,23 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --color-border-dialog,
+  --background-color-modal-backdrop,
+  --color-background-listBox-option-hover,
+  --color-focus
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import ListBoxOption from "@actionishope/shelley/components/ListBoxOption/listBoxOption.st.css";
+
+@st-scope CMS {
+
+  ListBoxOption:isSelected:isFocused {
+    border-color: var(--color-focus)
+  }
+
+  ListBoxOption:isHovered,
+  ListBoxOption:isFocusVisible {
+    background-color: var(--color-background-listBox-option-hover);
+    cursor: pointer;
+  }
+}

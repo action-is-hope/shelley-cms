@@ -1,6 +1,6 @@
 # Shelley
 
-[![Main workflow](https://github.com/action-is-hope/shelley/actions/workflows/main.yml/badge.svg)](https://github.com/action-is-hope/shelley)
+[Github](https://github.com/action-is-hope/shelley-cms)
 
 ## Development
 

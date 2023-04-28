@@ -1,0 +1,23 @@
+/* contentArea.st.css */
+@namespace "ContentArea";
+
+@property st-global(--vh);
+@st-import BlockEditor from "../BlockEditor/blockEditor.st.css";
+
+.root {}
+
+.scroller {
+  /* This dictates the height of the whole 
+   * layout. It is overridden in editorLayout 
+   theme file, this is for the demo purposes */
+  height: calc(var(--vh, 1vh) * 100 - 65px);
+  /* height: 80vh; */
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroller BlockEditor:last-of-type {
+  padding-bottom: 120px
+}

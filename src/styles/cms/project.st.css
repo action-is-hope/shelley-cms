@@ -8,31 +8,42 @@
 @property st-global(--vh);
 
 @namespace "CMS";
-
-/* = Default project vars to be overridden. */
-:import {
-  -st-from: "@actionishope/shelley/styles/default/project.st.css";
-  -st-named:
-    breakpoint-md,
-    breakpoint-md-max,
-    --color-focus,
-    --color-error,
-    --color-form-base-border,
-    --color-form-selection-border,
-    --color-form-selection-notch,
-    --color-switch-notch,
-    --spacing-unit,
-    --select-icon,
-    --grid-gap,
-    --grid-v1-cols-xs,
-    --grid-v1-cols-sm,
-    --grid-v1-cols-md,
-
-    --text-vol-10-max,
-    --text-vol-10-scale,
-    --text-vol-10-line-height;
-}
-
+/* = Default project vars to be overridden and used. */
+@st-import [
+  breakpoint-sm,
+  breakpoint-sm-max,
+  breakpoint-md,
+  breakpoint-md-max,
+  breakpoint-lg,
+  breakpoint-lg-max,
+  --text-vol-1-scale,
+  --text-vol-2-scale,
+  --text-vol-3-scale,
+  --text-vol-4-scale,
+  --text-vol-5-scale,
+  --text-vol-6-scale,
+  --text-vol-7-scale,
+  --color-focus,
+  --color-error,
+  --color-form-base-border,
+  --color-form-selection-border,
+  --color-form-selection-notch,
+  --color-switch-notch,
+  --color-dialog,
+  --color-popup,
+  --background-color-dialog,
+  --background-color-modal-backdrop,
+  --background-color-popup,
+  --border-color-popup,
+  --spacing-unit,
+  --select-icon,
+  --grid-gap,
+  --grid-v1-cols-xs,
+  --grid-v1-cols-sm,
+  --grid-v1-cols-md,
+  --text-vol-10-max,
+  --text-vol-10-scale,
+  --text-vol-10-line-height] from "@actionishope/shelley/styles/default/project.st.css";
 
 /*=== BUILD-TIME 'VARIABLE' DEFINITIONS ===*/
 
@@ -87,33 +98,34 @@
   /* = Background colors */
   --color-background-1: #0f1118;
   --color-background-2: hsl(220deg 27% 10%);
-  /* --color-background-3: #090a0e; */
   --color-background-3: #000;
   --color-background-4: rgba(11, 13, 18, 0.34);
-
+  --color-background-5: rgba(11, 13, 18, 0.34);
+  --color-background-listBox-option-hover: rgba(255, 255, 255, 0.2);
   /* = Border colors */
   --color-border-1: #302e30;
   --color-border-2: #5050506e;
 
   /* = Modal colors */
-  --color-background-modal-1: #51a0af75;
-  --color-modal-border-1: #51a0af;
-  --color-background-modal-content-1: #000;
+  --background-color-modal-backdrop: #51a0af75;
+
+  /* Dialog colors */
+  --background-color-dialog: #000;
+  --color-border-dialog: #51a0af;
+  --color-dialog: var(--color-ui);
 
   /* = Focus mode colors */
   --color-focus-mode-background: #000;
 
   /* = Header colors */
-  /* --color-header-background: #21525f; */
-  /* --color-header-background: var(--color-accent-1); */
-  --color-header-background: rgb(117 234 255 / 90%);
+  --color-header-background: #035C67;
+  --color-header: rgba(var(--light-01-raw), 0.9);
   --color-header-border: #73e6fa63;
 
   /* = Text colors */
   --color-text-1: var(--light-01);
   --color-text-2: rgba(var(--light-01-raw), 0.9);
   --color-text-3: rgba(var(--light-01-raw), 0.8);
-  --color-text-4: #f7e1b9;
 
   /* = Status colors */
   /* --color-error: #b66b6e; */
@@ -125,22 +137,24 @@
   /* --color-form-base-border: rgba(119, 140, 157, 0.7); */
   /* --color-form-selection-border: rgba(119, 140, 157, 1); */
   --color-form-selection-notch: var(--color-accent-2);
-  /* --color-toggle-notch:  */
 
   /* = Menu */
   --color-menu-selected-background: hsl(211, 81%, 36%);
   --color-menu-selected-text: white;
 
   /* = Gradiants */
-  --grad-1: linear-gradient(0deg, rgba(15, 17, 24, 0.927608543417367) 43%, rgb(15 17 24 / 0%) 100%);
+  --grad-1: linear-gradient(90deg, #404b710d, transparent);
+  --grad-2: linear-gradient(0deg, rgba(15, 17, 24, 0.927608543417367) 43%, rgb(15 17 24 / 0%) 100%);
 
   /* = Header */
   --height-header-sm: 56px;
   --height-header-md: 65px;
 
+  /* = MetaDataEditor */
+  --box-shadow-metaData: 0 0 8px 2px #070707;
+
   /* = Meta Data Social Preview */
   --google-background: var(--color-background-1);
-  /* #303136; */
   --google-title: #5b9be8;
   --google-desc: #bbbdc0;
   --google-url: #bbbdc0;
@@ -149,7 +163,6 @@
   --twitter-background: var(--color-background-1);
   --twitter-listing-background: #151f2b;
   --twitter-border: #313d46;
-  /* meta-border: #0b0d12 */
   --twitter-title: #fff;
   --twitter-desc: #8899a6;
   --twitter-domain: #8899a6;
@@ -177,14 +190,10 @@
 .root {
   font-family: value(font-plain);
   color: var(--color-ui);
-  /* height: var(--vh);
-  height: calc(var(--vh, 1vh) * 100); */
-  /* overflow: hidden; */
+  /* height: var(--vh);*/
+  /* height: calc(var(--vh, 1vh) * 100); */
+  overflow: hidden;
   /* width: 100vw; */
-}
-
-:global(#___gatsby) {
-  height: calc(var(--vh, 1vh) * 100);
 }
 
 .root h1 {

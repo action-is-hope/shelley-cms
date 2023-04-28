@@ -1,8 +1,8 @@
 import { H2, P } from "@actionishope/shelley";
-import Preview from "../../components/Preview/Preview";
-import PreviewMetaData from "../../components/PreviewMetaData/PreviewMetaData";
-import PreviewChrome from "../../components/PreviewChrome/PreviewChrome";
-import PreviewActions from "../../components/PreviewActions/PreviewActions";
+import { Preview } from "../../components/Preview/Preview";
+import { PreviewMetaData } from "../../components/PreviewMetaData/PreviewMetaData";
+import { PreviewChrome } from "../../components/PreviewChrome/PreviewChrome";
+import { PreviewActions } from "../../components/PreviewActions/PreviewActions";
 import usePreview from "../../components/Preview/usePreview";
 
 import {

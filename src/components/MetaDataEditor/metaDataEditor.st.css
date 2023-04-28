@@ -1,0 +1,32 @@
+/* metaData.st.css */
+@st-import TextField from "@actionishope/shelley/components/TextField/textField.st.css";
+@st-import Select from "@actionishope/shelley/components/Select/select.st.css";
+
+.root {
+  -st-states: isOpen;
+}
+
+.inner {}
+
+.grid {}
+
+.children {}
+
+.mediaUploader {}
+
+.urlField {
+  /* @todo WILL BE COMBOBOX */
+  -st-extends: Select;
+}
+
+.titleField {
+  -st-extends: TextField;
+}
+
+.descriptionField {
+  -st-extends: TextField;
+}
+
+.languageField {
+  -st-extends: Select;
+}

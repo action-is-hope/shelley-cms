@@ -48,13 +48,6 @@
 }
 
 
-/* = Child components */
-/* :import {
-  -st-from: "@actionishope/shelley/components/Icon/icon.st.css";
-  -st-default: Icon;
-} */
-
-
 /* = This is how we can scope the styles in Stylable. */
 @st-scope CMS {
 
@@ -69,6 +62,8 @@
 
   /* = = The base <button> element. */
   Button {
+    text-transform: uppercase;
+    cursor: pointer;
     /* We'll assign this via our variants but set it with our tones. */
     --accent: initial;
     -webkit-font-smoothing: antialiased;
@@ -161,4 +156,7 @@
     opacity: 1;
   }
 
+  Button:tone(10):variant(fab) {
+    background-color: var(--color-background-2);
+  }
 }

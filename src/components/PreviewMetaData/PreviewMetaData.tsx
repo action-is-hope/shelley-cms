@@ -1,10 +1,11 @@
 import React, { forwardRef } from "react";
 import { st, classes } from "./previewMetaData.st.css";
 
-import { Icon } from "@actionishope/shelley";
+import { ComponentBase, Icon } from "@actionishope/shelley";
 
 export interface PreviewMetaDataProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ComponentBase {
   title: string;
   description: string;
   domain: string;
@@ -14,8 +15,70 @@ export interface PreviewMetaDataProps
   previewMode?: number;
 }
 
+function PreviewMetaData(
+  props: PreviewMetaDataProps,
+  ref?: React.Ref<HTMLDivElement>
+) {
+  const {
+    className: classNameProp,
+    children,
+    title,
+    description,
+    fullScreenMode = false,
+    image,
+    slug,
+    domain,
+    "data-id": dataId,
+    ...rest
+  } = props;
+
+  return (
+    <div
+      className={st(
+        classes.root,
+        {
+          fullScreenMode,
+        },
+        classNameProp
+      )}
+      ref={ref}
+      data-id={dataId}
+      {...rest}
+    >
+      <div
+        className={classes.chrome}
+        data-id={dataId ? `${dataId}--chrome` : undefined}
+      >
+        <Google
+          {...{ title, description, slug }}
+          data-id={dataId ? `${dataId}--google` : undefined}
+        />
+        <Twitter
+          {...{ title, description, image, domain }}
+          data-id={dataId ? `${dataId}--twitter` : undefined}
+        />
+        <Facebook
+          {...{ title, description, image, domain }}
+          data-id={dataId ? `${dataId}--facebook` : undefined}
+        />
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * PreviewMetaData handles the Google listing and social sharing previews.
+ */
+const _PreviewMetaData = forwardRef(PreviewMetaData);
+export { _PreviewMetaData as PreviewMetaData };
+
+/**
+ * MetaDataItems
+ */
 export interface PreviewMetaDataItemProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ComponentBase {
   title: string;
   description: string;
   domain?: string;
@@ -27,6 +90,7 @@ export const Google = ({
   title,
   description,
   slug,
+  "data-id": dataId,
 }: PreviewMetaDataItemProps) => (
   <article className={st(classes.previewItem, classes.google)}>
     <Icon
@@ -58,9 +122,24 @@ export const Google = ({
       />
     </Icon>
     <aside className={classes.googleListing}>
-      <p className={classes.googleUrl}>{slug}</p>
-      <p className={classes.googleTitle}>{title}</p>
-      <p className={classes.googleDescription}>{description}</p>
+      <p
+        className={classes.googleUrl}
+        data-id={dataId ? `${dataId}--googleUrl` : undefined}
+      >
+        {slug}
+      </p>
+      <p
+        className={classes.googleTitle}
+        data-id={dataId ? `${dataId}--googleTitle` : undefined}
+      >
+        {title}
+      </p>
+      <p
+        className={classes.googleDescription}
+        data-id={dataId ? `${dataId}--googleDescription` : undefined}
+      >
+        {description}
+      </p>
     </aside>
   </article>
 );
@@ -70,6 +149,7 @@ export const Twitter = ({
   description,
   domain,
   image,
+  "data-id": dataId,
 }: PreviewMetaDataItemProps) => (
   <article className={st(classes.previewItem, classes.twitter)}>
     <Icon
@@ -85,11 +165,31 @@ export const Twitter = ({
     </Icon>
 
     <aside className={classes.twitterListing}>
-      {image && <img className={classes.twitterImage} src={image} alt="" />}
+      {image && (
+        <img
+          className={classes.twitterImage}
+          src={image}
+          alt=""
+          data-id={dataId ? `${dataId}--twitterImage` : undefined}
+        />
+      )}
       <div className={classes.twitterText}>
-        <p className={classes.twitterTitle}>{title}</p>
-        <p className={classes.twitterDescription}>{description}</p>
-        <p className={classes.twitterDomain}>
+        <p
+          className={classes.twitterTitle}
+          data-id={dataId ? `${dataId}--twitterTitle` : undefined}
+        >
+          {title}
+        </p>
+        <p
+          className={classes.twitterDescription}
+          data-id={dataId ? `${dataId}--twitterDescription` : undefined}
+        >
+          {description}
+        </p>
+        <p
+          className={classes.twitterDomain}
+          data-id={dataId ? `${dataId}--twitterDomain` : undefined}
+        >
           <Icon viewBox="0 0 24 24" className={classes.twitterLinkIcon}>
             <g>
               <path d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z" />
@@ -108,6 +208,7 @@ export const Facebook = ({
   description,
   domain,
   image,
+  "data-id": dataId,
 }: PreviewMetaDataItemProps) => (
   <article className={st(classes.previewItem, classes.facebook)}>
     <Icon
@@ -129,53 +230,34 @@ export const Facebook = ({
     </Icon>
 
     <aside className={classes.facebookListing}>
-      {/* className={classes.facebookTextBox} */}
       <header>
-        {image && <img className={classes.facebookImage} src={image} alt="" />}
-        <p className={classes.facebookDomain}>{domain}</p>
-        <p className={classes.facebookTitle}>{title}</p>
-        <p className={classes.facebookDescription}>{description}</p>
+        {image && (
+          <img
+            className={classes.facebookImage}
+            src={image}
+            alt=""
+            data-id={dataId ? `${dataId}--facebookImage` : undefined}
+          />
+        )}
+        <p
+          className={classes.facebookDomain}
+          data-id={dataId ? `${dataId}--facebookDomain` : undefined}
+        >
+          {domain}
+        </p>
+        <p
+          className={classes.facebookTitle}
+          data-id={dataId ? `${dataId}--facebookTitle` : undefined}
+        >
+          {title}
+        </p>
+        <p
+          className={classes.facebookDescription}
+          data-id={dataId ? `${dataId}--facebookDescription` : undefined}
+        >
+          {description}
+        </p>
       </header>
     </aside>
   </article>
 );
-
-const PreviewMetaData = forwardRef(
-  (
-    {
-      className: classNameProp,
-      children,
-      title,
-      description,
-      fullScreenMode = false,
-      image,
-      slug,
-      domain,
-      ...rest
-    }: PreviewMetaDataProps,
-    ref?: React.Ref<HTMLDivElement>
-  ) => (
-    <div
-      className={st(
-        classes.root,
-        {
-          fullScreenMode,
-        },
-        classNameProp
-      )}
-      ref={ref}
-      {...rest}
-    >
-      <div className={classes.chrome}>
-        <Google {...{ title, description, slug }} />
-        <Twitter {...{ title, description, image, domain }} />
-        <Facebook {...{ title, description, image, domain }} />
-        {children}
-      </div>
-    </div>
-  )
-);
-
-PreviewMetaData.displayName = "PreviewMetaData";
-
-export default PreviewMetaData;

@@ -1,0 +1,167 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import { ReorderItems } from "../../components/ReorderItems/ReorderItems";
+import {
+  ReorderBlocksExample,
+  ReorderFieldGroupsExample,
+} from "./ReorderItems.examples";
+
+<Meta
+  title="Editor/ReorderItems"
+  component={ReorderItems}
+  decorators={[(Story) => <Story />]}
+/>
+
+# ReorderItems
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { ReorderItems } from "@actionishope/shelley-cms";
+  `}
+/>
+
+## Content blocks example
+
+The Reorder component can be used to reorder things like content blocks. The content blocks themselves are a big big so we can offer a smaller visual representation of them that a user can see.
+
+<Story
+  name="a) Reorder blocks"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+export const ReorderBlocksExample = () => {
+  const contentBlocksData = [
+    { id: "1", label: "Title", description: "Description/Identity text" },
+    { id: "2", label: "Hero", description: "Description/Identity text" },
+    { id: "3", label: "Body", description: "Description/Identity text" },
+    { id: "4", label: "Body", description: "Description/Identity text" },
+    { id: "5", label: "Body", description: "Description/Identity text" },
+  ];
+  const [blocks, updateBlocks] = useState(contentBlocksData);
+  return (
+    <ReorderItems
+      hightlightItemIndex={(i) => 3}
+      title={"Reorder Content Blocks"}
+      items={blocks}
+      onRemoveSelect={(index) => console.log("Index", index)}
+      moveItem={({ fromIndex, toIndex }) => {
+        const items = Array.from(blocks);
+        const [reorderedItem] = items.splice(fromIndex, 1);
+        reorderedItem && items.splice(toIndex, 0, reorderedItem);
+        updateBlocks(items);
+      }}
+    />
+  );
+};
+`,
+      },
+    },
+  }}
+>
+  <ReorderBlocksExample />
+</Story>
+
+<Source language="tsx" id="editor-reorderitems--a-reorder-blocks" />
+
+## Block list example
+
+The Reorder component can be also be used to reorder things _inside_ a content block like listing of free form content.
+
+<Story
+  name="b) Reorder block items"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+  const ItemForm = (props: Partial<InputTextProps>) => (
+    <form style={{ display: "grid", gap: "16px" }}>
+      <TextField
+        {...props}
+        label="Test"
+        labelPosition="hidden"
+        placeholder="Title"
+        variant="quiet"
+        vol={4}
+      />
+      <TextField
+        label="Description"
+        labelPosition="hidden"
+        placeholder="Description"
+        variant="quiet"
+      />
+    </form>
+  );\n
+  const blockItemData = [
+    {
+      id: "18",
+      content: (
+        <ItemForm
+          defaultValue="Five"
+          onChange={(value: string) => console.log(value)}
+        />
+      ),
+    },
+    {
+      id: "19",
+      content: (
+        <ItemForm
+          defaultValue="Six"
+          onChange={(value: string) => console.log(value)}
+        />
+      ),
+    },
+    {
+      id: "20",
+      content: (
+        <ItemForm
+          defaultValue="Seven"
+          onChange={(value: string) => console.log(value)}
+        />
+      ),
+    },
+  ];\n
+  const [blockItems, updateBlockItems] = useState(blockItemData);\n
+  return (
+    <ReorderItems
+      items={blockItems}
+      onRemoveSelect={(index) => console.log("Index", index)}
+      moveItem={({ fromIndex, toIndex, result }) => {
+        console.log(result);
+        const items = Array.from(blockItems);
+        const [reorderedItem] = items.splice(fromIndex, 1);
+        reorderedItem && items.splice(toIndex, 0, reorderedItem);
+        updateBlockItems(items);
+      }}
+    />
+  );
+);`,
+      },
+    },
+  }}
+>
+  <ReorderFieldGroupsExample />
+</Story>
+
+<Source language="tsx" id="editor-reorderitems--b-reorder-block-items" />
+
+## ReorderItems Props
+
+<ArgsTable of={ReorderItems} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

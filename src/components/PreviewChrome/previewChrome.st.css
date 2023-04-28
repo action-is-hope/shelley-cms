@@ -1,4 +1,6 @@
 /* previewChrome.st.css */
+@namespace "PreviewChrome";
+
 .root {
   -st-states:
     previewMode(enum("web", "mobile", "tablet", "laptop")),

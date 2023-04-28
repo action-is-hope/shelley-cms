@@ -1,6 +1,6 @@
 /** usePreview.tsx */
 import { useRef, useState } from "react";
-import type { PreviewMode } from "../PreviewModes/PreviewModes";
+import type { PreviewModeType } from "../PreviewModes/PreviewModes";
 import type { PreviewActionsProps } from "../PreviewActions/PreviewActions";
 import type { PreviewProps } from "./Preview";
 
@@ -11,7 +11,7 @@ type EditorLayoutProps = {
   gridMode: "fullScreenMode" | "focusMode" | false;
 };
 
-type ContentProps = {
+type ContentAreaProps = {
   "data-id": string;
   focusOnProps: {
     enabled: boolean;
@@ -26,16 +26,16 @@ type BlockEditorProps = {
 
 type PreviewChromeProps = {
   "data-id": string;
-  previewMode: PreviewMode;
+  previewMode: PreviewModeType;
   fullScreenMode: boolean;
 };
 
 type usePreviewReturn = {
   // Use to choose how to render the mode types ('web' vs devices)
-  previewMode: PreviewMode;
+  previewMode: PreviewModeType;
   // Props to spread to components.
   blockEditorProps: BlockEditorProps;
-  contentProps: ContentProps;
+  contentAreaProps: ContentAreaProps;
   editorLayoutProps: EditorLayoutProps;
   previewProps: PreviewProps;
   previewChromeProps: PreviewChromeProps;
@@ -52,7 +52,7 @@ const usePreview = (): usePreviewReturn => {
 
   /** States */
   const [focusMode, setFocusMode] = useState<boolean>(false);
-  const [previewMode, setPreviewMode] = useState<PreviewMode>("web");
+  const [previewMode, setPreviewMode] = useState<PreviewModeType>("web");
   const [fullScreenMode, setFullScreenMode] = useState<boolean>(false);
 
   const editorLayoutProps: EditorLayoutProps = {
@@ -68,7 +68,7 @@ const usePreview = (): usePreviewReturn => {
       : false,
   };
 
-  const contentProps: ContentProps = {
+  const contentAreaProps: ContentAreaProps = {
     "data-id": "Content",
     focusOnProps: {
       /**
@@ -132,7 +132,7 @@ const usePreview = (): usePreviewReturn => {
   return {
     previewMode,
     blockEditorProps,
-    contentProps,
+    contentAreaProps,
     editorLayoutProps,
     previewProps,
     previewChromeProps,

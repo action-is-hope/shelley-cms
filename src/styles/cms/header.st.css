@@ -1,0 +1,144 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --color-ui,
+  --color-ui-inverse,
+  --color-accent-1,
+  --color-accent-2,
+  --color-accent-3,
+  --color-accent-4,
+  --color-background-2,
+  --color-header-background,
+  --color-header,
+  --color-header-border,
+  --height-header-sm,
+  --height-header-md,
+  --border-color-popup,
+  --text-vol-1-scale,
+  --text-vol-2-scale,
+  --spacing-unit,
+  breakpoint-md,
+  breakpoint-md-max
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import Header, [sitesDialog, userDialog, userDetails, themeSwitcher, avatar, userDetailsHeader] from "../../components/Header/header.st.css";
+@st-import Text from "@actionishope/shelley/components/Text/text.st.css";
+@st-import Icon from "@actionishope/shelley/components/Icon/icon.st.css";
+@st-import [title as dialogTitle, content as dialogContent] from "@actionishope/shelley/components/Dialog/dialog.st.css";
+
+
+@st-scope CMS {
+  Header {
+    --height-header: var(--height-header-sm);
+    background-color: var(--color-header-background);
+    color: var(--color-header);
+    border-color: var(--color-header-border);
+    border-width: 0 0 1px;
+    height: var(--height-header);
+    position: relative;
+    z-index: 1;
+    justify-content: space-between;
+    padding-left: calc(var(--spacing-unit) * 1);
+    padding-right: calc(var(--spacing-unit) * .5);
+  }
+}
+
+@media value(breakpoint-md-max) {
+  @st-scope CMS {
+    Header::publisherName {
+      display: none
+    }
+  }
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    Header {
+      --height-header: var(--height-header-md)
+    }
+  }
+}
+
+@st-scope CMS {
+
+  Header::siteSelectButton {
+    letter-spacing: 4px;
+    font-size: var(--text-vol-2-scale);
+    font-weight: 400;
+    opacity: 1;
+    padding-left: calc(var(--spacing-unit) * .9);
+  }
+
+  Header::siteSelectButton Icon {
+    font-size: calc(1em + 8px);
+    opacity: 1;
+    transition: opacity 0.3s ease, color 0.3s ease;
+  }
+
+  Header::siteSelectButton:hover Icon {
+    opacity: .7;
+  }
+
+  Header > nav {
+    flex-grow: 1;
+    margin-left: 14px
+  }
+
+  Header > nav > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--height-header);
+    padding: 0 calc(var(--spacing-unit) * 1.5);
+    /* @todo variable */
+    border-left: 1px solid #73e6fa26;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: var(--text-vol-1-scale);
+    font-weight: 400;
+    color: inherit;
+  }
+
+  /* Dialogs open via a portal so targeting them directly. */
+  .userDialog {
+    width: 300px;
+    padding: var(--spacing-unit);
+  }
+
+  .userDetails {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: var(--spacing-unit);
+    align-items: center;
+  }
+
+  .userDetails .avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .userDetailsHeader {
+    margin-top: var(--spacing-unit);
+    padding: 4px var(--spacing-unit) 0;
+    margin-left: calc(var(--spacing-unit) * -1);
+    margin-right: calc(var(--spacing-unit) * -1);
+    border-top: 1px solid var(--border-color-popup);
+  }
+
+  .themeSwitcher:vol(1) {
+    font-size: var(--text-vol-1-scale);
+    margin: calc(var(--spacing-unit) / 1.5) 0 var(--spacing-unit)
+  }
+
+  .userDialog .dialogContent {
+    overflow: visible;
+  }
+
+  .sitesDialog .dialogTitle {
+    margin-top: -18px;
+  }
+
+  .sitesDialog .dialogContent {
+    margin-bottom: 0;
+  }
+
+}
