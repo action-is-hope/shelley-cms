@@ -18,16 +18,21 @@ import {
 import Menu from "../icons/Menu";
 
 import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
+
+type UserDetailsType =
+  | {
+      name?: string | null | undefined;
+      email?: string | null | undefined;
+      image?: string | null | undefined;
+    }
+  | undefined;
+
 export interface HeaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
     ComponentBase {
   altThemeEnabled?: boolean;
   toggleTheme?: () => void;
-  user?: {
-    name: string;
-    email: string;
-    image?: string;
-  };
+  user?: UserDetailsType;
   onSignIn: () => void;
   onSignOut: () => void;
   onSiteSelection: (key: string) => void;
