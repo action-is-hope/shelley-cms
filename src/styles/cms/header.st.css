@@ -8,7 +8,10 @@
   --color-accent-4,
   --color-background-2,
   --color-header-background,
+  --color-header,
   --color-header-border,
+  --height-header-sm,
+  --height-header-md,
   --border-color-popup,
   --text-vol-1-scale,
   --text-vol-2-scale,
@@ -26,11 +29,12 @@
 
 @st-scope CMS {
   Header {
+    --height-header: var(--height-header-sm);
     background-color: var(--color-header-background);
-    color: var(--color-ui-inverse);
+    color: var(--color-header);
     border-color: var(--color-header-border);
     border-width: 0 0 1px;
-    height: 56px;
+    height: var(--height-header);
     position: relative;
     z-index: 1;
     justify-content: space-between;
@@ -50,7 +54,7 @@
 @media value(breakpoint-md) {
   @st-scope CMS {
     Header {
-      height: 65px;
+      --height-header: var(--height-header-md)
     }
   }
 }
@@ -81,9 +85,10 @@
   }
 
   Header > nav > a {
-    display: inline-block;
-    min-height: 65px;
-    padding: 24px 24px;
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--height-header);
+    padding: 0 calc(var(--spacing-unit) * 1.5);
     /* @todo variable */
     border-left: 1px solid #73e6fa26;
     text-transform: uppercase;

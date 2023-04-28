@@ -8,6 +8,8 @@
 @st-import Field from "@actionishope/shelley/components/Field/field.st.css";
 
 @st-scope body CMS {
+
+  Field:variant(outlined)::fieldContainer,
   Field:variant(outlined)::fieldset {
     border-radius: 0;
   }

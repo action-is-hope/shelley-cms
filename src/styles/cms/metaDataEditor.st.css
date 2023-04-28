@@ -5,7 +5,9 @@
   --color-background-4,
   --height-header-sm,
   --height-header-md,
-  --spacing-unit
+  --spacing-unit,
+  --box-shadow-metaData,
+  --color-form-base-border
 ] from "./project.st.css";
 /* = Root Component */
 @st-import MetaDataEditor from "../../components/MetaDataEditor/metaDataEditor.st.css";
@@ -33,16 +35,13 @@
   MetaDataEditor {
     background: var(--color-background-2);
     margin-top: 0;
-    /* margin-bottom: 20px; */
     position: sticky;
     top: 0;
     z-index: 20;
     /* = Enables smooth transition for externally induced focusOn dialog behavior. */
     transition: filter 80ms ease-in-out, opacity 80ms ease-in-out;
     padding-left: calc(var(--spacing-unit) * 2);
-    /* box-shadow: 0px 5px 16px 4px #f1f1; */
-    /* box-shadow: 0px 2px 9px 2px #f3f3f3; */
-    box-shadow: 0px 0px 8px 2px #f3f3f3;
+    box-shadow: var(--box-shadow-metaData);
   }
 
   MetaDataEditor::inner {
@@ -111,10 +110,27 @@
   MetaDataEditor::languageField::trigger {
     padding: 4px 9px;
     background: none;
+    border-radius: 0;
   }
 
-  MetaDataEditor::languageField::fieldset {
+  MetaDataEditor::languageField:focus-within::trigger::after {
+    opacity: 1;
+  }
+
+  MetaDataEditor::languageField::trigger::divider,
+  MetaDataEditor::languageField::trigger > svg {
+    display: none;
+  }
+
+
+  MetaDataEditor::languageField:focus-within::fieldset,
+  MetaDataEditor::languageField:focus-within::fieldContainer {
     border-radius: 0;
+    box-shadow: none;
+  }
+
+  MetaDataEditor::languageField:focus-within::fieldset {
+    border-left-color: var(--color-form-base-border);
   }
 
   /* Childen container - also contains description as first item */

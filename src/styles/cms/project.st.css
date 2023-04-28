@@ -118,9 +118,8 @@
   --color-focus-mode-background: #000;
 
   /* = Header colors */
-  /* --color-header-background: #21525f; */
-  /* --color-header-background: var(--color-accent-1); */
-  --color-header-background: rgb(117 234 255 / 90%);
+  --color-header-background: #035C67;
+  --color-header: rgba(var(--light-01-raw), 0.9);
   --color-header-border: #73e6fa63;
 
   /* = Text colors */
@@ -150,6 +149,9 @@
   /* = Header */
   --height-header-sm: 56px;
   --height-header-md: 65px;
+
+  /* = MetaDataEditor */
+  --box-shadow-metaData: 0 0 8px 2px #070707;
 
   /* = Meta Data Social Preview */
   --google-background: var(--color-background-1);

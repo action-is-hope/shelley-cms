@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useEffect } from "react";
+import React, { forwardRef } from "react";
 import { st, classes } from "./header.st.css";
 import {
   Toolbar,
@@ -33,8 +33,9 @@ export interface HeaderProps
   onSiteSelection: (key: string) => void;
   avatarUrL?: string;
   sites: Iterable<{ key: string; name: string }>;
-  selectedSite: string;
+  selectedSite?: string;
   themeSwitcherProps?: SwitchProps;
+  isSignedIn?: boolean;
 }
 
 function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
@@ -70,16 +71,20 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
           tone={10}
           vol={5}
           icon={<Menu />}
+          aria-label="Change site"
           iconPos="start"
-          data-id={dataId ? `${dataId}--menuButton` : undefined}
+          isDisabled={!user}
+          data-id={dataId ? `${dataId}--sitesMenuTrigger` : undefined}
         >
-          <span className={classes.publisherName}>Publisher -</span>{" "}
-          <span
-            className={classes.siteName}
-            data-id={dataId ? `${dataId}--currentSiteName` : undefined}
-          >
-            {selectedSite}
-          </span>
+          <span className={classes.publisherName}>Publisher </span>
+          {selectedSite && (
+            <span
+              className={classes.siteName}
+              data-id={dataId ? `${dataId}--currentSiteName` : undefined}
+            >
+              {selectedSite}
+            </span>
+          )}
         </Button>
         {(close) => (
           <Dialog
@@ -95,7 +100,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
               <ListBox
                 shouldFocusWrap
                 selectionMode="single"
-                selectedKeys={[selectedSite]}
+                selectedKeys={selectedSite && [selectedSite]}
                 data-id={dataId ? `${dataId}--sitesListBox` : undefined}
                 onSelectionChange={(key) => {
                   const selectedKey = Array.from(key as Set<string>)[0];
@@ -118,7 +123,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
       {user ? (
         <DialogTrigger type="popup" portalSelector="#portal">
           <IconButton
-            data-id={dataId ? `${dataId}--userMenuButton` : undefined}
+            data-id={dataId ? `${dataId}--userMenuTrigger` : undefined}
           >
             <span className={classes.avatar}>
               <img
@@ -146,10 +151,19 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
                 />
               </span>
               <div>
-                <P vol={1} weight={5}>
+                <P
+                  vol={1}
+                  weight={5}
+                  data-id={dataId ? `${dataId}--userName` : undefined}
+                >
                   {user.name}
                 </P>
-                <P vol={1}>{user.email}</P>
+                <P
+                  vol={1}
+                  data-id={dataId ? `${dataId}--userEmail` : undefined}
+                >
+                  {user.email}
+                </P>
               </div>
             </div>
             <H2 className={classes.userDetailsHeader} vol={2} weight={5}>
