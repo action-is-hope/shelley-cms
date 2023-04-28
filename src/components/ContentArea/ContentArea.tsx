@@ -29,12 +29,8 @@ function ContentArea(props: ContentAreaProps, ref?: React.Ref<HTMLDivElement>) {
       ref={ref}
       {...rest}
       {...focusOnProps}
-      data-id={dataId}
     >
-      <div
-        className={classes.scroller}
-        data-id={dataId ? `${dataId}--scroller` : undefined}
-      >
+      <div className={classes.scroller} data-id={dataId}>
         {children}
       </div>
     </FocusOn>

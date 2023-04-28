@@ -24,8 +24,8 @@ export interface HeaderProps
   altThemeEnabled?: boolean;
   toggleTheme?: () => void;
   user?: {
-    name?: string;
-    email?: string;
+    name: string;
+    email: string;
     image?: string;
   };
   onSignIn: () => void;
