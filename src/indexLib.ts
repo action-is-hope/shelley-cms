@@ -3,7 +3,7 @@
   It's what will get exposed to other packages when added as a dependency.
 */
 
-export * from "./typings/shared-types";
+// export * from "./typings/shared-types";
 
 /** Components exports in alphabetical order */
 export * from "./components/BlockEditor/BlockEditor";
