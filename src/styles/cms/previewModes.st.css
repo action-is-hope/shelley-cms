@@ -1,5 +1,5 @@
 /* = Project scope and vars. */
-@st-import CMS, [--color-background-1] from "./project.st.css";
+@st-import CMS, [--color-background-main] from "./project.st.css";
 /* = Root Component */
 @st-import PreviewModes from "../../components/PreviewModes/previewModes.st.css";
 
@@ -9,12 +9,12 @@
     width: 100%;
     /* text-align: center; */
     /* border-bottom: 1px dashed var(--color-border-2); */
-    background: var(--color-background-1);
+    background: var(--color-background-main);
     z-index: 1;
     padding-top: 18px;
     transition: border 80ms ease-in-out, margin 80ms ease-in-out;
     /* Hide borders to the left of itself. */
-    box-shadow: -1px 0px 0px 0 var(--color-background-1);
+    box-shadow: -1px 0px 0px 0 var(--color-background-main);
     margin-top: -1px;
   }
 

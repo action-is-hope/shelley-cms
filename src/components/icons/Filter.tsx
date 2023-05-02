@@ -2,13 +2,12 @@ import type React from "react";
 import type { Ref } from "react";
 import { Icon, IconProps } from "@actionishope/shelley";
 
-const Add: React.VFC<IconProps> = (props) => {
+const Filter: React.VFC<IconProps> = (props) => {
   const { ref, ...rest } = props;
   return (
     <Icon {...rest} viewBox="0 0 24 24" ref={ref as Ref<SVGSVGElement>}>
-      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M4.25 5.61C6.27 8.2 10 13 10 13v6c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-6s3.72-4.8 5.74-7.39c.51-.66.04-1.61-.79-1.61H5.04c-.83 0-1.3.95-.79 1.61z"></path>
     </Icon>
   );
 };
-export default Add;
+export default Filter;

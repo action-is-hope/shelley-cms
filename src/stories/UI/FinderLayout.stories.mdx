@@ -1,0 +1,66 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import { FinderLayout } from "../../components/FinderLayout/FinderLayout";
+import { BasicExample } from "./FinderLayout.examples";
+
+<Meta
+  title="Finder/FinderLayout"
+  argTypes={{
+    reviewRequired: {
+      control: { type: "boolean" },
+    },
+  }}
+  component={FinderLayout}
+  decorators={[(Story) => <Story />]}
+/>
+
+# Finder Layout
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { FinderLayout } from "@actionishope/shelley-cms";
+  `}
+/>
+
+Back to FinderLayout, there really isn't much to look at as I shall now demonstrate:
+
+<Story
+  name="a) FinderLayout"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+TBC`,
+      },
+    },
+  }}
+>
+  <BasicExample />
+</Story>
+
+Check EditorLayout page for proper example in context.
+
+<Source language="tsx" id="editor-contentarea--a-content-area" />
+
+## Content
+
+## FinderLayout Props
+
+<ArgsTable of={FinderLayout} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

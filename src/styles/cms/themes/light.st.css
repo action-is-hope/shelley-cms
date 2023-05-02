@@ -39,11 +39,13 @@
     --color-accent-3,
     --color-accent-4,
     /* = Background colors */
-    --color-background-1,
+    --color-background-main,
+    --color-background-contrast-1,
     --color-background-2,
     --color-background-3,
     --color-background-4,
     --color-background-listBox-option-hover,
+    --color-background-field-fill,
     /* = Border colors */
     --color-border-1,
     --color-border-2,
@@ -106,13 +108,14 @@
   --color-accent-3: rgb(37 43 45 / 80%);
 
   /* = Background colors */
-  --color-background-1: #e8e8e8;
+  --color-background-main: #e8e8e8;
+  --color-background-contrast-1: #fff;
   --color-background-2: #e2e2e2;
   --color-background-3: #f3f3f3;
   --color-background-4: rgb(255, 255, 255, 0.25);
   --color-background-modal: rgba(249, 249, 249, 0.98);
   --color-background-listBox-option-hover: rgba(255, 255, 255, 0.8);
-
+  --color-background-field-fill: #fff;
   --border-color-popup: rgba(var(--color-ui-raw), 0.2);
   --background-color-popup: var(--color-background-modal);
   --color-popup: var(--color-ui);
@@ -127,7 +130,7 @@
 
   /* Dialog colors */
   --color-dialog: var(--color-ui);
-  --background-color-dialog: var(--color-background-1);
+  --background-color-dialog: var(--color-background-main);
 
   /* = Focus mode colors*/
   --color-focus-mode-background: #d2d2d2;

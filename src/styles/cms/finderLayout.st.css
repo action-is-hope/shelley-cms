@@ -1,0 +1,87 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --color-ui,
+  --color-ui-inverse,
+  --color-accent-1,
+  --spacing-unit,
+  --height-header-sm,
+  --height-header-md,
+  --color-background-contrast-1,
+  breakpoint-md
+] from "./project.st.css";
+@property st-global(--vh);
+
+/* = Root Component */
+@st-import FinderLayout from "../../components/FinderLayout/finderLayout.st.css";
+
+@st-scope CMS {
+  FinderLayout {
+    --height-header: var(--height-header-sm);
+    height: calc(var(--vh, 1vh) * 100 - var(--height-header));
+    display: grid;
+    grid-template-rows: var(--height-header) 1fr;
+    grid-template-columns: 300px 1fr;
+  }
+
+  FinderLayout:isMobile {
+    /* Wipeout the grid for isMobile */
+    grid-template-columns: 1fr;
+  }
+
+  FinderLayout::actionBar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-column: 1 / span 2;
+    padding-left: calc(var(--spacing-unit) * 2);
+    padding-right: calc(var(--spacing-unit) * 1);
+    background-color: var(--color-background-contrast-1);
+  }
+
+  FinderLayout::actionButton {
+    justify-self: end;
+  }
+
+  FinderLayout::title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) / 2);
+  }
+
+  FinderLayout::title svg {
+    font-size: 1.2em;
+    color: var(--color-accent-1)
+  }
+
+  FinderLayout::sideBar {
+    background-color: var(--color-background-contrast-1)
+  }
+
+  FinderLayout::main {
+    padding: var(--spacing-unit)
+  }
+
+  FinderLayout::searchBar {
+    display: flex;
+  }
+
+  FinderLayout::searchField {
+    flex-grow: 1;
+  }
+
+  FinderLayout::searchField::fieldset {
+    border-radius: 999px;
+  }
+
+  FinderLayout::searchField::startAdornment {
+    font-size: 1.2em;
+  }
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    FinderLayout {
+      --height-header: var(--height-header-md)
+    }
+  }
+}

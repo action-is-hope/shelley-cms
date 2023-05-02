@@ -1,7 +1,7 @@
 /* = Project scope and vars. */
 @st-import CMS, [
   --spacing-unit,
-  --color-background-1,
+  --color-background-main,
   --color-border-2
 ] from "./project.st.css";
 

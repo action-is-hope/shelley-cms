@@ -13,7 +13,7 @@
   -st-named:
     /* = Build time colours - whatever we need for this file. */
     --color-ui,
-    --color-background-1,
+    --color-background-main,
     --color-accent-1,
 }
 

@@ -4,7 +4,13 @@
 
 .root {}
 
-.nav {}
+.navTrigger {}
+
+.nav {
+  -st-states: isOpen;
+}
+
+
 
 .title {}
 
@@ -12,7 +18,7 @@
 
 .siteName {}
 
-.siteSelectButton {}
+.siteListTrigger {}
 
 .sitesDialog {
   -st-extends: Dialog;
@@ -25,6 +31,8 @@
 .themeSwitcher {
   -st-extends: Switch;
 }
+
+.userActions {}
 
 .userDialog {}
 

@@ -2,7 +2,7 @@
 @st-import CMS, [
   --spacing-unit,
   --color-text-2,
-  --color-background-1,
+  --color-background-main,
   --color-background-2,
   --color-background-3,
   --grad-1,
@@ -52,7 +52,7 @@
     grid-area: stack;
     padding: 0.8rem 0 1.3rem;
     border-bottom: 12px solid var(--color-background-3);
-    background-color: var(--color-background-1);
+    background-color: var(--color-background-main);
   }
 
   BlockEditor:last-of-type::mainContent {
