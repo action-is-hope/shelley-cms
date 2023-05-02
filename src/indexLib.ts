@@ -9,6 +9,7 @@
 export * from "./components/BlockEditor/BlockEditor";
 export * from "./components/ContentArea/ContentArea";
 export * from "./components/EditorLayout/EditorLayout";
+export * from "./components/FinderLayout/FinderLayout";
 export * from "./components/Header/Header";
 export * from "./components/MetaDataEditor/MetaDataEditor";
 export * from "./components/PageActions/PageActions";
