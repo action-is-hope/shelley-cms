@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import { st, classes } from "./header.st.css";
 import {
   Toolbar,
@@ -16,18 +16,24 @@ import {
   SwitchProps,
 } from "@actionishope/shelley";
 import Menu from "../icons/Menu";
+import List from "../icons/List";
 
 import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
+
+type UserDetailsType =
+  | {
+      name?: string | null | undefined;
+      email?: string | null | undefined;
+      image?: string | null | undefined;
+    }
+  | undefined;
+
 export interface HeaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
     ComponentBase {
   altThemeEnabled?: boolean;
   toggleTheme?: () => void;
-  user?: {
-    name: string;
-    email: string;
-    image?: string;
-  };
+  user?: UserDetailsType;
   onSignIn: () => void;
   onSignOut: () => void;
   onSiteSelection: (key: string) => void;
@@ -56,6 +62,14 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
     ...rest
   } = props;
 
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const userAvatar = user
+    ? user.image
+      ? user.image
+      : user.name && `https://ui-avatars.com/api/?name=${user.name}`
+    : `https://ui-avatars.com/api/?name=unknown`;
+
   return (
     <Toolbar
       as="header"
@@ -66,11 +80,11 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
     >
       <DialogTrigger isDismissable portalSelector="#portal">
         <Button
-          className={classes.siteSelectButton}
+          className={classes.siteListTrigger}
           variant="secondary"
           tone={10}
           vol={5}
-          icon={<Menu />}
+          icon={<List />}
           aria-label="Change site"
           iconPos="start"
           isDisabled={!user}
@@ -119,83 +133,93 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
         )}
       </DialogTrigger>
 
-      {children}
-      {user ? (
-        <DialogTrigger type="popup" portalSelector="#portal">
-          <IconButton
-            data-id={dataId ? `${dataId}--userMenuTrigger` : undefined}
-          >
-            <span className={classes.avatar}>
-              <img
-                alt="User menu"
-                className={classes.avatarImage}
-                src={
-                  user.image || `https://ui-avatars.com/api/?name=${user.name}`
-                }
-              />
-            </span>
-          </IconButton>
-          <div className={classes.userDialog}>
-            <div
-              className={classes.userDetails}
-              data-id={dataId ? `${dataId}--userDetails` : undefined}
+      <nav className={st(classes.nav, { isOpen: menuOpen })}>{children}</nav>
+      <div className={classes.userActions}>
+        <Button
+          className={classes.navTrigger}
+          variant="secondary"
+          tone={10}
+          vol={5}
+          icon={<Menu />}
+          aria-label="Menu"
+          iconPos="start"
+          isDisabled={!user}
+          onPress={() => setMenuOpen(!menuOpen)}
+          data-id={dataId ? `${dataId}--mainNav` : undefined}
+        />
+
+        {user ? (
+          <DialogTrigger type="popup" portalSelector="#portal">
+            <IconButton
+              data-id={dataId ? `${dataId}--userMenuTrigger` : undefined}
             >
               <span className={classes.avatar}>
                 <img
                   alt="User menu"
                   className={classes.avatarImage}
-                  src={
-                    user.image ||
-                    `https://ui-avatars.com/api/?name=${user.name}`
-                  }
+                  src={userAvatar as string}
                 />
               </span>
-              <div>
-                <P
-                  vol={1}
-                  weight={5}
-                  data-id={dataId ? `${dataId}--userName` : undefined}
-                >
-                  {user.name}
-                </P>
-                <P
-                  vol={1}
-                  data-id={dataId ? `${dataId}--userEmail` : undefined}
-                >
-                  {user.email}
-                </P>
-              </div>
-            </div>
-            <H2 className={classes.userDetailsHeader} vol={2} weight={5}>
-              Preferences
-            </H2>
-            {themeSwitcherProps && (
-              <Switch
-                {...themeSwitcherProps}
-                className={classes.themeSwitcher}
-                vol={1}
-                data-id={dataId ? `${dataId}--themeSwitcher` : undefined}
+            </IconButton>
+            <div className={classes.userDialog}>
+              <div
+                className={classes.userDetails}
+                data-id={dataId ? `${dataId}--userDetails` : undefined}
               >
-                Dark mode
-              </Switch>
-            )}
-            <ActionButton
-              onPress={onSignOut}
-              data-id={dataId ? `${dataId}--signOutButton` : undefined}
-            >
-              Sign out
-            </ActionButton>
-          </div>
-        </DialogTrigger>
-      ) : (
-        <ActionButton
-          onPress={onSignIn}
-          isQuiet
-          data-id={dataId ? `${dataId}--signInButton` : undefined}
-        >
-          Sign in
-        </ActionButton>
-      )}
+                <span className={classes.avatar}>
+                  <img
+                    alt="User menu"
+                    className={classes.avatarImage}
+                    src={userAvatar as string}
+                  />
+                </span>
+                <div>
+                  <P
+                    vol={1}
+                    weight={5}
+                    data-id={dataId ? `${dataId}--userName` : undefined}
+                  >
+                    {user.name}
+                  </P>
+                  <P
+                    vol={1}
+                    data-id={dataId ? `${dataId}--userEmail` : undefined}
+                  >
+                    {user.email}
+                  </P>
+                </div>
+              </div>
+              <H2 className={classes.userDetailsHeader} vol={2} weight={5}>
+                Preferences
+              </H2>
+              {themeSwitcherProps && (
+                <Switch
+                  {...themeSwitcherProps}
+                  className={classes.themeSwitcher}
+                  vol={1}
+                  data-id={dataId ? `${dataId}--themeSwitcher` : undefined}
+                >
+                  Dark mode
+                </Switch>
+              )}
+              <ActionButton
+                onPress={onSignOut}
+                data-id={dataId ? `${dataId}--signOutButton` : undefined}
+              >
+                Sign out
+              </ActionButton>
+            </div>
+          </DialogTrigger>
+        ) : (
+          <ActionButton
+            onPress={onSignIn}
+            isQuiet
+            data-id={dataId ? `${dataId}--signInButton` : undefined}
+          >
+            Sign in
+          </ActionButton>
+        )}
+      </div>
     </Toolbar>
   );
 }

@@ -17,7 +17,7 @@
   -st-default: CMS;
   -st-named:
     /* = CSS3 Switcher vars. */
-    --color-background-1,
+    --color-background-main,
     --color-menu-selected-background,
     --color-menu-selected-text;
 }
@@ -32,7 +32,7 @@
 @st-scope CMS {
 
   MenuPopup {
-    background: var(--color-background-1);
+    background: var(--color-background-main);
   }
 
   MenuItem:isFocused {

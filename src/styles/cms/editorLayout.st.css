@@ -8,7 +8,7 @@
   --height-header-md,
   --color-ui-inverse,
   --color-border-1,
-  --color-background-1,
+  --color-background-main,
   --color-background-2,
   --color-background-3,
   --color-border-dialog
@@ -127,7 +127,7 @@
   EditorLayout::contentArea {
     grid-area: content;
     transition: transform 160ms ease-in-out;
-    background-color: var(--color-background-1);
+    background-color: var(--color-background-main);
     z-index: 50;
     position: relative;
     /**

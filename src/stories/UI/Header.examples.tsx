@@ -29,32 +29,30 @@ export const BasicHeader = () => {
       onSiteSelection={(key) => setSelectedSite(key)}
       themeSwitcherProps={{ onChange: () => console.log("theme switched") }}
     >
-      <nav>
-        <a
-          href="/finder"
-          style={{
-            textDecoration: "none",
-          }}
-        >
-          Content
-        </a>
-        {/* <a
-          href="/finder"
-          style={{
-            textDecoration: "none",
-          }}
-        >
-          Media
-        </a>
-        <a
-          href="/admin"
-          style={{
-            textDecoration: "none",
-          }}
-        >
-          Settings
-        </a> */}
-      </nav>
+      <a
+        href="/finder"
+        style={{
+          textDecoration: "none",
+        }}
+      >
+        Content
+      </a>
+      <a
+        href="/finder"
+        style={{
+          textDecoration: "none",
+        }}
+      >
+        Media
+      </a>
+      <a
+        href="/admin"
+        style={{
+          textDecoration: "none",
+        }}
+      >
+        Settings
+      </a>
     </Header>
   );
 };

@@ -25,6 +25,7 @@
 @st-import Text from "@actionishope/shelley/components/Text/text.st.css";
 @st-import Icon from "@actionishope/shelley/components/Icon/icon.st.css";
 @st-import [title as dialogTitle, content as dialogContent] from "@actionishope/shelley/components/Dialog/dialog.st.css";
+@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
 
 
 @st-scope CMS {
@@ -36,7 +37,7 @@
     border-width: 0 0 1px;
     height: var(--height-header);
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     justify-content: space-between;
     padding-left: calc(var(--spacing-unit) * 1);
     padding-right: calc(var(--spacing-unit) * .5);
@@ -46,7 +47,39 @@
 @media value(breakpoint-md-max) {
   @st-scope CMS {
     Header::publisherName {
-      display: none
+      /* display: none */
+    }
+
+    Header {}
+
+    Header::nav {
+      position: absolute;
+      /* overflow: hidden; */
+      left: 0;
+      right: 0;
+      top: var(--height-header);
+      margin: 0;
+      background-color: #fff;
+      transform: translateX(100vw);
+      transition: transform 0.2s ease-in-out;
+      z-index: 1000;
+      border-bottom: 4px solid var(--color-header-background);
+
+    }
+
+    Header::nav:isOpen {
+      transform: translateX(0);
+
+    }
+
+    Header::nav > a {
+      width: 100%;
+      color: #000
+    }
+
+    Header Button .avatar {
+      width: 30px;
+      height: 30px;
     }
   }
 }
@@ -56,12 +89,30 @@
     Header {
       --height-header: var(--height-header-md)
     }
+
+    Header::navTrigger {
+      display: none;
+    }
+
+    Header::nav {
+      font-size: .9em;
+      text-align: end;
+    }
+
+    Header::nav > a {
+      border-left: 1px solid #73e6fa26;
+    }
+
+    Header::nav > a:first-child {
+      border: none;
+    }
   }
 }
 
 @st-scope CMS {
 
-  Header::siteSelectButton {
+  Header::siteListTrigger,
+  Header::navTrigger {
     letter-spacing: 4px;
     font-size: var(--text-vol-2-scale);
     font-weight: 400;
@@ -69,14 +120,20 @@
     padding-left: calc(var(--spacing-unit) * .9);
   }
 
-  Header::siteSelectButton Icon {
+  Header::siteListTrigger Icon,
+  Header::navTrigger Icon {
     font-size: calc(1em + 8px);
     opacity: 1;
     transition: opacity 0.3s ease, color 0.3s ease;
   }
 
-  Header::siteSelectButton:hover Icon {
+  Header::siteListTrigger:hover Icon,
+  Header::navTrigger:hover Icon {
     opacity: .7;
+  }
+
+  Header::userActions {
+    display: flex;
   }
 
   Header > nav {
@@ -88,9 +145,7 @@
     display: inline-flex;
     align-items: center;
     min-height: var(--height-header);
-    padding: 0 calc(var(--spacing-unit) * 1.5);
-    /* @todo variable */
-    border-left: 1px solid #73e6fa26;
+    padding: 0 calc(var(--spacing-unit) * 2);
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: var(--text-vol-1-scale);

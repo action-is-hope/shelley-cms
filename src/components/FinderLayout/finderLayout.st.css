@@ -1,0 +1,30 @@
+/* finderLayout.st.css */
+@namespace "FinderLayout";
+
+@st-import TextField from "@actionishope/shelley/components/TextField/textField.st.css";
+
+.root {
+  -st-states: isMobile;
+}
+
+.actionBar {}
+
+.title {}
+
+.actionButton {}
+
+.main {}
+
+.sideBar {}
+
+.sideBarMobile {}
+
+.sideBarDesktop {}
+
+.content {}
+
+.searchBar {}
+
+.searchField {
+  -st-extends: TextField;
+}

@@ -1,0 +1,68 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --color-ui,
+  --color-ui-inverse
+] from "./project.st.css";
+
+@st-import Modal, [
+  enter,
+  enterActive,
+  enterDone,
+  exit,
+  exitActive,
+  exitDone,
+  content,
+  backdrop] from "@actionishope/shelley/components/Modal/modal.st.css";
+@property st-global(--vh);
+
+@st-scope CMS {
+
+  /* = startToEnd = */
+
+  Modal:transition(startToEnd) {
+    justify-content: start;
+  }
+
+  Modal:transition(startToEnd)::content {
+    height: calc(var(--vh, 1vh) * 100);
+    width: 256px;
+    background-color: #fff;
+    color: #000
+  }
+
+  /* Backdrop: Any backdrop styles, for stages use as below. */
+  Modal:transition(startToEnd) .backdrop {}
+
+  /* Content */
+  Modal:transition(startToEnd).enter .content {
+    /* Initial start state styles */
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  Modal:transition(startToEnd).enterActive .content {
+    /* Transitioning to done state styles  */
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 190ms, opacity 190ms;
+  }
+
+  Modal:transition(startToEnd).enterDone .content {
+    /* Done */
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  Modal:transition(startToEnd).exit .content {
+    /* Reverse direction - exit transiton start style */
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  Modal:transition(startToEnd).exitActive .content {
+    /* Finishing state before removed from DOM. */
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 190ms, opacity 190ms;
+  }
+}
