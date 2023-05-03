@@ -7,6 +7,7 @@ export const BasicExample = () => {
   return (
     <>
       <BasicHeader />
+
       <FinderLayout
         title={
           <>

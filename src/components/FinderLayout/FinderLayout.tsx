@@ -1,4 +1,11 @@
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, {
+  forwardRef,
+  useEffect,
+  useRef,
+  useState,
+  ReactNode,
+  ReactElement,
+} from "react";
 import { st, classes } from "./finderLayout.st.css";
 import { mergeRefs } from "@react-aria/utils";
 import {
@@ -14,12 +21,15 @@ import Add from "../icons/Add";
 import Search from "../icons/Search";
 import Filter from "../icons/Filter";
 
+export type OverloadedChildren = (isMobile: boolean) => ReactElement;
+
 export interface FinderLayoutProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "title">,
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "title" | "children">,
     ComponentBase {
-  sideBarContent?: React.ReactNode;
+  sideBarContent?: OverloadedChildren | ReactElement;
+  children: OverloadedChildren | ReactElement;
   filterTriggerString?: string;
-  title: React.ReactNode;
+  title: ReactNode;
   onAddAction: () => void;
   addButtonText: string;
   searchFieldProps: {
@@ -27,7 +37,7 @@ export interface FinderLayoutProps
     placeholder?: string;
     label?: string;
   };
-  searchBarChildren?: React.ReactNode;
+  searchBarChildren?: ReactNode;
 }
 function FinderLayout(
   props: FinderLayoutProps,
@@ -74,7 +84,7 @@ function FinderLayout(
           className={classes.actionButton}
           icon={<Add />}
           vol={4}
-          onPress={() => onAddAction}
+          onPress={() => onAddAction()}
           data-id={dataId ? `${dataId}--addButton` : undefined}
         >
           {addButtonText}
@@ -114,6 +124,7 @@ function FinderLayout(
               portalSelector="#portal"
               isDismissable
               disableModalBackdropBlur
+              modalClassName={classes.sideBarModal}
               data-id={dataId ? `${dataId}--mobileFilterModal` : undefined}
             >
               <IconButton

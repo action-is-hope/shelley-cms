@@ -17,7 +17,7 @@ import {
 } from "@actionishope/shelley";
 import Menu from "../icons/Menu";
 import List from "../icons/List";
-
+import ClickAwayListener from "react-click-away-listener";
 import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
 
 type UserDetailsType =
@@ -132,8 +132,9 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
           </Dialog>
         )}
       </DialogTrigger>
-
-      <nav className={st(classes.nav, { isOpen: menuOpen })}>{children}</nav>
+      <ClickAwayListener onClickAway={() => setMenuOpen(false)}>
+        <nav className={st(classes.nav, { isOpen: menuOpen })}>{children}</nav>
+      </ClickAwayListener>
       <div className={classes.userActions}>
         <Button
           className={classes.navTrigger}

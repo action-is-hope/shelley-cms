@@ -12,9 +12,12 @@
 @property st-global(--vh);
 
 /* = Root Component */
-@st-import FinderLayout from "../../components/FinderLayout/finderLayout.st.css";
+@st-import FinderLayout, [sideBarModal] from "../../components/FinderLayout/finderLayout.st.css";
 
 @st-scope CMS {
+
+
+
   FinderLayout {
     --height-header: var(--height-header-sm);
     height: calc(var(--vh, 1vh) * 100 - var(--height-header));
@@ -69,12 +72,22 @@
     flex-grow: 1;
   }
 
-  FinderLayout::searchField::fieldset {
+  FinderLayout::searchField::fieldset,
+  FinderLayout::searchField::fieldContainer {
     border-radius: 999px;
   }
 
   FinderLayout::searchField::startAdornment {
     font-size: 1.2em;
+  }
+
+  /* Modal is in a portal so targeting directly. */
+  .sideBarModal:transition(startToEnd) {
+    align-items: end;
+  }
+
+  .sideBarModal:transition(startToEnd)::content {
+    height: calc(var(--vh, 1vh) * 100 - var(--height-header-sm));
   }
 }
 
@@ -83,5 +96,6 @@
     FinderLayout {
       --height-header: var(--height-header-md)
     }
+
   }
 }
