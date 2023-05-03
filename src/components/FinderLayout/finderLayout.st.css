@@ -2,6 +2,7 @@
 @namespace "FinderLayout";
 
 @st-import TextField from "@actionishope/shelley/components/TextField/textField.st.css";
+@st-import Modal from "@actionishope/shelley/components/Modal/modal.st.css";
 
 .root {
   -st-states: isMobile;
@@ -20,6 +21,10 @@
 .sideBarMobile {}
 
 .sideBarDesktop {}
+
+.sideBarModal {
+  -st-extends: Modal;
+}
 
 .content {}
 
