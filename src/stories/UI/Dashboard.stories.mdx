@@ -1,0 +1,57 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import { Dashboard } from "../../components/Dashboard/Dashboard";
+import { BasicExample } from "./Dashboard.examples";
+
+<Meta
+  title="Dashboard/Dashboard"
+  component={Dashboard}
+  decorators={[(Story) => <Story />]}
+/>
+
+# Dashboard
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { Dashboard } from "@actionishope/shelley-cms";
+  `}
+/>
+
+Back to Dashboard, there really isn't much to look at as I shall now demonstrate:
+
+<Story
+  name="a) Dashboard"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+TBC`,
+      },
+    },
+  }}
+>
+  <BasicExample />
+</Story>
+
+<Source language="tsx" id="editor-contentarea--a-content-area" />
+
+## Dashboard Props
+
+<ArgsTable of={Dashboard} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

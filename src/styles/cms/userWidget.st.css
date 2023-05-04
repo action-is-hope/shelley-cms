@@ -1,0 +1,39 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --spacing-unit,
+  --color-background-contrast-1,
+  --color-text-3,
+  breakpoint-md
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import UserWidget from "../../components/UserWidget/userWidget.st.css";
+
+@st-scope CMS {
+
+  UserWidget::userDetails {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: var(--spacing-unit);
+    align-items: center;
+    padding-top: var(--spacing-unit);
+  }
+
+  UserWidget::welcomeText {
+    -webkit-font-smoothing: initial;
+  }
+
+  UserWidget::userName {
+    display: block;
+    font-size: .75em;
+    line-height: 1.2;
+    font-weight: 400;
+    -webkit-font-smoothing: antialising;
+  }
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    UserWidget::title {}
+  }
+}

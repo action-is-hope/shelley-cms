@@ -1,6 +1,7 @@
-import { Checkbox } from "@actionishope/shelley";
-import { FinderLayout } from "../../components/FinderLayout/FinderLayout";
+import { Button, Checkbox } from "@actionishope/shelley";
+import { Finder } from "../../components/Finder/Finder";
 import { BasicHeader } from "./Header.examples";
+import Add from "../../components/icons/Add";
 import { default as ContentIcon } from "../../components/icons/Content";
 
 export const BasicExample = () => {
@@ -8,15 +9,22 @@ export const BasicExample = () => {
     <>
       <BasicHeader />
 
-      <FinderLayout
+      <Finder
         title={
           <>
             <ContentIcon aria-hidden="true" />
             Content Finder
           </>
         }
-        addButtonText={"Add Content"}
-        onAddAction={() => console.log("Add Content")}
+        addButton={
+          <Button
+            vol={3}
+            icon={<Add aria-hidden="true" />}
+            onPress={() => console.log("Add action")}
+          >
+            Add Content
+          </Button>
+        }
         searchFieldProps={{
           onChange: (value) => console.log(value),
           placeholder: "Search for content",
@@ -31,7 +39,7 @@ export const BasicExample = () => {
         {(isMobile: boolean) => (
           <p>Main Content. {isMobile ? "mobileOn" : "mobileOff"}</p>
         )}
-      </FinderLayout>
+      </Finder>
     </>
   );
 };

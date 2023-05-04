@@ -6,32 +6,29 @@ import React, {
   ReactNode,
   ReactElement,
 } from "react";
-import { st, classes } from "./finderLayout.st.css";
+import { st, classes } from "./finder.st.css";
 import { mergeRefs } from "@react-aria/utils";
 import {
   H1,
-  Button,
   IconButton,
   ComponentBase,
   DialogTrigger,
   TextField,
 } from "@actionishope/shelley";
 import useSize from "@react-hook/size";
-import Add from "../icons/Add";
 import Search from "../icons/Search";
 import Filter from "../icons/Filter";
 
 export type OverloadedChildren = (isMobile: boolean) => ReactElement;
 
-export interface FinderLayoutProps
+export interface FinderProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "title" | "children">,
     ComponentBase {
   sideBarContent?: OverloadedChildren | ReactElement;
   children: OverloadedChildren | ReactElement;
   filterTriggerString?: string;
   title: ReactNode;
-  onAddAction: () => void;
-  addButtonText: string;
+  addButton: ReactNode;
   searchFieldProps: {
     onChange: (value: string) => void;
     placeholder?: string;
@@ -39,18 +36,14 @@ export interface FinderLayoutProps
   };
   searchBarChildren?: ReactNode;
 }
-function FinderLayout(
-  props: FinderLayoutProps,
-  ref?: React.Ref<HTMLDivElement>
-) {
+function Finder(props: FinderProps, ref?: React.Ref<HTMLDivElement>) {
   const {
     className: classNameProp,
+    addButton,
     children,
     sideBarContent,
     filterTriggerString = "Search filters",
     title,
-    addButtonText,
-    onAddAction,
     "data-id": dataId,
     searchFieldProps,
     searchBarChildren,
@@ -80,15 +73,7 @@ function FinderLayout(
         >
           {title}
         </H1>
-        <Button
-          className={classes.actionButton}
-          icon={<Add />}
-          vol={4}
-          onPress={() => onAddAction()}
-          data-id={dataId ? `${dataId}--addButton` : undefined}
-        >
-          {addButtonText}
-        </Button>
+        <div className={classes.actionButton}>{addButton}</div>
       </div>
 
       {!isMobile && (
@@ -154,7 +139,7 @@ function FinderLayout(
 }
 
 /**
- * FinderLayout
+ * Finder
  */
-const _FinderLayout = forwardRef(FinderLayout);
-export { _FinderLayout as FinderLayout };
+const _Finder = forwardRef(Finder);
+export { _Finder as Finder };

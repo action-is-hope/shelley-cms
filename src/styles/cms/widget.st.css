@@ -1,0 +1,36 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --spacing-unit,
+  --color-background-contrast-1,
+  --color-text-3,
+  breakpoint-md
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import Widget from "../../components/Widget/widget.st.css";
+
+@st-scope CMS {
+
+  Widget {
+    padding: 0 var(--spacing-unit) var(--spacing-unit);
+    background-color: var(--color-background-contrast-1);
+    overflow-y: auto;
+    box-shadow: 4px 7px 4px 1px #00000012;
+    position: relative;
+  }
+
+  Widget::title {
+    position: sticky;
+    top: 0;
+    font-weight: 300;
+    -webkit-font-smoothing: initial;
+    background-color: var(--color-background-contrast-1);
+    padding: var(--spacing-unit) 0 calc(var(--spacing-unit) / 2);
+  }
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    Widget::title {}
+  }
+}

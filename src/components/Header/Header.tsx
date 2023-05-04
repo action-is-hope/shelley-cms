@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react";
-import { st, classes } from "./header.st.css";
+import type { UserDetailsType } from "src/typings/shared-types";
 import {
   Toolbar,
   Button,
@@ -19,14 +19,7 @@ import Menu from "../icons/Menu";
 import List from "../icons/List";
 import ClickAwayListener from "react-click-away-listener";
 import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
-
-type UserDetailsType =
-  | {
-      name?: string | null | undefined;
-      email?: string | null | undefined;
-      image?: string | null | undefined;
-    }
-  | undefined;
+import { st, classes } from "./header.st.css";
 
 export interface HeaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
