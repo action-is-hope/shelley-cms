@@ -1,4 +1,4 @@
-import { P, ProgressCircle } from "@actionishope/shelley";
+import { P } from "@actionishope/shelley";
 import { Dashboard } from "../../components/Dashboard/Dashboard";
 import { Widget } from "../../components/Widget/Widget";
 import { BasicHeader } from "./Header.examples";

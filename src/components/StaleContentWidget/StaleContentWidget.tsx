@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import {
-  P,
   ProgressCircle,
   ProgressCircleProps,
   Text,

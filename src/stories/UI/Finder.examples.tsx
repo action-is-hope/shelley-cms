@@ -1,6 +1,7 @@
-import { Checkbox } from "@actionishope/shelley";
+import { Button, Checkbox } from "@actionishope/shelley";
 import { Finder } from "../../components/Finder/Finder";
 import { BasicHeader } from "./Header.examples";
+import Add from "../../components/icons/Add";
 import { default as ContentIcon } from "../../components/icons/Content";
 
 export const BasicExample = () => {
@@ -15,8 +16,15 @@ export const BasicExample = () => {
             Content Finder
           </>
         }
-        addButtonText={"Add Content"}
-        onAddAction={() => console.log("Add Content")}
+        addButton={
+          <Button
+            vol={3}
+            icon={<Add aria-hidden="true" />}
+            onPress={() => console.log("Add action")}
+          >
+            Add Content
+          </Button>
+        }
         searchFieldProps={{
           onChange: (value) => console.log(value),
           placeholder: "Search for content",

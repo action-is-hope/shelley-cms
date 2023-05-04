@@ -30,8 +30,7 @@ export interface FinderProps
   children: OverloadedChildren | ReactElement;
   filterTriggerString?: string;
   title: ReactNode;
-  onAddAction: () => void;
-  addButtonText: string;
+  addButton: ReactNode;
   searchFieldProps: {
     onChange: (value: string) => void;
     placeholder?: string;
@@ -42,12 +41,11 @@ export interface FinderProps
 function Finder(props: FinderProps, ref?: React.Ref<HTMLDivElement>) {
   const {
     className: classNameProp,
+    addButton,
     children,
     sideBarContent,
     filterTriggerString = "Search filters",
     title,
-    addButtonText,
-    onAddAction,
     "data-id": dataId,
     searchFieldProps,
     searchBarChildren,
@@ -77,15 +75,7 @@ function Finder(props: FinderProps, ref?: React.Ref<HTMLDivElement>) {
         >
           {title}
         </H1>
-        <Button
-          className={classes.actionButton}
-          icon={<Add />}
-          vol={4}
-          onPress={() => onAddAction()}
-          data-id={dataId ? `${dataId}--addButton` : undefined}
-        >
-          {addButtonText}
-        </Button>
+        <div className={classes.actionButton}>{addButton}</div>
       </div>
 
       {!isMobile && (
