@@ -12,13 +12,11 @@
 @property st-global(--vh);
 
 /* = Root Component */
-@st-import FinderLayout, [sideBarModal] from "../../components/FinderLayout/finderLayout.st.css";
+@st-import Finder, [sideBarModal] from "../../components/Finder/finder.st.css";
 
 @st-scope CMS {
 
-
-
-  FinderLayout {
+  Finder {
     --height-header: var(--height-header-sm);
     height: calc(var(--vh, 1vh) * 100 - var(--height-header));
     display: grid;
@@ -26,58 +24,58 @@
     grid-template-columns: 300px 1fr;
   }
 
-  FinderLayout:isMobile {
+  Finder:isMobile {
     /* Wipeout the grid for isMobile */
     grid-template-columns: 1fr;
   }
 
-  FinderLayout::actionBar {
+  Finder::actionBar {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     grid-column: 1 / span 2;
-    padding-left: calc(var(--spacing-unit) * 2);
-    padding-right: calc(var(--spacing-unit) * 1);
+    padding-left: var(--spacing-unit);
+    padding-right: var(--spacing-unit);
     background-color: var(--color-background-contrast-1);
   }
 
-  FinderLayout::actionButton {
+  Finder::actionButton {
     justify-self: end;
   }
 
-  FinderLayout::title {
+  Finder::title {
     display: flex;
     align-items: center;
     gap: calc(var(--spacing-unit) / 2);
   }
 
-  FinderLayout::title svg {
+  Finder::title svg {
     font-size: 1.2em;
     color: var(--color-accent-1)
   }
 
-  FinderLayout::sideBar {
+  Finder::sideBar {
     background-color: var(--color-background-contrast-1)
   }
 
-  FinderLayout::main {
+  Finder::main {
     padding: var(--spacing-unit)
   }
 
-  FinderLayout::searchBar {
+  Finder::searchBar {
     display: flex;
   }
 
-  FinderLayout::searchField {
+  Finder::searchField {
     flex-grow: 1;
   }
 
-  FinderLayout::searchField::fieldset,
-  FinderLayout::searchField::fieldContainer {
+  Finder::searchField::fieldset,
+  Finder::searchField::fieldContainer {
     border-radius: 999px;
   }
 
-  FinderLayout::searchField::startAdornment {
+  Finder::searchField::startAdornment {
     font-size: 1.2em;
   }
 
@@ -93,7 +91,7 @@
 
 @media value(breakpoint-md) {
   @st-scope CMS {
-    FinderLayout {
+    Finder {
       --height-header: var(--height-header-md)
     }
 

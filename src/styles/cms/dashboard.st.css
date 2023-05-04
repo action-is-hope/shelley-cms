@@ -1,0 +1,81 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --spacing-unit,
+  --color-header-background,
+  --color-background-main,
+  --height-header-sm,
+  --height-header-md,
+  breakpoint-md
+] from "./project.st.css";
+@property st-global(--vh);
+
+/* = Root Component */
+@st-import Dashboard from "../../components/Dashboard/dashboard.st.css";
+
+@st-scope CMS {
+
+  Dashboard {
+    --height-header: var(--height-header-sm);
+    height: calc(var(--vh, 1vh) * 100 - var(--height-header));
+    padding: 0 var(--spacing-unit) var(--spacing-unit);
+    overflow: auto;
+  }
+
+  Dashboard::title {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+    position: sticky;
+    top: 0;
+    background-color: var(--color-background-main);
+    display: flex;
+    gap: calc(var(--spacing-unit) / 2);
+    z-index: 10;
+  }
+
+  Dashboard::icon {
+    align-self: center;
+  }
+
+  Dashboard::title > span {
+    font-size: .3em;
+    background: #000000;
+    color: #fff;
+    top: -0.6em;
+    padding: 3px calc(var(--spacing-unit) / 2);
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    align-self: self-end;
+  }
+
+  Dashboard::grid {
+    display: grid;
+    grid-gap: var(--spacing-unit);
+    grid-template-areas:
+      "userDetails"
+        "myContent"
+        "mySites"
+        "staleContent"
+        "reportIssue";
+  }
+
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    Dashboard {
+      --height-header: var(--height-header-md);
+    }
+
+    Dashboard::grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        "userDetails staleContent mySites"
+        "myContent staleContent mySites"
+        "myContent staleContent reportIssue";
+    }
+
+  }
+}

@@ -8,9 +8,11 @@
 /** Components exports in alphabetical order */
 export * from "./components/BlockEditor/BlockEditor";
 export * from "./components/ContentArea/ContentArea";
+export * from "./components/Dashboard/Dashboard";
 export * from "./components/EditorLayout/EditorLayout";
-export * from "./components/FinderLayout/FinderLayout";
+export * from "./components/Finder/Finder";
 export * from "./components/Header/Header";
+export * from "./components/Widget/Widget";
 export * from "./components/MetaDataEditor/MetaDataEditor";
 export * from "./components/PageActions/PageActions";
 export * from "./components/Preview/Preview";
@@ -19,3 +21,5 @@ export * from "./components/PreviewChrome/PreviewChrome";
 export * from "./components/PreviewMetaData/PreviewMetaData";
 export * from "./components/PreviewModes/PreviewModes";
 export * from "./components/ReorderItems/ReorderItems";
+export * from "./components/StaleContentWidget/StaleContentWidget";
+export * from "./components/UserWidget/UserWidget";

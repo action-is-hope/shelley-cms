@@ -6,7 +6,7 @@ import React, {
   ReactNode,
   ReactElement,
 } from "react";
-import { st, classes } from "./finderLayout.st.css";
+import { st, classes } from "./finder.st.css";
 import { mergeRefs } from "@react-aria/utils";
 import {
   H1,
@@ -23,7 +23,7 @@ import Filter from "../icons/Filter";
 
 export type OverloadedChildren = (isMobile: boolean) => ReactElement;
 
-export interface FinderLayoutProps
+export interface FinderProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "title" | "children">,
     ComponentBase {
   sideBarContent?: OverloadedChildren | ReactElement;
@@ -39,10 +39,7 @@ export interface FinderLayoutProps
   };
   searchBarChildren?: ReactNode;
 }
-function FinderLayout(
-  props: FinderLayoutProps,
-  ref?: React.Ref<HTMLDivElement>
-) {
+function Finder(props: FinderProps, ref?: React.Ref<HTMLDivElement>) {
   const {
     className: classNameProp,
     children,
@@ -154,7 +151,7 @@ function FinderLayout(
 }
 
 /**
- * FinderLayout
+ * Finder
  */
-const _FinderLayout = forwardRef(FinderLayout);
-export { _FinderLayout as FinderLayout };
+const _Finder = forwardRef(Finder);
+export { _Finder as Finder };

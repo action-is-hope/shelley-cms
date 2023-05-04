@@ -1,17 +1,17 @@
 import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
 import dedent from "ts-dedent";
 import { StoryGrid } from "../StoryLayout";
-import { FinderLayout } from "../../components/FinderLayout/FinderLayout";
-import { BasicExample } from "./FinderLayout.examples";
+import { Finder } from "../../components/Finder/Finder";
+import { BasicExample } from "./Finder.examples";
 
 <Meta
-  title="Finder/FinderLayout"
+  title="Finder/Finder"
   argTypes={{
     reviewRequired: {
       control: { type: "boolean" },
     },
   }}
-  component={FinderLayout}
+  component={Finder}
   decorators={[(Story) => <Story />]}
 />
 
@@ -20,14 +20,14 @@ import { BasicExample } from "./FinderLayout.examples";
 <Source
   language="tsx"
   code={dedent`
-    import { FinderLayout } from "@actionishope/shelley-cms";
+    import { Finder } from "@actionishope/shelley-cms";
   `}
 />
 
-Back to FinderLayout, there really isn't much to look at as I shall now demonstrate:
+Back to Finder, there really isn't much to look at as I shall now demonstrate:
 
 <Story
-  name="a) FinderLayout"
+  name="a) Finder"
   parameters={{
     docs: {
       source: {
@@ -46,9 +46,9 @@ Check EditorLayout page for proper example in context.
 
 ## Content
 
-## FinderLayout Props
+## Finder Props
 
-<ArgsTable of={FinderLayout} />
+<ArgsTable of={Finder} />
 
 ## Stying
 

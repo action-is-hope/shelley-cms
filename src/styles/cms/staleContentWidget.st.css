@@ -1,0 +1,108 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --spacing-unit,
+  breakpoint-md
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import StaleContentWidget,
+  [
+    --loader-circle-width,
+    --loader-circle-height,
+    --loader-circle-track-color,
+    --loader-circle-border-size,
+    --loader-circle-track-fill-color
+  ] from "../../components/StaleContentWidget/staleContentWidget.st.css";
+
+
+@st-scope CMS {
+  StaleContentWidget {
+    display: flex;
+    flex-direction: column;
+    --color-background-stale: #e6125d;
+    --color-background-fresh: #065c67;
+  }
+
+  StaleContentWidget::stack {
+    align-self: center;
+    display: grid;
+    grid-template-areas:
+      "stack stack"
+      "fresh stale";
+    grid-row-gap: 40px;
+    margin-top: calc(var(--spacing-unit) / 2);
+    margin-bottom: var(--spacing-unit);
+  }
+
+  StaleContentWidget::progressCircle {
+    --loader-circle-border-size: 8px;
+    --loader-circle-width: 150px;
+    --loader-circle-height: 150px;
+    --loader-circle-track-color: var(--color-background-stale);
+    --loader-circle-track-fill-color: var(--color-background-fresh);
+    grid-area: stack;
+  }
+
+  StaleContentWidget::total {
+    grid-area: stack;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  StaleContentWidget::total > span {
+    font-size: .45em;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  StaleContentWidget::fresh::before,
+  StaleContentWidget::stale::before {
+    content: "";
+    display: block;
+    border-radius: 99px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--color-background-fresh);
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    top: -1.2em
+  }
+
+  StaleContentWidget::stale::before {
+    border-color: var(--color-background-stale);
+  }
+
+  StaleContentWidget::fresh,
+  StaleContentWidget::stale {
+    text-align: center;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  StaleContentWidget::fresh span,
+  StaleContentWidget::stale span {
+    display: block;
+    font-size: .9em;
+  }
+
+  StaleContentWidget::fresh {
+    grid-area: fresh;
+  }
+
+  StaleContentWidget::stale {
+    grid-area: stale;
+  }
+
+  StaleContentWidget p {
+    align-self: center;
+  }
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    StaleContentWidget::title {}
+  }
+}

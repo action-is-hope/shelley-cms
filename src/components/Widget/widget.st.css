@@ -1,0 +1,8 @@
+/* widget.st.css */
+@namespace "Widget";
+
+@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
+
+.root {}
+
+.title {}

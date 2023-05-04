@@ -1,5 +1,5 @@
 import { Checkbox } from "@actionishope/shelley";
-import { FinderLayout } from "../../components/FinderLayout/FinderLayout";
+import { Finder } from "../../components/Finder/Finder";
 import { BasicHeader } from "./Header.examples";
 import { default as ContentIcon } from "../../components/icons/Content";
 
@@ -8,7 +8,7 @@ export const BasicExample = () => {
     <>
       <BasicHeader />
 
-      <FinderLayout
+      <Finder
         title={
           <>
             <ContentIcon aria-hidden="true" />
@@ -31,7 +31,7 @@ export const BasicExample = () => {
         {(isMobile: boolean) => (
           <p>Main Content. {isMobile ? "mobileOn" : "mobileOff"}</p>
         )}
-      </FinderLayout>
+      </Finder>
     </>
   );
 };

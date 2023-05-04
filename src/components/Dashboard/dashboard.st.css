@@ -1,0 +1,12 @@
+/* dashboard.st.css */
+@namespace "Dashboard";
+
+@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
+
+.root {}
+
+.title {}
+
+.icon {}
+
+.grid {}

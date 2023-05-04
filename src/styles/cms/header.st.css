@@ -117,7 +117,7 @@
     font-size: var(--text-vol-2-scale);
     font-weight: 400;
     opacity: 1;
-    padding-left: calc(var(--spacing-unit) * .9);
+    padding-left: 0;
   }
 
   Header::siteListTrigger Icon,

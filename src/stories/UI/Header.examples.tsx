@@ -12,7 +12,7 @@ export const BasicHeader = () => {
       name: "United Kingdom",
     },
   ];
-  const [selectedSite, setSelectedSite] = useState("uk");
+  const [selectedSite, setSelectedSite] = useState("usa");
 
   return (
     <Header

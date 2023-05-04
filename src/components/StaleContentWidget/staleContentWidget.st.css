@@ -1,0 +1,26 @@
+/* staleContentWidget.st.css */
+@namespace "StaleContentWidget";
+@st-import Widget from "../Widget/widget.st.css";
+@st-import ProgressCircle, [
+    --loader-circle-width,
+    --loader-circle-height,
+    --loader-circle-track-color,
+    --loader-circle-border-size,
+    --loader-circle-track-fill-color
+  ] from "@actionishope/shelley/components/ProgressCircle/progressCircle.st.css";
+
+.root {
+  -st-extends: Widget;
+}
+
+.progressCircle {
+  -st-extends: ProgressCircle;
+}
+
+.stack {}
+
+.total {}
+
+.fresh {}
+
+.stale {}

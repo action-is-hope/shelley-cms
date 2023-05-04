@@ -1,0 +1,34 @@
+/* userWidget.st.css */
+@namespace "UserWidget";
+@st-import Widget from "../Widget/widget.st.css";
+
+.root {
+  -st-extends: Widget;
+}
+
+.userDetails {}
+
+.welcomeText {}
+
+.userName {}
+
+/* @todo Create avatar component  */
+.avatar {
+  display: flex;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  line-height: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  user-select: none;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  object-fit: cover;
+  color: transparent;
+  text-indent: 10000px;
+}
