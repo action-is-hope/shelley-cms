@@ -10,14 +10,12 @@ import { st, classes } from "./finder.st.css";
 import { mergeRefs } from "@react-aria/utils";
 import {
   H1,
-  Button,
   IconButton,
   ComponentBase,
   DialogTrigger,
   TextField,
 } from "@actionishope/shelley";
 import useSize from "@react-hook/size";
-import Add from "../icons/Add";
 import Search from "../icons/Search";
 import Filter from "../icons/Filter";
 
