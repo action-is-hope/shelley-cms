@@ -39,8 +39,7 @@ export const BasicExample = () => {
         </StaleContentWidget>
         <Widget title={"Report an issue"} gridArea="reportIssue">
           <P vol={2}>
-            Send a support email to{" "}
-            <a href="#">Andrew.Matthews@britishcouncil.org</a>
+            Send a support email to <a href="#">xxx@britishcouncil.org</a>
           </P>
         </Widget>
       </Dashboard>
