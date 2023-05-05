@@ -1,0 +1,30 @@
+/* = Project scope and vars. */
+@st-import CMS, [
+  --spacing-unit,
+  --grad-1
+] from "./project.st.css";
+
+/* = Root Component */
+@st-import ContentActions from "../../components/ContentActions/contentActions.st.css";
+@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
+
+@st-scope CMS {
+
+  ContentActions {
+    position: sticky;
+    bottom: 1px;
+    background: var(--grad-1);
+    z-index: 100;
+    height: 69px;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding: 0px 0 28px;
+  }
+
+  ContentActions Button {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+}
