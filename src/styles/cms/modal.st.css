@@ -65,4 +65,51 @@
     opacity: 0;
     transition: transform 190ms, opacity 190ms;
   }
+
+
+  /* = endToStart = */
+
+  Modal:transition(endToStart) {
+    justify-content: start;
+  }
+
+  Modal:transition(endToStart)::content {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+
+  /* Backdrop: Any backdrop styles, for stages use as below. */
+  Modal:transition(endToStart) .backdrop {}
+
+  /* Content */
+  Modal:transition(endToStart).enter .content {
+    /* Initial start state styles */
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  Modal:transition(endToStart).enterActive .content {
+    /* Transitioning to done state styles  */
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 190ms, opacity 190ms;
+  }
+
+  Modal:transition(endToStart).enterDone .content {
+    /* Done */
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  Modal:transition(endToStart).exit .content {
+    /* Reverse direction - exit transiton start style */
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  Modal:transition(endToStart).exitActive .content {
+    /* Finishing state before removed from DOM. */
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 190ms, opacity 190ms;
+  }
 }

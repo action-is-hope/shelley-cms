@@ -31,7 +31,7 @@ export const BasicExample = () => {
           gridArea="staleContent"
           circleProps={{
             "aria-label": "x pages out of x are stale",
-            value: 1500,
+            value: 370,
             maxValue: 2000,
           }}
         >

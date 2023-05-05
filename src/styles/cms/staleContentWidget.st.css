@@ -38,8 +38,8 @@
     --loader-circle-border-size: 8px;
     --loader-circle-width: 150px;
     --loader-circle-height: 150px;
-    --loader-circle-track-color: var(--color-background-stale);
-    --loader-circle-track-fill-color: var(--color-background-fresh);
+    --loader-circle-track-color: var(--color-background-fresh);
+    --loader-circle-track-fill-color: var(--color-background-stale);
     grid-area: stack;
   }
 

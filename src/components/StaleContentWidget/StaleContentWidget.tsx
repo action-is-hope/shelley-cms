@@ -46,11 +46,11 @@ function StaleContentWidget(
         </Text>
         <Text as="span" vol={2} className={classes.fresh}>
           <span>Fresh</span>
-          {circleProps.value}
+          {freshContent}
         </Text>
         <Text as="span" vol={2} className={classes.stale}>
           <span>Stale</span>
-          {freshContent}
+          {circleProps.value}
         </Text>
       </div>
       {children}
