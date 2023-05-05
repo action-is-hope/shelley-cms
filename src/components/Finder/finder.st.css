@@ -14,7 +14,9 @@
 
 .actionButton {}
 
-.main {}
+.main {
+  overflow-y: scroll;
+}
 
 .sideBar {}
 
