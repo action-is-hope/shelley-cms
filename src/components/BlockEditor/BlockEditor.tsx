@@ -13,7 +13,7 @@ import {
 
 import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
 import { st, classes } from "./blockEditor.st.css";
-import MoreHor from "../icons/MoreHor";
+import MoreHor from "../Icons/MoreHor";
 import Badge from "../Badge/Badge";
 
 export type DialogClose = (close: () => void) => ReactElement;

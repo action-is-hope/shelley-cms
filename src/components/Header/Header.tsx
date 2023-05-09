@@ -15,8 +15,8 @@ import {
   ActionButton,
   SwitchProps,
 } from "@actionishope/shelley";
-import Menu from "../icons/Menu";
-import List from "../icons/List";
+import Menu from "../Icons/Menu";
+import List from "../Icons/List";
 import ClickAwayListener from "react-click-away-listener";
 import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
 import { st, classes } from "./header.st.css";

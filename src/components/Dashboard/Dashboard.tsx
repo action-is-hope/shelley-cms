@@ -1,6 +1,6 @@
 import React, { ReactNode, forwardRef } from "react";
 import { H1, ComponentBase } from "@actionishope/shelley";
-// import { default as DashboardIcon } from "../../components/icons/Dashboard";
+// import { default as DashboardIcon } from "../../components/Icons/Dashboard";
 import { st, classes } from "./dashboard.st.css";
 
 export interface DashboardProps
