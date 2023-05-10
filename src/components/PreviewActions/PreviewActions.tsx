@@ -1,10 +1,10 @@
 import React, { forwardRef } from "react";
 import { st, classes } from "./previewActions.st.css";
 
-import PreviewIcon from "../Icons/Preview";
-import PreviewOffIcon from "../Icons/PreviewOff";
-import ExpandIcon from "../Icons/ExpandScreen";
-import CompressIcon from "../Icons/CompressScreen";
+import PreviewIcon from "../icons/Preview";
+import PreviewOffIcon from "../icons/PreviewOff";
+import ExpandIcon from "../icons/ExpandScreen";
+import CompressIcon from "../icons/CompressScreen";
 
 import { Button, ComponentBase } from "@actionishope/shelley";
 

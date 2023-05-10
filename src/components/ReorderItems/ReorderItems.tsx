@@ -10,7 +10,7 @@ import {
 } from "react-beautiful-dnd";
 import { st, classes } from "./reorderItems.st.css";
 import { Button, ComponentBase, H2, P } from "@actionishope/shelley";
-import CloseSmall from "../Icons/CloseSmall";
+import CloseSmall from "../icons/CloseSmall";
 
 export interface moveItemParams {
   fromIndex: number;

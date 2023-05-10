@@ -1,8 +1,8 @@
 import { Button, Checkbox } from "@actionishope/shelley";
 import { Finder } from "../../components/Finder/Finder";
 import { BasicHeader } from "./Header.examples";
-import Add from "../../components/Icons/Add";
-import { default as ContentIcon } from "../../components/Icons/Content";
+import Add from "../../components/icons/Add";
+import { default as ContentIcon } from "../../components/icons/Content";
 
 export const BasicExample = () => {
   return (

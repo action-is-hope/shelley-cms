@@ -16,8 +16,8 @@ import {
   TextField,
 } from "@actionishope/shelley";
 import useSize from "@react-hook/size";
-import Search from "../Icons/Search";
-import Filter from "../Icons/Filter";
+import Search from "../icons/Search";
+import Filter from "../icons/Filter";
 
 export type OverloadedChildren = (isMobile: boolean) => ReactElement;
 
