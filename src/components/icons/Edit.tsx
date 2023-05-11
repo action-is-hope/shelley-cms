@@ -2,7 +2,7 @@ import type React from "react";
 import type { Ref } from "react";
 import { Icon, IconProps } from "@actionishope/shelley";
 
-const EditIcon: React.VFC<IconProps> = (props) => {
+const Edit: React.VFC<IconProps> = (props) => {
   const { ref, ...rest } = props;
   return (
     <Icon {...rest} viewBox="0 0 24 24" ref={ref as Ref<SVGSVGElement>}>
@@ -11,4 +11,4 @@ const EditIcon: React.VFC<IconProps> = (props) => {
   );
 };
 
-export default EditIcon;
+export default Edit;

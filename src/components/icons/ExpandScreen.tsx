@@ -1,6 +1,6 @@
 import { Icon, IconProps } from "@actionishope/shelley";
 
-const ExpandScreenIcon = ({ className, alt }: IconProps) => {
+const ExpandScreen = ({ className, alt }: IconProps) => {
   return (
     <Icon alt={alt} className={className}>
       {/* fullscreen square */}
@@ -18,4 +18,4 @@ const ExpandScreenIcon = ({ className, alt }: IconProps) => {
   );
 };
 
-export default ExpandScreenIcon;
+export default ExpandScreen;

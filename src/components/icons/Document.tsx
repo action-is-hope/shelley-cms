@@ -2,7 +2,7 @@ import type React from "react";
 import type { Ref } from "react";
 import { Icon, IconProps } from "@actionishope/shelley";
 
-const DocumentIcon: React.VFC<IconProps> = (props) => {
+const Document: React.VFC<IconProps> = (props) => {
   const { ref, ...rest } = props;
   return (
     <Icon {...rest} viewBox="0 0 24 24" ref={ref as Ref<SVGSVGElement>}>
@@ -12,4 +12,4 @@ const DocumentIcon: React.VFC<IconProps> = (props) => {
   );
 };
 
-export default DocumentIcon;
+export default Document;
