@@ -28,6 +28,7 @@ import "./previewModes.st.css";
 import "./metaDataEditor.st.css";
 import "./reorderItems.st.css";
 import "./staleContentWidget.st.css";
+import "./tableView.st.css";
 import "./userWidget.st.css";
 import "./widget.st.css";
 

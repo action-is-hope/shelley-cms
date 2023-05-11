@@ -149,6 +149,19 @@
   --grad-1: linear-gradient(90deg, #404b710d, transparent);
   --grad-2: linear-gradient(0deg, rgba(15, 17, 24, 0.927608543417367) 43%, rgb(15 17 24 / 0%) 100%);
 
+  /* = Table colours */
+  --color-background-row: var(--color-background-contrast-1);
+  --color-text-row: var(--color-text-3);
+  --color-background-row-isPressed: #1c1c1c;
+  --color-text-row-isPressed: var(--color-text-3);
+  --color-background-row-isSelected: #2b2e3b;
+  --color-text-row-isSelected: var(--color-text-3);
+  --color-background-row-isHovered: #2c2c2c;
+  --color-text-row-isHovered: var(--color-text-3);
+  --color-background-row-isHoveredSelected: #252835;
+  --color-text-row-isHoveredSelected: var(--color-text-3);
+  --color-border-tbody: rgba(var(--color-ui-raw), .15);
+
   /* = Header */
   --height-header-sm: 56px;
   --height-header-md: 65px;
