@@ -67,6 +67,18 @@
     --color-text-1,
     --color-text-2,
     --color-text-3,
+    /* = Tables */
+    --color-background-row,
+    --color-text-row,
+    --color-background-row-isPressed,
+    --color-text-row-isPressed,
+    --color-background-row-isSelected,
+    --color-text-row-isSelected,
+    --color-background-row-isHovered,
+    --color-text-row-isHovered,
+    --color-background-row-isHoveredSelected,
+    --color-text-row-isHoveredSelected,
+    --color-border-tbody
     /* = Gradiants */
     --grad-1,
     /* = Meta Data / Social */
@@ -149,6 +161,20 @@
   --color-form-selection-border: rgba(121, 170, 216, 1);
   --color-form-selection-notch: #20af68;
   --color-switch-notch: #a5a5a5;
+
+  /* = Table colours */
+  --color-background-row: var(--color-background-contrast-1);
+  --color-text-row: var(--color-text-3);
+  --color-background-row-isPressed: #f3f3f3;
+  --color-text-row-isPressed: var(--color-text-3);
+  --color-background-row-isSelected: #e9f0fc;
+  --color-text-row-isSelected: var(--color-text-3);
+  --color-background-row-isHovered: GhostWhite;
+  --color-text-row-isHovered: var(--color-text-3);
+  --color-background-row-isHoveredSelected: #dfedff;
+  --color-text-row-isHoveredSelected: var(--color-text-3);
+  --color-border-tbody: rgba(var(--color-ui-raw), .15);
+
 
   /* = Gradiants */
   /* --grad-1: linear-gradient(90deg, #404b7105, transparent); */
