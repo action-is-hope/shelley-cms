@@ -1,6 +1,6 @@
 import { Icon, IconProps } from "@actionishope/shelley";
 
-const CompressScreenIcon = ({ className, alt }: IconProps) => {
+const CompressScreen = ({ className, alt }: IconProps) => {
   return (
     <Icon alt={alt} className={className}>
       {/* compress-square */}
@@ -12,4 +12,4 @@ const CompressScreenIcon = ({ className, alt }: IconProps) => {
   );
 };
 
-export default CompressScreenIcon;
+export default CompressScreen;

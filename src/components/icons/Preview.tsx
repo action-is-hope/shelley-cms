@@ -1,6 +1,6 @@
 import { Icon, IconProps } from "@actionishope/shelley";
 
-const PreviewIcon = ({ className, alt }: IconProps) => {
+const Preview = ({ className, alt }: IconProps) => {
   return (
     <Icon alt={alt} viewBox="0 0 24 24" className={className}>
       <path d="M0 0h24v24H0z" fill="none" />
@@ -9,4 +9,4 @@ const PreviewIcon = ({ className, alt }: IconProps) => {
   );
 };
 
-export default PreviewIcon;
+export default Preview;
