@@ -43,20 +43,20 @@
     padding-left: calc(var(--spacing-unit) * 1);
     padding-right: calc(var(--spacing-unit) * .5);
   }
+
+  Header::siteName {
+    background: #000;
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 0 var(--spacing-unit);
+  }
 }
 
 @media value(breakpoint-md-max) {
   @st-scope CMS {
-    Header::publisherName {
-      /* display: none */
-    }
-
-    Header {}
 
     Header::nav {
       position: absolute;
-      /* overflow: hidden; */
-      /* left: 0; */
       right: 0;
       top: var(--height-header);
       margin: 0;

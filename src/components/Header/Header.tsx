@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react";
-import type { UserDetailsType } from "src/typings/shared-types";
+import type { Site, UserDetailsType } from "src/typings/shared-types";
 import {
   Toolbar,
   Button,
@@ -24,25 +24,30 @@ import { st, classes } from "./header.st.css";
 export interface HeaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
     ComponentBase {
-  altThemeEnabled?: boolean;
-  toggleTheme?: () => void;
+  /** User object for the signed in user info popup. */
   user?: UserDetailsType;
+  /** Callback for onSignIn. */
   onSignIn: () => void;
+  /** Callback for onSignOut. */
   onSignOut: () => void;
+  /** Callback for onSiteSelection from the modal. */
   onSiteSelection: (key: string) => void;
+  /** Avatar url, falls back to auto generated image based on user.username */
   avatarUrL?: string;
-  sites: Iterable<{ key: string; name: string }>;
-  selectedSite?: string;
+  /** An iteratable collection of Sites */
+  sites: Iterable<Site>;
+  /** The currently selected Site. */
+  selectedSite?: Site;
+  /** Props for the themeSwitcher Switch component. */
   themeSwitcherProps?: SwitchProps;
+  /** Is the user logged in */
   isSignedIn?: boolean;
 }
 
 function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
   const {
-    altThemeEnabled,
     className: classNameProp,
     children,
-    toggleTheme,
     "data-id": dataId,
     avatarUrL,
     sites,
@@ -83,13 +88,13 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
           isDisabled={!user}
           data-id={dataId ? `${dataId}--sitesMenuTrigger` : undefined}
         >
-          <span className={classes.publisherName}>Publisher </span>
-          {selectedSite && (
+          <span className={classes.publisherName}>Publisher</span>
+          {selectedSite?.siteCode && (
             <span
               className={classes.siteName}
               data-id={dataId ? `${dataId}--currentSiteName` : undefined}
             >
-              {selectedSite}
+              {selectedSite.siteCode}
             </span>
           )}
         </Button>
@@ -107,7 +112,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
               <ListBox
                 shouldFocusWrap
                 selectionMode="single"
-                selectedKeys={selectedSite && [selectedSite]}
+                selectedKeys={selectedSite && [selectedSite.key]}
                 data-id={dataId ? `${dataId}--sitesListBox` : undefined}
                 onSelectionChange={(key) => {
                   const selectedKey = Array.from(key as Set<string>)[0];
