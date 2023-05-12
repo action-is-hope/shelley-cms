@@ -15,7 +15,6 @@ export const BasicHeader = () => {
     },
   ];
   const [selectedSite, setSelectedSite] = useState("1");
-  const siteCode = sites.find((item) => item.key === selectedSite)?.siteCode;
 
   return (
     <Header
@@ -26,8 +25,7 @@ export const BasicHeader = () => {
           "https://s.gravatar.com/avatar/2f9484db7dd94c6220be03f4374ab47f?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fmn.png",
       }}
       sites={sites}
-      selectedSiteId={selectedSite}
-      selectedSiteDisplayName={siteCode}
+      selectedSite={sites.find((item) => item.key === selectedSite)}
       onSignIn={() => console.log("onSignIn called")}
       onSignOut={() => console.log("onSignOut called")}
       onSiteSelection={(key) => setSelectedSite(key)}

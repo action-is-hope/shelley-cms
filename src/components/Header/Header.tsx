@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react";
-import type { UserDetailsType } from "src/typings/shared-types";
+import type { Site, UserDetailsType } from "src/typings/shared-types";
 import {
   Toolbar,
   Button,
@@ -34,12 +34,10 @@ export interface HeaderProps
   onSiteSelection: (key: string) => void;
   /** Avatar url, falls back to auto generated image based on user.username */
   avatarUrL?: string;
-  /** An iteratable collection of sites */
-  sites: Iterable<{ key: string; name: string }>;
-  /** The id of the selected site. */
-  selectedSiteId?: string;
-  /** A short identifier for the site, maybe a sitecode. */
-  selectedSiteDisplayName?: string;
+  /** An iteratable collection of Sites */
+  sites: Iterable<Site>;
+  /** The currently selected Site. */
+  selectedSite?: Site;
   /** Props for the themeSwitcher Switch component. */
   themeSwitcherProps?: SwitchProps;
   /** Is the user logged in */
@@ -57,8 +55,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
     onSignIn,
     onSignOut,
     onSiteSelection,
-    selectedSiteId,
-    selectedSiteDisplayName,
+    selectedSite,
     themeSwitcherProps,
     ...rest
   } = props;
@@ -92,12 +89,12 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
           data-id={dataId ? `${dataId}--sitesMenuTrigger` : undefined}
         >
           <span className={classes.publisherName}>Publisher</span>
-          {selectedSiteDisplayName && (
+          {selectedSite?.siteCode && (
             <span
               className={classes.siteName}
               data-id={dataId ? `${dataId}--currentSiteName` : undefined}
             >
-              {selectedSiteDisplayName}
+              {selectedSite.siteCode}
             </span>
           )}
         </Button>
@@ -115,7 +112,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
               <ListBox
                 shouldFocusWrap
                 selectionMode="single"
-                selectedKeys={selectedSiteId && [selectedSiteId]}
+                selectedKeys={selectedSite && [selectedSite.key]}
                 data-id={dataId ? `${dataId}--sitesListBox` : undefined}
                 onSelectionChange={(key) => {
                   const selectedKey = Array.from(key as Set<string>)[0];
