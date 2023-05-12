@@ -87,7 +87,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
           data-id={dataId ? `${dataId}--sitesMenuTrigger` : undefined}
         >
           <span className={classes.publisherName}>Publisher</span>
-          {selectedSiteId && (
+          {selectedSiteDisplayName && (
             <span
               className={classes.siteName}
               data-id={dataId ? `${dataId}--currentSiteName` : undefined}
