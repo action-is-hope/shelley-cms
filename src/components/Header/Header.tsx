@@ -24,27 +24,32 @@ import { st, classes } from "./header.st.css";
 export interface HeaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
     ComponentBase {
-  altThemeEnabled?: boolean;
-  toggleTheme?: () => void;
+  /** User object for the signed in user info popup. */
   user?: UserDetailsType;
+  /** Callback for onSignIn. */
   onSignIn: () => void;
+  /** Callback for onSignOut. */
   onSignOut: () => void;
+  /** Callback for onSiteSelection from the modal. */
   onSiteSelection: (key: string) => void;
+  /** Avatar url, falls back to auto generated image based on user.username */
   avatarUrL?: string;
+  /** An iteratable collection of sites */
   sites: Iterable<{ key: string; name: string }>;
+  /** The id of the selected site. */
   selectedSiteId?: string;
   /** A short identifier for the site, maybe a sitecode. */
   selectedSiteDisplayName?: string;
+  /** Props for the themeSwitcher Switch component. */
   themeSwitcherProps?: SwitchProps;
+  /** Is the user logged in */
   isSignedIn?: boolean;
 }
 
 function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
   const {
-    altThemeEnabled,
     className: classNameProp,
     children,
-    toggleTheme,
     "data-id": dataId,
     avatarUrL,
     sites,
