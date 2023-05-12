@@ -5,3 +5,9 @@ export type UserDetailsType =
       image?: string | null | undefined;
     }
   | undefined;
+
+export interface Site {
+  name: string;
+  key: string;
+  siteCode?: string;
+}
