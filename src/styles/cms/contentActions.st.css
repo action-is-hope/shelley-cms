@@ -1,7 +1,7 @@
 /* = Project scope and vars. */
 @st-import CMS, [
   --spacing-unit,
-  --grad-1
+  --grad-2
 ] from "./project.st.css";
 
 /* = Root Component */
@@ -13,7 +13,7 @@
   ContentActions {
     position: sticky;
     bottom: 1px;
-    background: var(--grad-1);
+    background: var(--grad-2);
     z-index: 100;
     height: 69px;
     display: flex;

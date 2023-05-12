@@ -1,4 +1,4 @@
-import { H1, H2, P, Item } from "@actionishope/shelley";
+import { H1, H2, P, Item, Button } from "@actionishope/shelley";
 import { Preview } from "../../components/Preview/Preview";
 import { PreviewMetaData } from "../../components/PreviewMetaData/PreviewMetaData";
 import { PreviewChrome } from "../../components/PreviewChrome/PreviewChrome";
@@ -19,6 +19,7 @@ import {
 } from "./BlockEditor.examples";
 import { MetaDataEditorWithChildrenExample } from "./MetaDataEditor.examples";
 import { BasicHeader } from "./Header.examples";
+import { ContentActions } from "../../components/ContentActions/ContentActions";
 
 export const BasicExample = () => {
   const {
@@ -45,7 +46,12 @@ export const BasicExample = () => {
           <BasicBlockEditor {...blockEditorProps} />
           <BasicBlockEditor {...blockEditorProps} />
           <BasicBlockEditor {...blockEditorProps} />
-          {/* <BlockEditorExampleWithReorder {...blockEditorProps} /> */}
+          {/* <BlockEd itorExampleWithReorder {...blockEditorProps} /> */}
+          <ContentActions>
+            <Button vol={4} variant="secondary" tone={1}>
+              Add Content Block
+            </Button>
+          </ContentActions>
         </ContentArea>
         <Preview className={editorLayout.preview} {...previewProps}>
           {previewMode === "web" && (

@@ -22,6 +22,9 @@ type languageOptions = {
 interface LanguageSelector<T> extends Partial<SelectProps<T>> {
   options: languageOptions[];
 }
+
+export type OverloadedChildren = (isOpen: boolean) => ReactElement;
+
 export interface MetaDataEditorProps<T>
   extends React.HTMLAttributes<HTMLDivElement>,
     ComponentBase {
@@ -37,6 +40,8 @@ export interface MetaDataEditorProps<T>
   languageSelectorProps: LanguageSelector<T>;
   /**  */
   isOpen?: boolean;
+  /** */
+  children: OverloadedChildren | React.ReactNode;
 }
 
 function MetaDataEditor<T extends object>(
@@ -119,6 +124,7 @@ function MetaDataEditor<T extends object>(
                   vol={1}
                   variant="quiet"
                   {...descriptionProps}
+                  isDisabled={!isOpen}
                   label={descriptionProps.label || "Description"}
                   placeholder={
                     descriptionProps.placeholder || "Enter description"
@@ -129,7 +135,7 @@ function MetaDataEditor<T extends object>(
                   }
                   data-id={dataId ? `${dataId}--descriptionField` : undefined}
                 />
-                {children}
+                {typeof children === "function" ? children(isOpen) : children}
               </div>
             </div>
           </div>

@@ -67,6 +67,8 @@
     --color-text-1,
     --color-text-2,
     --color-text-3,
+    /* Focus Mode*/
+    --color-focus-mode-background,
     /* = Tables */
     --color-background-row,
     --color-text-row,
@@ -81,6 +83,7 @@
     --color-border-tbody
     /* = Gradiants */
     --grad-1,
+    --grad-2,
     /* = Meta Data / Social */
     --google-background,
     --google-title,
@@ -115,7 +118,8 @@
   --color-ui-raw-inverse: var(--light-01-raw);
 
   /* = Accent colors */
-  --color-accent-1: #16a78e;
+  /* --color-accent-1: #16a78e; */
+  --color-accent-1: var(--color-header-background);
   --color-accent-2: rgb(68 134 136);
   --color-accent-3: rgb(37 43 45 / 80%);
 
@@ -162,6 +166,8 @@
   --color-form-selection-notch: #20af68;
   --color-switch-notch: #a5a5a5;
 
+  --color-focus-mode-background: var(--color-background-3);
+
   /* = Table colours */
   --color-background-row: var(--color-background-contrast-1);
   --color-text-row: var(--color-text-3);
@@ -179,10 +185,10 @@
   /* = Gradiants */
   /* --grad-1: linear-gradient(90deg, #404b7105, transparent); */
   --grad-1: linear-gradient(90deg, #9898982b, transparent);
-  --grad-2: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 200px, rgba(255, 255, 255, 0.5) 500px, rgba(255, 255, 255, 0.8) 100%);
-
+  /* --grad-2: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 200px, rgba(255, 255, 255, 0.5) 500px, rgba(255, 255, 255, 0.8) 100%); */
+  --grad-2: linear-gradient(180deg, rgba(232, 232, 232, 0) 0%, rgba(232, 232, 232, .6) 35%, rgba(232, 232, 232, 1) 100%);
   /* = MetaDataEditor */
-  --box-shadow-metaData: 0 0 8px 2px #f3f3f3;
+  --box-shadow-metaData: 0 0 1px 1px #f3f3f3;
 
   /* = Meta Data Social Preview */
   --google-background: #fff;

@@ -31,6 +31,10 @@
     gap: 0
   }
 
+  PreviewModes::control svg {
+    font-size: 1.7em;
+  }
+
   PreviewModes::control::input {
     border: none;
   }

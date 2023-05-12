@@ -12,7 +12,7 @@
 :import {
   -st-from: "@actionishope/shelley/styles/default/project.st.css";
   -st-named:
-    --spacing-unit,
+    --spacing-unit;
 }
 
 /* = Shelley project scope and vars. */
@@ -27,7 +27,8 @@
     --color-accent-2,
     --color-accent-3,
     --color-accent-4,
-    --color-background-2;
+    --color-background-2,
+    --color-background-3;
 }
 
 /* = Root Component */
@@ -51,6 +52,9 @@
 /* = This is how we can scope the styles in Stylable. */
 @st-scope CMS {
 
+  Button {
+    border-radius: 0;
+  }
 
   Button:isDisabled,
   Button:isDisabled:hover,
@@ -93,6 +97,8 @@
   /* = 'Outline' */
   Button:variant(secondary) {
     --border-color: var(--accent);
+    background-color: var(--color-background-3);
+    /* background-color: var(--color-background-4); */
     -webkit-font-smoothing: antialiased;
   }
 

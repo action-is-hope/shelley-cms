@@ -149,6 +149,9 @@
   --grad-1: linear-gradient(90deg, #404b710d, transparent);
   --grad-2: linear-gradient(0deg, rgba(15, 17, 24, 0.927608543417367) 43%, rgb(15 17 24 / 0%) 100%);
 
+  /* = Focus mode colors */
+  --color-focus-mode-background: #000;
+
   /* = Table colours */
   --color-background-row: var(--color-background-contrast-1);
   --color-text-row: var(--color-text-3);
@@ -167,7 +170,7 @@
   --height-header-md: 65px;
 
   /* = MetaDataEditor */
-  --box-shadow-metaData: 0 0 8px 2px #070707;
+  --box-shadow-metaData: 0 0 1px 2px #070707;
 
   /* = Meta Data Social Preview */
   --google-background: var(--color-background-main);
@@ -214,4 +217,16 @@
 
 .root h1 {
   font-family: value(font-special);
+}
+
+
+/* data-focus-lock-disabled */
+[data-focus-lock-disabled="disabled"] * {
+  scrollbar-width: none;
+
+}
+
+[data-focus-on-hidden="true"] *::-webkit-scrollbar {
+  opacity: 0;
+  width: 0;
 }
