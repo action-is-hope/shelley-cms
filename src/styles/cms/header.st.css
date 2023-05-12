@@ -43,6 +43,13 @@
     padding-left: calc(var(--spacing-unit) * 1);
     padding-right: calc(var(--spacing-unit) * .5);
   }
+
+  Header::siteName {
+    background: #000;
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 0 var(--spacing-unit);
+  }
 }
 
 @media value(breakpoint-md-max) {
@@ -50,6 +57,7 @@
     Header::publisherName {
       /* display: none */
     }
+
 
     Header {}
 

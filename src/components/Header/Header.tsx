@@ -32,7 +32,9 @@ export interface HeaderProps
   onSiteSelection: (key: string) => void;
   avatarUrL?: string;
   sites: Iterable<{ key: string; name: string }>;
-  selectedSite?: string;
+  selectedSiteId?: string;
+  /** A short identifier for the site, maybe a sitecode. */
+  selectedSiteDisplayName?: string;
   themeSwitcherProps?: SwitchProps;
   isSignedIn?: boolean;
 }
@@ -50,7 +52,8 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
     onSignIn,
     onSignOut,
     onSiteSelection,
-    selectedSite,
+    selectedSiteId,
+    selectedSiteDisplayName,
     themeSwitcherProps,
     ...rest
   } = props;
@@ -83,13 +86,13 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
           isDisabled={!user}
           data-id={dataId ? `${dataId}--sitesMenuTrigger` : undefined}
         >
-          <span className={classes.publisherName}>Publisher </span>
-          {selectedSite && (
+          <span className={classes.publisherName}>Publisher</span>
+          {selectedSiteId && (
             <span
               className={classes.siteName}
               data-id={dataId ? `${dataId}--currentSiteName` : undefined}
             >
-              {selectedSite}
+              {selectedSiteDisplayName}
             </span>
           )}
         </Button>
@@ -107,7 +110,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
               <ListBox
                 shouldFocusWrap
                 selectionMode="single"
-                selectedKeys={selectedSite && [selectedSite]}
+                selectedKeys={selectedSiteId && [selectedSiteId]}
                 data-id={dataId ? `${dataId}--sitesListBox` : undefined}
                 onSelectionChange={(key) => {
                   const selectedKey = Array.from(key as Set<string>)[0];
