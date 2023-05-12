@@ -6,8 +6,8 @@ export type UserDetailsType =
     }
   | undefined;
 
-export type Site = {
+export interface Site {
   name: string;
   key: string;
   siteCode?: string;
-};
+}
