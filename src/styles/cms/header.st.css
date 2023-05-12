@@ -54,17 +54,9 @@
 
 @media value(breakpoint-md-max) {
   @st-scope CMS {
-    Header::publisherName {
-      /* display: none */
-    }
-
-
-    Header {}
 
     Header::nav {
       position: absolute;
-      /* overflow: hidden; */
-      /* left: 0; */
       right: 0;
       top: var(--height-header);
       margin: 0;
