@@ -7,6 +7,7 @@ import {
 import { ContentArea } from "../../src/components/ContentArea/ContentArea";
 
 const blockEditor = '[data-id="blockEditor"]';
+const blockEditorInput = '[data-id="blockEditor"] input';
 const menuTrigger = '[data-id="blockEditor--menuTrigger"]';
 const menu = '[data-id="blockEditor--menu"]';
 const modal = '[data-id="blockEditor--modal"]';
@@ -71,4 +72,18 @@ describe("BlockEditor", () => {
       cy.get(blockEditor).should("be.visible");
     });
   });
+
+  describe("Accessibility", () => {
+    it("accessibility basics", () => {
+      cy.mount(<BlockEditorTemplate />);
+      cy.get(blockEditor).should("exist").and("be.visible");
+      cy.realPress("Tab");
+      cy.focused(menuTrigger);
+      cy.realPress("Tab");
+      cy.focused(blockEditorInput).type("Hello Groot").should("have.value", "Hello Groot");
+    })
+
+  });
+
+
 });
