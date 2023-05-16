@@ -6,6 +6,7 @@ import {
 } from "../../src/components/BlockEditor/BlockEditor";
 import { ContentArea } from "../../src/components/ContentArea/ContentArea";
 
+const blockEditor = '[data-id="blockEditor"]';
 const menuTrigger = '[data-id="blockEditor--menuTrigger"]';
 const menu = '[data-id="blockEditor--menu"]';
 const modal = '[data-id="blockEditor--modal"]';
@@ -59,9 +60,15 @@ describe("BlockEditor", () => {
   describe("Basics", () => {
     it("renders block options menu", () => {
       cy.mount(<BlockEditorTemplate />);
-      cy.get(menuTrigger).realClick();
-      cy.get(menu).should("exist");
+      cy.get(blockEditor).should("exist").and("be.visible");
+      cy.get(menu).should("not.exist");
+      cy.get(menuTrigger).should("be.visible").realClick();
+      cy.get(menu).should("be.visible").and("exist").contains("Block settings").realClick();
+      cy.get(settings + " h2").should("be.visible").and("exist").contains("BlockName settings");
+      cy.get(settings + " div p").should("be.visible").and("exist").contains("Settings");
+      cy.get(settings + " div button").should("be.visible").and("exist").contains("Cancel").realClick();
+      cy.get(menu).should("not.exist");
+      cy.get(blockEditor).should("be.visible");
     });
-    // @todo Add more :-)
   });
 });
