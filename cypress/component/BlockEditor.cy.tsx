@@ -80,7 +80,7 @@ describe("BlockEditor", () => {
       cy.realPress("Tab");
       cy.focused(menuTrigger);
       cy.realPress("Tab");
-      cy.focused(blockEditorInput).type("Hello Groot").should("have.value", "Hello Groot");
+      cy.focused().type("Hello Groot").should("have.value", "Hello Groot");
     })
 
   });
