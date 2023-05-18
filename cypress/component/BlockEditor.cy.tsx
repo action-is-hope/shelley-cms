@@ -78,7 +78,7 @@ describe("BlockEditor", () => {
       cy.mount(<BlockEditorTemplate />);
       cy.get(blockEditor).should("exist").and("be.visible");
       cy.realPress("Tab");
-      cy.focused(menuTrigger);
+      cy.focused();
       cy.realPress("Tab");
       cy.focused().type("Hello Groot").should("have.value", "Hello Groot");
     })
