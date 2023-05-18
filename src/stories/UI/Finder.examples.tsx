@@ -7,11 +7,23 @@ import {
   Row,
   TableBody,
   TableHeader,
+  P,
+  H2,
+  H3,
+  Grid,
 } from "@actionishope/shelley";
 import { Finder } from "../../components/Finder/Finder";
 import { BasicHeader } from "./Header.examples";
 import Add from "../../components/icons/Add";
 import { default as ContentIcon } from "../../components/icons/Content";
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  CardHeader,
+  CardActions,
+  CardProps,
+} from "../../components/Card/Card";
 
 export const BasicExample = () => {
   return (
@@ -83,6 +95,130 @@ export const BasicExample = () => {
               </Row>
             </TableBody>
           </TableView>
+        </>
+      </Finder>
+    </>
+  );
+};
+
+export const MediaExample = () => {
+  return (
+    <>
+      <BasicHeader />
+
+      <Finder
+        title={
+          <>
+            <ContentIcon aria-hidden="true" />
+            Content Finder
+          </>
+        }
+        addButton={
+          <Button
+            vol={3}
+            icon={<Add aria-hidden="true" />}
+            onPress={() => console.log("Add action")}
+          >
+            Add Content
+          </Button>
+        }
+        searchFieldProps={{
+          onChange: (value) => console.log(value),
+          placeholder: "Search for content",
+        }}
+        sideBarContent={(isMobile: boolean) => (
+          <div>
+            <Checkbox>Live</Checkbox>
+            {isMobile ? "mobileOn" : "mobileOff"}
+          </div>
+        )}
+      >
+        <>
+          {(isMobile: boolean) => (
+            <p>Main Content. {isMobile ? "mobileOn" : "mobileOff"}</p>
+          )}
+          <Grid variant={3}>
+            <Card onPress={() => console.log("Here")}>
+              <CardMedia>
+                <img
+                  src="https://ik.imagekit.io/tcvka0ufln/pontoon_v3jIy64zcnwwx.jpeg?tr=w-1200,h-630,fo-auto"
+                  alt=""
+                />
+              </CardMedia>
+              <CardContent>
+                <H3 vol={2} truncate={1}>
+                  A simple, yet effective text only title area.
+                </H3>
+                <P vol={1} truncate={1}>
+                  A simple, yet effective text only title area.
+                </P>
+              </CardContent>
+            </Card>
+            <Card onPress={() => console.log("Here")}>
+              <CardMedia>
+                <img
+                  src="https://ik.imagekit.io/tcvka0ufln/pontoon_v3jIy64zcnwwx.jpeg?tr=w-1200,h-630,fo-auto"
+                  alt=""
+                />
+              </CardMedia>
+              <CardContent>
+                <H3 vol={2} truncate={1}>
+                  A simple, yet effective text only title area.
+                </H3>
+                <P vol={1} truncate={1}>
+                  A simple, yet effective text only title area.
+                </P>
+              </CardContent>
+            </Card>
+            <Card onPress={() => console.log("Here")}>
+              <CardMedia>
+                <img
+                  src="https://ik.imagekit.io/tcvka0ufln/pontoon_v3jIy64zcnwwx.jpeg?tr=w-1200,h-630,fo-auto"
+                  alt=""
+                />
+              </CardMedia>
+              <CardContent>
+                <H3 vol={2} truncate={1}>
+                  A simple, yet effective text only title area.
+                </H3>
+                <P vol={1} truncate={1}>
+                  A simple, yet effective text only title area.
+                </P>
+              </CardContent>
+            </Card>
+            <Card onPress={() => console.log("Here")}>
+              <CardMedia>
+                <img
+                  src="https://ik.imagekit.io/tcvka0ufln/pontoon_v3jIy64zcnwwx.jpeg?tr=w-1200,h-630,fo-auto"
+                  alt=""
+                />
+              </CardMedia>
+              <CardContent>
+                <H3 vol={2} truncate={1}>
+                  A simple, yet effective text only title area.
+                </H3>
+                <P vol={1} truncate={1}>
+                  A simple, yet effective text only title area.
+                </P>
+              </CardContent>
+            </Card>
+            <Card onPress={() => console.log("Here")}>
+              <CardMedia>
+                <img
+                  src="https://ik.imagekit.io/tcvka0ufln/pontoon_v3jIy64zcnwwx.jpeg?tr=w-1200,h-630,fo-auto"
+                  alt=""
+                />
+              </CardMedia>
+              <CardContent>
+                <H3 vol={2} truncate={1}>
+                  A simple, yet effective text only title area.
+                </H3>
+                <P vol={1} truncate={1}>
+                  A simple, yet effective text only title area.
+                </P>
+              </CardContent>
+            </Card>
+          </Grid>
         </>
       </Finder>
     </>

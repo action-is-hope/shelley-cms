@@ -23,7 +23,7 @@ interface LanguageSelector<T> extends Partial<SelectProps<T>> {
   options: languageOptions[];
 }
 
-export type OverloadedChildren = (isOpen: boolean) => ReactElement;
+type OverloadedChildren = (isOpen: boolean) => ReactElement;
 
 export interface MetaDataEditorProps<T>
   extends React.HTMLAttributes<HTMLDivElement>,

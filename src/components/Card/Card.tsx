@@ -1,0 +1,126 @@
+import React, { forwardRef, useRef } from "react";
+import { useButton, useFocusRing } from "react-aria";
+import type { AriaButtonProps } from "@react-types/button";
+import { mergeRefs, mergeProps } from "@react-aria/utils";
+import { st, classes } from "./card.st.css";
+import { Button } from "@actionishope/shelley";
+
+export interface CardProps extends Omit<AriaButtonProps, "elementType"> {
+  className?: string;
+  /** make onPress conditional and if yes then aria props must be specified? */
+}
+/**
+ * Card is a basic container that houses the construction of larger more complex UI elements.
+ */
+function Card(props: CardProps, ref?: React.Ref<HTMLDivElement>) {
+  const localRef = useRef(null);
+  // const { buttonProps, isPressed } = useButton(props, localRef);
+  const { className: classNameProp, children, ...rest } = props;
+
+  // const { isFocusVisible, focusProps } = useFocusRing();
+  return (
+    <div
+      className={st(
+        classes.root,
+        // { isFocusVisible, isPressed, isDisabled: buttonProps.disabled },
+        classNameProp
+      )}
+      // {...rest}
+      // {...{
+      //   ref: ref ? mergeRefs(localRef, ref) : localRef,
+      //   ...mergeProps(buttonProps, focusProps),
+      // }}
+    >
+      {props.onPress && (
+        <Button
+          aria-label="Title"
+          onPress={props.onPress}
+          className={classes.button}
+          variant={false}
+          tone={false}
+          vol={false}
+        />
+      )}
+      {children}
+    </div>
+  );
+}
+
+const _Card = forwardRef(Card);
+export { _Card as Card };
+
+/**
+ * CardHeader hold header items for use within Card.
+ */
+
+export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+function CardHeader(props: CardHeaderProps, ref?: React.Ref<HTMLDivElement>) {
+  const { className: classNameProp, children, ...rest } = props;
+  return (
+    <div className={st(classes.header, classNameProp)} {...rest} ref={ref}>
+      {children}
+    </div>
+  );
+}
+
+const _CardHeader = forwardRef(CardHeader);
+export { _CardHeader as CardHeader };
+
+/**
+ * CardMedia hold media items for use within Card.
+ */
+
+export interface CardMediaProps extends React.HTMLAttributes<HTMLDivElement> {
+  // image: string;
+  title?: string;
+}
+
+function CardMedia(props: CardMediaProps, ref?: React.Ref<HTMLDivElement>) {
+  const { className: classNameProp, children, ...rest } = props;
+  return (
+    <div className={st(classes.media, classNameProp)} {...rest} ref={ref}>
+      {children}
+    </div>
+  );
+}
+
+const _CardMedia = forwardRef(CardMedia);
+export { _CardMedia as CardMedia };
+
+/**
+ * CardContent is the content container for use within Card.
+ */
+function CardContent(
+  props: React.HTMLAttributes<HTMLDivElement>,
+  ref?: React.Ref<HTMLDivElement>
+) {
+  const { className: classNameProp, children, ...rest } = props;
+  return (
+    <div className={st(classes.content, classNameProp)} {...rest} ref={ref}>
+      {children}
+    </div>
+  );
+}
+
+const _CardContent = forwardRef(CardContent);
+export { _CardContent as CardContent };
+
+/**
+ * CardActions is for bactions such as button/links etc for use within a Card.
+ */
+
+function CardActions(
+  props: React.HTMLAttributes<HTMLDivElement>,
+  ref?: React.Ref<HTMLDivElement>
+) {
+  const { className: classNameProp, children, ...rest } = props;
+  return (
+    <div className={st(classes.actions, classNameProp)} {...rest} ref={ref}>
+      {children}
+    </div>
+  );
+}
+
+const _CardActions = forwardRef(CardActions);
+export { _CardActions as CardActions };

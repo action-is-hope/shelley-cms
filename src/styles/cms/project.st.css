@@ -16,6 +16,7 @@
   breakpoint-md-max,
   breakpoint-lg,
   breakpoint-lg-max,
+  breakpoint-xl,
   --text-vol-1-scale,
   --text-vol-2-scale,
   --text-vol-3-scale,
@@ -98,6 +99,7 @@
   /* = Background colors */
   --color-background-main: #0f1118;
   --color-background-contrast-1: #000;
+  --color-background-contrast-2: #121821;
   /* @todo rename these to be a bit more semantic... */
   --color-background-2: hsl(220deg 27% 10%);
   --color-background-3: #000;

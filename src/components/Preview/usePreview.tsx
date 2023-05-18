@@ -40,6 +40,7 @@ type usePreviewReturn = {
   previewProps: PreviewProps;
   previewChromeProps: PreviewChromeProps;
   previewActionsProps: PreviewActionsProps;
+  refs: any;
 };
 
 const usePreview = (): usePreviewReturn => {
@@ -137,6 +138,14 @@ const usePreview = (): usePreviewReturn => {
     previewProps,
     previewChromeProps,
     previewActionsProps,
+    refs: {
+      previewRef,
+      previewModesRef,
+      previewActionsRef,
+      fullScreenModeButtonRef,
+      focusModeButtonRef,
+    },
   };
 };
+
 export default usePreview;

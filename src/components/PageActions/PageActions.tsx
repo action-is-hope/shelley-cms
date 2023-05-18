@@ -9,6 +9,7 @@ import {
   Menu,
   ButtonGroup,
   MenuTriggerProps,
+  ComponentBase,
 } from "@actionishope/shelley";
 
 import { classes as spacing } from "@actionishope/shelley/styles/default/spacing.st.css";
@@ -21,7 +22,8 @@ export type statusOptions =
   | "unpublished";
 
 export interface PageActionsProps<T>
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "children">,
+    ComponentBase {
   /** Provide a status */
   status: statusOptions;
   /** The last saved value, e.g "a week ago", "a few minutes" etc. */
@@ -46,8 +48,6 @@ export interface PageActionsProps<T>
     MenuTriggerProps,
     "placement" | "shouldFlip" | "offset" | "crossOffset" | "portalSelector"
   >;
-  /** Add predefined data-id to ease testing or analytics. */
-  "data-id"?: string;
 }
 
 function PageActions<T extends { key: string }>(
@@ -63,7 +63,6 @@ function PageActions<T extends { key: string }>(
     disabledKeys: disabledKeysProp,
     position,
     onAction: onActionProp,
-    // includeDataIds,
     "data-id": dataId,
     ...rest
   } = props;

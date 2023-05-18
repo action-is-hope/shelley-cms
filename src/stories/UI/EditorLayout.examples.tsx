@@ -1,4 +1,14 @@
-import { H1, H2, P, Item, Button } from "@actionishope/shelley";
+import {
+  H1,
+  H2,
+  P,
+  Item,
+  Button,
+  ButtonGroup,
+  DialogTrigger,
+  Dialog,
+  Checkbox,
+} from "@actionishope/shelley";
 import { Preview } from "../../components/Preview/Preview";
 import { PreviewMetaData } from "../../components/PreviewMetaData/PreviewMetaData";
 import { PreviewChrome } from "../../components/PreviewChrome/PreviewChrome";
@@ -9,6 +19,8 @@ import { EditorLayout } from "../../components/EditorLayout/EditorLayout";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
 
 import { classes as editorLayout } from "../../components/EditorLayout/editorLayout.st.css";
+import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
+import { classes as finder } from "../../components/Finder/finder.st.css";
 import {
   st,
   classes as previewChrome,
@@ -19,6 +31,7 @@ import {
 } from "./BlockEditor.examples";
 import { MetaDataEditorWithChildrenExample } from "./MetaDataEditor.examples";
 import { BasicHeader } from "./Header.examples";
+import { BasicExample as CardsExample } from "./Card.examples";
 import { ContentActions } from "../../components/ContentActions/ContentActions";
 
 export const BasicExample = () => {
@@ -48,9 +61,34 @@ export const BasicExample = () => {
           <BasicBlockEditor {...blockEditorProps} />
           {/* <BlockEd itorExampleWithReorder {...blockEditorProps} /> */}
           <ContentActions>
-            <Button vol={4} variant="secondary" tone={1}>
-              Add Content Block
-            </Button>
+            <DialogTrigger
+              portalSelector="#portal"
+              modalClassName={finder.halfScreenModal}
+              focusOnProps={{
+                ...blockEditorProps,
+              }}
+            >
+              <Button vol={4} variant="secondary" tone={1}>
+                Add Content Block
+              </Button>
+              {(close) => (
+                <Dialog>
+                  <H2 vol={1} uppercase className={dialog.title} data-title>
+                    Add Blocks | Manage Blocks
+                  </H2>
+                  <hr className={dialog.divider} />
+                  <div className={dialog.content}>
+                    <Checkbox>Add multiple blocks</Checkbox>
+                    <CardsExample />
+                  </div>
+                  <ButtonGroup className={dialog.buttonGroup}>
+                    <Button variant="secondary" onPress={close}>
+                      Close
+                    </Button>
+                  </ButtonGroup>
+                </Dialog>
+              )}
+            </DialogTrigger>
           </ContentActions>
         </ContentArea>
         <Preview className={editorLayout.preview} {...previewProps}>

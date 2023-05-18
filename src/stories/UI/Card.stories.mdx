@@ -1,0 +1,113 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import { Card } from "../../components/Card/Card";
+import {
+  BasicExample,
+  MediaExample,
+  CardAsDialogTriggerExample,
+} from "./Card.examples";
+
+<Meta
+  title="PageLayout/Card"
+  argTypes={{
+    reviewRequired: {
+      control: { type: "boolean" },
+    },
+  }}
+  component={Card}
+  decorators={[
+    (Story) => (
+      <StoryGrid>
+        <Story />
+      </StoryGrid>
+    ),
+  ]}
+/>
+
+# Card
+
+Cards are surfaces that display content and actions on a single topic.
+
+They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy.
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { Card } from "@actionishope/shelley-cms";
+  `}
+/>
+
+<Story
+  name="a) Card"
+  args={{}}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+TBC`,
+      },
+    },
+  }}
+>
+  {BasicExample.bind({})}
+</Story>
+
+## Media
+
+<Source language="tsx" id="editor-pageactions--a-page-actions" />
+
+<Story
+  name="b) Media"
+  args={{}}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+TBC`,
+      },
+    },
+  }}
+>
+  {MediaExample.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-pageactions--a-page-actions" />
+
+## As Trigger
+
+<Story
+  name="b) Card as Trigger"
+  args={{}}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+TBC`,
+      },
+    },
+  }}
+>
+  {CardAsDialogTriggerExample.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-pageactions--a-page-actions" />
+
+## TextField Props
+
+<ArgsTable of={Card} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

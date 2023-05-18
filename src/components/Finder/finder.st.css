@@ -33,3 +33,8 @@
 .searchField {
   -st-extends: TextField;
 }
+
+/**/
+.halfScreenModal {
+  -st-extends: Modal;
+}

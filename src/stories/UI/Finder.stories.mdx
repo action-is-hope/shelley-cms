@@ -2,7 +2,7 @@ import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
 import dedent from "ts-dedent";
 import { StoryGrid } from "../StoryLayout";
 import { Finder } from "../../components/Finder/Finder";
-import { BasicExample } from "./Finder.examples";
+import { BasicExample, MediaExample } from "./Finder.examples";
 
 <Meta
   title="Finder/Finder"
@@ -26,6 +26,8 @@ import { BasicExample } from "./Finder.examples";
 
 Back to Finder, there really isn't much to look at as I shall now demonstrate:
 
+## Content Finder
+
 <Story
   name="a) Finder"
   parameters={{
@@ -44,7 +46,21 @@ Check EditorLayout page for proper example in context.
 
 <Source language="tsx" id="editor-contentarea--a-content-area" />
 
-## Content
+### Media Finder
+
+<Story
+  name="b) Finder - Media"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+TBC`,
+      },
+    },
+  }}
+>
+  <MediaExample />
+</Story>
 
 ## Finder Props
 

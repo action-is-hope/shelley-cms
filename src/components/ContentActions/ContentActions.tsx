@@ -18,5 +18,3 @@ function ContentActions(
  */
 const _ContentActions = forwardRef(ContentActions);
 export { _ContentActions as ContentActions };
-
-export default ContentActions;

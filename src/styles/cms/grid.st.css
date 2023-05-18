@@ -13,13 +13,14 @@
 :import {
   -st-from: "@actionishope/shelley/styles/default/project.st.css";
   -st-named:
-    --spacing-unit;
+    --spacing-unit, ;
 }
 
 /* = Shelley project scope and vars. */
 :import {
   -st-from: "./project.st.css";
   -st-default: CMS;
+  -st-named: breakpoint-md, breakpoint-sm, breakpoint-lg, breakpoint-xl;
 }
 
 /* = Root Component */
@@ -37,4 +38,56 @@
    * default project file and reassign.
    */
 
+  Grid:variant(2) {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-unit)
+  }
+
+  Grid:variant(3) {
+    /* grid-template-columns: fit-content(1fr) 1fr 1fr; */
+    /* grid-template-columns: fit-content(150px) 150px 150px; */
+    /* grid-template-columns: repeat(auto-fit, minmax(150px, 245px)); */
+    gap: var(--spacing-unit);
+  }
+}
+
+
+/* Media Grid */
+@st-scope CMS {
+  Grid:variant(3) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media value(breakpoint-sm) {
+  @st-scope CMS {
+    Grid:variant(3) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+/* Jump back to two as mobile side bar is visible @ 700px. */
+@media (min-width:700px) and (max-width:900px) {
+  @st-scope CMS {
+    Grid:variant(3) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media value(breakpoint-lg) {
+  @st-scope CMS {
+    Grid:variant(3) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media value(breakpoint-xl) {
+  @st-scope CMS {
+    Grid:variant(3) {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
 }
