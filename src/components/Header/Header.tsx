@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react";
-import type { Site, UserDetailsType } from "src/typings/shared-types";
+import type { Site, UserDetailsType } from "../../typings/shared-types";
 import {
   Toolbar,
   Button,
