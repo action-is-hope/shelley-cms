@@ -34,7 +34,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "clear-jest": "jest --clearCache",
-    "copy": "copyfiles package.json README.md dist; copyfiles -u 1 \"src/typings/shared-types.d.ts\" dist/",
+    "copy": "copyfiles package.json README.md dist; copyfiles -u 1 src/typings/shared-types.d.ts dist/",
     "prebuild": "npm run clean",
     "build-stylable-types": "stc",
     "build": "npm run clean && npm run copy && npm run build-components-stcss && npm run build-components-styles-stcss && tsc --project tsconfig-npm.json",
