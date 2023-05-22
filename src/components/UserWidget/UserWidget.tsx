@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { P } from "@actionishope/shelley";
 import { Widget, WidgetProps } from "../Widget/Widget";
 import { st, classes } from "./userWidget.st.css";
-import type { UserDetailsType } from "src/typings/shared-types";
+import type { UserDetailsType } from "../../typings/shared-types";
 
 export interface UserWidgetProps extends WidgetProps {
   user: UserDetailsType;
