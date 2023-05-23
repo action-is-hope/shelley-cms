@@ -3,7 +3,7 @@ import {
   H2,
   P,
   Item,
-  Button,
+  Tabs,
   ButtonGroup,
   DialogTrigger,
   Dialog,
@@ -60,36 +60,16 @@ export const BasicExample = () => {
           <BasicBlockEditor {...blockEditorProps} />
           <BasicBlockEditor {...blockEditorProps} />
           {/* <BlockEd itorExampleWithReorder {...blockEditorProps} /> */}
-          <ContentActions>
-            <DialogTrigger
-              portalSelector="#portal"
-              // isOpen
-              modalClassName={finder.halfScreenModal}
-              focusOnProps={{
-                ...blockEditorProps,
-              }}
-            >
-              <Button vol={4} variant="secondary" tone={1}>
-                Add Content Block
-              </Button>
-              {(close) => (
-                <Dialog>
-                  <H2 vol={1} uppercase className={dialog.title} data-title>
-                    Add Blocks | Manage Blocks
-                  </H2>
-                  <hr className={dialog.divider} />
-                  <div className={dialog.content}>
-                    <Checkbox>Add multiple blocks</Checkbox>
-                    <CardsExample />
-                  </div>
-                  <ButtonGroup className={dialog.buttonGroup}>
-                    <Button variant="secondary" onPress={close}>
-                      Close
-                    </Button>
-                  </ButtonGroup>
-                </Dialog>
-              )}
-            </DialogTrigger>
+          <ContentActions shards={blockEditorProps.shards}>
+            <Tabs aria-label="History of Ancient Rome">
+              <Item key="FoR" title="Add Block">
+                <Checkbox>Add multiple blocks</Checkbox>
+                <CardsExample />
+              </Item>
+              <Item key="MaR" title="Manage Blocks">
+                Senatus Populusque Romanus.
+              </Item>
+            </Tabs>
           </ContentActions>
         </ContentArea>
         <Preview className={editorLayout.preview} {...previewProps}>

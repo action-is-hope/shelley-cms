@@ -15,7 +15,7 @@
 @property st-global(--vh);
 
 /* = Root Component */
-@st-import Finder, [sideBarModal, halfScreenModal] from "../../components/Finder/finder.st.css";
+@st-import Finder, [sideBarModal] from "../../components/Finder/finder.st.css";
 
 @st-scope CMS {
 
@@ -103,15 +103,6 @@
   @st-scope CMS {
     Finder {
       --height-header: var(--height-header-md);
-    }
-
-    .halfScreenModal {
-      width: 55vw;
-    }
-
-    .halfScreenModal [role='dialog'] {
-      width: 50vw;
-      max-height: 70vh;
     }
   }
 }

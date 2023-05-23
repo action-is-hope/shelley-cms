@@ -6,6 +6,7 @@ import "./field.st.css";
 import "./modal.st.css";
 import "./label.st.css";
 import "./menu.st.css";
+import "./tabs.st.css";
 import "./text.st.css";
 import "./textField.st.css";
 import "./listBoxOption.st.css";

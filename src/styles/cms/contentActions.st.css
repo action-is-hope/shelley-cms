@@ -1,11 +1,12 @@
 /* = Project scope and vars. */
 @st-import CMS, [
   --spacing-unit,
-  --grad-2
+  --grad-2,
+  breakpoint-md
 ] from "./project.st.css";
 
 /* = Root Component */
-@st-import ContentActions from "../../components/ContentActions/contentActions.st.css";
+@st-import ContentActions, [halfScreenModal] from "../../components/ContentActions/contentActions.st.css";
 @st-import Button from "@actionishope/shelley/components/Button/button.st.css";
 
 @st-scope CMS {
@@ -27,4 +28,17 @@
     padding-right: 8%;
   }
 
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    .halfScreenModal {
+      width: 55vw;
+    }
+
+    .halfScreenModal [role='dialog'] {
+      width: 50vw;
+      max-height: 70vh;
+    }
+  }
 }

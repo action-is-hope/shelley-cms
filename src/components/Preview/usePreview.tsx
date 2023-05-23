@@ -30,6 +30,14 @@ type PreviewChromeProps = {
   fullScreenMode: boolean;
 };
 
+type Refs = {
+  previewRef: React.Ref<HTMLDivElement>;
+  previewModesRef: React.Ref<HTMLDivElement>;
+  previewActionsRef: React.Ref<HTMLDivElement>;
+  fullScreenModeButtonRef: React.Ref<HTMLButtonElement>;
+  focusModeButtonRef: React.Ref<HTMLButtonElement>;
+};
+
 type usePreviewReturn = {
   // Use to choose how to render the mode types ('web' vs devices)
   previewMode: PreviewModeType;
@@ -40,7 +48,7 @@ type usePreviewReturn = {
   previewProps: PreviewProps;
   previewChromeProps: PreviewChromeProps;
   previewActionsProps: PreviewActionsProps;
-  refs: any;
+  refs: Refs;
 };
 
 const usePreview = (): usePreviewReturn => {

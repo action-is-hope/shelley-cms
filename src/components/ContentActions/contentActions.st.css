@@ -1,2 +1,17 @@
-/* contentActions.st.css CSS API */
+/* contentActions.st.css */
+@namespace "ContentActions";
+@st-import Modal from "@actionishope/shelley/components/Modal/modal.st.css";
+@st-import Dialog, [ ] from "@actionishope/shelley/components/Dialog/dialog.st.css";
+
 .root {}
+
+.modalTitle {}
+
+.dialog {
+  -st-extends: Dialog;
+}
+
+/**/
+.halfScreenModal {
+  -st-extends: Modal;
+}
