@@ -54,8 +54,8 @@
     padding: 0;
   }
 
-  .tabs {
-    padding: 0 var(--spacing-unit);
+  .tabs::tabListContainer {
+    margin: 0 var(--spacing-unit);
   }
 
   .dialog::buttonGroup {
@@ -65,11 +65,12 @@
   .addMultipleCheckbox {
     position: absolute;
     bottom: var(--spacing-unit);
+    left: var(--spacing-unit);
   }
 
   .cardGrid {
     display: grid;
-    padding: var(--spacing-unit) 0;
+    padding: var(--spacing-unit);
     gap: var(--spacing-unit);
     grid-template-columns: 1fr 1fr;
     height: calc(70vh - 55px - 77px);
