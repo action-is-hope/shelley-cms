@@ -1,7 +1,9 @@
 /* contentActions.st.css */
 @namespace "ContentActions";
 @st-import Modal from "@actionishope/shelley/components/Modal/modal.st.css";
-@st-import Dialog, [ ] from "@actionishope/shelley/components/Dialog/dialog.st.css";
+@st-import Dialog from "@actionishope/shelley/components/Dialog/dialog.st.css";
+@st-import Tabs from "@actionishope/shelley/components/Tabs/tabs.st.css";
+@st-import Checkbox from "@actionishope/shelley/components/Checkbox/checkbox.st.css";
 
 .root {}
 
@@ -11,7 +13,16 @@
   -st-extends: Dialog;
 }
 
-/**/
 .halfScreenModal {
   -st-extends: Modal;
+}
+
+.tabs {
+  -st-extends: Tabs;
+}
+
+.cardGrid {}
+
+.addMultipleCheckbox {
+  -st-extends: Checkbox;
 }

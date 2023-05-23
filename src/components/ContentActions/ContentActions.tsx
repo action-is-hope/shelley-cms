@@ -8,22 +8,33 @@ import {
   DialogTrigger,
   Dialog,
   VisuallyHidden,
+  DialogTriggerProps,
 } from "@actionishope/shelley";
+import type { shards } from "src/typings/shared-types";
 
-export interface ContentActionsProps extends React.HTMLProps<HTMLDivElement> {
-  shards?: Array<React.RefObject<any> | HTMLElement> | undefined;
-  isOpen?: boolean;
+export interface ContentActionsProps
+  extends Omit<React.HTMLProps<HTMLDivElement>, "type">,
+    Pick<DialogTriggerProps, "isOpen" | "onOpenChange"> {
+  shards?: shards;
 }
 function ContentActions(
   props: ContentActionsProps,
   ref?: React.Ref<HTMLDivElement>
 ) {
-  const { className: classNameProp, children, shards, isOpen, ...rest } = props;
+  const {
+    className: classNameProp,
+    children,
+    shards,
+    isOpen,
+    onOpenChange,
+    ...rest
+  } = props;
   return (
     <div className={st(classes.root, classNameProp)} {...rest} ref={ref}>
       <DialogTrigger
         portalSelector="#portal"
         isOpen={isOpen}
+        onOpenChange={onOpenChange}
         modalClassName={classes.halfScreenModal}
         focusOnProps={{
           shards,

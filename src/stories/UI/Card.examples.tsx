@@ -1,26 +1,15 @@
-import { useState } from "react";
 import {
   Card,
   CardMedia,
   CardContent,
   CardHeader,
-  CardActions,
-  CardProps,
 } from "../../components/Card/Card";
 
-import {
-  H2,
-  H3,
-  P,
-  Button,
-  DialogTrigger,
-  Dialog,
-  Grid,
-} from "@actionishope/shelley";
+import { H2, H3, P, DialogTrigger, Dialog } from "@actionishope/shelley";
 import { Add } from "../../components/icons";
 import CropPortrait from "../../components/icons/CropPortrait";
 import { classes as card } from "../../styles/cms/card.st.css";
-export const BasicExample = (args: CardProps) => {
+export const BasicExample = () => {
   return (
     <Card onPress={() => console.log("onPressFired")}>
       <CardHeader>
@@ -36,7 +25,7 @@ export const BasicExample = (args: CardProps) => {
   );
 };
 
-export const MediaExample = (args: CardProps) => {
+export const MediaExample = () => {
   return (
     <Card onPress={() => console.log("onPress fired")}>
       <CardMedia>
@@ -61,7 +50,7 @@ export const MediaExample = (args: CardProps) => {
   );
 };
 
-export const CardAsDialogTriggerExample = (args: CardProps) => {
+export const CardAsDialogTriggerExample = () => {
   return (
     <div
       style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}
@@ -113,5 +102,56 @@ export const CardAsDialogTriggerExample = (args: CardProps) => {
         <Dialog>Popup Dialog</Dialog>
       </DialogTrigger>
     </div>
+  );
+};
+
+export const MultipleCardsExample = () => {
+  return (
+    <>
+      <Card onPress={() => console.log("onPressFired")}>
+        <CardHeader>
+          <H2 vol={1} uppercase>
+            Add Block
+            <Add aria-hidden="true" />
+          </H2>
+        </CardHeader>
+        <CardContent>
+          <P vol={1}>A simple, yet effective text only description here.</P>
+        </CardContent>
+      </Card>
+      <Card onPress={() => console.log("onPressFired")}>
+        <CardHeader>
+          <H2 vol={1} uppercase>
+            Add Block
+            <Add aria-hidden="true" />
+          </H2>
+        </CardHeader>
+        <CardContent>
+          <P vol={1}>A simple, yet effective text only description here.</P>
+        </CardContent>
+      </Card>
+      <Card onPress={() => console.log("onPressFired")}>
+        <CardHeader>
+          <H2 vol={1} uppercase>
+            Add Block
+            <Add aria-hidden="true" />
+          </H2>
+        </CardHeader>
+        <CardContent>
+          <P vol={1}>A simple, yet effective text only description here.</P>
+        </CardContent>
+      </Card>
+      <Card onPress={() => console.log("onPressFired")}>
+        <CardHeader>
+          <H2 vol={1} uppercase>
+            Add Block
+            <Add aria-hidden="true" />
+          </H2>
+        </CardHeader>
+        <CardContent>
+          <P vol={1}>A simple, yet effective text only description here.</P>
+        </CardContent>
+      </Card>
+    </>
   );
 };

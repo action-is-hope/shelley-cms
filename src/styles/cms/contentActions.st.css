@@ -2,11 +2,19 @@
 @st-import CMS, [
   --spacing-unit,
   --grad-2,
-  breakpoint-md
+  breakpoint-md,
+  breakpoint-lg
 ] from "./project.st.css";
 
 /* = Root Component */
-@st-import ContentActions, [halfScreenModal] from "../../components/ContentActions/contentActions.st.css";
+@st-import ContentActions, [
+  halfScreenModal,
+  dialog,
+  tabs,
+  cardGrid,
+  addMultipleCheckbox
+] from "../../components/ContentActions/contentActions.st.css";
+@st-import [--dialog-padding-x, --dialog-padding-y] from "@actionishope/shelley/components/Dialog/dialog.st.css";
 @st-import Button from "@actionishope/shelley/components/Button/button.st.css";
 
 @st-scope CMS {
@@ -26,9 +34,55 @@
   ContentActions Button {
     padding-left: 8%;
     padding-right: 8%;
+
   }
 
+  .dialog {
+    --dialog-padding-x: 0;
+    --dialog-padding-y: 0
+  }
+
+  .dialog::content {
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .dialog::buttonGroup {
+    margin: 20px
+  }
+
+  .tabs::tabPanel {
+    /* height: calc(70vh - 55px - 75px);
+    overflow: scroll;
+    position: relative;
+    padding-bottom: 0; */
+  }
+
+  .addMultipleCheckbox {
+    position: absolute;
+    bottom: var(--spacing-unit);
+  }
+
+  .cardGrid {
+    display: grid;
+    gap: var(--spacing-unit);
+    grid-template-columns: 1fr 1fr;
+    height: calc(70vh - 55px - 92px);
+    overflow: scroll;
+    position: relative;
+    padding-bottom: 0;
+    place-content: baseline;
+  }
 }
+
+@media value(breakpoint-lg) {
+  @st-scope CMS {
+    .cardGrid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
 
 @media value(breakpoint-md) {
   @st-scope CMS {
@@ -38,7 +92,7 @@
 
     .halfScreenModal [role='dialog'] {
       width: 50vw;
-      max-height: 70vh;
+      height: 70vh;
     }
   }
 }
