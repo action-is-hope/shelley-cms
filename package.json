@@ -50,7 +50,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@actionishope/shelley": "^2.0.0-alpha.1",
+    "@actionishope/shelley": "^3.0.0-alpha.1",
     "@react-hook/size": "^2.1.2",
     "react-beautiful-dnd": "^13.1.1",
     "react-click-away-listener": "^2.2.3"

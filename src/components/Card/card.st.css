@@ -1,0 +1,25 @@
+@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
+
+.root {
+  -st-states:
+    iconPos(enum(top, end, bottom, start)),
+    fullWidth,
+    tone(number),
+    variant(string),
+    vol(number),
+    isFocusVisible,
+    isPressed,
+    isDisabled;
+}
+
+.header {}
+
+.media {}
+
+.content {}
+
+.actions {}
+
+.mainButton {
+  -st-extends: Button
+}

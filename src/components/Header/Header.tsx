@@ -79,7 +79,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
       <DialogTrigger isDismissable portalSelector="#portal">
         <Button
           className={classes.siteListTrigger}
-          variant="secondary"
+          variant={false}
           tone={10}
           vol={5}
           icon={<List />}
@@ -136,8 +136,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
       <div className={classes.userActions}>
         <Button
           className={classes.navTrigger}
-          variant="secondary"
-          tone={10}
+          variant={false}
           vol={5}
           icon={<Menu />}
           aria-label="Menu"
@@ -195,7 +194,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
                 <Switch
                   {...themeSwitcherProps}
                   className={classes.themeSwitcher}
-                  vol={1}
+                  size={1}
                   data-id={dataId ? `${dataId}--themeSwitcher` : undefined}
                 >
                   Dark mode

@@ -15,15 +15,12 @@
 :import {
   -st-from: "@actionishope/shelley/components/Label/label.st.css";
   -st-default: Label;
-  -st-named:
-    textContainer,
-    labelText;
 }
 
 
 @st-scope CMS {
 
-  Label::labelText {
+  Label::text {
     color: var(--color-text-2);
   }
 
