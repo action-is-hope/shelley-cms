@@ -38,9 +38,9 @@ export interface MetaDataEditorProps<T>
   descriptionProps: Partial<InputTextProps>;
   /** Langauge Selector props */
   languageSelectorProps: LanguageSelector<T>;
-  /**  */
+  /** Control the isOpen state */
   isOpen?: boolean;
-  /** */
+  /** Children - passing in a render function will be called with isOpen. */
   children: OverloadedChildren | React.ReactNode;
 }
 

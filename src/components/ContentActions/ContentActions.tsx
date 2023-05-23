@@ -40,7 +40,12 @@ function ContentActions(
           shards,
         }}
       >
-        <Button vol={4} variant="secondary" tone={1}>
+        <Button
+          vol={4}
+          variant="secondary"
+          tone={1}
+          className={classes.addBlockButton}
+        >
           Add Content Block
         </Button>
         {(close) => (

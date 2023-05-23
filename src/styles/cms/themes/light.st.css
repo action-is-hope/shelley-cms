@@ -119,7 +119,6 @@
   --color-ui-raw-inverse: var(--light-01-raw);
 
   /* = Accent colors */
-  /* --color-accent-1: #16a78e; */
   --color-accent-1: var(--color-header-background);
   --color-accent-2: rgb(68 134 136);
   --color-accent-3: rgb(37 43 45 / 80%);
@@ -165,7 +164,7 @@
   /* = Form colors */
   --color-form-base-border: rgba(121, 170, 216, 0.5);
   --color-form-selection-border: rgba(121, 170, 216, 1);
-  --color-form-selection-notch: #20af68;
+  --color-form-selection-notch: #37a7b5;
   --color-switch-notch: #a5a5a5;
 
   --color-focus-mode-background: var(--color-background-3);

@@ -137,7 +137,6 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
         <Button
           className={classes.navTrigger}
           variant={false}
-          // tone={10}
           vol={5}
           icon={<Menu />}
           aria-label="Menu"

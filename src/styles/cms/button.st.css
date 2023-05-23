@@ -98,7 +98,6 @@
   Button:variant(secondary) {
     --border-color: var(--accent);
     background-color: var(--color-background-3);
-    /* background-color: var(--color-background-4); */
     -webkit-font-smoothing: antialiased;
   }
 

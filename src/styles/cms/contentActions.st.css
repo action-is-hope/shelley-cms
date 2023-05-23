@@ -31,10 +31,9 @@
     padding: 0px 0 28px;
   }
 
-  ContentActions Button {
+  ContentActions::addBlockButton {
     padding-left: 8%;
     padding-right: 8%;
-
   }
 
   .dialog {
@@ -47,15 +46,20 @@
     overflow: hidden;
   }
 
-  .dialog::buttonGroup {
-    margin: 20px
+  .tabs {
+    margin-top: calc(var(--spacing-unit) * .5)
   }
 
   .tabs::tabPanel {
-    /* height: calc(70vh - 55px - 75px);
-    overflow: scroll;
-    position: relative;
-    padding-bottom: 0; */
+    padding: 0;
+  }
+
+  .tabs {
+    padding: 0 var(--spacing-unit);
+  }
+
+  .dialog::buttonGroup {
+    margin: var(--spacing-unit);
   }
 
   .addMultipleCheckbox {
@@ -65,10 +69,12 @@
 
   .cardGrid {
     display: grid;
+    padding: var(--spacing-unit) 0;
     gap: var(--spacing-unit);
     grid-template-columns: 1fr 1fr;
-    height: calc(70vh - 55px - 92px);
-    overflow: scroll;
+    height: calc(70vh - 55px - 77px);
+    overflow-x: hidden;
+    overflow-y: scroll;
     position: relative;
     padding-bottom: 0;
     place-content: baseline;
@@ -82,7 +88,6 @@
     }
   }
 }
-
 
 @media value(breakpoint-md) {
   @st-scope CMS {

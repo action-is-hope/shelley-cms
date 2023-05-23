@@ -1,5 +1,6 @@
 /* contentActions.st.css */
 @namespace "ContentActions";
+@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
 @st-import Modal from "@actionishope/shelley/components/Modal/modal.st.css";
 @st-import Dialog from "@actionishope/shelley/components/Dialog/dialog.st.css";
 @st-import Tabs from "@actionishope/shelley/components/Tabs/tabs.st.css";
@@ -7,7 +8,9 @@
 
 .root {}
 
-.modalTitle {}
+.addBlockButton {
+  -st-extends: Button;
+}
 
 .dialog {
   -st-extends: Dialog;
