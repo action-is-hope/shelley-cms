@@ -37,7 +37,6 @@
   --background-color-popup,
   --border-color-popup,
   --spacing-unit,
-  --select-icon,
   --grid-gap,
   --grid-v1-cols-xs,
   --grid-v1-cols-sm,
@@ -131,12 +130,7 @@
   --color-text-1: var(--light-01);
   --color-text-2: rgba(var(--light-01-raw), 0.9);
   --color-text-3: rgba(var(--light-01-raw), 0.8);
-
-  /* = Status colors */
-  /* --color-error: #b66b6e; */
-
-  /* = Indicator colors */
-  /* --color-focus: #09b1f1; */
+  --color-text-4: rgba(var(--light-01-raw), 0.7);
 
   /* = Form colors */
   /* --color-form-base-border: rgba(119, 140, 157, 0.7); */
@@ -221,11 +215,9 @@
   font-family: value(font-special);
 }
 
-
-/* data-focus-lock-disabled */
 [data-focus-lock-disabled="disabled"] * {
+  /* Hides the scroll bars on locked containers which all show as soon as any dialog is open. Very annoying. */
   scrollbar-width: none;
-
 }
 
 [data-focus-on-hidden="true"] *::-webkit-scrollbar {

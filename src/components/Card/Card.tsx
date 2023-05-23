@@ -1,41 +1,25 @@
-import React, { forwardRef, useRef } from "react";
-import { useButton, useFocusRing } from "react-aria";
+import React, { forwardRef } from "react";
 import type { AriaButtonProps } from "@react-types/button";
-import { mergeRefs, mergeProps } from "@react-aria/utils";
 import { st, classes } from "./card.st.css";
 import { Button } from "@actionishope/shelley";
 
-export interface CardProps extends Omit<AriaButtonProps, "elementType"> {
-  className?: string;
+export interface CardProps
+  extends Pick<AriaButtonProps, "onPress">,
+    React.HTMLProps<HTMLDivElement> {
   /** make onPress conditional and if yes then aria props must be specified? */
 }
 /**
  * Card is a basic container that houses the construction of larger more complex UI elements.
  */
 function Card(props: CardProps, ref?: React.Ref<HTMLDivElement>) {
-  const localRef = useRef(null);
-  // const { buttonProps, isPressed } = useButton(props, localRef);
   const { className: classNameProp, children, ...rest } = props;
-
-  // const { isFocusVisible, focusProps } = useFocusRing();
   return (
-    <div
-      className={st(
-        classes.root,
-        // { isFocusVisible, isPressed, isDisabled: buttonProps.disabled },
-        classNameProp
-      )}
-      // {...rest}
-      // {...{
-      //   ref: ref ? mergeRefs(localRef, ref) : localRef,
-      //   ...mergeProps(buttonProps, focusProps),
-      // }}
-    >
+    <div className={st(classes.root, classNameProp)} {...rest} ref={ref}>
       {props.onPress && (
         <Button
           aria-label="Title"
           onPress={props.onPress}
-          className={classes.button}
+          className={classes.mainButton}
           variant={false}
           tone={false}
           vol={false}
@@ -72,7 +56,6 @@ export { _CardHeader as CardHeader };
  */
 
 export interface CardMediaProps extends React.HTMLAttributes<HTMLDivElement> {
-  // image: string;
   title?: string;
 }
 

@@ -18,182 +18,27 @@ import {
   Grid,
 } from "@actionishope/shelley";
 import { Add } from "../../components/icons";
-
+import CropPortrait from "../../components/icons/CropPortrait";
+import { classes as card } from "../../styles/cms/card.st.css";
 export const BasicExample = (args: CardProps) => {
   return (
-    <Grid variant={3}>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-      <Card onPress={() => console.log("Here")}>
-        <CardHeader>
-          <H2 vol={1} uppercase>
-            Standard title
-          </H2>
-          <Add />
-        </CardHeader>
-        <CardContent>
-          <P vol={1}>A simple, yet effective text only title area.</P>
-        </CardContent>
-      </Card>
-    </Grid>
+    <Card onPress={() => console.log("onPressFired")}>
+      <CardHeader>
+        <H2 vol={1} uppercase>
+          Add Block
+          <Add aria-hidden="true" />
+        </H2>
+      </CardHeader>
+      <CardContent>
+        <P vol={1}>A simple, yet effective text only description here.</P>
+      </CardContent>
+    </Card>
   );
 };
 
 export const MediaExample = (args: CardProps) => {
   return (
-    <Card onPress={() => console.log("Here")}>
+    <Card onPress={() => console.log("onPress fired")}>
       <CardMedia>
         <img
           src="https://ik.imagekit.io/tcvka0ufln/pontoon_v3jIy64zcnwwx.jpeg?tr=w-1200,h-630,fo-auto"
@@ -204,35 +49,69 @@ export const MediaExample = (args: CardProps) => {
         <H3 vol={2} truncate={1}>
           A simple, yet effective text only title area.
         </H3>
-        <P vol={1} truncate={1}>
+        <P vol={2} truncate={1}>
           A simple, yet effective text only title area.
         </P>
+        <P vol={2} className={card.hasIcon}>
+          <code aria-hidden="true">50x100 (original)</code>
+          <CropPortrait alt="original image: 50 x 100, portrait" />
+        </P>
       </CardContent>
-      {/* <CardActions>
-        <Button vol={1}>Share</Button>
-        <Button vol={1}>Learn More</Button>
-      </CardActions> */}
     </Card>
   );
 };
 
 export const CardAsDialogTriggerExample = (args: CardProps) => {
   return (
-    <DialogTrigger portalSelector="#portal" isDismissable type="popup">
-      <Card onPress={() => console.log("Here")}>
-        <CardContent>
-          <H2 vol={4}>Lizard</H2>
-          <P vol={2}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </P>
-        </CardContent>
-        {/* <CardActions>
-        <Button vol={1}>Share</Button>
-        <Button vol={1}>Learn More</Button>
-      </CardActions> */}
-      </Card>
-      <Dialog>DIALOG</Dialog>
-    </DialogTrigger>
+    <div
+      style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}
+    >
+      <DialogTrigger portalSelector="#portal" isDismissable>
+        <Card onPress={() => console.log("onPress fired")}>
+          <CardMedia>
+            <img
+              src="https://ik.imagekit.io/tcvka0ufln/pontoon_v3jIy64zcnwwx.jpeg?tr=w-1200,h-630,fo-auto"
+              alt=""
+            />
+          </CardMedia>
+          <CardContent>
+            <H3 vol={2} truncate={1}>
+              Modal Dialog
+            </H3>
+            <P vol={2} truncate={1}>
+              A simple, yet effective text only title area.
+            </P>
+            <P vol={2} className={card.hasIcon}>
+              <code aria-hidden="true">50x100 (original)</code>
+              <CropPortrait alt="original image: 50 x 100, portrait" />
+            </P>
+          </CardContent>
+        </Card>
+        <Dialog>Modal Dialog</Dialog>
+      </DialogTrigger>
+      <DialogTrigger portalSelector="#portal" type="popup" isDismissable>
+        <Card onPress={() => console.log("onPress fired")}>
+          <CardMedia>
+            <img
+              src="https://ik.imagekit.io/tcvka0ufln/pontoon_v3jIy64zcnwwx.jpeg?tr=w-1200,h-630,fo-auto"
+              alt=""
+            />
+          </CardMedia>
+          <CardContent>
+            <H3 vol={2} truncate={1}>
+              Popup Dialog
+            </H3>
+            <P vol={2} truncate={1}>
+              A simple, yet effective text only title area.
+            </P>
+            <P vol={2} className={card.hasIcon}>
+              <code aria-hidden="true">50x100 (original)</code>
+              <CropPortrait alt="original image: 50 x 100, portrait" />
+            </P>
+          </CardContent>
+        </Card>
+        <Dialog>Popup Dialog</Dialog>
+      </DialogTrigger>
+    </div>
   );
 };

@@ -3,7 +3,6 @@ import "./badge.st.css";
 import "./button.st.css";
 import "./dialog.st.css";
 import "./field.st.css";
-import "./grid.st.css";
 import "./modal.st.css";
 import "./label.st.css";
 import "./menu.st.css";

@@ -7,7 +7,10 @@
   --height-header-sm,
   --height-header-md,
   --color-background-contrast-1,
-  breakpoint-md
+  breakpoint-md,
+  breakpoint-sm,
+  breakpoint-lg,
+  breakpoint-xl
 ] from "./project.st.css";
 @property st-global(--vh);
 
@@ -75,8 +78,14 @@
     border-radius: 999px;
   }
 
-  Finder::searchField::startAdornment {
+  Finder::searchField::fieldContainer {
+    align-items: center;
+  }
+
+  Finder::searchField::fieldContainer > svg {
     font-size: 1.2em;
+    position: relative;
+    left: .5em
   }
 
   /* Modal is in a portal so targeting directly. */
@@ -103,6 +112,48 @@
     .halfScreenModal [role='dialog'] {
       width: 50vw;
       max-height: 70vh;
+    }
+  }
+}
+
+/* Media Grid */
+@st-scope CMS {
+  .mediaGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-unit)
+  }
+}
+
+@media value(breakpoint-sm) {
+  @st-scope CMS {
+    .mediaGrid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+/* Jump back to two as mobile side bar is visible @ 700px. */
+@media (min-width:700px) and (max-width:900px) {
+  @st-scope CMS {
+    .mediaGrid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media value(breakpoint-lg) {
+  @st-scope CMS {
+    .mediaGrid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media value(breakpoint-xl) {
+  @st-scope CMS {
+    .mediaGrid {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
   }
 }

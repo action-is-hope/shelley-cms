@@ -16,8 +16,7 @@
     --color-form-base-border,
     --color-form-selection-border,
     --color-form-selection-notch,
-    --color-switch-notch,
-    --select-icon;
+    --color-switch-notch
 }
 
 :import {
@@ -41,6 +40,7 @@
     /* = Background colors */
     --color-background-main,
     --color-background-contrast-1,
+    --color-background-contrast-2,
     --color-background-2,
     --color-background-3,
     --color-background-4,
@@ -67,6 +67,7 @@
     --color-text-1,
     --color-text-2,
     --color-text-3,
+    --color-text-4,
     /* Focus Mode*/
     --color-focus-mode-background,
     /* = Tables */
@@ -126,6 +127,7 @@
   /* = Background colors */
   --color-background-main: #e8e8e8;
   --color-background-contrast-1: #fff;
+  --color-background-contrast-2: #f2f2f2;
   --color-background-2: #e2e2e2;
   --color-background-3: #f3f3f3;
   --color-background-4: rgb(255, 255, 255, 0.25);
@@ -155,7 +157,7 @@
   --color-text-1: var(--dark-01);
   --color-text-2: rgba(var(--dark-01-raw), 0.9);
   --color-text-3: rgba(var(--dark-01-raw), 0.8);
-  --color-text-4: rgb(134, 102, 30);
+  --color-text-4: rgba(var(--dark-01-raw), 0.7);
 
   /* = Status colors - TBC */
   --color-error: red;
@@ -209,8 +211,4 @@
   --facebook-title: #1d2129;
   --facebook-desc: #606770;
   --facebook-domain: #606770;
-
-  /* = Misc */
-  --select-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='333333' xml:space='preserve'><path d='M3 2v2l5 5 5-5v-2l-5 5z'></path><path d='M3 7v2l5 5 5-5v-2l-5 5z'></path></svg>");
-
 }

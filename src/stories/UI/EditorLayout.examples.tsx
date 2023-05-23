@@ -63,6 +63,7 @@ export const BasicExample = () => {
           <ContentActions>
             <DialogTrigger
               portalSelector="#portal"
+              // isOpen
               modalClassName={finder.halfScreenModal}
               focusOnProps={{
                 ...blockEditorProps,
