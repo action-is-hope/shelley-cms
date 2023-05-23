@@ -37,9 +37,10 @@ export { _Card as Card };
  * CardHeader hold header items for use within Card.
  */
 
-export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-function CardHeader(props: CardHeaderProps, ref?: React.Ref<HTMLDivElement>) {
+function CardHeader(
+  props: React.HTMLAttributes<HTMLDivElement>,
+  ref?: React.Ref<HTMLDivElement>
+) {
   const { className: classNameProp, children, ...rest } = props;
   return (
     <div className={st(classes.header, classNameProp)} {...rest} ref={ref}>

@@ -8,23 +8,14 @@ import {
   TableBody,
   TableHeader,
   P,
-  H2,
   H3,
-  Grid,
 } from "@actionishope/shelley";
 import { Finder } from "../../components/Finder/Finder";
 import { BasicHeader } from "./Header.examples";
 import Add from "../../components/icons/Add";
 import { default as ContentIcon } from "../../components/icons/Content";
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardHeader,
-  CardActions,
-  CardProps,
-} from "../../components/Card/Card";
-import { st, classes as finder } from "../../styles/cms/finder.st.css";
+import { Card, CardMedia, CardContent } from "../../components/Card/Card";
+import { classes as finder } from "../../styles/cms/finder.st.css";
 
 export const BasicExample = () => (
   <Finder

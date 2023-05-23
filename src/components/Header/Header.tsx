@@ -195,7 +195,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
                 <Switch
                   {...themeSwitcherProps}
                   className={classes.themeSwitcher}
-                  vol={1}
+                  size={1}
                   data-id={dataId ? `${dataId}--themeSwitcher` : undefined}
                 >
                   Dark mode
