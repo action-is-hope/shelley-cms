@@ -48,7 +48,7 @@ function PreviewActions(
       {children}
       <Button
         onPress={() => onFocusModeClick(!focusMode)}
-        variant="secondary"
+        variant={false}
         vol={5}
         ref={focusModeButtonRef}
         className={classes.toggleFocusButton}
@@ -68,7 +68,7 @@ function PreviewActions(
         }
       />
       <Button
-        variant="secondary"
+        variant={false}
         vol={5}
         ref={fullScreenModeButtonRef}
         className={classes.toggleFullScreenButton}

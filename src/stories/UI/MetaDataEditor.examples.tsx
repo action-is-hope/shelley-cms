@@ -95,6 +95,7 @@ export const MetaDataEditorWithChildrenExample = () => {
         defaultValue:
           "This is a lovely long description that even covers two lines but to be honest I'm not sure that I can even make it that far; fear not that was enough waffle.",
         onChange: (value) => console.log(value),
+        isDisabled: true,
       }}
       // Langauge selector props
       languageSelectorProps={{
@@ -113,26 +114,32 @@ export const MetaDataEditorWithChildrenExample = () => {
         ],
       }}
     >
-      {/* Additional inputs as children */}
-      <TextField
-        labelPosition="side"
-        variant="quiet"
-        label={"Tagging"}
-        description="Select some tags to associate with this content."
-        placeholder={"Tagging"}
-      />
-      <Select
-        label="Structured data"
-        vol={1}
-        labelPosition="side"
-        onSelectionChange={(key) => console.log(key)}
-        variant="outlined"
-        portalSelector={"#metaPortal"}
-      >
-        <Item key="rarely">Rarely</Item>
-        <Item key="sometimes">Sometimes</Item>
-        <Item key="always">Always</Item>
-      </Select>
+      {(isOpen) => (
+        <>
+          {/* Additional inputs as children */}
+          <TextField
+            labelPosition="side"
+            isDisabled={!isOpen}
+            variant="quiet"
+            label={"Tagging"}
+            description="Select some tags to associate with this content."
+            placeholder={"Tagging"}
+          />
+          <Select
+            label="Structured data"
+            vol={1}
+            isDisabled={!isOpen}
+            labelPosition="side"
+            onSelectionChange={(key) => console.log(key)}
+            variant="outlined"
+            portalSelector={"#metaPortal"}
+          >
+            <Item key="rarely">Rarely</Item>
+            <Item key="sometimes">Sometimes</Item>
+            <Item key="always">Always</Item>
+          </Select>
+        </>
+      )}
     </MetaDataEditor>
   );
 };

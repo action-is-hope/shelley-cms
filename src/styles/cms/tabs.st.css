@@ -1,0 +1,36 @@
+/* tabs.st.css */
+@st-import CMS, [
+    --color-ui-inverse,
+    --color-ui-raw,
+    --color-accent-1
+  ] from "./project.st.css";
+@st-import Tabs from "@actionishope/shelley/components/Tabs/tabs.st.css";
+
+@st-scope CMS {
+
+  Tabs::indicator {
+    background-color: var(--color-accent-1);
+  }
+
+  Tabs::tab {
+    margin-right: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+  }
+
+  Tabs::tab:isDisabled {
+    color: rgba(var(--color-ui-raw), 0.5);
+    cursor: not-allowed;
+  }
+
+  Tabs::tabList {
+    border-bottom: 2px solid var(--color-ui-inverse);
+  }
+
+  Tabs:orientation(vertical)::tabList {
+    border-bottom: none;
+    border-right: 2px solid var(--color-ui-inverse);
+  }
+
+}

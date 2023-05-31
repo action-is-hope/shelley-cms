@@ -1,4 +1,4 @@
-import { H1, H2, P, Item } from "@actionishope/shelley";
+import { H1, H2, P, Item, Tabs, Checkbox } from "@actionishope/shelley";
 import { Preview } from "../../components/Preview/Preview";
 import { PreviewMetaData } from "../../components/PreviewMetaData/PreviewMetaData";
 import { PreviewChrome } from "../../components/PreviewChrome/PreviewChrome";
@@ -7,8 +7,8 @@ import usePreview from "../../components/Preview/usePreview";
 import { PageActions } from "../../components/PageActions/PageActions";
 import { EditorLayout } from "../../components/EditorLayout/EditorLayout";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
-
 import { classes as editorLayout } from "../../components/EditorLayout/editorLayout.st.css";
+
 import {
   st,
   classes as previewChrome,
@@ -19,6 +19,10 @@ import {
 } from "./BlockEditor.examples";
 import { MetaDataEditorWithChildrenExample } from "./MetaDataEditor.examples";
 import { BasicHeader } from "./Header.examples";
+import { MultipleCardsExample } from "./Card.examples";
+import { ContentActions } from "../../components/ContentActions/ContentActions";
+import { classes as contentActions } from "../../components/ContentActions/contentActions.st.css";
+import { useState } from "react";
 
 export const BasicExample = () => {
   const {
@@ -30,6 +34,9 @@ export const BasicExample = () => {
     previewChromeProps,
     previewActionsProps,
   } = usePreview();
+
+  // We need to set this dialog to open as part of BlockEditor->onMangeSelect
+  const [contentActionDialogOpen, setContentActionDialogOpen] = useState(false);
 
   return (
     <>
@@ -45,7 +52,31 @@ export const BasicExample = () => {
           <BasicBlockEditor {...blockEditorProps} />
           <BasicBlockEditor {...blockEditorProps} />
           <BasicBlockEditor {...blockEditorProps} />
-          {/* <BlockEditorExampleWithReorder {...blockEditorProps} /> */}
+          {/* <BlockEd itorExampleWithReorder {...blockEditorProps} /> */}
+          {/* Content Actions - provides the 'Add Block' Buttton */}
+          <ContentActions
+            shards={blockEditorProps.shards}
+            // @todo: https://github.com/action-is-hope/shelley/issues/106
+            isOpen={contentActionDialogOpen}
+            onOpenChange={(isOpen) => setContentActionDialogOpen(isOpen)}
+          >
+            <Tabs
+              aria-label="History of Ancient Rome"
+              className={contentActions.tabs}
+            >
+              <Item key="FoR" title="Add Block">
+                <Checkbox className={contentActions.addMultipleCheckbox}>
+                  Add multiple blocks
+                </Checkbox>
+                <div className={contentActions.cardGrid}>
+                  <MultipleCardsExample />
+                </div>
+              </Item>
+              <Item key="MaR" title="Manage Blocks">
+                Senatus Populusque Romanus.
+              </Item>
+            </Tabs>
+          </ContentActions>
         </ContentArea>
         <Preview className={editorLayout.preview} {...previewProps}>
           {previewMode === "web" && (

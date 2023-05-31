@@ -11,11 +11,12 @@
 
 @st-scope CMS {
 
-  ListBoxOption:isSelected:isFocused {
+  ListBoxOption:isSelected,
+  ListBoxOption:hover {
     border-color: var(--color-focus)
   }
 
-  ListBoxOption:isHovered,
+  ListBoxOption:hover,
   ListBoxOption:isFocusVisible {
     background-color: var(--color-background-listBox-option-hover);
     cursor: pointer;
