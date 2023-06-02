@@ -19,7 +19,7 @@ import useSize from "@react-hook/size";
 import Search from "../icons/Search";
 import Filter from "../icons/Filter";
 
-export type OverloadedChildren = (isMobile: boolean) => ReactElement;
+type OverloadedChildren = (isMobile: boolean) => ReactElement;
 
 export interface FinderProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "title" | "children">,

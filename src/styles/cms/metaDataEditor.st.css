@@ -2,6 +2,7 @@
 @st-import CMS, [
   breakpoint-md,
   --color-background-2,
+  --color-background-3,
   --color-background-4,
   --height-header-sm,
   --height-header-md,
@@ -144,7 +145,7 @@
   /* Generic Fields */
   MetaDataEditor Field::fieldContainer {
     /* background for all textbased fields. */
-    background-color: var(--color-background-4);
+    background-color: var(--color-background-3);
   }
 
   /* Target fields with label by side as designed. */

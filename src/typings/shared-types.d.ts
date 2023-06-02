@@ -52,3 +52,5 @@ export interface Site {
   key: string;
   siteCode?: string;
 }
+
+export type shards = Array<React.RefObject<any> | HTMLElement> | undefined;

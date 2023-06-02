@@ -11,7 +11,8 @@
   --color-background-main,
   --color-background-2,
   --color-background-3,
-  --color-border-dialog
+  --color-border-dialog,
+  --color-focus-mode-background
 ] from "./project.st.css";
 
 /* = Root Component */

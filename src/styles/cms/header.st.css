@@ -180,7 +180,8 @@
     border-top: 1px solid var(--border-color-popup);
   }
 
-  .themeSwitcher:vol(1) {
+  .themeSwitcher:size(1) {
+    display: flex;
     font-size: var(--text-vol-1-scale);
     margin: calc(var(--spacing-unit) / 1.5) 0 var(--spacing-unit)
   }

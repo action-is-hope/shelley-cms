@@ -1,6 +1,6 @@
 {
   "name": "@actionishope/shelley-cms",
-  "version": "1.0.0-alpha.1",
+  "version": "2.0.0-alpha.1",
   "license": "ISC",
   "description": "Shelley CMS UI.",
   "repository": {
@@ -34,7 +34,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "clear-jest": "jest --clearCache",
-    "copy": "copyfiles package.json \"./package.json\" \"./README.md\" dist",
+    "copy": "copyfiles package.json README.md dist; copyfiles -u 1 src/typings/shared-types.d.ts dist",
     "prebuild": "npm run clean",
     "build-stylable-types": "stc",
     "build": "npm run clean && npm run copy && npm run build-components-stcss && npm run build-components-styles-stcss && tsc --project tsconfig-npm.json",
@@ -45,12 +45,13 @@
     "test": "npm run typecheck && npm run lint && npm run unit-tests && npm run cypress",
     "unit-tests": "jest --runInBand",
     "cypress": "cypress run --component --browser chrome",
+    "cypress:ui": "cypress open",
     "start": "npm run build-stylable-types && npm run storybook",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@actionishope/shelley": "^2.0.0-alpha.1",
+    "@actionishope/shelley": "^3.0.0-alpha.1",
     "@react-hook/size": "^2.1.2",
     "react-beautiful-dnd": "^13.1.1",
     "react-click-away-listener": "^2.2.3"
