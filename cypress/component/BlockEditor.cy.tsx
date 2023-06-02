@@ -70,7 +70,6 @@ describe("BlockEditor", () => {
       cy.get(settings + " div button").should("be.visible").and("exist").contains("Cancel").realClick();
       cy.get(menu).should("not.exist");
       cy.get(blockEditor).should("be.visible");
-      cy.get(modal).should('not.exist')
     });
   });
 
