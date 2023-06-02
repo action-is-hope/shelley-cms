@@ -70,6 +70,7 @@ describe("BlockEditor", () => {
       cy.get(settings + " div button").should("be.visible").and("exist").contains("Cancel").realClick();
       cy.get(menu).should("not.exist");
       cy.get(blockEditor).should("be.visible");
+      cy.get(modal).should('not.exist')
     });
   });
 
@@ -77,10 +78,15 @@ describe("BlockEditor", () => {
     it("accessibility basics", () => {
       cy.mount(<BlockEditorTemplate />);
       cy.get(blockEditor).should("exist").and("be.visible");
-      cy.realPress("Tab");
-      cy.focused();
-      cy.realPress("Tab");
-      cy.focused().type("Hello Groot").should("have.value", "Hello Groot");
+      cy.realPress("Tab").focused().get(menuTrigger).should("be.visible");
+      cy.realPress("Space").focused().get(menu).should("be.visible");
+      cy.realPress("Space").focused().get(modal).should("be.visible").get(modalContent).should("be.visible");
+      cy.get(blockEditorInput).focused().type("Hello Groot").should('have.attr', 'placeholder', 'Setting').and("have.value", "Hello Groot");
+      cy.get(settings + " h2").should("be.visible").and("exist").contains("BlockName settings");
+      cy.get(settings + " div p").should("be.visible").and("exist").contains("Settings");
+      cy.realPress("Tab").focused().should('have.attr', 'type', 'button').and("be.visible").contains("Cancel");
+      cy.realPress("Space").get(modal).should("not.exist");
+      cy.realPress("Tab").focused().type("Hello Groot").should('have.attr', 'placeholder', 'Placeholder text').and("have.value", "Hello Groot");
     })
 
   });
