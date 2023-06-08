@@ -87,7 +87,16 @@ describe("BlockEditor", () => {
       cy.realPress("Space").get(modal).should("not.exist");
       cy.realPress("Tab").focused().type("Hello Groot").should('have.attr', 'placeholder', 'Placeholder text').and("have.value", "Hello Groot");
     })
-
+  it("accessibility open / close", () => {
+      cy.mount(<BlockEditorTemplate />);
+      cy.get(blockEditor).should("exist").and("be.visible");
+      cy.realPress("Tab").focused().get(menuTrigger).should("be.visible");
+      cy.realPress("Space").focused().get(menu).should("be.visible");
+      cy.realPress("Escape").focused().get(blockEditor).should("exist").and("be.visible");
+      cy.realPress("Space").focused().get(menu).should("be.visible");
+      cy.realPress("Space").focused().get(modal).should("be.visible").get(modalContent).should("be.visible");
+      cy.realPress("Escape").focused().get(blockEditor).should("exist").and("be.visible");
+    })
   });
 
 
