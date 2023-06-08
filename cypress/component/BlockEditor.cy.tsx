@@ -62,11 +62,13 @@ describe("BlockEditor", () => {
     it("renders block options menu", () => {
       cy.mount(<BlockEditorTemplate />);
       cy.get(blockEditor).should("exist").and("be.visible");
+      cy.get(content + " input").should('have.attr', 'placeholder', 'Placeholder text');
       cy.get(menu).should("not.exist");
       cy.get(menuTrigger).should("be.visible").realClick();
       cy.get(menu).should("be.visible").and("exist").contains("Block settings").realClick();
       cy.get(settings + " h2").should("be.visible").and("exist").contains("Block Name settings");
       cy.get(settings + " div p").should("be.visible").and("exist").contains("Settings");
+      cy.get(settings + " div input").should("be.visible").and("exist").should('have.attr', 'placeholder', 'Setting');
       cy.get(settings + " div button").should("be.visible").and("exist").contains("Cancel").realClick();
       cy.get(menu).should("not.exist");
       cy.get(blockEditor).should("be.visible");
