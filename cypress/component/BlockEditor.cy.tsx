@@ -28,7 +28,7 @@ export const BlockEditorTemplate = (
     <ContentArea focusOnProps={{ enabled: false }}>
       <BlockEditor
         data-id="blockEditor"
-        label={"BlockName"}
+        label={"Block Name"}
         settingsRender={() => (
           <>
             <P>Settings</P>
@@ -65,7 +65,7 @@ describe("BlockEditor", () => {
       cy.get(menu).should("not.exist");
       cy.get(menuTrigger).should("be.visible").realClick();
       cy.get(menu).should("be.visible").and("exist").contains("Block settings").realClick();
-      cy.get(settings + " h2").should("be.visible").and("exist").contains("BlockName settings");
+      cy.get(settings + " h2").should("be.visible").and("exist").contains("Block Name settings");
       cy.get(settings + " div p").should("be.visible").and("exist").contains("Settings");
       cy.get(settings + " div button").should("be.visible").and("exist").contains("Cancel").realClick();
       cy.get(menu).should("not.exist");
@@ -81,7 +81,7 @@ describe("BlockEditor", () => {
       cy.realPress("Space").focused().get(menu).should("be.visible");
       cy.realPress("Space").focused().get(modal).should("be.visible").get(modalContent).should("be.visible");
       cy.get(blockEditorInput).focused().type("Hello Groot").should('have.attr', 'placeholder', 'Setting').and("have.value", "Hello Groot");
-      cy.get(settings + " h2").should("be.visible").and("exist").contains("BlockName settings");
+      cy.get(settings + " h2").should("be.visible").and("exist").contains("Block Name settings");
       cy.get(settings + " div p").should("be.visible").and("exist").contains("Settings");
       cy.realPress("Tab").focused().should('have.attr', 'type', 'button').and("be.visible").contains("Cancel");
       cy.realPress("Space").get(modal).should("not.exist");
