@@ -1,10 +1,10 @@
 /* contentActions.st.css */
 @namespace "ContentActions";
-@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
-@st-import Modal from "@actionishope/shelley/components/Modal/modal.st.css";
-@st-import Dialog from "@actionishope/shelley/components/Dialog/dialog.st.css";
-@st-import Tabs from "@actionishope/shelley/components/Tabs/tabs.st.css";
-@st-import Checkbox from "@actionishope/shelley/components/Checkbox/checkbox.st.css";
+@st-import Button from "@actionishope/shelley/Button/button.st.css";
+@st-import Modal from "@actionishope/shelley/Modal/modal.st.css";
+@st-import Dialog from "@actionishope/shelley/Dialog/dialog.st.css";
+@st-import Tabs from "@actionishope/shelley/Tabs/tabs.st.css";
+@st-import Checkbox from "@actionishope/shelley/Checkbox/checkbox.st.css";
 
 .root {}
 

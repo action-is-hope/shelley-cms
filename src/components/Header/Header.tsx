@@ -18,7 +18,7 @@ import {
 import Menu from "../icons/Menu";
 import List from "../icons/List";
 import ClickAwayListener from "react-click-away-listener";
-import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
+import { classes as dialog } from "@actionishope/shelley/Dialog/dialog.st.css";
 import { st, classes } from "./header.st.css";
 
 export interface HeaderProps

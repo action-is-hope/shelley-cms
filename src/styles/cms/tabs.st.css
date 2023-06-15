@@ -4,7 +4,7 @@
     --color-ui-raw,
     --color-accent-1
   ] from "./project.st.css";
-@st-import Tabs from "@actionishope/shelley/components/Tabs/tabs.st.css";
+@st-import Tabs from "@actionishope/shelley/Tabs/tabs.st.css";
 
 @st-scope CMS {
 

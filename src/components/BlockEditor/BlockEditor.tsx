@@ -11,7 +11,7 @@ import {
   ComponentBase,
 } from "@actionishope/shelley";
 
-import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
+import { classes as dialog } from "@actionishope/shelley/Dialog/dialog.st.css";
 import { st, classes } from "./blockEditor.st.css";
 import MoreHor from "../icons/MoreHor";
 import Badge from "../Badge/Badge";

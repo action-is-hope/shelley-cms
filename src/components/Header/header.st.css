@@ -1,6 +1,6 @@
 /* header.st.css CSS API */
-@st-import Dialog from "@actionishope/shelley/components/Dialog/dialog.st.css";
-@st-import Switch from "@actionishope/shelley/components/Switch/switch.st.css";
+@st-import Dialog from "@actionishope/shelley/Dialog/dialog.st.css";
+@st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
 
 .root {}
 

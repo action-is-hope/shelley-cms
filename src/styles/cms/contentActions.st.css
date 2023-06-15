@@ -1,12 +1,9 @@
-/* = Project scope and vars. */
 @st-import CMS, [
   --spacing-unit,
   --grad-2,
   breakpoint-md,
   breakpoint-lg
 ] from "./project.st.css";
-
-/* = Root Component */
 @st-import ContentActions, [
   halfScreenModal,
   dialog,
@@ -14,8 +11,8 @@
   cardGrid,
   addMultipleCheckbox
 ] from "../../components/ContentActions/contentActions.st.css";
-@st-import [--dialog-padding-x, --dialog-padding-y] from "@actionishope/shelley/components/Dialog/dialog.st.css";
-@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
+@st-import [--dialog-padding-x, --dialog-padding-y] from "@actionishope/shelley/Dialog/dialog.st.css";
+@st-import Button from "@actionishope/shelley/Button/button.st.css";
 
 @st-scope CMS {
 

@@ -88,7 +88,7 @@ exports[`PageActions renders page actions block with custom className 1`] = `
           />
         </svg>
         <span
-          className="visuallyHidden__Test__root"
+          className="VisuallyHidden__Test__root"
         >
           Publish menu
         </span>

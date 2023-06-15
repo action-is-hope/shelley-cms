@@ -13,7 +13,7 @@
 /* = Root Component */
 @st-import MetaDataEditor from "../../components/MetaDataEditor/metaDataEditor.st.css";
 /* Children */
-@st-import Field from "@actionishope/shelley/components/Field/field.st.css";
+@st-import Field from "@actionishope/shelley/Field/field.st.css";
 
 @st-scope CMS {
 

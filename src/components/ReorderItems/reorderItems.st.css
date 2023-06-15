@@ -1,7 +1,7 @@
 /* reorderItems.st.css */
 @namespace "ReorderItems";
-@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
-@st-import Text from "@actionishope/shelley/components/Text/text.st.css";
+@st-import Button from "@actionishope/shelley/Button/button.st.css";
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
 
 :global(.noScroll) {
   overflow: hidden;

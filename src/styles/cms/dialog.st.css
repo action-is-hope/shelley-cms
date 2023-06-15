@@ -5,7 +5,7 @@
 ] from "./project.st.css";
 
 /* = Root Component */
-@st-import Dialog from "@actionishope/shelley/components/Dialog/dialog.st.css";
+@st-import Dialog from "@actionishope/shelley/Dialog/dialog.st.css";
 
 @st-scope CMS {
 

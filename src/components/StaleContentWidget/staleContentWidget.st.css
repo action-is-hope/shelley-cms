@@ -7,7 +7,7 @@
     --loader-circle-track-color,
     --loader-circle-border-size,
     --loader-circle-track-fill-color
-  ] from "@actionishope/shelley/components/ProgressCircle/progressCircle.st.css";
+  ] from "@actionishope/shelley/ProgressCircle/progressCircle.st.css";
 
 .root {
   -st-extends: Widget;

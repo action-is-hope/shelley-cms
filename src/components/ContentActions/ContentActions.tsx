@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { st, classes } from "./contentActions.st.css";
-import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
+import { classes as dialog } from "@actionishope/shelley/Dialog/dialog.st.css";
 import {
   H2,
   Button,

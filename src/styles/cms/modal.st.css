@@ -12,7 +12,7 @@
   exitActive,
   exitDone,
   content,
-  backdrop] from "@actionishope/shelley/components/Modal/modal.st.css";
+  backdrop] from "@actionishope/shelley/Modal/modal.st.css";
 @property st-global(--vh);
 
 @st-scope CMS {

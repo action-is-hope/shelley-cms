@@ -5,7 +5,7 @@
 ] from "./project.st.css";
 
 /* = Root Component */
-@st-import Field from "@actionishope/shelley/components/Field/field.st.css";
+@st-import Field from "@actionishope/shelley/Field/field.st.css";
 
 @st-scope body CMS {
 

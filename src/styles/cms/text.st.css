@@ -20,13 +20,13 @@
 
 /* = Root Component */
 :import {
-  -st-from: "@actionishope/shelley/components/Text/text.st.css";
+  -st-from: "@actionishope/shelley/Text/text.st.css";
   -st-default: Text;
 }
 
 /* = Root Component */
 :import {
-  -st-from: "@actionishope/shelley/components/Grid/grid.st.css";
+  -st-from: "@actionishope/shelley/Grid/grid.st.css";
   -st-default: Grid;
 }
 

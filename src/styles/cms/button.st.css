@@ -33,7 +33,7 @@
 
 /* = Root Component */
 :import {
-  -st-from: "@actionishope/shelley/components/Button/button.st.css";
+  -st-from: "@actionishope/shelley/Button/button.st.css";
   -st-default: Button;
   -st-named:
     --bg-color,
@@ -43,7 +43,7 @@
 
 /* = Parent components */
 :import {
-  -st-from: "@actionishope/shelley/components/ButtonGroup/buttonGroup.st.css";
+  -st-from: "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
   -st-default: ButtonGroup;
   -st-named: --seperator-color;
 }
