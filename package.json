@@ -1,6 +1,6 @@
 {
   "name": "@actionishope/shelley-cms",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "license": "ISC",
   "description": "Shelley CMS UI.",
   "repository": {
@@ -50,7 +50,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@actionishope/shelley": "^4.0.0-alpha.1",
+    "@actionishope/shelley": "^4.0.0-alpha.2",
     "@react-hook/size": "^2.1.2",
     "react-beautiful-dnd": "^13.1.1",
     "react-click-away-listener": "^2.2.3"
