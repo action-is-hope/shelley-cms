@@ -93,7 +93,7 @@
       width: 55vw;
     }
 
-    .halfScreenModal [role='dialog'] {
+    .halfScreenModal [role=dialog] {
       width: 50vw;
       height: 70vh;
     }

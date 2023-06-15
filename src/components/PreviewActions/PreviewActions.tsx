@@ -1,12 +1,11 @@
 import React, { forwardRef } from "react";
-import { st, classes } from "./previewActions.st.css";
-
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 import PreviewIcon from "../icons/Preview";
 import PreviewOffIcon from "../icons/PreviewOff";
 import ExpandIcon from "../icons/ExpandScreen";
 import CompressIcon from "../icons/CompressScreen";
-
-import { Button, ComponentBase } from "@actionishope/shelley";
+import { Button } from "@actionishope/shelley/Button";
+import { st, classes } from "./previewActions.st.css";
 
 export interface PreviewActionsProps
   extends React.HTMLAttributes<HTMLDivElement>,

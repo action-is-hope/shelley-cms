@@ -1,4 +1,4 @@
-import { Icon, IconProps } from "@actionishope/shelley";
+import { Icon, IconProps } from "@actionishope/shelley/Icon";
 
 const MoreVer = ({ className, alt }: IconProps) => {
   return (

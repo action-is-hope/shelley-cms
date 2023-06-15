@@ -1,17 +1,16 @@
 import React, { forwardRef } from "react";
-import { st, classes } from "./contentActions.st.css";
 import { classes as dialog } from "@actionishope/shelley/Dialog/dialog.st.css";
+import { Button } from "@actionishope/shelley/Button";
+import { ButtonGroup } from "@actionishope/shelley/ButtonGroup";
+import { H2 } from "@actionishope/shelley/Text";
+import { VisuallyHidden } from "@actionishope/shelley/VisuallyHidden";
 import {
-  H2,
-  Button,
-  ButtonGroup,
-  DialogTrigger,
   Dialog,
-  VisuallyHidden,
+  DialogTrigger,
   DialogTriggerProps,
-} from "@actionishope/shelley";
+} from "@actionishope/shelley/Dialog";
 import type { shards } from "src/typings/shared-types";
-
+import { st, classes } from "./contentActions.st.css";
 export interface ContentActionsProps
   extends Omit<React.HTMLProps<HTMLDivElement>, "type">,
     Pick<DialogTriggerProps, "isOpen" | "onOpenChange"> {

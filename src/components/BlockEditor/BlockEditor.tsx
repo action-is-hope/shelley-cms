@@ -1,15 +1,13 @@
 import React, { useState, ReactElement, forwardRef } from "react";
-import {
-  Button,
-  ButtonGroup,
-  H2,
-  Menu,
-  MenuTrigger,
-  Modal,
-  Item,
-  Dialog,
-  ComponentBase,
-} from "@actionishope/shelley";
+import { Button } from "@actionishope/shelley/Button";
+import { ButtonGroup } from "@actionishope/shelley/ButtonGroup";
+import { H2 } from "@actionishope/shelley/Text";
+import { Menu } from "@actionishope/shelley/Menu";
+import { MenuTrigger } from "@actionishope/shelley/MenuTrigger";
+import { Modal } from "@actionishope/shelley/Modal";
+import { Item } from "@actionishope/shelley/Item";
+import { Dialog } from "@actionishope/shelley/Dialog";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 
 import { classes as dialog } from "@actionishope/shelley/Dialog/dialog.st.css";
 import { st, classes } from "./blockEditor.st.css";

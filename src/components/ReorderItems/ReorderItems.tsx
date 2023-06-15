@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 import { useId } from "react-aria";
 import {
   DragDropContext,
@@ -8,10 +9,10 @@ import {
   ResponderProvided,
   Responders,
 } from "react-beautiful-dnd";
-import { st, classes } from "./reorderItems.st.css";
-import { Button, ComponentBase, H2, P } from "@actionishope/shelley";
+import { Button } from "@actionishope/shelley/Button";
+import { H2, P } from "@actionishope/shelley/Text";
 import CloseSmall from "../icons/CloseSmall";
-
+import { st, classes } from "./reorderItems.st.css";
 export interface moveItemParams {
   fromIndex: number;
   toIndex: number;

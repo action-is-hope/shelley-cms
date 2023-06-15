@@ -17,6 +17,10 @@
 
 @st-scope CMS {
 
+  Modal::content {
+    position: relative;
+  }
+
   /* = startToEnd = */
 
   Modal:transition(startToEnd) {

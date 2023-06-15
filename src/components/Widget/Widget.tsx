@@ -1,6 +1,6 @@
 import React, { ReactNode, forwardRef } from "react";
-import { H2, ComponentBase } from "@actionishope/shelley";
-
+import { H2 } from "@actionishope/shelley/Text";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 import { st, classes } from "./widget.st.css";
 
 export interface WidgetProps

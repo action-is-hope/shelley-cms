@@ -2,8 +2,8 @@ import React, { forwardRef } from "react";
 import {
   ProgressCircle,
   ProgressCircleProps,
-  Text,
-} from "@actionishope/shelley";
+} from "@actionishope/shelley/ProgressCircle";
+import { Text } from "@actionishope/shelley/Text";
 import { Widget, WidgetProps } from "../Widget/Widget";
 import { st, classes } from "./staleContentWidget.st.css";
 

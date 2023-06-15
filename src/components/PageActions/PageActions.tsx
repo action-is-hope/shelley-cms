@@ -1,17 +1,16 @@
 import React, { forwardRef, Ref, ReactElement } from "react";
 import type { CollectionChildren } from "@react-types/shared/src/collections";
-import { st, classes } from "./pageActions.st.css";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
+import { Button } from "@actionishope/shelley/Button";
+import { ButtonGroup } from "@actionishope/shelley/ButtonGroup";
+import { Text } from "@actionishope/shelley/Text";
+import { Menu } from "@actionishope/shelley/Menu";
 import {
-  Text,
-  Button,
-  Icon,
   MenuTrigger,
-  Menu,
-  ButtonGroup,
   MenuTriggerProps,
-  ComponentBase,
-} from "@actionishope/shelley";
-
+} from "@actionishope/shelley/MenuTrigger";
+import { Icon } from "@actionishope/shelley/Icon";
+import { st, classes } from "./pageActions.st.css";
 import { classes as spacing } from "@actionishope/shelley/styles/default/spacing.st.css";
 
 export type statusOptions =

@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { st, classes } from "./card.st.css";
-import { Button, ButtonProps } from "@actionishope/shelley";
+import { Button, ButtonProps } from "@actionishope/shelley/Button";
 
 export interface CardProps
   extends Pick<ButtonProps, "onPress">,

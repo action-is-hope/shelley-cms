@@ -8,13 +8,12 @@ import React, {
 } from "react";
 import { st, classes } from "./finder.st.css";
 import { mergeRefs } from "@react-aria/utils";
-import {
-  H1,
-  IconButton,
-  ComponentBase,
-  DialogTrigger,
-  TextField,
-} from "@actionishope/shelley";
+import { IconButton } from "@actionishope/shelley/IconButton";
+import { H1 } from "@actionishope/shelley/Text";
+import { DialogTrigger } from "@actionishope/shelley/Dialog";
+import { TextField } from "@actionishope/shelley/TextField";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
+
 import useSize from "@react-hook/size";
 import Search from "../icons/Search";
 import Filter from "../icons/Filter";

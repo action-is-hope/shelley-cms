@@ -1,17 +1,16 @@
 import React, { forwardRef } from "react";
 import type { ValueBase, AriaLabelingProps } from "@react-types/shared";
 import { Radio, RadioGroup, Icon, ComponentBase } from "@actionishope/shelley";
-
 import { st, classes } from "./previewModes.st.css";
-import type { ShelleyComponentBase } from "../../typings/shared-types";
 
 export type PreviewModeType = "web" | "mobile" | "tablet" | "laptop";
 
 export interface PreviewModesProps
-  extends ShelleyComponentBase,
-    ValueBase<PreviewModeType>,
+  extends ValueBase<PreviewModeType>,
     AriaLabelingProps,
-    ComponentBase {}
+    ComponentBase {
+  className?: string;
+}
 
 function PreviewModes(
   props: PreviewModesProps,

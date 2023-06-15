@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { P } from "@actionishope/shelley";
+import { P } from "@actionishope/shelley/Text";
 import { Widget, WidgetProps } from "../Widget/Widget";
 import { st, classes } from "./userWidget.st.css";
 import type { UserDetailsType } from "../../typings/shared-types";
