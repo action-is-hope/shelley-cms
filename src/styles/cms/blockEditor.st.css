@@ -12,7 +12,7 @@
 
 /* = Root Component */
 @st-import BlockEditor, [menu] from "../../components/BlockEditor/blockEditor.st.css";
-@st-import TextField from "@actionishope/shelley/components/TextField/textField.st.css";
+@st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
 
 

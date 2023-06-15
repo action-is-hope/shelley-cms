@@ -1,5 +1,6 @@
 import React, { ReactNode, forwardRef } from "react";
-import { H1, ComponentBase } from "@actionishope/shelley";
+import { H1 } from "@actionishope/shelley/Text";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 // import { default as DashboardIcon } from "../../components/icons/Dashboard";
 import { st, classes } from "./dashboard.st.css";
 

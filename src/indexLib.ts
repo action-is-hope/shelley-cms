@@ -3,11 +3,10 @@
   It's what will get exposed to other packages when added as a dependency.
 */
 
-// export * from "./typings/shared-types";
-
 /** Components exports in alphabetical order */
 export * from "./components/BlockEditor/BlockEditor";
 export * from "./components/ContentArea/ContentArea";
+export * from "./components/ContentActions/ContentActions";
 export * from "./components/Dashboard/Dashboard";
 export * from "./components/EditorLayout/EditorLayout";
 export * from "./components/Finder/Finder";

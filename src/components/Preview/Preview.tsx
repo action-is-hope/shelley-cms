@@ -4,7 +4,7 @@ import { PreviewModes, PreviewModeType } from "../PreviewModes/PreviewModes";
 import { FocusOn } from "react-focus-on";
 
 import { st, classes } from "./preview.st.css";
-import type { ComponentBase } from "@actionishope/shelley";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 
 export interface PreviewProps
   extends React.HTMLAttributes<HTMLDivElement>,

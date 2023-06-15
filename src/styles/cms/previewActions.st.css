@@ -7,7 +7,7 @@
 /* = Root Component */
 @st-import PreviewActions from "../../components/PreviewActions/previewActions.st.css";
 /* = Child Components */
-@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
+@st-import Button from "@actionishope/shelley/Button/button.st.css";
 
 
 @st-scope CMS {

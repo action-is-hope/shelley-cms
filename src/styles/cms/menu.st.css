@@ -25,7 +25,7 @@
 /* = Components */
 
 :import {
-  -st-from: "@actionishope/shelley/components/MenuItem/menuItem.st.css";
+  -st-from: "@actionishope/shelley/MenuItem/menuItem.st.css";
   -st-default: MenuItem;
 }
 

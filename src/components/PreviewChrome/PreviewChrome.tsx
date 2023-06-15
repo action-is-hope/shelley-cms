@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { st, classes } from "./previewChrome.st.css";
 import type { PreviewModeType } from "../PreviewModes/PreviewModes";
-import type { ComponentBase } from "@actionishope/shelley";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 
 export interface PreviewChromeProps
   extends React.HTMLAttributes<HTMLDivElement>,

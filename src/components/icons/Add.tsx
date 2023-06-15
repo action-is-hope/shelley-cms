@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Ref } from "react";
-import { Icon, IconProps } from "@actionishope/shelley";
+import { Icon, IconProps } from "@actionishope/shelley/Icon";
 
 const Add: React.VFC<IconProps> = (props) => {
   const { ref, ...rest } = props;

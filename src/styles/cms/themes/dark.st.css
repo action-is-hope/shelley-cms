@@ -18,13 +18,13 @@
 }
 
 :import {
-  -st-from: "@actionishope/shelley/components/Text/text.st.css";
+  -st-from: "@actionishope/shelley/Text/text.st.css";
   -st-default: Text;
 }
 
 /* = Root Component */
 :import {
-  -st-from: "@actionishope/shelley/components/Button/button.st.css";
+  -st-from: "@actionishope/shelley/Button/button.st.css";
   -st-default: Button;
   -st-named:
     --bg-color,

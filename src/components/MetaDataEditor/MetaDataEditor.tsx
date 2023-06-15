@@ -2,17 +2,12 @@ import React, { Ref, ReactElement, forwardRef, useRef, useState } from "react";
 import useSize from "@react-hook/size";
 import ClickAwayListener from "react-click-away-listener";
 import { st, classes } from "./metaDataEditor.st.css";
-
-import {
-  TextField,
-  InputTextProps,
-  Label,
-  VisuallyHidden,
-  Select,
-  SelectProps,
-  Item,
-  ComponentBase,
-} from "@actionishope/shelley";
+import { TextField, InputTextProps } from "@actionishope/shelley/TextField";
+import { Label } from "@actionishope/shelley/Label";
+import { Select, SelectProps } from "@actionishope/shelley/Select";
+import { VisuallyHidden } from "@actionishope/shelley/VisuallyHidden";
+import { Item } from "@actionishope/shelley/Item";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 
 type languageOptions = {
   key: string;

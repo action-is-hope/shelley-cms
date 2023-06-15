@@ -1,10 +1,9 @@
 import React, { forwardRef } from "react";
-import type { AriaButtonProps } from "@react-types/button";
 import { st, classes } from "./card.st.css";
-import { Button } from "@actionishope/shelley";
+import { Button, ButtonProps } from "@actionishope/shelley/Button";
 
 export interface CardProps
-  extends Pick<AriaButtonProps, "onPress">,
+  extends Pick<ButtonProps, "onPress">,
     React.HTMLProps<HTMLDivElement> {
   /** make onPress conditional and if yes then aria props must be specified? */
 }

@@ -1,24 +1,19 @@
 import React, { forwardRef, useState } from "react";
 import type { Site, UserDetailsType } from "../../typings/shared-types";
-import {
-  Toolbar,
-  Button,
-  ComponentBase,
-  DialogTrigger,
-  IconButton,
-  Dialog,
-  P,
-  H2,
-  ListBox,
-  Item,
-  Switch,
-  ActionButton,
-  SwitchProps,
-} from "@actionishope/shelley";
+import { ActionButton } from "@actionishope/shelley/ActionButton";
+import { Button } from "@actionishope/shelley/Button";
+import { Dialog, DialogTrigger } from "@actionishope/shelley/Dialog";
+import { IconButton } from "@actionishope/shelley/IconButton";
+import { Item } from "@actionishope/shelley/Item";
+import { H2, P } from "@actionishope/shelley/Text";
+import { ListBox } from "@actionishope/shelley/ListBox";
+import { Toolbar } from "@actionishope/shelley/Toolbar";
+import { Switch, SwitchProps } from "@actionishope/shelley/Switch";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 import Menu from "../icons/Menu";
 import List from "../icons/List";
 import ClickAwayListener from "react-click-away-listener";
-import { classes as dialog } from "@actionishope/shelley/components/Dialog/dialog.st.css";
+import { classes as dialog } from "@actionishope/shelley/Dialog/dialog.st.css";
 import { st, classes } from "./header.st.css";
 
 export interface HeaderProps

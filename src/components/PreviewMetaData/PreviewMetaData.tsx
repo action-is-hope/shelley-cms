@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
+import { Icon } from "@actionishope/shelley/Icon";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 import { st, classes } from "./previewMetaData.st.css";
-
-import { ComponentBase, Icon } from "@actionishope/shelley";
 
 export interface PreviewMetaDataProps
   extends React.HTMLAttributes<HTMLDivElement>,

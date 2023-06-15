@@ -23,10 +23,10 @@
 
 /* = Root Component */
 @st-import Header, [sitesDialog, userDialog, userDetails, themeSwitcher, avatar, userDetailsHeader] from "../../components/Header/header.st.css";
-@st-import Text from "@actionishope/shelley/components/Text/text.st.css";
-@st-import Icon from "@actionishope/shelley/components/Icon/icon.st.css";
-@st-import [title as dialogTitle, content as dialogContent] from "@actionishope/shelley/components/Dialog/dialog.st.css";
-@st-import Button from "@actionishope/shelley/components/Button/button.st.css";
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
+@st-import Icon from "@actionishope/shelley/Icon/icon.st.css";
+@st-import [title as dialogTitle, content as dialogContent] from "@actionishope/shelley/Dialog/dialog.st.css";
+@st-import Button from "@actionishope/shelley/Button/button.st.css";
 
 
 @st-scope CMS {

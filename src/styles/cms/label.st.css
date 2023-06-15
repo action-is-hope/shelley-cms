@@ -13,7 +13,7 @@
 
 /* = Root Component */
 :import {
-  -st-from: "@actionishope/shelley/components/Label/label.st.css";
+  -st-from: "@actionishope/shelley/Label/label.st.css";
   -st-default: Label;
 }
 

@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { st, classes } from "./contentArea.st.css";
 import type { ReactFocusOnProps } from "react-focus-on/dist/es5/types";
 import { FocusOn } from "react-focus-on";
-import type { ComponentBase } from "@actionishope/shelley";
+import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 
 export interface ContentAreaProps
   extends React.HTMLAttributes<HTMLDivElement>,

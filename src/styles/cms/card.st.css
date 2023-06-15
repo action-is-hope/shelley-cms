@@ -12,7 +12,7 @@
 ] from "./project.st.css";
 
 @st-import Card, [header, media, content] from "../../components/Card/card.st.css";
-@st-import Text from "@actionishope/shelley/components/Text/text.st.css";
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
 
 :vars {
   hoverTransition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
