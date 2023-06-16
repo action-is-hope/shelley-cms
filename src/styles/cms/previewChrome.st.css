@@ -1,9 +1,6 @@
-/* = Project scope and vars. */
 @st-import CMS, [
   --spacing-unit,
 ] from "./project.st.css";
-
-/* = Root Component */
 @st-import PreviewChrome, [iframe, chrome] from "../../components/PreviewChrome/previewChrome.st.css";
 
 @st-scope CMS {
@@ -22,7 +19,12 @@
   /* Social/Web preview - Provided by PreviewMeta. */
   PreviewChrome:previewMode(web) {}
 
-  /* Laptop */
+}
+
+
+/* = Laptop */
+@st-scope CMS {
+
   PreviewChrome:previewMode(laptop) .chrome {
     background-image: url("https://ik.imagekit.io/tcvka0ufln/dasktop_MqyUc9KU_.png");
     padding: 53px 181px 150px 181px;
@@ -37,15 +39,67 @@
   }
 
   PreviewChrome:previewMode(laptop):fullScreenMode .chrome {
-    transform: scale(.6);
+    transform: scale(.45);
+    transform-origin: center 2vh;
   }
+}
 
-  /* Tablet */
+@media screen and (max-width: 950px) and (min-height: 1000px) {
+  @st-scope CMS {
+
+    PreviewChrome:previewMode(laptop) .chrome {
+      transform: scale(0.21);
+    }
+  }
+}
+
+@media screen and (min-width: 950px) and (max-height: 750px) {
+  @st-scope CMS {
+    PreviewChrome:previewMode(laptop):fullScreenMode .chrome {
+      transform: scale(.3);
+      transform-origin: center 2%;
+    }
+  }
+}
+
+@media screen and (min-width: 950px) and (max-height: 800px) {
+  @st-scope CMS {
+    PreviewChrome:previewMode(laptop):fullScreenMode .chrome {
+      transform: scale(.35);
+      transform-origin: center 2%;
+    }
+  }
+}
+
+@media screen and (min-width: 950px) and (min-height: 930px) {
+  @st-scope CMS {
+
+    PreviewChrome:previewMode(laptop):fullScreenMode .chrome {
+      transform: scale(.5);
+      transform-origin: center 5%;
+    }
+  }
+}
+
+@media screen and (min-width: 950px) and (min-height: 1080px) {
+  @st-scope CMS {
+
+    PreviewChrome:previewMode(laptop):fullScreenMode .chrome {
+      transform: scale(.6);
+      transform-origin: center 0;
+    }
+  }
+}
+
+
+/* = Tablet */
+@st-scope CMS {
+
   PreviewChrome:previewMode(tablet) .chrome {
     padding: 123px 65px 129px 65px;
     background-image: url("https://ik.imagekit.io/tcvka0ufln/ipad-chrome_xobepnrZS.png");
     transform: scale(0.4);
-    transform-origin: center 10vh;
+    transform-origin: center 0
   }
 
   PreviewChrome:previewMode(tablet) .iframe {
@@ -54,11 +108,47 @@
   }
 
   PreviewChrome:previewMode(tablet):fullScreenMode .chrome {
-    transform: scale(.6);
+    transform: scale(.3);
+    transform-origin: center 0
   }
+}
 
 
-  /* Mobile */
+@media screen and (min-width: 950px) and (max-height: 850px) {
+  @st-scope CMS {
+    PreviewChrome:previewMode(tablet) .chrome {
+      transform: scale(0.3);
+      transform-origin: center 2%;
+    }
+
+  }
+}
+
+@media screen and (min-width: 950px) and (min-height: 850px) {
+  @st-scope CMS {
+
+    PreviewChrome:previewMode(tablet):fullScreenMode .chrome {
+      transform: scale(.4);
+    }
+  }
+}
+
+@media screen and (min-width: 1300px) and (min-height: 950px) {
+  @st-scope CMS {
+    PreviewChrome:previewMode(tablet) .chrome {
+      transform: scale(0.45);
+      transform-origin: center 2%;
+    }
+
+    PreviewChrome:previewMode(tablet):fullScreenMode .chrome {
+      transform: scale(.45);
+    }
+  }
+}
+
+/* = Mobile */
+@st-scope CMS {
+
   PreviewChrome:previewMode(mobile) {
     max-height: 68vh;
   }
@@ -84,9 +174,8 @@
   }
 
   PreviewChrome:previewMode(mobile):fullScreenMode .chrome {
-    margin-top: 9vh;
-    transform: scale(0.75);
-    /* transform-origin: center 10%; */
+    transform: scale(0.45);
+    transform-origin: center 2%;
   }
 }
 
@@ -114,19 +203,50 @@ screen and (min-height: 1000px) {
     PreviewChrome:previewMode(mobile) .chrome {
       transform-origin: center 10%;
     }
-
-    PreviewChrome:previewMode(laptop) .chrome {
-      transform: scale(0.21);
-      /* opacity: .95; */
-    }
-
   }
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 950px) and (max-height: 775px) {
   @st-scope CMS {
     PreviewChrome:previewMode(mobile) .chrome {
-      transform-origin: center 0%;
+      transform-origin: center 2%;
     }
   }
 }
+
+@media screen and (min-width: 950px) and (min-height: 800px) {
+  @st-scope CMS {
+
+    PreviewChrome:previewMode(mobile):fullScreenMode .chrome {
+      transform: scale(.55);
+      transform-origin: center 2%;
+    }
+  }
+}
+
+@media screen and (min-width: 950px) and (min-height: 900px) {
+  @st-scope CMS {
+
+    PreviewChrome:previewMode(mobile):fullScreenMode .chrome {
+      transform: scale(.6);
+      transform-origin: center 5%;
+    }
+  }
+}
+
+@media screen and (min-width: 950px) and (min-height: 1050px) {
+  @st-scope CMS {
+
+    PreviewChrome:previewMode(mobile):fullScreenMode .chrome {
+      transform: scale(.7);
+    }
+  }
+}
+
+/* @media screen and (min-width: 950px) and (min-height: 950px) {
+  @st-scope CMS {
+    PreviewChrome:previewMode(mobile) .chrome {
+      transform-origin: center ;
+    }
+  }
+} */
