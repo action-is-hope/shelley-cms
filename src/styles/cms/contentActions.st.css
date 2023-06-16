@@ -1,6 +1,7 @@
 @st-import CMS, [
   --spacing-unit,
   --grad-2,
+  breakpoint-sm,
   breakpoint-md,
   breakpoint-lg
 ] from "./project.st.css";
@@ -62,7 +63,7 @@
   .addMultipleCheckbox {
     position: absolute;
     bottom: var(--spacing-unit);
-    left: var(--spacing-unit);
+    right: var(--spacing-unit);
   }
 
   .cardGrid {
@@ -87,8 +88,20 @@
   }
 }
 
+@media only screen and (min-width: 700px) {
+  @st-scope CMS {
+
+    .addMultipleCheckbox {
+      right: auto;
+      left: var(--spacing-unit);
+    }
+  }
+}
+
 @media value(breakpoint-md) {
   @st-scope CMS {
+
+
     .halfScreenModal {
       width: 55vw;
     }

@@ -106,9 +106,9 @@
   /* For hovers we are using adjacent selectors, to get 
   * them to work we import the .header directly and use 
   * it like a regular class .*/
-  Card::mainButton:hover + .header {
+  /* Card::mainButton:hover + .header {
     background-color: #0d727e;
-  }
+  } */
 
   /* = CardMedia */
 
@@ -141,10 +141,10 @@
     margin-top: calc(var(--spacing-unit) * -.5);
   }
 
-  Card::mainButton:hover + .media + .content {
+  /* Card::mainButton:hover + .media + .content {
     background-color: #f2f2f2;
     background-color: var(--color-background-contrast-2);
-  }
+  } */
 
   /* = CardActions */
 

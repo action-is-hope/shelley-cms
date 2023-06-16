@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import type { PreviewModeType } from "../PreviewModes/PreviewModes";
 import type { PreviewActionsProps } from "../PreviewActions/PreviewActions";
 import type { PreviewProps } from "./Preview";
+import useIsDevice from "../hooks/useIsDevice";
 
 type Shards = Array<React.RefObject<any> | HTMLElement> | undefined;
 
@@ -52,6 +53,8 @@ type usePreviewReturn = {
 };
 
 const usePreview = (): usePreviewReturn => {
+  const isDeviceMd = useIsDevice("md");
+  console.log("isDeviceMd", isDeviceMd);
   /** Refs */
   const previewRef = useRef<HTMLDivElement>(null);
   const previewModesRef = useRef<HTMLDivElement>(null);
@@ -100,7 +103,8 @@ const usePreview = (): usePreviewReturn => {
      * may interact with the preview whilst adjusting the
      * block settings. So we provide those shards.
      */
-    shards: [previewRef, previewModesRef],
+    // shards: [previewRef, previewModesRef],
+    shards: !isDeviceMd ? [previewRef, previewModesRef] : [],
   };
 
   const previewProps: PreviewProps = {
