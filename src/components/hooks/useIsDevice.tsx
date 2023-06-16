@@ -37,7 +37,7 @@ const useIsDevice = (
     window.addEventListener("resize", debounce(updateSize, 250));
     updateSize();
     return (): void => window.removeEventListener("resize", updateSize);
-  }, []);
+  }, [ceilingValue]);
 
   return isMobile;
 };
