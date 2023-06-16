@@ -54,7 +54,6 @@ type usePreviewReturn = {
 
 const usePreview = (): usePreviewReturn => {
   const isDeviceMd = useIsDevice("md");
-  console.log("isDeviceMd", isDeviceMd);
   /** Refs */
   const previewRef = useRef<HTMLDivElement>(null);
   const previewModesRef = useRef<HTMLDivElement>(null);
@@ -103,7 +102,6 @@ const usePreview = (): usePreviewReturn => {
      * may interact with the preview whilst adjusting the
      * block settings. So we provide those shards.
      */
-    // shards: [previewRef, previewModesRef],
     shards: !isDeviceMd ? [previewRef, previewModesRef] : [],
   };
 
