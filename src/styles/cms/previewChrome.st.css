@@ -242,11 +242,3 @@ screen and (min-height: 1000px) {
     }
   }
 }
-
-/* @media screen and (min-width: 950px) and (min-height: 950px) {
-  @st-scope CMS {
-    PreviewChrome:previewMode(mobile) .chrome {
-      transform-origin: center ;
-    }
-  }
-} */
