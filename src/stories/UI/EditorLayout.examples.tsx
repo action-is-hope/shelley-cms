@@ -65,7 +65,10 @@ export const BasicExample = () => {
               className={contentActions.tabs}
             >
               <Item key="FoR" title="Add Block">
-                <Checkbox className={contentActions.addMultipleCheckbox}>
+                <Checkbox
+                  className={contentActions.addMultipleCheckbox}
+                  data-autofocus
+                >
                   Add multiple blocks
                 </Checkbox>
                 <div className={contentActions.cardGrid}>

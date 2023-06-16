@@ -17,11 +17,15 @@
 
 /* = Root Component */
 @st-import EditorLayout from "../../components/EditorLayout/editorLayout.st.css";
-
+@st-import ContentArea, [scroller] from "../../components/ContentArea/contentArea.st.css";
 
 @st-import PreviewMetaData from "../../components/PreviewMetaData/previewMetaData.st.css";
 
 @st-scope CMS {
+
+  EditorLayout:gridMode(fullScreenMode) ContentArea::scroller {
+    opacity: 0;
+  }
 
   EditorLayout::preview {}
 

@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import { classes as dialog } from "@actionishope/shelley/Dialog/dialog.st.css";
 import { Button } from "@actionishope/shelley/Button";
 import { ButtonGroup } from "@actionishope/shelley/ButtonGroup";
@@ -12,7 +12,7 @@ import {
 import type { shards } from "src/typings/shared-types";
 import { st, classes } from "./contentActions.st.css";
 export interface ContentActionsProps
-  extends Omit<React.HTMLProps<HTMLDivElement>, "type">,
+  extends Omit<React.HTMLProps<HTMLDivElement>, "type" | "ref">,
     Pick<DialogTriggerProps, "isOpen" | "onOpenChange"> {
   shards?: shards;
 }
@@ -28,6 +28,8 @@ function ContentActions(
     onOpenChange,
     ...rest
   } = props;
+
+  const targetRef = useRef(null);
   return (
     <div className={st(classes.root, classNameProp)} {...rest} ref={ref}>
       <DialogTrigger
@@ -38,11 +40,13 @@ function ContentActions(
         focusOnProps={{
           shards,
         }}
+        targetRef={targetRef}
       >
         <Button
           vol={4}
           variant="secondary"
           tone={1}
+          ref={targetRef}
           className={classes.addBlockButton}
         >
           Add Content Block
