@@ -106,11 +106,12 @@
   /* For hovers we are using adjacent selectors, to get 
   * them to work we import the .header directly and use 
   * it like a regular class .*/
-  /* Card::mainButton:hover + .header {
-    background-color: #0d727e;
-  } */
 
-  /* = CardMedia */
+  Card::mainButton:hover + .header {
+    background-color: #0d727e;
+  }
+
+  /* CardMedia */
 
   Card::media {
     grid-area: media;
@@ -123,7 +124,7 @@
     object-fit: cover;
   }
 
-  /* = CardContent */
+  /* CardContent */
 
   Card::content {
     grid-area: content;
@@ -141,12 +142,12 @@
     margin-top: calc(var(--spacing-unit) * -.5);
   }
 
-  /* Card::mainButton:hover + .media + .content {
+  Card::mainButton:hover + .media + .content {
     background-color: #f2f2f2;
     background-color: var(--color-background-contrast-2);
-  } */
+  }
 
-  /* = CardActions */
+  /* CardActions */
 
   Card::actions {
     grid-area: actions;
