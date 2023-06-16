@@ -99,9 +99,6 @@
   }
 }
 
-
-
-
 @st-scope CMS {
 
   EditorLayout:gridMode(fullScreenMode)::previewActions::toggleFocusButton {
