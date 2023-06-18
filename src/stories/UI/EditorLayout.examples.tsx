@@ -89,7 +89,7 @@ export const BasicExample = () => {
                 <ReorderItems
                   id="test"
                   className={contentActions.reorderItems}
-                  hightlightItemIndex={(i) => 3}
+                  hightlightItemIndex={(i) => console.log(i)}
                   items={blocks}
                   onRemoveSelect={(index) => console.log("Index", index)}
                   moveItem={({ fromIndex, toIndex }) => {
