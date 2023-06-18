@@ -114,7 +114,7 @@
   --background-color-modal-backdrop: #51a0af75;
 
   /* Dialog colors */
-  --background-color-dialog: #000;
+  --background-color-dialog: var(--color-background-main);
   --color-border-dialog: #51a0af;
   --color-dialog: var(--color-ui);
 
