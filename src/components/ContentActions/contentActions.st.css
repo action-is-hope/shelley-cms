@@ -22,12 +22,9 @@
 }
 
 Modal.halfScreenModal.enterDone .content {
+  /* reorder d'n'd will not work properly inside a transformed container.*/
   transform: unset;
 }
-
-/* .enter-done {
-  transform: unset;
-} */
 
 .tabs {
   -st-extends: Tabs;

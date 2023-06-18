@@ -103,10 +103,7 @@ function ReorderItems(
           </header>
         )}
         <DragDropContext {...rest} onDragEnd={onDragEnd}>
-          <Droppable
-            droppableId={`${id}-droppable`}
-            // ignoreContainerClipping={false}
-          >
+          <Droppable droppableId={`${id}-droppable`}>
             {(provided, snapshot) => (
               <div
                 ref={provided.innerRef}
