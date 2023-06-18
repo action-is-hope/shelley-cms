@@ -5,6 +5,7 @@ import { PreviewChrome } from "../../components/PreviewChrome/PreviewChrome";
 import { PreviewActions } from "../../components/PreviewActions/PreviewActions";
 import usePreview from "../../components/Preview/usePreview";
 import { PageActions } from "../../components/PageActions/PageActions";
+import { ReorderItems } from "../../components/ReorderItems/ReorderItems";
 import { EditorLayout } from "../../components/EditorLayout/EditorLayout";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
 import { classes as editorLayout } from "../../components/EditorLayout/editorLayout.st.css";
@@ -37,6 +38,15 @@ export const BasicExample = () => {
 
   // We need to set this dialog to open as part of BlockEditor->onMangeSelect
   const [contentActionDialogOpen, setContentActionDialogOpen] = useState(false);
+
+  const contentBlocksData = [
+    { id: "1", label: "Title", description: "Description/Identity text" },
+    { id: "2", label: "Hero", description: "Description/Identity text" },
+    { id: "3", label: "Body", description: "Description/Identity text" },
+    { id: "4", label: "Body", description: "Description/Identity text" },
+    { id: "5", label: "Body", description: "Description/Identity text" },
+  ];
+  const [blocks, updateBlocks] = useState(contentBlocksData);
 
   return (
     <>
@@ -76,7 +86,19 @@ export const BasicExample = () => {
                 </div>
               </Item>
               <Item key="MaR" title="Manage Blocks">
-                Senatus Populusque Romanus.
+                <ReorderItems
+                  id="test"
+                  className={contentActions.reorderItems}
+                  hightlightItemIndex={(i) => 3}
+                  items={blocks}
+                  onRemoveSelect={(index) => console.log("Index", index)}
+                  moveItem={({ fromIndex, toIndex }) => {
+                    const items = Array.from(blocks);
+                    const [reorderedItem] = items.splice(fromIndex, 1);
+                    reorderedItem && items.splice(toIndex, 0, reorderedItem);
+                    updateBlocks(items);
+                  }}
+                />
               </Item>
             </Tabs>
           </ContentActions>

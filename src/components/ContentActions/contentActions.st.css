@@ -1,10 +1,11 @@
 /* contentActions.st.css */
 @namespace "ContentActions";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
-@st-import Modal from "@actionishope/shelley/Modal/modal.st.css";
+@st-import Modal, [enterDone, content] from "@actionishope/shelley/Modal/modal.st.css";
 @st-import Dialog from "@actionishope/shelley/Dialog/dialog.st.css";
 @st-import Tabs from "@actionishope/shelley/Tabs/tabs.st.css";
 @st-import Checkbox from "@actionishope/shelley/Checkbox/checkbox.st.css";
+@st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
 
 .root {}
 
@@ -20,6 +21,14 @@
   -st-extends: Modal;
 }
 
+Modal.halfScreenModal.enterDone .content {
+  transform: unset;
+}
+
+/* .enter-done {
+  transform: unset;
+} */
+
 .tabs {
   -st-extends: Tabs;
 }
@@ -28,4 +37,8 @@
 
 .addMultipleCheckbox {
   -st-extends: Checkbox;
+}
+
+.reorderItems {
+  -st-extends: ReorderItems;
 }

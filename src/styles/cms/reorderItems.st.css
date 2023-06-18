@@ -2,6 +2,8 @@
 @st-import CMS, [
   --spacing-unit,
   --color-background-main,
+  --color-header-background,
+  --color-header,
   --color-border-2
 ] from "./project.st.css";
 
@@ -39,22 +41,18 @@
   }
 
   ReorderItems::item {
-    /* border: 1px dashed rgb(158 158 158 / 12%); */
-    /* border: 1px dashed var(--color-border-2); */
     padding: var(--spacing-unit);
-    /* borderColor: isDragging ? "rgb(0, 157, 106)" : "#cacaca", */
-
     border-radius: 4px;
     margin-bottom: calc(var(--spacing-unit) * 2);
   }
 
   ReorderItems::item:isDragging {
     background-color: rgba(0, 157, 106, .3);
+    background-color: #065c6729;
   }
 
   ReorderItems::item:highlight {
-    box-shadow: 0 0 1px 1px rgb(0 157 105 / 57%);
-    border-color: #009d69;
+    box-shadow: 0 0 1px 1px rgb(6 92 103);
   }
 
 
@@ -62,6 +60,7 @@
     position: relative;
     /* Something to grab if fields are present. */
     padding-top: calc(var(--spacing-unit) / 2);
+
   }
 
   ReorderItems::deleteButton:variant("fab") {
@@ -71,12 +70,15 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    /* background-color: #000; */
   }
 
   ReorderItems::contentLabel {
-    font-size: 0.8em;
+    font-size: 0.7em;
     margin-bottom: calc(var(--spacing-unit) / 4);
+    background-color: var(--color-header-background);
+    color: var(--color-header);
+    padding: 4px;
+    display: inline-flex;
   }
 
   ReorderItems::contentDescription {}
