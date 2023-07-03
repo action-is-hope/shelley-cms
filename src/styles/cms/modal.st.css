@@ -3,7 +3,6 @@
   --color-ui,
   --color-ui-inverse
 ] from "./project.st.css";
-
 @st-import Modal, [
   enter,
   enterActive,
@@ -12,17 +11,22 @@
   exitActive,
   exitDone,
   content,
-  backdrop] from "@actionishope/shelley/Modal/modal.st.css";
+  backdrop blurBackground
+] from "@actionishope/shelley/Modal/modal.st.css";
 @property st-global(--vh);
 
-@st-scope CMS {
+/* temp - fix coming in the shelley css file for this. */
+.blurBackground Modal[data-focus-on-hidden] {
+  opacity: 1;
+  filter: blur(0);
+}
 
+@st-scope CMS {
   Modal::content {
     position: relative;
   }
 
   /* = startToEnd = */
-
   Modal:transition(startToEnd) {
     justify-content: start;
   }
@@ -31,7 +35,7 @@
     height: calc(var(--vh, 1vh) * 100);
     width: 256px;
     background-color: #fff;
-    color: #000
+    color: #000;
   }
 
   /* Backdrop: Any backdrop styles, for stages use as below. */
@@ -70,9 +74,7 @@
     transition: transform 190ms, opacity 190ms;
   }
 
-
   /* = endToStart = */
-
   Modal:transition(endToStart) {
     justify-content: start;
   }

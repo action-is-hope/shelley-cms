@@ -26,3 +26,4 @@ export { default as PreviewOff } from "./PreviewOff";
 export { default as ScreenSize } from "./ScreenSize";
 export { default as Search } from "./Search";
 export { default as Text } from "./Text";
+export { default as Trash } from "./Trash";
