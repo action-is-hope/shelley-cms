@@ -1,48 +1,48 @@
-import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
+// import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
 import { Node, Transforms } from "slate";
 import { ReactEditor, useSlate } from "slate-react";
 import React, { useEffect, useRef, useState } from "react";
 import { FocusMenuButtonMap } from "../../../slateAreaTypes";
 import HoverMenuButton from "./HoverMenuButton";
 
-const styles = (theme: Theme) =>
-  createStyles({
-    materialIcons: {
-      fontFamily: "Material Icons",
-      fontSize: "25px",
-      verticalAlign: "text-bottom"
-    },
-    button: {
-      color: theme.palette.secondary.contrastText,
-      cursor: "pointer",
-      "&[data-active='true']": {
-        color: "#34e79a" // Stole Mediums color
-      }
-    },
-    menu: {
-      "&> *": {
-        display: "inline-block"
-      },
-      "&> * + *": {
-        marginLeft: "15px"
-      },
-      // menu styles
-      "&.button": {
-        color: "hotpink"
-      },
-      // hover menu styles
-      padding: "12px",
-      position: "absolute",
-      zIndex: 1,
-      top: "-10000px",
-      left: "-10000px",
-      marginTop: "-6px",
-      opacity: 0,
-      backgroundColor: "#333",
-      borderRadius: "5px",
-      transition: "opacity 0.75s"
-    }
-  });
+// const styles = (theme: Theme) =>
+//   createStyles({
+//     materialIcons: {
+//       fontFamily: "Material Icons",
+//       fontSize: "25px",
+//       verticalAlign: "text-bottom"
+//     },
+//     button: {
+//       color: theme.palette.secondary.contrastText,
+//       cursor: "pointer",
+//       "&[data-active='true']": {
+//         color: "#34e79a" // Stole Mediums color
+//       }
+//     },
+//     menu: {
+//       "&> *": {
+//         display: "inline-block"
+//       },
+//       "&> * + *": {
+//         marginLeft: "15px"
+//       },
+//       // menu styles
+//       "&.button": {
+//         color: "hotpink"
+//       },
+//       // hover menu styles
+//       padding: "12px",
+//       position: "absolute",
+//       zIndex: 1,
+//       top: "-10000px",
+//       left: "-10000px",
+//       marginTop: "-6px",
+//       opacity: 0,
+//       backgroundColor: "#333",
+//       borderRadius: "5px",
+//       transition: "opacity 0.75s"
+//     }
+//   });
 
 /** We key the display state by node id to make the state work correctly when multiple images are
  * added, since there is only one instance of the menu. */
@@ -50,11 +50,11 @@ interface DisplayState {
   [nodeId: string]: string;
 }
 
-export interface FocusMenuProps extends WithStyles<typeof styles> {
+export interface FocusMenuProps {
   focusMenuButtons: FocusMenuButtonMap;
 }
 
-const FocusMenu = ({ classes, focusMenuButtons }: FocusMenuProps) => {
+const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
   const ref = useRef<any>();
   const editor = useSlate();
   const [displayState, setDisplayState] = useState<DisplayState>({});
@@ -91,7 +91,7 @@ const FocusMenu = ({ classes, focusMenuButtons }: FocusMenuProps) => {
     if (!nativeNode) return;
 
     const nativeRect = nativeNode.getBoundingClientRect();
-    var parentRect = nativeNode.parentElement!.getBoundingClientRect();
+    const parentRect = nativeNode.parentElement!.getBoundingClientRect();
 
     el.style.opacity = 1;
     el.style.top = `${nativeRect.top - parentRect.top - el.offsetHeight / 2}px`;
@@ -106,7 +106,11 @@ const FocusMenu = ({ classes, focusMenuButtons }: FocusMenuProps) => {
     return () => scrollContainer.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const onClickButton = (event: React.MouseEvent<HTMLElement>, nodeId, type: string) => {
+  const onClickButton = (
+    event: React.MouseEvent<HTMLElement>,
+    nodeId,
+    type: string
+  ) => {
     event.preventDefault();
     setDisplay(type);
   };
@@ -124,14 +128,20 @@ const FocusMenu = ({ classes, focusMenuButtons }: FocusMenuProps) => {
         // Unlike in the hover menu, for some reason the node doesn't
         // update when we click the buttons. Therefore we introduce some state.
         // @todo: figure out why and remove the local state.
-        isActive={displayState[node.data.id] ? displayState[node.data.id] === type : isActive(type)}
-        onMouseDown={event => onClickButton(event, node.data.id, type)}
+        isActive={
+          displayState[node.data.id]
+            ? displayState[node.data.id] === type
+            : isActive(type)
+        }
+        onMouseDown={(event) => onClickButton(event, node.data.id, type)}
       />
     ));
   };
 
   const getNode = (): any =>
-    editor.selection ? Node.parent(editor, editor.selection!.anchor.path) : null;
+    editor.selection
+      ? Node.parent(editor, editor.selection!.anchor.path)
+      : null;
 
   const setDisplay = (display: string) => {
     const node = getNode();
@@ -143,12 +153,12 @@ const FocusMenu = ({ classes, focusMenuButtons }: FocusMenuProps) => {
       editor,
       { data: { ...node.data, display } },
       {
-        match: n => {
+        match: (n) => {
           // @ts-ignore
           if (!n.data) return false;
           // @ts-ignore
           return node.data.id === n.data.id;
-        }
+        },
       }
     );
   };
@@ -168,4 +178,4 @@ const FocusMenu = ({ classes, focusMenuButtons }: FocusMenuProps) => {
   );
 };
 
-export default withStyles(styles)(FocusMenu);
+export default FocusMenu;

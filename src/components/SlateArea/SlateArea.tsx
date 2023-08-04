@@ -1,8 +1,13 @@
-import { withStyles, WithStyles } from "@material-ui/core";
-import { createEditor, Editor, Element as SlateElement, Transforms } from "slate";
+// import { withStyles, WithStyles } from "@material-ui/core";
+import {
+  createEditor,
+  Editor,
+  Element as SlateElement,
+  Transforms,
+} from "slate";
 import { withHistory } from "slate-history";
 import { Editable, ReactEditor, Slate, withReact } from "slate-react";
-import classNames from "classnames";
+// import classNames from "classnames";
 import isHotkey from "is-hotkey";
 import flow from "lodash/flow";
 import isFunction from "lodash/isFunction";
@@ -21,7 +26,7 @@ import {
   getHoverMenuButtons,
   getInlineMenuButtons,
   getLeaves,
-  getMarkHotkeys
+  getMarkHotkeys,
 } from "./features";
 import { defaultFeatureSet, singleLineFeatureSet } from "./featureSets";
 import { removeEmptyParagraphs } from "./helpers";
@@ -100,7 +105,7 @@ const SlateArea = ({
   disableMenus = false,
   singleLine,
   InlineMenu,
-  inlineMenuProps = {}
+  inlineMenuProps = {},
 }: SlateAreaProps) => {
   const getFeatureSet = useCallback(() => {
     if (featureSet) return featureSet;
@@ -108,7 +113,7 @@ const SlateArea = ({
     return defaultFeatureSet;
   }, []);
 
-  const features = getFeatureSet().map(f =>
+  const features = getFeatureSet().map((f) =>
     f({ singleLine, name, classes, getEditor: () => editor })
   );
 
@@ -120,19 +125,24 @@ const SlateArea = ({
       withParagraphs,
       withLinks,
       withTables,
-      withHistory
+      withHistory,
     ];
-    const plugins = singleLine ? [...defaultPlugins, withSingleLine] : defaultPlugins;
+    const plugins = singleLine
+      ? [...defaultPlugins, withSingleLine]
+      : defaultPlugins;
 
     return flow(plugins)();
   }, []);
 
   const renderElement = useCallback(
-    props => <Element {...props} elementMap={getElements(features)} />,
+    (props) => <Element {...props} elementMap={getElements(features)} />,
     [mode]
   );
 
-  const renderLeaf = useCallback(props => <Leaf {...props} leafMap={getLeaves(features)} />, []);
+  const renderLeaf = useCallback(
+    (props) => <Leaf {...props} leafMap={getLeaves(features)} />,
+    []
+  );
 
   const markHotkeys = useMemo(() => getMarkHotkeys(features), []);
   const blockHotkeys = useMemo(() => getBlockHotkeys(features), []);
@@ -141,8 +151,9 @@ const SlateArea = ({
   const focusMenuButtons = useMemo(() => getFocusMenuButtons(features), []);
 
   /** Get hotkey if there is one. */
-  const matchKeyboardEventAgainstHotkeys = (hotkeys: HotkeyMap) => (event: any) =>
-    Object.keys(hotkeys).find(k => isHotkey(k, event));
+  const matchKeyboardEventAgainstHotkeys =
+    (hotkeys: HotkeyMap) => (event: any) =>
+      Object.keys(hotkeys).find((k) => isHotkey(k, event));
 
   // Add the initial value when setting up our state.
   let parsedDefaultValue;
@@ -154,27 +165,30 @@ const SlateArea = ({
     parsedDefaultValue = [
       {
         type: "paragraph",
-        children: [{ text: defaultValue ?? "" }]
-      }
+        children: [{ text: defaultValue ?? "" }],
+      },
     ];
   }
 
   const [value, setValue] = useState<SlateElement[]>(parsedDefaultValue);
 
-  const [debouncedRunOnChange] = useDebouncedCallback((value: SlateElement[]) => {
-    if (onChange) {
-      onChange({
-        target: {
-          name,
-          value: {
-            __typename: "RichTextField",
-            singleLine,
-            json: JSON.stringify(value)
-          }
-        }
-      });
-    }
-  }, 500);
+  const [debouncedRunOnChange] = useDebouncedCallback(
+    (value: SlateElement[]) => {
+      if (onChange) {
+        onChange({
+          target: {
+            name,
+            value: {
+              __typename: "RichTextField",
+              singleLine,
+              json: JSON.stringify(value),
+            },
+          },
+        });
+      }
+    },
+    500
+  );
 
   const handleChange = (newValue: SlateElement[]) => {
     if (newValue !== value) {
@@ -194,7 +208,9 @@ const SlateArea = ({
       <Slate editor={editor} value={value} onChange={handleChange}>
         {/* These menus render a portal. */}
         <HoverMenu {...{ hoverMenuButtons }} />
-        {InlineMenu && <InlineMenu {...{ inlineMenuButtons, ...inlineMenuProps }} />}
+        {InlineMenu && (
+          <InlineMenu {...{ inlineMenuButtons, ...inlineMenuProps }} />
+        )}
         <FocusMenu {...{ focusMenuButtons }} />
 
         <Editable
@@ -212,28 +228,35 @@ const SlateArea = ({
             // bodies of text as we give a nice "margin" (padding) that makes it easy to
             // select text.
             // @todo: Maybe this should be default, but that requires modifying the design elsewhere as well.
-            [classes.largeLeftPadding]: !singleLine && inlineMenuButtons && inlineMenuButtons.length
+            [classes.largeLeftPadding]:
+              !singleLine && inlineMenuButtons && inlineMenuButtons.length,
           })}
-          onKeyDown={event => {
+          onKeyDown={(event) => {
             if (event.key === "Tab") {
               event.preventDefault();
               Transforms.move(editor, { distance: 2, unit: "line" });
             }
 
-            const markHotkey = matchKeyboardEventAgainstHotkeys(markHotkeys)(event);
-            const blockHotkey = matchKeyboardEventAgainstHotkeys(blockHotkeys)(event);
+            const markHotkey =
+              matchKeyboardEventAgainstHotkeys(markHotkeys)(event);
+            const blockHotkey =
+              matchKeyboardEventAgainstHotkeys(blockHotkeys)(event);
             if (!(markHotkey || blockHotkey)) return;
 
             event.preventDefault();
 
             if (markHotkey) {
               const mark = markHotkeys[markHotkey];
-              isFunction(mark) ? mark(editor) : ExtendedEditor.toggleMark(editor, mark);
+              isFunction(mark)
+                ? mark(editor)
+                : ExtendedEditor.toggleMark(editor, mark);
             }
 
             if (blockHotkey) {
               const block = blockHotkeys[blockHotkey];
-              isFunction(block) ? block(editor) : ExtendedEditor.toggleBlock(editor, block);
+              isFunction(block)
+                ? block(editor)
+                : ExtendedEditor.toggleBlock(editor, block);
             }
           }}
         />
