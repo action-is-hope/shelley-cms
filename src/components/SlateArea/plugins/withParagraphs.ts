@@ -1,6 +1,6 @@
 import { Editor, Element, Node, Transforms } from "slate";
 import { jsx } from "slate-hyperscript";
-import { ReactEditor } from "slate-react";
+import type { ReactEditor } from "slate-react";
 import { isEmpty } from "../helpers";
 
 export const withParagraphs = (editor: Editor & ReactEditor) => {

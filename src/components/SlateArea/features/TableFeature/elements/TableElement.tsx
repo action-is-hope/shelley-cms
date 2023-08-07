@@ -1,6 +1,6 @@
 import React from "react";
 // import { createStyles, withStyles, WithStyles } from "@material-ui/core/styles";
-import { Element } from "slate";
+import type { Element } from "slate";
 
 // const styles = () =>
 //   createStyles({

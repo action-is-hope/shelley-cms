@@ -1,6 +1,6 @@
-import { Editor } from "slate";
-import { WidgetProps } from "components/Widget/Widget";
-import { ReactNode, SVGProps } from "react";
+import type { Editor } from "slate";
+import type { WidgetProps } from "components/Widget/Widget";
+import type { ReactNode, SVGProps } from "react";
 
 export interface SlateAreaEvent {
   target: {

@@ -10,7 +10,7 @@ import { useSlateStatic } from "slate-react";
 
 // import classnames from "classnames";
 
-import { TableEditor } from "lib/cms-ui/SlateArea/plugins/withTables/withTables";
+import type { TableEditor } from "lib/cms-ui/SlateArea/plugins/withTables/withTables";
 
 export interface CellMenuType {
   type: string;

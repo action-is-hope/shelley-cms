@@ -1,10 +1,14 @@
-import { Table } from "./tableTypes";
+import type { Table } from "./tableTypes";
 
 export const addMenusToTableValue = (tableValue: Table[]) =>
-  tableValue.map(table => {
+  tableValue.map((table) => {
     const numberOfColumns = table.children[0].children[0].children.length;
-    const tableBody = table.children.find(child => child.type === "table-body");
-    const tableHead = table.children.find(child => child.type === "table-head");
+    const tableBody = table.children.find(
+      (child) => child.type === "table-body"
+    );
+    const tableHead = table.children.find(
+      (child) => child.type === "table-head"
+    );
 
     return {
       ...table,
@@ -17,27 +21,27 @@ export const addMenusToTableValue = (tableValue: Table[]) =>
               children: [
                 {
                   type: "table-cell-empty",
-                  children: [{ text: "" }]
+                  children: [{ text: "" }],
                 },
                 ...Array(numberOfColumns)
                   .fill(undefined)
-                  .map(c => ({
+                  .map((c) => ({
                     type: "table-cell-menu",
-                    children: [{ text: "" }]
-                  }))
-              ]
+                    children: [{ text: "" }],
+                  })),
+              ],
             },
             tableHead && {
               type: "table-row",
               children: [
                 {
                   type: "table-cell-empty",
-                  children: [{ text: "" }]
+                  children: [{ text: "" }],
                 },
-                ...tableHead.children[0].children
-              ]
-            }
-          ].filter(Boolean)
+                ...tableHead.children[0].children,
+              ],
+            },
+          ].filter(Boolean),
         },
         {
           type: "table-body",
@@ -46,12 +50,12 @@ export const addMenusToTableValue = (tableValue: Table[]) =>
             children: [
               {
                 type: "table-row-menu",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
-              ...tableBody.children[i].children
-            ]
-          }))
-        }
-      ]
+              ...tableBody.children[i].children,
+            ],
+          })),
+        },
+      ],
     };
   });

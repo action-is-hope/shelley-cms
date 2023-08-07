@@ -1,4 +1,4 @@
-import { Feature } from "../../slateAreaTypes";
+import type { Feature } from "../../slateAreaTypes";
 import TableCellElement from "./elements/TableCellElement";
 import TableCellEmptyElement from "./elements/TableCellEmptyElement";
 import TableCellMenuElement from "./elements/TableCellMenuElement";
@@ -20,6 +20,6 @@ export const TableFeature = (): Feature => ({
     "table-cell-menu": TableCellMenuElement,
     "table-cell": TableCellElement,
     "table-header-cell": TableHeaderCellElement,
-    "table-cell-empty": TableCellEmptyElement
-  }
+    "table-cell-empty": TableCellEmptyElement,
+  },
 });

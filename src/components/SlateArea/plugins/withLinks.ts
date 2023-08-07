@@ -1,5 +1,5 @@
 import isUrl from "is-url";
-import { Editor, Element } from "slate";
+import type { Editor, Element } from "slate";
 import { wrapLink } from "../features/LinkFeature/linkHelpers";
 
 export const withLinks = (editor: Editor) => {

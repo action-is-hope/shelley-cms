@@ -35,10 +35,14 @@ import { withMedia } from "./plugins/withMedia";
 import { withParagraphs } from "./plugins/withParagraphs";
 import { withSingleLine } from "./plugins/withSingleLine";
 import { withTables } from "./plugins/withTables/withTables";
-import { FeatureFactory, HotkeyMap, SlateAreaEvent } from "./slateAreaTypes";
-import styles from "./textFieldStyles";
+import type {
+  FeatureFactory,
+  HotkeyMap,
+  SlateAreaEvent,
+} from "./slateAreaTypes";
+// import styles from "./textFieldStyles";
 
-export interface SlateAreaProps extends WithStyles<typeof styles> {
+export interface SlateAreaProps {
   placeholder?: string;
 
   featureSet?: FeatureFactory[];
