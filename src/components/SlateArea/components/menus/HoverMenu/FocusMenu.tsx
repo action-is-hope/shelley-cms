@@ -55,7 +55,7 @@ export interface FocusMenuProps {
 }
 
 const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
-  const ref = useRef<any>();
+  const ref = useRef<HTMLDivElement>();
   const editor = useSlate();
   const [displayState, setDisplayState] = useState<DisplayState>({});
   const validBlockTypes = Object.keys(focusMenuButtons);

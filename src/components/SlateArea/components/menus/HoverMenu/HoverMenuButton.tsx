@@ -1,38 +1,52 @@
-import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
+// import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
 import React from "react";
-import SvgIcon from "@material-ui/core/SvgIcon";
+// import SvgIcon from "@material-ui/core/SvgIcon";
+import { Icon } from "@actionishope/shelley";
 
-const styles = (theme: Theme) =>
-  createStyles({
-    materialIcons: {
-      fontFamily: "Material Icons",
-      fontSize: "25px",
-      verticalAlign: "text-bottom"
-    },
-    button: {
-      color: theme.palette.secondary.contrastText,
-      cursor: "pointer",
-      "&[data-active='true']": {
-        color: "#34e79a" // Stole Mediums color
-      }
-    }
-  });
+// const styles = (theme: Theme) =>
+//   createStyles({
+//     materialIcons: {
+//       fontFamily: "Material Icons",
+//       fontSize: "25px",
+//       verticalAlign: "text-bottom"
+//     },
+//     button: {
+//       color: theme.palette.secondary.contrastText,
+//       cursor: "pointer",
+//       "&[data-active='true']": {
+//         color: "#34e79a" // Stole Mediums color
+//       }
+//     }
+//   });
 
-interface HoverMenuButtonProps extends WithStyles<typeof styles> {
+interface HoverMenuButtonProps {
   /* Using any as it accept be a string icon and SVGIcon */
   icon: any;
   onMouseDown: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
   isActive: boolean;
 }
 
-const HoverMenuButton = ({ classes, icon, onMouseDown, isActive }: HoverMenuButtonProps) => {
+const HoverMenuButton = ({
+  classes,
+  icon,
+  onMouseDown,
+  isActive,
+}: HoverMenuButtonProps) => {
   return (
-    <span className={classes.button} onMouseDown={onMouseDown} data-active={isActive}>
+    <span
+      className={classes.button}
+      onMouseDown={onMouseDown}
+      data-active={isActive}
+    >
       <span className={classes.materialIcons}>
-        {typeof icon === "string" ? icon : <SvgIcon>{React.createElement(icon)}</SvgIcon>}
+        {typeof icon === "string" ? (
+          icon
+        ) : (
+          <Icon>{React.createElement(icon)}</Icon>
+        )}
       </span>
     </span>
   );
 };
 
-export default withStyles(styles)(HoverMenuButton);
+export default HoverMenuButton;

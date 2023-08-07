@@ -1,4 +1,4 @@
-import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
+// import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
 import { Editor, Range } from "slate";
 import { ReactEditor, useSlate } from "slate-react";
 import React, { useEffect, useRef } from "react";
@@ -7,39 +7,39 @@ import { HoverMenuButton } from "../../../slateAreaTypes";
 import BlockButton from "./BlockButton";
 import MarkButton from "./MarkButton";
 
-const styles = (theme: Theme) =>
-  createStyles({
-    menu: {
-      "&> *": {
-        display: "inline-block"
-      },
-      "&> * + *": {
-        marginLeft: "15px"
-      },
-      // menu styles
-      "&.button": {
-        color: "hotpink"
-      },
-      // hover menu styles
-      padding: "12px",
-      position: "absolute",
-      zIndex: 1,
-      top: "-10000px",
-      left: "-10000px",
-      marginTop: "-6px",
-      opacity: 0,
-      backgroundColor: "#333",
-      borderRadius: "5px",
-      transition: "opacity 0.75s"
-    }
-  });
+// const styles = (theme: Theme) =>
+//   createStyles({
+//     menu: {
+//       "&> *": {
+//         display: "inline-block"
+//       },
+//       "&> * + *": {
+//         marginLeft: "15px"
+//       },
+//       // menu styles
+//       "&.button": {
+//         color: "hotpink"
+//       },
+//       // hover menu styles
+//       padding: "12px",
+//       position: "absolute",
+//       zIndex: 1,
+//       top: "-10000px",
+//       left: "-10000px",
+//       marginTop: "-6px",
+//       opacity: 0,
+//       backgroundColor: "#333",
+//       borderRadius: "5px",
+//       transition: "opacity 0.75s"
+//     }
+//   });
 
-interface NewHoverMenuProps extends WithStyles<typeof styles> {
+interface NewHoverMenuProps {
   hoverMenuButtons: HoverMenuButton[];
 }
 
 const HoverMenu = ({ classes, hoverMenuButtons }: NewHoverMenuProps) => {
-  const ref = useRef<any>();
+  const ref = useRef<HTMLDivElement>();
   const editor = useSlate();
   const shouldMenuBeHidden = () => {
     const el = ref.current;
@@ -98,15 +98,27 @@ const HoverMenu = ({ classes, hoverMenuButtons }: NewHoverMenuProps) => {
   return (
     <Portal>
       <div ref={ref} className={classes.menu}>
-        {hoverMenuButtons.map(({ kind, type: format, icon, isActive, onMouseDown }) => {
-          if (kind === "mark")
-            return <MarkButton key={format} {...{ format, icon, isActive, onMouseDown }} />;
-          if (kind === "block")
-            return <BlockButton key={format} {...{ format, icon, isActive, onMouseDown }} />;
-        })}
+        {hoverMenuButtons.map(
+          ({ kind, type: format, icon, isActive, onMouseDown }) => {
+            if (kind === "mark")
+              return (
+                <MarkButton
+                  key={format}
+                  {...{ format, icon, isActive, onMouseDown }}
+                />
+              );
+            if (kind === "block")
+              return (
+                <BlockButton
+                  key={format}
+                  {...{ format, icon, isActive, onMouseDown }}
+                />
+              );
+          }
+        )}
       </div>
     </Portal>
   );
 };
 
-export default withStyles(styles)(HoverMenu);
+export default HoverMenu;
