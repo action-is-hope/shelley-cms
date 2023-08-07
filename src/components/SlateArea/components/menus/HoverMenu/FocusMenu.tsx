@@ -2,7 +2,7 @@
 import { Node, Transforms } from "slate";
 import { ReactEditor, useSlate } from "slate-react";
 import React, { useEffect, useRef, useState } from "react";
-import { FocusMenuButtonMap } from "../../../slateAreaTypes";
+import type { FocusMenuButtonMap } from "../../../slateAreaTypes";
 import HoverMenuButton from "./HoverMenuButton";
 
 // const styles = (theme: Theme) =>
@@ -139,9 +139,7 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
   };
 
   const getNode = (): any =>
-    editor.selection
-      ? Node.parent(editor, editor.selection!.anchor.path)
-      : null;
+    editor.selection ? Node.parent(editor, editor.selection.anchor.path) : null;
 
   const setDisplay = (display: string) => {
     const node = getNode();

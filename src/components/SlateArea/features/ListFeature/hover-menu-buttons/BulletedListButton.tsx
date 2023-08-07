@@ -1,7 +1,7 @@
-import { HoverMenuButton } from "../../../slateAreaTypes";
+import type { HoverMenuButton } from "../../../slateAreaTypes";
 
 export const BulletedListButton: HoverMenuButton = {
   kind: "block",
   type: "bulleted-list",
-  icon: "format_list_bulleted"
+  icon: "format_list_bulleted",
 };

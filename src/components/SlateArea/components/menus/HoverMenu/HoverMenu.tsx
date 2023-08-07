@@ -3,7 +3,7 @@ import { Editor, Range } from "slate";
 import { ReactEditor, useSlate } from "slate-react";
 import React, { useEffect, useRef } from "react";
 import { Portal } from "../../../../Portal/Portal";
-import { HoverMenuButton } from "../../../slateAreaTypes";
+import type { HoverMenuButton } from "../../../slateAreaTypes";
 import BlockButton from "./BlockButton";
 import MarkButton from "./MarkButton";
 

@@ -1,5 +1,5 @@
-import { Editor } from "slate";
-import { Feature } from "../../slateAreaTypes";
+import type { Editor } from "slate";
+import type { Feature } from "../../slateAreaTypes";
 import { LinkElement } from "./elements/LinkElement";
 import { LinkButton } from "./hover-menu-buttons/LinkButton";
 import { toggleLink } from "./linkHelpers";
@@ -10,10 +10,10 @@ import { toggleLink } from "./linkHelpers";
 export const LinkFeature = (): Feature => ({
   name: "LinkFeature",
   blockHotkeys: {
-    "mod+k": (editor: Editor) => toggleLink(editor)
+    "mod+k": (editor: Editor) => toggleLink(editor),
   },
   hoverMenuButtons: [LinkButton],
   elements: {
-    link: LinkElement
-  }
+    link: LinkElement,
+  },
 });

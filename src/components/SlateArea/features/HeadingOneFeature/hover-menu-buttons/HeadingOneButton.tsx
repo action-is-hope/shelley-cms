@@ -1,7 +1,7 @@
-import { HoverMenuButton } from "../../../slateAreaTypes";
+import type { HoverMenuButton } from "../../../slateAreaTypes";
 
 export const HeadingOneButton: HoverMenuButton = {
   kind: "block",
   type: "heading-one",
-  icon: "looks_one"
+  icon: "looks_one",
 };

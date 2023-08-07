@@ -1,4 +1,4 @@
-import { Feature } from "../../slateAreaTypes";
+import type { Feature } from "../../slateAreaTypes";
 import { BulletedListElement } from "./elements/BulletedListElement";
 import { ListItemElement } from "./elements/ListItemElement";
 import { NumberedListElement } from "./elements/NumberedListElement";
@@ -11,6 +11,6 @@ export const ListFeature = (): Feature => ({
   elements: {
     "bulleted-list": BulletedListElement,
     "numbered-list": NumberedListElement,
-    "list-item": ListItemElement
-  }
+    "list-item": ListItemElement,
+  },
 });
