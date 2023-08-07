@@ -1,12 +1,12 @@
 import React from "react";
-import { createStyles, withStyles, WithStyles } from "@material-ui/core/styles";
+// import { createStyles, withStyles, WithStyles } from "@material-ui/core/styles";
 
-const styles = () =>
-  createStyles({
-    root: {
-      width: "50px"
-    }
-  });
+// const styles = () =>
+//   createStyles({
+//     root: {
+//       width: "50px"
+//     }
+//   });
 
 const TableCellEmptyElement = ({ attributes, children, classes }) => (
   <td className={classes.root} contentEditable={false} {...attributes}>
@@ -14,4 +14,4 @@ const TableCellEmptyElement = ({ attributes, children, classes }) => (
   </td>
 );
 
-export default withStyles(styles)(TableCellEmptyElement);
+export default TableCellEmptyElement;

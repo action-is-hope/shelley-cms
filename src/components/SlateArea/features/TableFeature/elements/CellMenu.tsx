@@ -1,34 +1,38 @@
 import React from "react";
-import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core/styles";
-import Popover from "@mui/material/Popover";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import { useSlateStatic } from "slate-react";
-import classnames from "classnames";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import IconButton from "@material-ui/core/IconButton";
+
+// import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core/styles";
+// import Popover from "@mui/material/Popover";
+// import Menu from "@mui/material/Menu";
+// import MenuItem from "@mui/material/MenuItem";
+// import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+// import IconButton from "@material-ui/core/IconButton";
+
+// import classnames from "classnames";
+
 import { TableEditor } from "lib/cms-ui/SlateArea/plugins/withTables/withTables";
 
 export interface CellMenuType {
   type: string;
 }
 
-const styles = (theme: Theme) =>
-  createStyles({
-    button: {
-      background: `${theme.palette.grey[500]} !important`,
-      borderRadius: "50px !important",
-      height: "25px",
-      minWidth: "25px !important",
-      maxWidth: "25px !important",
-      color: "black"
-    }
-  });
+// const styles = (theme: Theme) =>
+//   createStyles({
+//     button: {
+//       background: `${theme.palette.grey[500]} !important`,
+//       borderRadius: "50px !important",
+//       height: "25px",
+//       minWidth: "25px !important",
+//       maxWidth: "25px !important",
+//       color: "black"
+//     }
+//   });
 
-interface CellMenuElementProps extends CellMenuType, WithStyles<typeof styles> {}
+type CellMenuElementProps = CellMenuType;
 
 const CellMenu = ({ type, classes }: CellMenuElementProps) => {
-  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
+  const [anchorEl, setAnchorEl] =
+    React.useState<HTMLButtonElement | null>(null);
   const editor = useSlateStatic() as TableEditor;
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -88,7 +92,7 @@ const CellMenu = ({ type, classes }: CellMenuElementProps) => {
         onClose={handleClose}
         anchorOrigin={{
           vertical: "bottom",
-          horizontal: "left"
+          horizontal: "left",
         }}
       >
         <Menu
@@ -97,7 +101,7 @@ const CellMenu = ({ type, classes }: CellMenuElementProps) => {
           open={open}
           onClose={handleClose}
           MenuListProps={{
-            "aria-labelledby": "basic-button"
+            "aria-labelledby": "basic-button",
           }}
         >
           {type === "row" && (
@@ -111,9 +115,16 @@ const CellMenu = ({ type, classes }: CellMenuElementProps) => {
           )}
           {type === "column" && (
             <>
-              <MenuItem onClick={_insertColumnRight}>Insert Column To The Right</MenuItem>
-              <MenuItem onClick={_insertColumnLeft}>Insert Column To The Left</MenuItem>
-              <MenuItem disabled={editor.countColumns() <= 1} onClick={_deleteColumn}>
+              <MenuItem onClick={_insertColumnRight}>
+                Insert Column To The Right
+              </MenuItem>
+              <MenuItem onClick={_insertColumnLeft}>
+                Insert Column To The Left
+              </MenuItem>
+              <MenuItem
+                disabled={editor.countColumns() <= 1}
+                onClick={_deleteColumn}
+              >
                 Delete Column
               </MenuItem>
             </>
@@ -124,4 +135,4 @@ const CellMenu = ({ type, classes }: CellMenuElementProps) => {
   );
 };
 
-export default withStyles(styles)(CellMenu);
+export default CellMenu;
