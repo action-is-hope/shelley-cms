@@ -100,7 +100,6 @@ const SlateArea = ({
   placeholder,
   className,
   mode,
-  classes,
   featureSet,
   defaultValue,
   name,
@@ -269,4 +268,4 @@ const SlateArea = ({
   );
 };
 
-export default withStyles(styles)(SlateArea);
+export default SlateArea;
