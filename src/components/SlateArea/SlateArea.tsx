@@ -1,13 +1,12 @@
-// import { withStyles, WithStyles } from "@material-ui/core";
 import {
   createEditor,
   Editor,
   Element as SlateElement,
   Transforms,
 } from "slate";
+import type { BaseElement } from "slate";
 import { withHistory } from "slate-history";
 import { Editable, ReactEditor, Slate, withReact } from "slate-react";
-// import classNames from "classnames";
 import isHotkey from "is-hotkey";
 import flow from "lodash/flow";
 import isFunction from "lodash/isFunction";
@@ -40,11 +39,12 @@ import type {
   HotkeyMap,
   SlateAreaEvent,
 } from "./slateAreaTypes";
-// import styles from "./textFieldStyles";
-
+import { st, classes } from "./textFieldStyles.st.css";
 export interface SlateAreaProps {
   placeholder?: string;
-
+  /**
+   * @todo Add description
+   */
   featureSet?: FeatureFactory[];
 
   /**
@@ -100,13 +100,13 @@ const SlateArea = ({
   placeholder,
   className,
   mode,
-  classes,
+  // classes,
   featureSet,
   defaultValue,
   name,
   onFocus,
   onChange,
-  disableMenus = false,
+  // disableMenus = false,
   singleLine,
   InlineMenu,
   inlineMenuProps = {},
@@ -117,6 +117,7 @@ const SlateArea = ({
     return defaultFeatureSet;
   }, []);
 
+  // @todo mn - does classes still work for features?
   const features = getFeatureSet().map((f) =>
     f({ singleLine, name, classes, getEditor: () => editor })
   );
@@ -209,7 +210,11 @@ const SlateArea = ({
 
   return (
     <ErrorBoundary>
-      <Slate editor={editor} value={value} onChange={handleChange}>
+      <Slate
+        editor={editor}
+        value={value}
+        onChange={(v) => handleChange(v as BaseElement[])}
+      >
         {/* These menus render a portal. */}
         <HoverMenu {...{ hoverMenuButtons }} />
         {InlineMenu && (
@@ -226,15 +231,20 @@ const SlateArea = ({
               <p>{children}</p>
             </div>
           )}
-          className={classNames(classes.root, className, {
-            [classes.multiline]: !singleLine,
-            // Make space for the inline menu. Also more user friendly for larger
-            // bodies of text as we give a nice "margin" (padding) that makes it easy to
-            // select text.
-            // @todo: Maybe this should be default, but that requires modifying the design elsewhere as well.
-            [classes.largeLeftPadding]:
-              !singleLine && inlineMenuButtons && inlineMenuButtons.length,
-          })}
+          className={st(
+            classes.root,
+            {
+              multiline: !singleLine,
+              // Make space for the inline menu. Also more user friendly for larger
+              // bodies of text as we give a nice "margin" (padding) that makes it easy to
+              // select text.
+              // @todo: Maybe this should be default, but that requires modifying the design elsewhere as well.
+              largeLeftPadding: Boolean(
+                !singleLine && inlineMenuButtons?.length
+              ),
+            },
+            className
+          )}
           onKeyDown={(event) => {
             if (event.key === "Tab") {
               event.preventDefault();
@@ -253,14 +263,14 @@ const SlateArea = ({
               const mark = markHotkeys[markHotkey];
               isFunction(mark)
                 ? mark(editor)
-                : ExtendedEditor.toggleMark(editor, mark);
+                : mark && ExtendedEditor.toggleMark(editor, mark);
             }
 
             if (blockHotkey) {
               const block = blockHotkeys[blockHotkey];
               isFunction(block)
                 ? block(editor)
-                : ExtendedEditor.toggleBlock(editor, block);
+                : block && ExtendedEditor.toggleBlock(editor, block);
             }
           }}
         />
@@ -269,4 +279,4 @@ const SlateArea = ({
   );
 };
 
-export default withStyles(styles)(SlateArea);
+export default SlateArea;
