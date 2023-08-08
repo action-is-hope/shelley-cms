@@ -11,7 +11,7 @@ import { Editable, ReactEditor, Slate, withReact } from "slate-react";
 import isHotkey from "is-hotkey";
 import flow from "lodash/flow";
 import isFunction from "lodash/isFunction";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState, forwardRef } from "react";
 import { useDebouncedCallback } from "use-debounce/lib";
 import { Element } from "./components/Element";
 import { ErrorBoundary } from "./components/ErrorBoundary";
@@ -268,4 +268,7 @@ const SlateArea = ({
   );
 };
 
-export default SlateArea;
+// export default SlateArea;
+
+const _SlateArea = forwardRef(SlateArea);
+export { _SlateArea as SlateArea };

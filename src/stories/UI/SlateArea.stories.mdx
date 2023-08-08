@@ -2,7 +2,7 @@ import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
 import dedent from "ts-dedent";
 import { StoryGrid } from "../StoryLayout";
 
-import SlateArea from "../../components/SlateArea/SlateArea";
+import { SlateArea } from "../../components/SlateArea/SlateArea";
 
 import { BasicSlateArea } from "./SlateArea.examples";
 
@@ -13,3 +13,30 @@ import { BasicSlateArea } from "./SlateArea.examples";
 />
 
 # Slate Area
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { SlateArea } from "@actionishope/shelley-cms";
+  `}
+/>
+
+Slate Area is a wrapper around the Slate editor. It provides a toolbar ....
+
+<Story
+  name="a) Slate Area"
+  args={{
+    errorCount: undefined,
+  }}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<SlateArea />
+);`,
+      },
+    },
+  }}
+>
+  {BasicSlateArea.bind({})}
+</Story>

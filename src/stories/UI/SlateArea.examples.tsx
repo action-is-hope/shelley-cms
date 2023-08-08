@@ -1,4 +1,4 @@
-import SlateArea from "../../components/SlateArea/SlateArea";
+import { SlateArea } from "../../components/SlateArea/SlateArea";
 
 export const BasicSlateArea = () => {
   return (
