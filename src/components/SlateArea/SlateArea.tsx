@@ -100,7 +100,6 @@ const SlateArea = ({
   placeholder,
   className,
   mode,
-  // classes,
   featureSet,
   defaultValue,
   name,

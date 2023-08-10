@@ -1,0 +1,43 @@
+    .materialIcons {
+      fontFamily: Material Icons;
+      fontSize: 25px;
+      verticalAlign: text-botto;
+    }
+
+    .button {
+      color: contrastText;
+      cursor: pointer;
+    }
+
+    .button[data-active='true'] {
+      color: #34e79a;
+    }
+
+    .menu {
+      /* hover menu styles */
+      padding: 12px;
+      hovermenustylespadding hovermenustylespadding position: absolute;hovermenustylespaddingposition
+      hovermenustylespaddingposition position zIndex: 1;positionzIndex
+      zIndex top: -10000px;top
+      left: -10000px;
+      marginTop: -6px;
+      opacity: 0;
+      backgroundColor: #333;
+      borderRadius: 5px;
+      transition: opacity 0.75;
+
+      /* "&> *" {
+        display: inline-bloc;
+      }
+
+      "&> * + *" {
+        marginLeft: 15p;
+      }
+
+      // menu styles
+      "&.button" {
+        color: hotpin;
+      } */
+
+
+    }
