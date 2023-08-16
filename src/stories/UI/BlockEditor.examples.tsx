@@ -7,7 +7,8 @@ import { ContentArea } from "../../components/ContentArea/ContentArea";
 
 // import ReorderItems from "../../components/ReorderItems/ReorderItems";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";
-
+import SlateArea from "../../components/SlateArea/SlateArea";
+import { defaultFeatureSet } from "../../components/SlateArea/featureSets";
 const contentBlocksData = [
   {
     id: "1",
@@ -36,6 +37,12 @@ const contentBlocksData = [
 ];
 
 export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
+  const mediaFunctionalityProps = {
+    featureSet: [...defaultFeatureSet],
+    // InlineMenu,
+    // inlineMenuProps: { triggerWidget }
+  };
+
   return (
     <BlockEditor
       data-id="TEST123"
@@ -53,6 +60,14 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
       )}
       {...args}
     >
+      <SlateArea
+        // {...{ onChange, onFocus, ...mediaFunctionalityProps }}
+        onChange={(value) => console.log(value)}
+        {...mediaFunctionalityProps}
+        name="body"
+        // mode="FreeBlock"
+        defaultValue={`Hi`}
+      />
       {/* @todo: provide a form comp defining alignment. */}
       <form action="">
         <TextField

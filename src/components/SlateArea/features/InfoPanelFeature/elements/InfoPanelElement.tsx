@@ -1,5 +1,5 @@
 import React from "react";
-import Info from "src/components/icons/Info";
+import Info from "../../../../icons/Info";
 import { classes } from "./infoPanel.st.css";
 
 type InfoPanelElementProps = Element;

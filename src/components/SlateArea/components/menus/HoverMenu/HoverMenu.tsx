@@ -7,32 +7,6 @@ import type { HoverMenuButton } from "../../../slateAreaTypes";
 import BlockButton from "./BlockButton";
 import MarkButton from "./MarkButton";
 import { classes } from "./hoverMenu.st.css";
-// const styles = (theme: Theme) =>
-//   createStyles({
-//     menu: {
-//       "&> *": {
-//         display: "inline-block"
-//       },
-//       "&> * + *": {
-//         marginLeft: "15px"
-//       },
-//       // menu styles
-//       "&.button": {
-//         color: "hotpink"
-//       },
-//       // hover menu styles
-//       padding: "12px",
-//       position: "absolute",
-//       zIndex: 1,
-//       top: "-10000px",
-//       left: "-10000px",
-//       marginTop: "-6px",
-//       opacity: 0,
-//       backgroundColor: "#333",
-//       borderRadius: "5px",
-//       transition: "opacity 0.75s"
-//     }
-//   });
 
 interface NewHoverMenuProps {
   hoverMenuButtons: HoverMenuButton[];
@@ -91,10 +65,10 @@ const HoverMenu = ({ hoverMenuButtons }: NewHoverMenuProps) => {
 
   useEffect(updateMenu);
   useEffect(() => {
-    const scrollContainer = document.querySelector("[data-scroll-cards]")!;
-    const handleScroll = () => window.requestAnimationFrame(updateMenu);
-    scrollContainer.addEventListener("scroll", handleScroll);
-    return () => scrollContainer.removeEventListener("scroll", handleScroll);
+    // const scrollContainer = document.querySelector("[data-scroll-cards]")!;
+    // const handleScroll = () => window.requestAnimationFrame(updateMenu);
+    // scrollContainer.addEventListener("scroll", handleScroll);
+    // return () => scrollContainer.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

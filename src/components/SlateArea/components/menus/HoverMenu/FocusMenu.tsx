@@ -62,10 +62,10 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
 
   useEffect(updateMenu);
   useEffect(() => {
-    const scrollContainer = document.querySelector("[data-scroll-cards]")!;
-    const handleScroll = () => window.requestAnimationFrame(updateMenu);
-    scrollContainer.addEventListener("scroll", handleScroll);
-    return () => scrollContainer.removeEventListener("scroll", handleScroll);
+    // const scrollContainer = document.querySelector("[data-scroll-cards]")!;
+    // const handleScroll = () => window.requestAnimationFrame(updateMenu);
+    // scrollContainer.addEventListener("scroll", handleScroll);
+    // return () => scrollContainer.removeEventListener("scroll", handleScroll);
   }, []);
 
   const onClickButton = (

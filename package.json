@@ -53,6 +53,7 @@
   "dependencies": {
     "@actionishope/shelley": "^4.0.0-alpha.2",
     "@react-hook/size": "^2.1.2",
+    "is-url": "^1.2.4",
     "is-whitespace": "^0.3.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-click-away-listener": "^2.2.3"

@@ -1,6 +1,6 @@
 import type { HoverMenuButton } from "../../../slateAreaTypes";
 import { toggleLink, isLinkActive } from "../linkHelpers";
-import { Link } from "src/components/icons";
+import { Link } from "../../../../icons";
 import type { Editor } from "slate";
 
 export const LinkButton: HoverMenuButton = {
