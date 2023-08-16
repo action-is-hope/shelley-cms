@@ -1,1 +1,4 @@
-export const BoldLeaf = ({ children }: any) => <strong>{children}</strong>;
+import type { ElementProps } from "../../../components/Element";
+export const BoldLeaf = ({ children }: ElementProps) => (
+  <strong>{children}</strong>
+);

@@ -1,11 +1,12 @@
 import type { HoverMenuButton } from "../../../slateAreaTypes";
 import { toggleLink, isLinkActive } from "../linkHelpers";
+import { Link } from "src/components/icons";
 import type { Editor } from "slate";
 
 export const LinkButton: HoverMenuButton = {
   kind: "block",
   type: "link",
-  icon: "insert_link",
+  icon: Link,
   onMouseDown: (editor: Editor) => toggleLink(editor),
   isActive: isLinkActive,
 };

@@ -1,43 +1,42 @@
     .materialIcons {
-      fontFamily: Material Icons;
-      fontSize: 25px;
-      verticalAlign: text-botto;
+      font-family: Material Icons;
+      font-size: 25px;
+      vertical-align: text-bottom;
     }
 
     .button {
-      color: contrastText;
+      /* color: contrastText; */
+      color: #fff;
       cursor: pointer;
     }
 
     .button[data-active='true'] {
+      /* Stole Mediums col; */
       color: #34e79a;
     }
 
     .menu {
-      /* hover menu styles */
+      /* // hover menu styles */
       padding: 12px;
-      hovermenustylespadding hovermenustylespadding position: absolute;hovermenustylespaddingposition
-      hovermenustylespaddingposition position zIndex: 1;positionzIndex
-      zIndex top: -10000px;top
+      position: absolute;
+      z-index: 1;
+      top: -10000px;
       left: -10000px;
-      marginTop: -6px;
+      margin-top: -6px;
       opacity: 0;
-      backgroundColor: #333;
-      borderRadius: 5px;
+      background-color: #333;
+      border-radius: 5px;
       transition: opacity 0.75;
+    }
 
-      /* "&> *" {
-        display: inline-bloc;
-      }
+    .menu > * {
+      display: inline-block;
+    }
 
-      "&> * + *" {
-        marginLeft: 15p;
-      }
+    .menu > * + * {
+      margin-left: 15px;
+    }
 
-      // menu styles
-      "&.button" {
-        color: hotpin;
-      } */
-
-
+    .menu .button {
+      color: hotpink;
     }

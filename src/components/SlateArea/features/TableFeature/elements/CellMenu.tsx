@@ -1,137 +1,92 @@
-import React from "react";
+import React, { Key, useEffect, useState } from "react";
 import { useSlateStatic } from "slate-react";
-
-// import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core/styles";
-// import Popover from "@mui/material/Popover";
-// import Menu from "@mui/material/Menu";
-// import MenuItem from "@mui/material/MenuItem";
-// import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-// import IconButton from "@material-ui/core/IconButton";
-
-// import classnames from "classnames";
-
-import type { TableEditor } from "lib/cms-ui/SlateArea/plugins/withTables/withTables";
+import type { TableEditor } from "../../../plugins/withTables/withTables";
+import { Button } from "@actionishope/shelley/Button";
+import { MenuTrigger } from "@actionishope/shelley/MenuTrigger";
+import { Menu } from "@actionishope/shelley/Menu";
+import { Item } from "@actionishope/shelley/Item";
+import { Icon } from "@actionishope/shelley/Icon";
 
 export interface CellMenuType {
   type: string;
 }
 
-// const styles = (theme: Theme) =>
-//   createStyles({
-//     button: {
-//       background: `${theme.palette.grey[500]} !important`,
-//       borderRadius: "50px !important",
-//       height: "25px",
-//       minWidth: "25px !important",
-//       maxWidth: "25px !important",
-//       color: "black"
-//     }
-//   });
-
 type CellMenuElementProps = CellMenuType;
 
-const CellMenu = ({ type, classes }: CellMenuElementProps) => {
-  const [anchorEl, setAnchorEl] =
-    React.useState<HTMLButtonElement | null>(null);
+const CellMenu = ({ type }: CellMenuElementProps) => {
   const editor = useSlateStatic() as TableEditor;
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
+  const onAction = (key: Key) => {
+    switch (key) {
+      case "insertRowAbove":
+        editor.insertRowAbove();
+        break;
+      case "insertRowBelow":
+        editor.insertRowBelow();
+        break;
+      case "deleteRow":
+        editor.deleteRow();
+        break;
+      case "insertColumnRight":
+        editor.insertColumnRight();
+        break;
+      case "insertColumnLeft":
+        editor.insertColumnLeft();
+        break;
+      case "deleteColumn":
+        editor.deleteColumn();
+        break;
+      default:
+        console.warn("invalid action key");
+    }
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const [options, setOptions] = useState<{ id: string; name: string }[]>([]);
+  const [disabledKeys, setDisabledKeys] = useState<string[]>([]);
 
-  const _insertRowBelow = () => {
-    editor.insertRowBelow();
-    handleClose();
-  };
+  useEffect(() => {
+    type === "row" &&
+      setOptions([
+        { id: "insertRowAbove", name: "Insert Row Above" },
+        { id: "insertRowBelow", name: "Insert Row Below" },
+        { id: "deleteRow", name: "Delete Row" },
+      ]);
+    type === "column" &&
+      setOptions([
+        { id: "insertColumnRight", name: "Insert Column Right" },
+        { id: "insertColumnLeft", name: "Insert Column Left" },
+        { id: "deleteColumn", name: "Delete Column" },
+      ]);
 
-  const _insertRowAbove = () => {
-    editor.insertRowAbove();
-    handleClose();
-  };
-
-  const _deleteRow = () => {
-    editor.deleteRow();
-    handleClose();
-  };
-
-  const _insertColumnRight = () => {
-    editor.insertColumnRight();
-    handleClose();
-  };
-
-  const _insertColumnLeft = () => {
-    editor.insertColumnLeft();
-    handleClose();
-  };
-
-  const _deleteColumn = () => {
-    editor.deleteColumn();
-    handleClose();
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
+    editor.countRows() <= 1 && setDisabledKeys(["deleteRow"]);
+    editor.countColumns() <= 1 && setDisabledKeys(["deleteColumn"]);
+  }, [type, editor]);
 
   return (
-    <>
-      <IconButton
-        className={classnames(classes.button)}
-        aria-describedby={id}
-        onClick={handleClick}
+    <MenuTrigger
+      portalSelector="#portal"
+      onOpenChange={(isOpen) => console.log("isOpen:", isOpen)}
+      // Automatic if the menus selection type is multiple it will be false but you can override.
+      // closeOnSelect={false}
+      hideArrow
+    >
+      <Button tone={10} variant="fab" vol={1}>
+        <Icon alt="Block settings">
+          <g id="ellipsis-dots-h">
+            <path d="M4 8c0 1.105-0.895 2-2 2s-2-0.895-2-2c0-1.105 0.895-2 2-2s2 0.895 2 2z"></path>
+            <path d="M10 8c0 1.105-0.895 2-2 2s-2-0.895-2-2c0-1.105 0.895-2 2-2s2 0.895 2 2z"></path>
+            <path d="M16 8c0 1.105-0.895 2-2 2s-2-0.895-2-2c0-1.105 0.895-2 2-2s2 0.895 2 2z"></path>
+          </g>
+        </Icon>
+      </Button>
+      <Menu
+        items={options}
+        disabledKeys={disabledKeys}
+        onAction={(key) => onAction(key)}
       >
-        <MoreHorizIcon />
-      </IconButton>
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-      >
-        <Menu
-          id="basic-menu"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          MenuListProps={{
-            "aria-labelledby": "basic-button",
-          }}
-        >
-          {type === "row" && (
-            <>
-              <MenuItem onClick={_insertRowAbove}>Insert Row Above</MenuItem>
-              <MenuItem onClick={_insertRowBelow}>Insert Row Below</MenuItem>
-              <MenuItem disabled={editor.countRows() <= 1} onClick={_deleteRow}>
-                Delete Row
-              </MenuItem>
-            </>
-          )}
-          {type === "column" && (
-            <>
-              <MenuItem onClick={_insertColumnRight}>
-                Insert Column To The Right
-              </MenuItem>
-              <MenuItem onClick={_insertColumnLeft}>
-                Insert Column To The Left
-              </MenuItem>
-              <MenuItem
-                disabled={editor.countColumns() <= 1}
-                onClick={_deleteColumn}
-              >
-                Delete Column
-              </MenuItem>
-            </>
-          )}
-        </Menu>
-      </Popover>
-    </>
+        {(item) => <Item>{item.name}</Item>}
+      </Menu>
+    </MenuTrigger>
   );
 };
 

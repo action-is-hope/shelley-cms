@@ -1,9 +1,7 @@
 import type { HoverMenuButton } from "../../../slateAreaTypes";
-
-import { ReactComponent as headingTwoSVG } from "./h2_24px.svg";
-
+import Header2 from "src/components/icons/Header2";
 export const HeadingTwoButton: HoverMenuButton = {
   kind: "block",
   type: "heading-two",
-  icon: headingTwoSVG as React.FC<React.SVGProps<SVGSVGElement>>,
+  icon: Header2,
 };

@@ -1,19 +1,9 @@
 import React from "react";
-// import { createStyles, withStyles, WithStyles } from "@material-ui/core/styles";
 import type { Element } from "slate";
-
-// const styles = () =>
-//   createStyles({
-//     root: {
-//       borderSpacing: 0,
-//       borderCollapse: "collapse",
-//       width: "100%"
-//     }
-//   });
-
+import { classes } from "./slateTable.st.css";
 type TableElementProps = Element;
 
-const TableElement = ({ children, classes }: TableElementProps) => (
+const TableElement = ({ children }: TableElementProps) => (
   <table className={classes.root}>{children}</table>
 );
 

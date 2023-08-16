@@ -1,17 +1,10 @@
 import React from "react";
 import CellMenu from "./CellMenu";
-// import { createStyles, WithStyles, withStyles } from "@material-ui/core/styles";
+import type { ElementProps } from "../../../components/Element";
+import { classes } from "./slateTable.st.css";
 
-// const styles = () =>
-//   createStyles({
-//     root: {
-//       width: "1%",
-//       paddingRight: "10px"
-//     }
-//   });
-
-const TableRowMenuElement = ({ attributes, children, classes }) => (
-  <td className={classes.root} contentEditable={false} {...attributes}>
+const TableRowMenuElement = ({ attributes, children }: ElementProps) => (
+  <td className={classes.menuRow} contentEditable={false} {...attributes}>
     <CellMenu type="row" />
     {children}
   </td>

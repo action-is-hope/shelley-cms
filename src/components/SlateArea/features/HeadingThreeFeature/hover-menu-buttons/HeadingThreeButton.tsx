@@ -1,9 +1,8 @@
 import type { HoverMenuButton } from "../../../slateAreaTypes";
-
-import { ReactComponent as headingThreeSVG } from "./h3_24px.svg";
+import Header3 from "src/components/icons/Header3";
 
 export const HeadingThreeButton: HoverMenuButton = {
   kind: "block",
   type: "heading-three",
-  icon: headingThreeSVG as React.FC, // Explicitly type the icon property
+  icon: Header3,
 };

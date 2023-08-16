@@ -1,0 +1,14 @@
+.root {
+  padding: 8px;
+  padding-left: calc(8px * 2);
+  margin-left: calc(-8px * 2 - 2);
+  margin-bottom: calc(8px * 2);
+  font-size: 1.1em;
+  display: flex;
+  /* what colour */
+  border: 1px solid green
+}
+
+.icon {
+  margin-right: 8px
+}

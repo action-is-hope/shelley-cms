@@ -1,6 +1,10 @@
 import React from "react";
-
-export const LinkElement = ({ attributes, children, element }) => (
+import type { ElementProps } from "../../../components/Element";
+export const LinkElement = ({
+  attributes,
+  children,
+  element,
+}: ElementProps) => (
   <a {...attributes} href={element.url}>
     {children}
   </a>

@@ -2,11 +2,11 @@
 import { Editor, Range } from "slate";
 import { ReactEditor, useSlate } from "slate-react";
 import React, { useEffect, useRef } from "react";
-import { Portal } from "../../../../Portal/Portal";
+import { Portal } from "../../Portal";
 import type { HoverMenuButton } from "../../../slateAreaTypes";
 import BlockButton from "./BlockButton";
 import MarkButton from "./MarkButton";
-
+import { classes } from "./hoverMenu.st.css";
 // const styles = (theme: Theme) =>
 //   createStyles({
 //     menu: {
@@ -38,8 +38,8 @@ interface NewHoverMenuProps {
   hoverMenuButtons: HoverMenuButton[];
 }
 
-const HoverMenu = ({ classes, hoverMenuButtons }: NewHoverMenuProps) => {
-  const ref = useRef<HTMLDivElement>();
+const HoverMenu = ({ hoverMenuButtons }: NewHoverMenuProps) => {
+  const ref = useRef<HTMLDivElement>(null);
   const editor = useSlate();
   const shouldMenuBeHidden = () => {
     const el = ref.current;
@@ -63,7 +63,7 @@ const HoverMenu = ({ classes, hoverMenuButtons }: NewHoverMenuProps) => {
   };
   const updateMenu = () => {
     const el = ref.current;
-    const { selection } = editor;
+    // const { selection } = editor;
 
     if (!el) {
       return;
@@ -75,8 +75,10 @@ const HoverMenu = ({ classes, hoverMenuButtons }: NewHoverMenuProps) => {
     }
 
     const domSelection = window.getSelection();
-    const domRange = domSelection.getRangeAt(0);
-    const rect = domRange.getBoundingClientRect();
+    const domRange = domSelection?.getRangeAt(0);
+    const rect = domRange
+      ? domRange.getBoundingClientRect()
+      : { top: 0, left: 0, width: 0 };
 
     // @ts-ignore
     el.style.opacity = 1;

@@ -1,15 +1,7 @@
 import React from "react";
-// import { createStyles, withStyles, WithStyles } from "@material-ui/core/styles";
+import type { ElementProps } from "../../../components/Element";
 
-// const styles = () =>
-//   createStyles({
-//     root: {
-//       borderSpacing: 0,
-//       borderCollapse: "collapse"
-//     }
-//   });
-
-const TableHeadElement = ({ attributes, children }) => (
+const TableHeadElement = ({ attributes, children }: ElementProps) => (
   <thead {...attributes}>{children}</thead>
 );
 

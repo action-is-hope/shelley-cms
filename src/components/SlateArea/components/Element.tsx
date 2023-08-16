@@ -2,6 +2,11 @@ import React from "react";
 import type { Element as SlateElement } from "slate";
 import type { ElementMap } from "../slateAreaTypes";
 
+export interface ElementProps extends SlateElement {
+  elementMap: ElementMap;
+  attributes: any;
+  element: any;
+}
 /**
  * Renders an element. Use within `renderElement`.
  */
@@ -10,11 +15,7 @@ export const Element = ({
   children,
   element,
   elementMap,
-}: SlateElement & {
-  elementMap: ElementMap;
-  attributes: any;
-  element: any;
-}) => {
+}: ElementProps) => {
   const ElementToRender = elementMap[element.type];
 
   if (ElementToRender) {

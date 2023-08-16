@@ -1,0 +1,42 @@
+.root {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.cell {
+  border: 1px solid black;
+  width: 50px;
+  text-align: center;
+}
+
+.cell p:only-child {
+  margin-bottom: 0;
+}
+
+.emptyCell {
+  width: 50px;
+}
+
+.cellMenu {
+  width: 50px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.headerCell {
+  border: 1px solid black;
+  width: 50px;
+  text-align: center;
+  background: lightgray,
+}
+
+.headerCell span {
+  /*lighter grey?*/
+  color: pink
+}
+
+.menuRow {
+  width: 1%;
+  padding-right: 10px
+}

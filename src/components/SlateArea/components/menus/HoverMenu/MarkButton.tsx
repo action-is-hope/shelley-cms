@@ -26,7 +26,7 @@ const MarkButton = (props: MarkButtonProps) => {
     event: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     event.preventDefault();
-    props.onMouseDown(editor);
+    props.onMouseDown && props.onMouseDown(editor);
   };
 
   const isActive = props.isActive ? props.isActive(editor) : defaultIsActive;
