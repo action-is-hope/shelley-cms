@@ -75,20 +75,24 @@ const HoverMenu = ({ hoverMenuButtons }: NewHoverMenuProps) => {
       <div ref={ref} className={classes.menu}>
         {hoverMenuButtons.map(
           ({ kind, type: format, icon, isActive, onMouseDown }) => {
-            if (kind === "mark")
-              return (
-                <MarkButton
-                  key={format}
-                  {...{ format, icon, isActive, onMouseDown }}
-                />
-              );
-            if (kind === "block")
-              return (
-                <BlockButton
-                  key={format}
-                  {...{ format, icon, isActive, onMouseDown }}
-                />
-              );
+            switch (kind) {
+              case "mark":
+                return (
+                  <MarkButton
+                    key={format}
+                    {...{ format, icon, isActive, onMouseDown }}
+                  />
+                );
+              case "block":
+                return (
+                  <BlockButton
+                    key={format}
+                    {...{ format, icon, isActive, onMouseDown }}
+                  />
+                );
+              default:
+                return null;
+            }
           }
         )}
       </div>

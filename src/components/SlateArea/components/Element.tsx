@@ -5,6 +5,7 @@ export interface ElementProps extends SlateElement {
   elementMap: ElementMap;
   attributes: any;
   element: any;
+  type: any;
 }
 /**
  * Renders an element. Use within `renderElement`.

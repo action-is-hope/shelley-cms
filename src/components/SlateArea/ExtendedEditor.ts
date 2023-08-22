@@ -10,12 +10,12 @@ export const ExtendedEditor = {
     const isList = LIST_TYPES.includes(format);
 
     Transforms.unwrapNodes(editor, {
-      match: n => LIST_TYPES.includes(n.type),
-      split: true
+      match: (n) => LIST_TYPES.includes(n.type || ""),
+      split: true,
     });
 
     Transforms.setNodes(editor, {
-      type: isActive ? "paragraph" : isList ? "list-item" : format
+      type: isActive ? "paragraph" : isList ? "list-item" : format,
     });
 
     if (!isActive && isList) {
@@ -36,14 +36,14 @@ export const ExtendedEditor = {
 
   isBlockActive(editor: Editor, format: string): boolean {
     const [match] = Editor.nodes(editor, {
-      match: n => n.type === format
+      match: (n) => n.type === format,
     });
 
     return Boolean(match);
   },
 
   isMarkActive(editor: Editor, format: string): boolean {
-    const marks = Editor.marks(editor);
+    const marks = Editor.marks(editor) as Record<string, boolean> | undefined;
     return marks ? marks[format] === true : false;
-  }
+  },
 };

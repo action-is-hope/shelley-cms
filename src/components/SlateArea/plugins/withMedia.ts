@@ -6,20 +6,26 @@ const mediaNodeTypes = [
   "document",
   "twitter-embed",
   "linkedin-embed",
-  "instagram-embed"
+  "instagram-embed",
 ];
 
 export const withMedia = (editor: Editor) => {
   const { isVoid, normalizeNode } = editor;
 
-  editor.isVoid = element => {
-    return mediaNodeTypes.includes(element.type) ? true : isVoid(element);
+  editor.isVoid = (element) => {
+    return element.type && mediaNodeTypes.includes(element.type)
+      ? true
+      : isVoid(element);
   };
 
-  editor.normalizeNode = entry => {
+  editor.normalizeNode = (entry) => {
     const [node, path] = entry;
 
-    if (Element.isElement(node) && mediaNodeTypes.includes(node.type)) {
+    if (
+      Element.isElement(node) &&
+      node.type &&
+      mediaNodeTypes.includes(node.type)
+    ) {
       const children = Array.from(Node.children(editor, path));
       if (!children.length) {
         console.debug("No children found, inserting empty text node");
