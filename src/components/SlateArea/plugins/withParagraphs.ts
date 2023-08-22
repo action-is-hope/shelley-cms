@@ -6,7 +6,7 @@ import { isEmpty } from "../helpers";
 export const withParagraphs = (editor: Editor & ReactEditor) => {
   const { normalizeNode } = editor;
 
-  editor.normalizeNode = entry => {
+  editor.normalizeNode = (entry) => {
     const [node, path] = entry;
 
     // Insert a paragraph if there are no children.
@@ -14,9 +14,15 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
       const p = jsx("element", { type: "paragraph" }, [jsx("text")]);
       Transforms.insertNodes(editor, p);
     }
-
+    console.log({ node });
     // Do not allow extra empty paragraphs, except one at the end to allow adding a new paragraph.
-    if (Element.isElement(node) && node.type === "paragraph" && path && path[0] && path[0] > 0) {
+    if (
+      Element.isElement(node) &&
+      node.type === "paragraph" &&
+      path &&
+      path[0] &&
+      path[0] > 0
+    ) {
       const prevElementPath = [path[0] - 1];
       const prevElement = Node.get(editor, prevElementPath);
 
@@ -40,15 +46,27 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
     //
     // To test: create an empty list item. Press ENTER. A paragraph will be
     // created instead of a new list item.
-    if (Element.isElement(node) && node.type === "list-item" && path && path[1] && path[1] > 0) {
-      const prevListItemPath = path.slice(0, -1).concat(path[path.length - 1] - 1);
+    if (
+      Element.isElement(node) &&
+      node.type === "list-item" &&
+      path &&
+      path[1] &&
+      path[1] > 0
+    ) {
+      const prevListItemPath = path
+        .slice(0, -1)
+        .concat(path[path.length - 1] - 1);
       const prevListItem = Node.get(editor, prevListItemPath);
       const isPrevListItemEmpty = isEmpty(Node.string(prevListItem));
 
       if (isPrevListItemEmpty) {
         Editor.withoutNormalizing(editor, () => {
           Transforms.removeNodes(editor, { at: path });
-          Transforms.setNodes(editor, { type: "paragraph" }, { at: prevListItemPath });
+          Transforms.setNodes(
+            editor,
+            { type: "paragraph" },
+            { at: prevListItemPath }
+          );
           Transforms.liftNodes(editor, { at: prevListItemPath });
         });
       }
@@ -61,7 +79,9 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
     // instead of a new heading.
     if (
       Element.isElement(node) &&
-      ["block-quote", "heading-one", "heading-two", "heading-three"].includes(node.type) &&
+      ["block-quote", "heading-one", "heading-two", "heading-three"].includes(
+        node.type
+      ) &&
       path &&
       path[0] &&
       path[0] > 0
@@ -76,7 +96,11 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
 
     // Remove empty links.
     if (Element.isElement(node) && node.type === "link" && path) {
-      if (node.children && node.children.length && isEmpty(node.children[0].text)) {
+      if (
+        node.children &&
+        node.children.length &&
+        isEmpty(node.children[0]?.text)
+      ) {
         Transforms.removeNodes(editor, { at: path });
       }
     }
