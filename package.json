@@ -74,6 +74,7 @@
     "@stylable/webpack-plugin": "^5.12.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "12.1.5",
+    "@types/is-url": "^1.2.30",
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.2",
     "@types/react": "^17.0.2",

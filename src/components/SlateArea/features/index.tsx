@@ -18,9 +18,10 @@ export const getFocusMenuButtons = (features: Feature[]): FocusMenuButtonMap =>
     .map((f) => f.focusMenuButtons)
     .filter(Boolean)
     .reduce((acc: FocusMenuButtonMap, focusMenuButtons) => {
-      Object.entries(focusMenuButtons).forEach(([type, btns]) => {
-        acc[type] = [...(acc[type] || []), ...btns];
-      });
+      focusMenuButtons &&
+        Object.entries(focusMenuButtons).forEach(([type, btns]) => {
+          acc[type] = [...(acc[type] || []), ...btns];
+        });
 
       return acc;
     }, {});

@@ -1,4 +1,3 @@
-import React from "react";
 import type { Element as SlateElement } from "slate";
 import type { ElementMap } from "../slateAreaTypes";
 

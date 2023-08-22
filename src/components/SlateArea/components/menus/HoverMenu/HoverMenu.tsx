@@ -1,7 +1,6 @@
-// import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
 import { Editor, Range } from "slate";
 import { ReactEditor, useSlate } from "slate-react";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Portal } from "../../Portal";
 import type { HoverMenuButton } from "../../../slateAreaTypes";
 import BlockButton from "./BlockButton";

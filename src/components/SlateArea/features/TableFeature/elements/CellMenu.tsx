@@ -1,4 +1,4 @@
-import React, { Key, useEffect, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import { useSlateStatic } from "slate-react";
 import type { TableEditor } from "../../../plugins/withTables/withTables";
 import { Button } from "@actionishope/shelley/Button";

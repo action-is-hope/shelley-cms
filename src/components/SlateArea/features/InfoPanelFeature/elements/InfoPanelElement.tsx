@@ -1,4 +1,3 @@
-import React from "react";
 import Info from "../../../../icons/Info";
 import { classes } from "./infoPanel.st.css";
 

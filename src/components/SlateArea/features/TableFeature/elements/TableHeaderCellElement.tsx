@@ -1,4 +1,3 @@
-import React from "react";
 import type { ElementProps } from "../../../components/Element";
 import { classes } from "./slateTable.st.css";
 

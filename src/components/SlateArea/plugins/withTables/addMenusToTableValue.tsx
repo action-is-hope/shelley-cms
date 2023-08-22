@@ -2,7 +2,9 @@ import type { Table } from "./tableTypes";
 
 export const addMenusToTableValue = (tableValue: Table[]) =>
   tableValue.map((table) => {
-    const numberOfColumns = table.children[0].children[0].children.length;
+    const numberOfColumns =
+      table.children[0]?.children[0] &&
+      table.children[0].children[0].children.length;
     const tableBody = table.children.find(
       (child) => child.type === "table-body"
     );
@@ -25,7 +27,7 @@ export const addMenusToTableValue = (tableValue: Table[]) =>
                 },
                 ...Array(numberOfColumns)
                   .fill(undefined)
-                  .map((c) => ({
+                  .map(() => ({
                     type: "table-cell-menu",
                     children: [{ text: "" }],
                   })),
@@ -45,7 +47,7 @@ export const addMenusToTableValue = (tableValue: Table[]) =>
         },
         {
           type: "table-body",
-          children: tableBody.children.map((r, i) => ({
+          children: tableBody?.children.map((r, i) => ({
             ...r,
             children: [
               {

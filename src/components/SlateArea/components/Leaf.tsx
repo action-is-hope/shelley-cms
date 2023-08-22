@@ -1,4 +1,3 @@
-import React from "react";
 import type { RenderLeafProps } from "slate-react";
 import type { LeafMap } from "../slateAreaTypes";
 
