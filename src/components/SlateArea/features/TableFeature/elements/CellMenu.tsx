@@ -5,7 +5,7 @@ import { Button } from "@actionishope/shelley/Button";
 import { MenuTrigger } from "@actionishope/shelley/MenuTrigger";
 import { Menu } from "@actionishope/shelley/Menu";
 import { Item } from "@actionishope/shelley/Item";
-import { Icon } from "@actionishope/shelley/Icon";
+import MoreHor from "../../../../icons/MoreHor";
 
 export interface CellMenuType {
   type: string;
@@ -42,7 +42,6 @@ const CellMenu = ({ type }: CellMenuElementProps) => {
   };
 
   const [options, setOptions] = useState<{ id: string; name: string }[]>([]);
-  const [disabledKeys, setDisabledKeys] = useState<string[]>([]);
 
   useEffect(() => {
     type === "row" &&
@@ -57,10 +56,11 @@ const CellMenu = ({ type }: CellMenuElementProps) => {
         { id: "insertColumnLeft", name: "Insert Column Left" },
         { id: "deleteColumn", name: "Delete Column" },
       ]);
-
-    editor.countRows() <= 1 && setDisabledKeys(["deleteRow"]);
-    editor.countColumns() <= 1 && setDisabledKeys(["deleteColumn"]);
   }, [type, editor]);
+
+  let disabledKeys: string[] = [];
+  if (editor.countRows() <= 1) disabledKeys = ["deleteRow"];
+  if (editor.countColumns() <= 1) disabledKeys = ["deleteColumn"];
 
   return (
     <MenuTrigger
@@ -70,15 +70,13 @@ const CellMenu = ({ type }: CellMenuElementProps) => {
       // closeOnSelect={false}
       hideArrow
     >
-      <Button tone={10} variant="fab" vol={1}>
-        <Icon alt="Block settings">
-          <g id="ellipsis-dots-h">
-            <path d="M4 8c0 1.105-0.895 2-2 2s-2-0.895-2-2c0-1.105 0.895-2 2-2s2 0.895 2 2z"></path>
-            <path d="M10 8c0 1.105-0.895 2-2 2s-2-0.895-2-2c0-1.105 0.895-2 2-2s2 0.895 2 2z"></path>
-            <path d="M16 8c0 1.105-0.895 2-2 2s-2-0.895-2-2c0-1.105 0.895-2 2-2s2 0.895 2 2z"></path>
-          </g>
-        </Icon>
-      </Button>
+      <Button
+        tone={10}
+        variant="fab"
+        vol={1}
+        aria-label={type === "row" ? "Row menu" : "Column menu"}
+        icon={<MoreHor />}
+      />
       <Menu
         items={options}
         disabledKeys={disabledKeys}

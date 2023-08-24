@@ -23,6 +23,7 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
       path[0] &&
       path[0] > 0
     ) {
+      console.log("ERROR?");
       const prevElementPath = [path[0] - 1];
       const prevElement = Node.get(editor, prevElementPath);
 
@@ -38,7 +39,9 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
         */
         isEmpty(Node.string(node))
       ) {
-        Transforms.removeNodes(editor, { at: path });
+        // Transforms.removeNodes(editor, { at: path });
+        Transforms.removeNodes(editor);
+        // https://github.com/ianstormtaylor/slate/issues/851
       }
     }
 
@@ -53,9 +56,12 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
       path[1] &&
       path[1] > 0
     ) {
-      const prevListItemPath = path
-        .slice(0, -1)
-        .concat(path[path.length - 1] - 1);
+      const lastPathIndex = path.length - 1;
+      const prevListItemPath =
+        lastPathIndex >= 0
+          ? path.slice(0, -1).concat((path[lastPathIndex] || 0) - 1)
+          : path;
+
       const prevListItem = Node.get(editor, prevListItemPath);
       const isPrevListItemEmpty = isEmpty(Node.string(prevListItem));
 
@@ -80,7 +86,7 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
     if (
       Element.isElement(node) &&
       ["block-quote", "heading-one", "heading-two", "heading-three"].includes(
-        node.type
+        node.type || ""
       ) &&
       path &&
       path[0] &&
@@ -99,7 +105,7 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
       if (
         node.children &&
         node.children.length &&
-        isEmpty(node.children[0]?.text)
+        isEmpty(node.children[0]?.text || "")
       ) {
         Transforms.removeNodes(editor, { at: path });
       }
