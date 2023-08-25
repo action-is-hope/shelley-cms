@@ -1,13 +1,11 @@
-    .materialIcons {
-      font-family: Material Icons;
-      font-size: 25px;
-      vertical-align: text-bottom;
-    }
-
     .button {
       /* color: contrastText; */
       color: #fff;
       cursor: pointer;
+      font-size: 25px;
+
+      display: inline-flex;
+      vertical-align: bottom;
     }
 
     .button[data-active='true'] {
@@ -27,14 +25,8 @@
       background-color: #333;
       border-radius: 5px;
       transition: opacity 0.75;
-    }
-
-    .menu > * {
-      display: inline-block;
-    }
-
-    .menu > * + * {
-      margin-left: 15px;
+      display: flex;
+      gap: 15px;
     }
 
     .menu .button {

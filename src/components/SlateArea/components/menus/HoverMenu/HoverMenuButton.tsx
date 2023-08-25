@@ -20,7 +20,7 @@ const HoverMenuButton = ({
       onMouseDown={onMouseDown}
       data-active={isActive}
     >
-      <span className={classes.materialIcons}>{icon}</span>
+      {icon}
     </span>
   );
 };
