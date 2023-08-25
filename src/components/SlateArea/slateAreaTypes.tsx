@@ -125,4 +125,4 @@ export interface Feature {
   };
 }
 
-export type FeatureFactory = (opts: any) => Feature;
+export type FeatureFactory = () => Feature;

@@ -14,7 +14,6 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
       const p = jsx("element", { type: "paragraph" }, [jsx("text")]);
       Transforms.insertNodes(editor, p);
     }
-    console.log({ node });
     // Do not allow extra empty paragraphs, except one at the end to allow adding a new paragraph.
     if (
       Element.isElement(node) &&
@@ -23,7 +22,6 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
       path[0] &&
       path[0] > 0
     ) {
-      console.log("ERROR?");
       const prevElementPath = [path[0] - 1];
       const prevElement = Node.get(editor, prevElementPath);
 
@@ -39,8 +37,8 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
         */
         isEmpty(Node.string(node))
       ) {
-        // Transforms.removeNodes(editor, { at: path });
-        Transforms.removeNodes(editor);
+        Transforms.removeNodes(editor, { at: path });
+        // Transforms.removeNodes(editor);
         // https://github.com/ianstormtaylor/slate/issues/851
       }
     }

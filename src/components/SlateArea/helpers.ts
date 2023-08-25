@@ -1,6 +1,4 @@
 import { Element, Node } from "slate";
-// is-whitespace-character as ts alternative?
-// @ts-ignore
 import isWhiteSpace from "is-whitespace";
 
 export const stripOuterHTMLTag = (s: string) =>

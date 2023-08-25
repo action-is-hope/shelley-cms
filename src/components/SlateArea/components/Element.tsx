@@ -16,7 +16,6 @@ export const Element = ({
   elementMap,
 }: ElementProps) => {
   const ElementToRender = elementMap[element.type];
-  console.log("ElementToRender", ElementToRender);
 
   if (ElementToRender) {
     return (

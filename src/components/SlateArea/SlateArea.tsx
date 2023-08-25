@@ -4,10 +4,9 @@ import {
   Element as SlateElement,
   Transforms,
 } from "slate";
-import type { BaseElement } from "slate";
 import { withHistory } from "slate-history";
-import { Editable, ReactEditor, Slate, withReact } from "slate-react";
-import isHotkey from "is-hotkey";
+import { Editable, Slate, withReact } from "slate-react";
+import isHotkey, { KeyboardEventLike } from "is-hotkey";
 import flow from "lodash/flow";
 import isFunction from "lodash/isFunction";
 import React, { useCallback, useMemo, useState } from "react";
@@ -40,6 +39,7 @@ import type {
   SlateAreaEvent,
 } from "./slateAreaTypes";
 import { st, classes } from "./slateArea.st.css";
+import type { CustomElement } from "./slate";
 export interface SlateAreaProps {
   placeholder?: string;
   /**
@@ -50,7 +50,15 @@ export interface SlateAreaProps {
   /**
    * Default value serialized as HTML.
    */
-  defaultValue: any;
+  defaultValue:
+    | {
+        __typename?: "RichTextField";
+        html: string;
+        json: string;
+        singleLine?: boolean;
+      }
+    | { text: { json: string } }
+    | string;
 
   /**
    * onChange handler returning an object of current field values on change.
@@ -60,7 +68,8 @@ export interface SlateAreaProps {
   /**
    * onFocus handler.
    */
-  onFocus?: (e?: any) => void;
+  // onFocus?: (e?: any) => void;
+  onFocus?: () => void;
 
   /**
    * Slate area name.
@@ -76,7 +85,7 @@ export interface SlateAreaProps {
   /**
    * Editor mode to use
    */
-  mode?: "Free" | "FreeBlock";
+  // mode?: "Free" | "FreeBlock";
 
   className?: string;
 
@@ -99,7 +108,7 @@ export interface SlateAreaProps {
 const SlateArea = ({
   placeholder,
   className,
-  mode,
+  // mode,
   featureSet,
   defaultValue,
   name,
@@ -114,14 +123,11 @@ const SlateArea = ({
     if (featureSet) return featureSet;
     if (singleLine) return singleLineFeatureSet;
     return defaultFeatureSet;
-  }, []);
+  }, [featureSet, singleLine]);
 
-  // @todo mn - does classes still work for features?
-  const features = getFeatureSet().map((f) =>
-    f({ singleLine, name, classes, getEditor: () => editor })
-  );
+  const features = getFeatureSet().map((f) => f());
 
-  const editor = useMemo((): Editor & ReactEditor => {
+  const editor = useMemo((): Editor => {
     const defaultPlugins = [
       createEditor,
       withReact,
@@ -135,36 +141,49 @@ const SlateArea = ({
       ? [...defaultPlugins, withSingleLine]
       : defaultPlugins;
 
-    return flow(plugins)();
-  }, []);
+    const composedFunction: () => Editor = flow(...plugins);
+
+    return composedFunction();
+  }, [singleLine]);
 
   const renderElement = useCallback(
     (props) => <Element {...props} elementMap={getElements(features)} />,
-    [mode]
+    [features]
   );
 
   const renderLeaf = useCallback(
     (props) => <Leaf {...props} leafMap={getLeaves(features)} />,
-    []
+    [features]
   );
 
-  const markHotkeys = useMemo(() => getMarkHotkeys(features), []);
-  const blockHotkeys = useMemo(() => getBlockHotkeys(features), []);
-  const hoverMenuButtons = useMemo(() => getHoverMenuButtons(features), []);
-  const inlineMenuButtons = useMemo(() => getInlineMenuButtons(features), []);
-  const focusMenuButtons = useMemo(() => getFocusMenuButtons(features), []);
+  const markHotkeys = useMemo(() => getMarkHotkeys(features), [features]);
+  const blockHotkeys = useMemo(() => getBlockHotkeys(features), [features]);
+  const hoverMenuButtons = useMemo(
+    () => getHoverMenuButtons(features),
+    [features]
+  );
+  const inlineMenuButtons = useMemo(
+    () => getInlineMenuButtons(features),
+    [features]
+  );
+  const focusMenuButtons = useMemo(
+    () => getFocusMenuButtons(features),
+    [features]
+  );
 
   /** Get hotkey if there is one. */
   const matchKeyboardEventAgainstHotkeys =
-    (hotkeys: HotkeyMap) => (event: any) =>
+    (hotkeys: HotkeyMap) => (event: KeyboardEventLike) =>
       Object.keys(hotkeys).find((k) => isHotkey(k, event));
 
   // Add the initial value when setting up our state.
-  let parsedDefaultValue;
-  if (defaultValue && defaultValue.json) {
-    parsedDefaultValue = JSON.parse(defaultValue.json);
-  } else if (defaultValue && defaultValue.text && defaultValue.text.json) {
-    parsedDefaultValue = JSON.parse(defaultValue.text.json);
+  let parsedDefaultValue: unknown;
+  if (typeof defaultValue === "object") {
+    if ("json" in defaultValue) {
+      parsedDefaultValue = JSON.parse(defaultValue.json);
+    } else if ("text" in defaultValue && defaultValue.text.json) {
+      parsedDefaultValue = JSON.parse(defaultValue.text.json);
+    }
   } else {
     parsedDefaultValue = [
       {
@@ -174,7 +193,9 @@ const SlateArea = ({
     ];
   }
 
-  const [value, setValue] = useState<SlateElement[]>(parsedDefaultValue);
+  const [value, setValue] = useState<SlateElement[]>(
+    parsedDefaultValue as CustomElement[]
+  );
 
   const [debouncedRunOnChange] = useDebouncedCallback(
     (value: SlateElement[]) => {
@@ -212,7 +233,7 @@ const SlateArea = ({
       <Slate
         editor={editor}
         value={value}
-        onChange={(v) => handleChange(v as BaseElement[])}
+        onChange={(v) => handleChange(v as SlateElement[])}
       >
         {/* These menus render a portal. */}
         <HoverMenu {...{ hoverMenuButtons }} />
