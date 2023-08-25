@@ -1,5 +1,5 @@
 import type React from "react";
-import type { SVGProps } from "react";
+import type { ReactElement } from "react";
 import { useSlate } from "slate-react";
 import { ExtendedEditor } from "../../../ExtendedEditor";
 import HoverMenuButton from "./HoverMenuButton";
@@ -7,7 +7,7 @@ import type { Editor } from "slate";
 
 interface MarkButtonProps {
   format: string;
-  icon: string | React.FunctionComponent<SVGProps<SVGSVGElement>>;
+  icon: ReactElement;
   onMouseDown?: (editor: Editor) => void;
   isActive?: (editor: Editor) => boolean;
 }

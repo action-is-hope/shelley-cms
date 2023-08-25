@@ -102,32 +102,33 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
       )}
       {...args}
     >
-      <SlateArea
-        // {...rest}
-        // onChange={onChangeWithRemoveMenus}
-        // onFocus={onFocus}
-        name="table"
-        mode="FreeBlock"
-        defaultValue={defaultValueWithMenus}
-        featureSet={[
-          ParagraphFeature,
-          BoldFeature,
-          ItalicFeature,
-          LinkFeature,
-          TableFeature,
-        ]}
-      />
-
-      <SlateArea
-        // {...{ onChange, onFocus, ...mediaFunctionalityProps }}
-        onChange={(value) => console.log(value)}
-        {...mediaFunctionalityProps}
-        name="body"
-        // mode="FreeBlock"
-        defaultValue={`Hi`}
-      />
       {/* @todo: provide a form comp defining alignment. */}
       <form action="">
+        <SlateArea
+          // {...{ onChange, onFocus, ...mediaFunctionalityProps }}
+          onChange={(value) => console.log(value)}
+          {...mediaFunctionalityProps}
+          name="body"
+          // mode="FreeBlock"
+          defaultValue={`Hi`}
+        />
+
+        <SlateArea
+          // {...rest}
+          // onChange={onChangeWithRemoveMenus}
+          // onFocus={onFocus}
+          name="table"
+          mode="FreeBlock"
+          defaultValue={defaultValueWithMenus}
+          featureSet={[
+            ParagraphFeature,
+            BoldFeature,
+            ItalicFeature,
+            LinkFeature,
+            TableFeature,
+          ]}
+        />
+
         <TextField
           type="textarea"
           rows={1}

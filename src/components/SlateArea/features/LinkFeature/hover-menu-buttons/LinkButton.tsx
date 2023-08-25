@@ -6,7 +6,7 @@ import type { Editor } from "slate";
 export const LinkButton: HoverMenuButton = {
   kind: "block",
   type: "link",
-  icon: Link,
+  icon: <Link alt="Link" />,
   onMouseDown: (editor: Editor) => toggleLink(editor),
   isActive: isLinkActive,
 };

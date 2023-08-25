@@ -3,5 +3,5 @@ import Bold from "../../../../icons/Bold";
 export const BoldButton: HoverMenuButton = {
   kind: "mark",
   type: "bold",
-  icon: Bold,
+  icon: <Bold alt="Bold" />,
 };

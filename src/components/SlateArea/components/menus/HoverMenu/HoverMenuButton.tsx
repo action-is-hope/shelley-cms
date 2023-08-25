@@ -1,10 +1,10 @@
-import React from "react";
-import { Icon } from "@actionishope/shelley";
+import type React from "react";
+import type { ReactElement } from "react";
 import { classes } from "./hoverMenu.st.css";
 
 interface HoverMenuButtonProps {
   /* Using any as it accept be a string icon and SVGIcon */
-  icon: any;
+  icon: ReactElement;
   onMouseDown: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
   isActive: boolean;
 }
@@ -20,13 +20,7 @@ const HoverMenuButton = ({
       onMouseDown={onMouseDown}
       data-active={isActive}
     >
-      <span className={classes.materialIcons}>
-        {typeof icon === "string" ? (
-          icon
-        ) : (
-          <Icon>{React.createElement(icon)}</Icon>
-        )}
-      </span>
+      <span className={classes.materialIcons}>{icon}</span>
     </span>
   );
 };

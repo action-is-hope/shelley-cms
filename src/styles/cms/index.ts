@@ -33,6 +33,9 @@ import "./tableView.st.css";
 import "./userWidget.st.css";
 import "./widget.st.css";
 
+// Slate
+import "./slateArea.st.css";
+
 // = Project
 import { classes as light } from "./themes/light.st.css";
 import { classes as dark } from "./themes/dark.st.css";

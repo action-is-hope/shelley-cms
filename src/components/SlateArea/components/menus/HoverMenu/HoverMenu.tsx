@@ -53,8 +53,7 @@ const HoverMenu = ({ hoverMenuButtons }: NewHoverMenuProps) => {
       ? domRange.getBoundingClientRect()
       : { top: 0, left: 0, width: 0 };
 
-    // @ts-ignore
-    el.style.opacity = 1;
+    el.style.opacity = "1";
     el.style.top = `${rect.top + window.pageYOffset - el.offsetHeight}px`;
     el.style.left = `${Math.max(
       rect.left + window.pageXOffset - el.offsetWidth / 2 + rect.width / 2,

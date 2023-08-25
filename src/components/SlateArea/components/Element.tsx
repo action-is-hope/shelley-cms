@@ -3,9 +3,8 @@ import type { ElementMap } from "../slateAreaTypes";
 
 export interface ElementProps extends SlateElement {
   elementMap: ElementMap;
-  attributes: any;
-  element: any;
-  type: any;
+  attributes: { [key: string]: string };
+  element: { type: string };
 }
 /**
  * Renders an element. Use within `renderElement`.
@@ -17,6 +16,7 @@ export const Element = ({
   elementMap,
 }: ElementProps) => {
   const ElementToRender = elementMap[element.type];
+  console.log("ElementToRender", ElementToRender);
 
   if (ElementToRender) {
     return (

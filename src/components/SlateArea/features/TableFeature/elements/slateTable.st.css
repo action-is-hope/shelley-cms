@@ -24,6 +24,18 @@
   padding-bottom: 10px;
 }
 
+.cellMenuIcon {
+  -st-states: type(enum(column, row));
+}
+
+.cellMenuIcon:type(column) {
+  transform: rotate(180deg);
+}
+
+.cellMenuIcon:type(row) {
+  transform: rotate(90deg);
+}
+
 .headerCell {
   border: 1px solid black;
   width: 50px;

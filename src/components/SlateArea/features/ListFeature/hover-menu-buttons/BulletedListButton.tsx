@@ -3,5 +3,5 @@ import BulletedList from "../../../../icons/BulletedList";
 export const BulletedListButton: HoverMenuButton = {
   kind: "block",
   type: "bulleted-list",
-  icon: BulletedList,
+  icon: <BulletedList alt="Bulleted list" />,
 };

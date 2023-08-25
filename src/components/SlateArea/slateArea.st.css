@@ -27,7 +27,7 @@
 
 .root {
   font-size: 1.1rem;
-  font-family: themetypographyfontFamily;
+  font-family: inherit;
   padding-left: calc(var(--spacing-unit) * 3);
   margin-left: calc(var(--spacing-unit) * 3);
   /* // Match line-height of theme. #themeSync :-) */

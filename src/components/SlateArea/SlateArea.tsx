@@ -39,7 +39,7 @@ import type {
   HotkeyMap,
   SlateAreaEvent,
 } from "./slateAreaTypes";
-import { st, classes } from "./textFieldStyles.st.css";
+import { st, classes } from "./slateArea.st.css";
 export interface SlateAreaProps {
   placeholder?: string;
   /**

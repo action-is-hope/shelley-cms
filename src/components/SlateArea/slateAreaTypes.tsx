@@ -1,6 +1,6 @@
 import type { Editor } from "slate";
 // import type { WidgetProps } from "components/Widget/Widget";
-import type { ReactNode, SVGProps } from "react";
+import type { ReactElement, ReactNode } from "react";
 
 export interface SlateAreaEvent {
   target: {
@@ -18,8 +18,8 @@ export interface HoverMenuButton {
   /** Slate type that will get triggered when the button is pressed, e.g. "block-quote" */
   type: string;
 
-  /** Name of Material UI icon to render, e.g. format_quote" */
-  icon: string | React.FunctionComponent<SVGProps<SVGSVGElement>>;
+  /** Icon to render */
+  icon: ReactElement;
 
   /** Custom button render function. */
   render?: (props: HoverMenuButtonRenderProps) => any;
@@ -77,6 +77,9 @@ export type ToolbarButtonMap = {
 export type ElementMap = {
   [slateType: string]: any;
 };
+// export type ElementMap<T> = {
+//   [slateType: string]: React.JSXElementConstructor<T>;
+// };
 
 export type LeafMap = {
   [matcher: string]: any;

@@ -1,0 +1,16 @@
+@st-import CMS, [
+  --color-ui,
+  --color-ui-inverse,
+  --spacing-unit
+] from "./project.st.css";
+
+@st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
+
+@st-scope CMS {
+  SlateArea {
+    /* background-color: var(--color-ui);
+    color: var(--color-ui-inverse); */
+    padding-left: calc(var(--spacing-unit) * 3.2);
+    /* margin-left: calc(var(--spacing-unit) * 3); */
+  }
+}

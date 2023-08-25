@@ -1,4 +1,3 @@
-// import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
 import { Node, Transforms } from "slate";
 import { ReactEditor, useSlate } from "slate-react";
 import React, { useEffect, useRef, useState } from "react";
@@ -11,6 +10,11 @@ import { classes } from "./hoverMenu.st.css";
 interface DisplayState {
   [nodeId: string]: string;
 }
+
+// interface NodeType {
+//   type: string;
+//   data: { id: string; display: string };
+// }
 
 export interface FocusMenuProps {
   focusMenuButtons: FocusMenuButtonMap;
@@ -45,7 +49,6 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
     const findNativeVoidNode = () => {
       const node = Node.get(editor, editor.selection!.anchor.path);
       if (!node) return;
-      // @ts-ignore
       return ReactEditor.toDOMNode(editor, node).parentElement!.parentElement!;
     };
 
@@ -111,14 +114,12 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
 
     setDisplayState({ ...displayState, [node.data.id]: display });
 
-    Transforms.setNodes<any>(
+    Transforms.setNodes<Node>(
       editor,
       { data: { ...node.data, display } },
       {
         match: (n) => {
-          // @ts-ignore
           if (!n.data) return false;
-          // @ts-ignore
           return node.data.id === n.data.id;
         },
       }

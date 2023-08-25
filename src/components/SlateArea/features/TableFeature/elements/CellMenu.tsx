@@ -5,10 +5,12 @@ import { Button } from "@actionishope/shelley/Button";
 import { MenuTrigger } from "@actionishope/shelley/MenuTrigger";
 import { Menu } from "@actionishope/shelley/Menu";
 import { Item } from "@actionishope/shelley/Item";
-import MoreHor from "../../../../icons/MoreHor";
+// import MoreHor from "../../../../icons/MoreHor";
+import Insert from "../../../../icons/Insert";
+import { st, classes } from "./slateTable.st.css";
 
 export interface CellMenuType {
-  type: string;
+  type: "column" | "row";
 }
 
 type CellMenuElementProps = CellMenuType;
@@ -75,7 +77,7 @@ const CellMenu = ({ type }: CellMenuElementProps) => {
         variant="fab"
         vol={1}
         aria-label={type === "row" ? "Row menu" : "Column menu"}
-        icon={<MoreHor />}
+        icon={<Insert className={st(classes.cellMenuIcon, { type })} />}
       />
       <Menu
         items={options}
