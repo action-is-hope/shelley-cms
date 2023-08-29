@@ -20,7 +20,7 @@ export const withLinks = (editor: Editor) => {
     }
   };
 
-  editor.insertData = (data: any) => {
+  editor.insertData = (data: DataTransfer) => {
     const text = data.getData("text/plain");
 
     if (text && isUrl(text)) {

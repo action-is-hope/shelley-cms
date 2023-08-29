@@ -1,6 +1,6 @@
-import type { ReactEditor } from "slate-react";
+import type { Editor } from "slate";
 
-export const withSingleLine = (editor: ReactEditor) => {
+export const withSingleLine = (editor: Editor) => {
   const { normalizeNode } = editor;
 
   editor.normalizeNode = (entry) => {

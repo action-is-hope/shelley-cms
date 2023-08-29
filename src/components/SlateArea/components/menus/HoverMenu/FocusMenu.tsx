@@ -1,9 +1,10 @@
-import { Node, Transforms } from "slate";
+import { Node, NodeInterface, Transforms } from "slate";
 import { ReactEditor, useSlate } from "slate-react";
 import React, { useEffect, useRef, useState } from "react";
 import type { FocusMenuButtonMap } from "../../../slateAreaTypes";
 import HoverMenuButton from "./HoverMenuButton";
 import { classes } from "./hoverMenu.st.css";
+import type { CustomElement } from "src/components/SlateArea/slate";
 
 /** We key the display state by node id to make the state work correctly when multiple images are
  * added, since there is only one instance of the menu. */
@@ -100,8 +101,13 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
     ));
   };
 
-  const getNode = (): any =>
-    editor.selection ? Node.parent(editor, editor.selection.anchor.path) : null;
+  const getNode = () =>
+    editor.selection
+      ? (Node.parent(
+          editor,
+          editor.selection.anchor.path
+        ) as unknown as CustomElement) // we assume it's not Editor
+      : null;
 
   const setDisplay = (display: string) => {
     const node = getNode();
@@ -109,11 +115,12 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
 
     setDisplayState({ ...displayState, [node.data.id]: display });
 
-    Transforms.setNodes<Node>(
+    Transforms.setNodes<CustomElement>(
       editor,
       { data: { ...node.data, display } },
       {
-        match: (n) => {
+        match: (_n) => {
+          const n = _n as CustomElement;
           if (!n.data) return false;
           return node.data.id === n.data.id;
         },

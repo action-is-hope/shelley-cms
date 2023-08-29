@@ -1,11 +1,11 @@
-import type { Editor } from "slate";
+import type { Editor, Element } from "slate";
 // import type { WidgetProps } from "components/Widget/Widget";
 import type { ReactElement, ReactNode } from "react";
 
 export interface SlateAreaEvent {
   target: {
     name: string;
-    value: any;
+    value: Element[];
   };
 }
 
@@ -20,9 +20,6 @@ export interface HoverMenuButton {
 
   /** Icon to render */
   icon: ReactElement;
-
-  /** Custom button render function. */
-  render?: (props: HoverMenuButtonRenderProps) => any;
 
   onMouseDown?: (editor: Editor) => void;
 
@@ -47,25 +44,6 @@ export interface ToolbarButton {
   onClick: string;
 }
 
-export interface MenuButtonRenderProps {
-  renderButton: any;
-}
-
-export type HoverMenuButtonRenderProps = {
-  type: string;
-  icon: string;
-  editor: any;
-  value: any;
-  renderButton: (props: RenderButton) => any;
-};
-
-export type RenderButton = {
-  type: string;
-  icon: string;
-  isActive: boolean;
-  onMouseDown: (...args: any[]) => any;
-};
-
 export type FocusMenuButtonMap = {
   [slateType: string]: FocusMenuButton[];
 };
@@ -75,14 +53,14 @@ export type ToolbarButtonMap = {
 };
 
 export type ElementMap = {
-  [slateType: string]: any;
+  [slateType: string]: Element;
 };
 // export type ElementMap<T> = {
 //   [slateType: string]: React.JSXElementConstructor<T>;
 // };
 
 export type LeafMap = {
-  [matcher: string]: any;
+  [matcher: string]: Element;
 };
 
 /**

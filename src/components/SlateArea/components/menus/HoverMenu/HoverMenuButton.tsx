@@ -4,7 +4,7 @@ import { classes } from "./hoverMenu.st.css";
 
 interface HoverMenuButtonProps {
   /* Using any as it accept be a string icon and SVGIcon */
-  icon: ReactElement;
+  icon: string | ReactElement;
   onMouseDown: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
   isActive: boolean;
 }

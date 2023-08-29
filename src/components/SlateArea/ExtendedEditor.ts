@@ -1,4 +1,5 @@
 import { Editor, Transforms } from "slate";
+import type { CustomElement } from "./slate";
 
 const LIST_TYPES = ["numbered-list", "bulleted-list"];
 
@@ -10,7 +11,10 @@ export const ExtendedEditor = {
     const isList = LIST_TYPES.includes(format);
 
     Transforms.unwrapNodes(editor, {
-      match: (n) => LIST_TYPES.includes(n.type || ""),
+      match: (_n) => {
+        const n = _n as CustomElement;
+        return LIST_TYPES.includes(n.type || "");
+      },
       split: true,
     });
 
@@ -19,7 +23,7 @@ export const ExtendedEditor = {
     });
 
     if (!isActive && isList) {
-      const block = { type: format, children: [] };
+      const block: CustomElement = { type: format, children: [] };
       Transforms.wrapNodes(editor, block);
     }
   },
@@ -36,7 +40,10 @@ export const ExtendedEditor = {
 
   isBlockActive(editor: Editor, format: string): boolean {
     const [match] = Editor.nodes(editor, {
-      match: (n) => n.type === format,
+      match: (_n) => {
+        const n = _n as CustomElement;
+        return n.type === format;
+      },
     });
 
     return Boolean(match);

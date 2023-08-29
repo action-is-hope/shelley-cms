@@ -6,18 +6,19 @@ import {
   Transforms,
 } from "slate";
 import { getTable } from "./getTable";
+import type { CustomEditor, CustomElement } from "../../slate";
 
-interface TableElement extends SlateElement {
-  type:
-    | "table"
-    | "table-head"
-    | "table-header-cell"
-    | "table-body"
-    | "table-row"
-    | "table-cell"
-    | "table-row-menu"
-    | "table-cell-menu";
-}
+// interface TableElement extends SlateElement {
+//   type:
+//     | "table"
+//     | "table-head"
+//     | "table-header-cell"
+//     | "table-body"
+//     | "table-row"
+//     | "table-cell"
+//     | "table-row-menu"
+//     | "table-cell-menu";
+// }
 
 export interface TableEditor extends Editor {
   countRows: () => number;
@@ -30,7 +31,7 @@ export interface TableEditor extends Editor {
   deleteColumn: () => void;
 }
 
-export const withTables = (editor: TableEditor) => {
+export const withTables = (editor: CustomEditor) => {
   const { deleteBackward, deleteForward, insertBreak, isVoid } = editor;
 
   editor.deleteBackward = (unit) => {
@@ -38,12 +39,14 @@ export const withTables = (editor: TableEditor) => {
 
     if (selection && Range.isCollapsed(selection)) {
       const [cell] = Editor.nodes(editor, {
-        match: (n) =>
-          !Editor.isEditor(n) &&
-          SlateElement.isElement(n) &&
-          ["table-cell", "table-header-cell"].includes(
-            (n as TableElement).type
-          ),
+        match: (_n) => {
+          const n = _n as CustomElement;
+          return (
+            !Editor.isEditor(n) &&
+            SlateElement.isElement(n) &&
+            ["table-cell", "table-header-cell"].includes(n.type)
+          );
+        },
       });
 
       if (cell) {
@@ -64,12 +67,14 @@ export const withTables = (editor: TableEditor) => {
 
     if (selection && Range.isCollapsed(selection)) {
       const [cell] = Editor.nodes(editor, {
-        match: (n) =>
-          !Editor.isEditor(n) &&
-          SlateElement.isElement(n) &&
-          ["table-cell", "table-header-cell"].includes(
-            (n as TableElement).type
-          ),
+        match: (_n) => {
+          const n = _n as CustomElement;
+          return (
+            !Editor.isEditor(n) &&
+            SlateElement.isElement(n) &&
+            ["table-cell", "table-header-cell"].includes(n.type)
+          );
+        },
       });
 
       if (cell) {
@@ -90,10 +95,14 @@ export const withTables = (editor: TableEditor) => {
 
     if (selection) {
       const [tableHeaderCell] = Editor.nodes(editor, {
-        match: (n) =>
-          !Editor.isEditor(n) &&
-          SlateElement.isElement(n) &&
-          (n as TableElement).type === "table-header-cell",
+        match: (_n) => {
+          const n = _n as CustomElement;
+          return (
+            !Editor.isEditor(n) &&
+            SlateElement.isElement(n) &&
+            n.type === "table-header-cell"
+          );
+        },
       });
 
       if (tableHeaderCell) {
@@ -105,8 +114,7 @@ export const withTables = (editor: TableEditor) => {
   };
 
   editor.isVoid = (element) =>
-    (element as TableElement).type === "table-row-menu" ||
-    (element as TableElement).type === "table-cell-menu"
+    element.type === "table-row-menu" || element.type === "table-cell-menu"
       ? true
       : isVoid(element);
 
@@ -118,7 +126,7 @@ export const withTables = (editor: TableEditor) => {
   editor.countColumns = () => {
     const { tableBody } = getTable(editor.children);
     return tableBody.children[0].children.filter(
-      ({ type }: TableElement) => type === "table-cell"
+      ({ type }: CustomElement) => type === "table-cell"
     ).length;
   };
 

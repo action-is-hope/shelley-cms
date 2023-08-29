@@ -4,34 +4,46 @@ import { ReactEditor } from "slate-react";
 import { HistoryEditor } from "slate-history";
 import type { ElementMap } from "./slateAreaTypes";
 
-export type CustomEditor = BaseEditor & ReactEditor & HistoryEditor;
+interface TableEditor {
+  countRows: () => number;
+  countColumns: () => number;
+  insertRowBelow: () => void;
+  insertRowAbove: () => void;
+  deleteRow: () => void;
+  insertColumnRight: () => void;
+  insertColumnLeft: () => void;
+  deleteColumn: () => void;
+}
+
+export type CustomEditor = BaseEditor &
+  ReactEditor &
+  HistoryEditor &
+  TableEditor;
 
 type BaseCustomElement = {
-  attributes: {
+  type: string;
+  attributes?: {
     [key: string]: string;
   };
-  children: CustomText[];
-  element: Element;
-  elementMap: ElementMap;
+  children: (BaseCustomElement | CustomText)[];
+  element?: Element;
+  elementMap?: ElementMap;
+  data?: {
+    id: string;
+    [key: string]: unknown;
+  };
 };
 
 // type CustomText = { text: string; bold?: true };
 type CustomText = { text: string };
 
-export type ParagraphElement = BaseCustomElement & {
-  type: "paragraph";
-};
+export type ParagraphElement = BaseCustomElement;
 
-export type ListItemElement = BaseCustomElement & {
-  type: "list-item";
-};
+export type ListItemElement = BaseCustomElement;
 
-export type LinkElement = BaseCustomElement & {
-  type: "link";
-};
+export type LinkElement = BaseCustomElement;
 
 export type HeadingElement = BaseCustomElement & {
-  type: "heading";
   level: number;
 };
 
