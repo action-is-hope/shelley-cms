@@ -4,16 +4,14 @@ import { ReactEditor } from "slate-react";
 import { HistoryEditor } from "slate-history";
 import type { ElementMap } from "./slateAreaTypes";
 
-export type CustomEditor = { undo: () => void } & BaseEditor &
-  ReactEditor &
-  HistoryEditor;
+export type CustomEditor = BaseEditor & ReactEditor & HistoryEditor;
 
 type BaseCustomElement = {
   attributes: {
     [key: string]: string;
   };
   children: CustomText[];
-  element: Elment;
+  element: Element;
   elementMap: ElementMap;
 };
 
