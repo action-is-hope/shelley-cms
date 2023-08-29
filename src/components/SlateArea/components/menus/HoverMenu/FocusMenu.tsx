@@ -11,11 +11,6 @@ interface DisplayState {
   [nodeId: string]: string;
 }
 
-// interface NodeType {
-//   type: string;
-//   data: { id: string; display: string };
-// }
-
 export interface FocusMenuProps {
   focusMenuButtons: FocusMenuButtonMap;
 }

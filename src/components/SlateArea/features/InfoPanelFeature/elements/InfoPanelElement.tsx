@@ -1,9 +1,7 @@
 import Info from "../../../../icons/Info";
 import { classes } from "./infoPanel.st.css";
 
-type InfoPanelElementProps = Element;
-
-const InfoPanelElement = ({ attributes, children }: InfoPanelElementProps) => (
+const InfoPanelElement = ({ attributes, children }: Element) => (
   <aside className={classes.root} {...attributes}>
     <Info className={classes.icon} />
     <div>{children}</div>

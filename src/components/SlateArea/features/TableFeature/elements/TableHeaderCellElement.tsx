@@ -1,7 +1,6 @@
-import type { ElementProps } from "../../../components/Element";
 import { classes } from "./slateTable.st.css";
 
-const TableHeaderCellElement = ({ attributes, children }: ElementProps) => (
+const TableHeaderCellElement = ({ attributes, children }: Element) => (
   <th className={classes.headerCell} {...attributes}>
     {children}
   </th>

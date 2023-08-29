@@ -1,1 +1,1 @@
-export const ItalicLeaf = ({ children }: any) => <em>{children}</em>;
+export const ItalicLeaf = ({ children }: Element) => <em>{children}</em>;

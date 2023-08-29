@@ -1,4 +1,3 @@
-import type { ElementProps } from "../../../components/Element";
-export const TableRowElement = ({ attributes, children }: ElementProps) => (
+export const TableRowElement = ({ attributes, children }: Element) => (
   <tr {...attributes}>{children}</tr>
 );

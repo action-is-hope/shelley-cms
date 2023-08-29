@@ -67,7 +67,7 @@ const CellMenu = ({ type }: CellMenuElementProps) => {
   return (
     <MenuTrigger
       portalSelector="#portal"
-      onOpenChange={(isOpen) => console.log("isOpen:", isOpen)}
+      // onOpenChange={(isOpen) => console.log("isOpen:", isOpen)}
       // Automatic if the menus selection type is multiple it will be false but you can override.
       // closeOnSelect={false}
       hideArrow

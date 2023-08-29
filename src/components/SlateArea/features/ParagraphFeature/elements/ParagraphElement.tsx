@@ -1,4 +1,3 @@
-import type { ElementProps } from "../../../components/Element";
-export const ParagraphElement = ({ attributes, children }: ElementProps) => (
+export const ParagraphElement = ({ attributes, children }: Element) => (
   <p {...attributes}>{children}</p>
 );

@@ -1,33 +1,19 @@
-// import { BaseElement, BaseEditor, BaseText } from "slate";
-
-// declare module "slate" {
-//   export interface BaseElement {
-//     type?: string;
-//     text?: string;
-//   }
-//   export interface BaseEditor {
-//     type?: string;
-//     insertData?: any;
-//   }
-//   export interface BaseText {
-//     type?: string;
-//   }
-// }
-
 // This example is for an Editor with `ReactEditor` and `HistoryEditor`
 import { BaseEditor } from "slate";
 import { ReactEditor } from "slate-react";
 import { HistoryEditor } from "slate-history";
 import type { ElementMap } from "./slateAreaTypes";
 
-export type CustomEditor = BaseEditor & ReactEditor & HistoryEditor;
+export type CustomEditor = { undo: () => void } & BaseEditor &
+  ReactEditor &
+  HistoryEditor;
 
 type BaseCustomElement = {
   attributes: {
     [key: string]: string;
   };
   children: CustomText[];
-  element: any;
+  element: Elment;
   elementMap: ElementMap;
 };
 

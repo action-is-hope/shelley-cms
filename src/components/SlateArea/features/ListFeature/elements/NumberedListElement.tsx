@@ -1,4 +1,3 @@
-import type { ElementProps } from "../../../components/Element";
-export const NumberedListElement = ({ attributes, children }: ElementProps) => (
+export const NumberedListElement = ({ attributes, children }: Element) => (
   <ol {...attributes}>{children}</ol>
 );

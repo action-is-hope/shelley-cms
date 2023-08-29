@@ -1,4 +1,3 @@
-import type { ElementProps } from "../../../components/Element";
-export const BulletedListElement = ({ attributes, children }: ElementProps) => (
+export const BulletedListElement = ({ attributes, children }: Element) => (
   <ul {...attributes}>{children}</ul>
 );

@@ -1,8 +1,7 @@
 import CellMenu from "./CellMenu";
-import type { ElementProps } from "../../../components/Element";
 import { classes } from "./slateTable.st.css";
 
-const TableCellMenuElement = ({ attributes, children }: ElementProps) => (
+const TableCellMenuElement = ({ attributes, children }: Element) => (
   <td className={classes.cellMenu} contentEditable={false} {...attributes}>
     <CellMenu type="column" />
     {children}

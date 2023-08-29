@@ -1,9 +1,7 @@
-import type { Element as SlateElement } from "slate";
 import type { ElementMap } from "../slateAreaTypes";
 
-export interface ElementProps extends SlateElement {
+export interface ElementProps extends Element {
   elementMap: ElementMap;
-  attributes: { [key: string]: string };
   element: { type: string };
 }
 /**

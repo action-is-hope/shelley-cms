@@ -1,6 +1,4 @@
-import type { ElementProps } from "../../../components/Element";
-
-const TableHeadElement = ({ attributes, children }: ElementProps) => (
+const TableHeadElement = ({ attributes, children }: Element) => (
   <thead {...attributes}>{children}</thead>
 );
 

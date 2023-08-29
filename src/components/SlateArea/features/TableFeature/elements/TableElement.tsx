@@ -1,8 +1,7 @@
 import type { Element } from "slate";
 import { classes } from "./slateTable.st.css";
-type TableElementProps = Element;
 
-const TableElement = ({ children }: TableElementProps) => (
+const TableElement = ({ children }: Element) => (
   <table className={classes.root}>{children}</table>
 );
 

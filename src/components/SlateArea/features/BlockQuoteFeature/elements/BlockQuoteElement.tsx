@@ -1,4 +1,3 @@
-import type { ElementProps } from "../../../components/Element";
-export const BlockQuoteElement = ({ attributes, children }: ElementProps) => (
+export const BlockQuoteElement = ({ attributes, children }: Element) => (
   <blockquote {...attributes}>{children}</blockquote>
 );
