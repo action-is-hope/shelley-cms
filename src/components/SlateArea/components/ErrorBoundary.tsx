@@ -8,7 +8,9 @@ export class ErrorBoundary extends React.Component {
     return { hasError: true };
   }
 
-  componentDidCatch() {}
+  componentDidCatch(error: Error, info: React.ErrorInfo) {
+    console.error("Erro", error, info);
+  }
 
   render() {
     if (this.state.hasError) {
