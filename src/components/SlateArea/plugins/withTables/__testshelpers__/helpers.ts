@@ -1,52 +1,53 @@
-export const createTestTable = () => [
+import type { Table, TableBody, TableHead } from "../tableTypes";
+
+export const createTestTableValue = (): Table[] => [
   {
     type: "table",
-    children: [
-      {
-        type: "table-body",
-        children: [
-          {
-            type: "table-row",
-            children: [
-              {
-                type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              },
-              {
-                type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              },
-              {
-                type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              }
-            ]
-          },
-          {
-            type: "table-row",
-            children: [
-              {
-                type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              },
-              {
-                type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              },
-              {
-                type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              }
-            ]
-          }
-        ]
-      },
-      createTestTableHead()
-    ]
-  }
+    children: [createTableBody(), createTestTableHead()],
+  },
 ];
 
-export const createTestTableHead = () => ({
+const createTableBody = (): TableBody => ({
+  type: "table-body",
+  children: [
+    {
+      type: "table-row",
+      children: [
+        {
+          type: "table-cell",
+          children: [{ type: "paragraph", children: [{ text: "" }] }],
+        },
+        {
+          type: "table-cell",
+          children: [{ type: "paragraph", children: [{ text: "" }] }],
+        },
+        {
+          type: "table-cell",
+          children: [{ type: "paragraph", children: [{ text: "" }] }],
+        },
+      ],
+    },
+    {
+      type: "table-row",
+      children: [
+        {
+          type: "table-cell",
+          children: [{ type: "paragraph", children: [{ text: "" }] }],
+        },
+        {
+          type: "table-cell",
+          children: [{ type: "paragraph", children: [{ text: "" }] }],
+        },
+        {
+          type: "table-cell",
+          children: [{ type: "paragraph", children: [{ text: "" }] }],
+        },
+      ],
+    },
+  ],
+});
+
+export const createTestTableHead = (): TableHead => ({
   type: "table-head",
   children: [
     {
@@ -54,22 +55,22 @@ export const createTestTableHead = () => ({
       children: [
         {
           type: "table-header-cell",
-          children: [{ text: "" }]
+          children: [{ text: "" }],
         },
         {
           type: "table-header-cell",
-          children: [{ text: "" }]
+          children: [{ text: "" }],
         },
         {
           type: "table-header-cell",
-          children: [{ text: "" }]
-        }
-      ]
-    }
-  ]
+          children: [{ text: "" }],
+        },
+      ],
+    },
+  ],
 });
 
-export const createTestTableWithMenus = () => [
+export const createTestTableValueWithMenus = (): Table[] => [
   {
     type: "table",
     children: [
@@ -82,21 +83,21 @@ export const createTestTableWithMenus = () => [
             children: [
               {
                 type: "table-cell-empty",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               {
                 type: "table-cell-menu",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               {
                 type: "table-cell-menu",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               {
                 type: "table-cell-menu",
-                children: [{ text: "" }]
-              }
-            ]
+                children: [{ text: "" }],
+              },
+            ],
           },
           // The original table head row, but with an added empty cell.
           {
@@ -104,23 +105,23 @@ export const createTestTableWithMenus = () => [
             children: [
               {
                 type: "table-cell-empty",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               {
                 type: "table-header-cell",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               {
                 type: "table-header-cell",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               {
                 type: "table-header-cell",
-                children: [{ text: "" }]
-              }
-            ]
-          }
-        ]
+                children: [{ text: "" }],
+              },
+            ],
+          },
+        ],
       },
       {
         type: "table-body",
@@ -131,22 +132,22 @@ export const createTestTableWithMenus = () => [
               // Menu here:
               {
                 type: "table-row-menu",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               // The original cells after.
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              }
-            ]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
+              },
+            ],
           },
           {
             type: "table-row",
@@ -154,30 +155,30 @@ export const createTestTableWithMenus = () => [
               // Menu here:
               {
                 type: "table-row-menu",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               // The original cells after.
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
-export const createTestTableWithoutHead = () => [
+export const createTestTableValueWithoutHead = (): Table[] => [
   {
     type: "table",
     children: [
@@ -189,42 +190,42 @@ export const createTestTableWithoutHead = () => [
             children: [
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              }
-            ]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
+              },
+            ],
           },
           {
             type: "table-row",
             children: [
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
-export const createTestTableWithoutHeadWithMenus = () => [
+export const createTestTableValueWithoutHeadWithMenus = (): Table[] => [
   {
     type: "table",
     children: [
@@ -237,23 +238,23 @@ export const createTestTableWithoutHeadWithMenus = () => [
             children: [
               {
                 type: "table-cell-empty",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               {
                 type: "table-cell-menu",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               {
                 type: "table-cell-menu",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               {
                 type: "table-cell-menu",
-                children: [{ text: "" }]
-              }
-            ]
-          }
-        ]
+                children: [{ text: "" }],
+              },
+            ],
+          },
+        ],
       },
       {
         type: "table-body",
@@ -264,22 +265,22 @@ export const createTestTableWithoutHeadWithMenus = () => [
               // Menu here:
               {
                 type: "table-row-menu",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               // The original cells after.
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              }
-            ]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
+              },
+            ],
           },
           {
             type: "table-row",
@@ -287,25 +288,25 @@ export const createTestTableWithoutHeadWithMenus = () => [
               // Menu here:
               {
                 type: "table-row-menu",
-                children: [{ text: "" }]
+                children: [{ text: "" }],
               },
               // The original cells after.
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
               },
               {
                 type: "table-cell",
-                children: [{ type: "paragraph", children: [{ text: "" }] }]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];

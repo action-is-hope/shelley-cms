@@ -1,3 +1,7 @@
+// Decided to disable this rule for now, as we appear to be following the Slate
+// docs at https://docs.slatejs.org/libraries/slate-react/editable with `any`
+// for `children`.
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { RenderLeafProps } from "slate-react";
 import type { LeafMap } from "../slateAreaTypes";
 

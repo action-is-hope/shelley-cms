@@ -132,8 +132,7 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
     const node = getNode();
     if (!node) return false;
 
-    const { display } = node.data;
-    return display === type;
+    return node.data?.display === type;
   };
 
   return (

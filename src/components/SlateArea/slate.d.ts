@@ -29,8 +29,8 @@ type BaseCustomElement = {
   element?: Element;
   elementMap?: ElementMap;
   data?: {
-    id: string;
     [key: string]: unknown;
+    id: string;
   };
 };
 

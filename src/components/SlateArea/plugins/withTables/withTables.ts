@@ -8,18 +8,6 @@ import {
 import { getTable } from "./getTable";
 import type { CustomEditor, CustomElement } from "../../slate";
 
-// interface TableElement extends SlateElement {
-//   type:
-//     | "table"
-//     | "table-head"
-//     | "table-header-cell"
-//     | "table-body"
-//     | "table-row"
-//     | "table-cell"
-//     | "table-row-menu"
-//     | "table-cell-menu";
-// }
-
 export interface TableEditor extends Editor {
   countRows: () => number;
   countColumns: () => number;
@@ -119,20 +107,22 @@ export const withTables = (editor: CustomEditor) => {
       : isVoid(element);
 
   editor.countRows = () => {
-    const { tableBody } = getTable(editor.children);
+    const { tableBody } = getTable(editor.children as CustomElement[]);
     return tableBody.children.length;
   };
 
   editor.countColumns = () => {
-    const { tableBody } = getTable(editor.children);
-    return tableBody.children[0].children.filter(
-      ({ type }: CustomElement) => type === "table-cell"
+    const { tableBody } = getTable(editor.children as CustomElement[]);
+    return (tableBody.children[0]! as CustomElement).children.filter(
+      (element) => (element as CustomElement).type === "table-cell"
     ).length;
   };
 
   editor.insertRowBelow = () => {
     if (!editor.selection) return;
-    const { tableBody, tableBodyIndex } = getTable(editor.children);
+    const { tableBody, tableBodyIndex } = getTable(
+      editor.children as CustomElement[]
+    );
 
     if (editor.selection.anchor) {
       const anchorPath = editor.selection.anchor.path;
@@ -151,12 +141,14 @@ export const withTables = (editor: CustomEditor) => {
                 type: "table-row-menu",
                 children: [{ text: "" }],
               },
-              ...[...Array(tableBody.children[0].children.length - 1)].map(
-                (_) => ({
-                  type: "table-cell",
-                  children: [{ type: "paragraph", children: [{ text: "" }] }],
-                })
-              ),
+              ...[
+                ...Array<number>(
+                  (tableBody.children[0]! as CustomElement).children.length - 1
+                ),
+              ].map((_) => ({
+                type: "table-cell",
+                children: [{ type: "paragraph", children: [{ text: "" }] }],
+              })),
             ],
           },
           { ...updatedValue }
@@ -167,7 +159,9 @@ export const withTables = (editor: CustomEditor) => {
 
   editor.insertRowAbove = () => {
     if (!editor.selection) return;
-    const { tableBody, tableBodyIndex } = getTable(editor.children);
+    const { tableBody, tableBodyIndex } = getTable(
+      editor.children as CustomElement[]
+    );
 
     Transforms.insertNodes(
       editor,
@@ -178,22 +172,26 @@ export const withTables = (editor: CustomEditor) => {
             type: "table-row-menu",
             children: [{ text: "" }],
           },
-          ...[...Array(tableBody.children[0].children.length - 1)].map((_) => ({
+          ...[
+            ...Array<number>(
+              (tableBody.children[0]! as CustomElement).children.length - 1
+            ),
+          ].map((_) => ({
             type: "table-cell",
             children: [{ type: "paragraph", children: [{ text: "" }] }],
           })),
         ],
       },
-      { at: [0, tableBodyIndex, editor.selection.anchor.path[2]] }
+      { at: [0, tableBodyIndex, editor.selection.anchor.path[2]!] }
     );
   };
 
   editor.deleteRow = () => {
     if (!editor.selection) return;
-    const { tableBodyIndex } = getTable(editor.children);
+    const { tableBodyIndex } = getTable(editor.children as CustomElement[]);
 
     Transforms.delete(editor, {
-      at: [0, tableBodyIndex, editor.selection.anchor.path[2]],
+      at: [0, tableBodyIndex, editor.selection.anchor.path[2]!],
     });
   };
 
@@ -201,7 +199,7 @@ export const withTables = (editor: CustomEditor) => {
     if (!editor.selection) return;
 
     const { tableBody, tableBodyIndex, tableHeadIndex, tableHead } = getTable(
-      editor.children
+      editor.children as CustomElement[]
     );
 
     if (tableHead.children[1]) {
@@ -245,7 +243,7 @@ export const withTables = (editor: CustomEditor) => {
   editor.insertColumnLeft = () => {
     if (!editor.selection) return;
     const { tableBody, tableBodyIndex, tableHeadIndex, tableHead } = getTable(
-      editor.children
+      editor.children as CustomElement[]
     );
 
     if (tableHead.children[1]) {
@@ -255,7 +253,7 @@ export const withTables = (editor: CustomEditor) => {
           type: "table-header-cell",
           children: [{ text: "" }],
         },
-        { at: [0, tableHeadIndex, 1, editor.selection.anchor.path[3]] }
+        { at: [0, tableHeadIndex, 1, editor.selection.anchor.path[3]!] }
       );
     }
 
@@ -265,7 +263,7 @@ export const withTables = (editor: CustomEditor) => {
         type: "table-cell-menu",
         children: [{ text: "" }],
       },
-      { at: [0, tableHeadIndex, 0, editor.selection.anchor.path[3]] }
+      { at: [0, tableHeadIndex, 0, editor.selection.anchor.path[3]!] }
     );
 
     for (let i = 0; i < tableBody.children.length; i++) {
@@ -288,17 +286,17 @@ export const withTables = (editor: CustomEditor) => {
   editor.deleteColumn = () => {
     if (!editor.selection) return;
     const { tableBody, tableBodyIndex, tableHeadIndex, tableHead } = getTable(
-      editor.children
+      editor.children as CustomElement[]
     );
 
     for (let i = 0; i < tableBody.children.length; i++) {
       Transforms.delete(editor, {
-        at: [0, tableBodyIndex, i, editor.selection.anchor.path[3]],
+        at: [0, tableBodyIndex, i, editor.selection.anchor.path[3]!],
       });
     }
 
     Transforms.delete(editor, {
-      at: [0, tableHeadIndex, 0, editor.selection.anchor.path[3]],
+      at: [0, tableHeadIndex, 0, editor.selection.anchor.path[3]!],
     });
 
     if (

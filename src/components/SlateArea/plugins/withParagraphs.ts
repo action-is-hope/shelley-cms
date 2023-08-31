@@ -2,6 +2,7 @@ import { Editor, Element, Node, Transforms } from "slate";
 import { jsx } from "slate-hyperscript";
 import type { ReactEditor } from "slate-react";
 import { isEmpty } from "../helpers";
+import type { CustomText } from "../slate";
 
 export const withParagraphs = (editor: Editor & ReactEditor) => {
   const { normalizeNode } = editor;
@@ -103,7 +104,7 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
       if (
         node.children &&
         node.children.length &&
-        isEmpty(node.children[0]?.text || "")
+        isEmpty((node.children[0] as CustomText)?.text || "")
       ) {
         Transforms.removeNodes(editor, { at: path });
       }

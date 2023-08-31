@@ -15,7 +15,13 @@ export interface TableBody {
 
 export interface TableRow {
   type: "table-row";
-  children: (TableCell | TableHeaderCell | TableRowMenu | TableCellEmpty | TableCellMenu)[];
+  children: (
+    | TableCell
+    | TableHeaderCell
+    | TableRowMenu
+    | TableCellEmpty
+    | TableCellMenu
+  )[];
 }
 
 export interface TableCell {
@@ -37,11 +43,11 @@ export interface TableRowMenu {
 }
 
 export interface TableCellEmpty {
-  type: "table-row-menu";
+  type: "table-cell-empty";
   children: { text: string }[];
 }
 
 export interface TableCellMenu {
-  type: "table-row-menu";
+  type: "table-cell-menu";
   children: { text: string }[];
 }
