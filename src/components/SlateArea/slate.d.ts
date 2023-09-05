@@ -18,7 +18,7 @@ interface TableEditor {
 export type CustomEditor = BaseEditor &
   ReactEditor &
   HistoryEditor &
-  TableEditor & { type: string };
+  TableEditor;
 
 type BaseCustomElement = {
   type: string;
@@ -41,7 +41,9 @@ export type ParagraphElement = BaseCustomElement;
 
 export type ListItemElement = BaseCustomElement;
 
-export type LinkElement = BaseCustomElement;
+export type LinkElement = BaseCustomElement & {
+  url: string;
+};
 
 export type HeadingElement = BaseCustomElement & {
   level: number;
