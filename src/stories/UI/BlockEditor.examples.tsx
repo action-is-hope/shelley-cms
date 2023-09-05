@@ -9,9 +9,9 @@ import { ContentArea } from "../../components/ContentArea/ContentArea";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";
 // import SlateArea from "../../components/SlateArea/SlateArea";
 import { defaultFeatureSet } from "../../components/SlateArea/featureSets";
-import { addMenusToTableValue } from "../../components/SlateArea/plugins/withTables/addMenusToTableValue";
+// import { addMenusToTableValue } from "../../components/SlateArea/plugins/withTables/addMenusToTableValue";
 // import { removeMenusFromTableValue } from "../../components/SlateArea/plugins/withTables/removeMenusFromTableValue";
-import type { Table } from "../../components/SlateArea/plugins/withTables/tableTypes";
+// import type { Table } from "../../components/SlateArea/plugins/withTables/tableTypes";
 // import type { SlateAreaEvent } from "../../components/SlateArea/slateAreaTypes";
 // import { BoldFeature } from "../../components/SlateArea/features/BoldFeature/BoldFeature";
 // import { ItalicFeature } from "../../components/SlateArea/features/ItalicFeature/ItalicFeature";
@@ -64,11 +64,11 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
     html: "<table><thead><tr><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr></tbody></table>",
     json: '[{"children":[{"children":[{"children":[{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"}],"type":"table-row"}],"type":"table-head"},{"children":[{"children":[{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"}],"type":"table-row"},{"children":[{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"}],"type":"table-row"}],"type":"table-body"}],"type":"table"}]',
   };
-  const defaultValueWithMenus = {
-    json: JSON.stringify(
-      addMenusToTableValue(JSON.parse(defaultValue2.json) as Table[])
-    ),
-  };
+  // const defaultValueWithMenus = {
+  //   json: JSON.stringify(
+  //     addMenusToTableValue(JSON.parse(defaultValue2.json) as Table[])
+  //   ),
+  // };
   // const onChangeWithRemoveMenus = (event: SlateAreaEvent) =>
   //   onChange({
   //     ...event,
