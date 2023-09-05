@@ -47,23 +47,23 @@ const contentBlocksData = [
 ];
 
 export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
-  const mediaFunctionalityProps = {
-    featureSet: [...defaultFeatureSet],
-    // InlineMenu,
-    // inlineMenuProps: { triggerWidget }
-  };
+  // const mediaFunctionalityProps = {
+  //   featureSet: [...defaultFeatureSet],
+  //   // InlineMenu,
+  //   // inlineMenuProps: { triggerWidget }
+  // };
 
-  const defaultValue = {
-    __typename: "RichTextField",
-    html: "<table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td></tr></tbody></table>",
-    json: '[{"children":[{"children":[{"children":[{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"}],"type":"table-row"}],"type":"table-head"},{"children":[{"children":[{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"}],"type":"table-row"},{"children":[{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"}],"type":"table-row"}],"type":"table-body"}],"type":"table"}]',
-  };
+  // const defaultValue = {
+  //   __typename: "RichTextField",
+  //   html: "<table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td></tr></tbody></table>",
+  //   json: '[{"children":[{"children":[{"children":[{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"}],"type":"table-row"}],"type":"table-head"},{"children":[{"children":[{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"}],"type":"table-row"},{"children":[{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"}],"type":"table-row"}],"type":"table-body"}],"type":"table"}]',
+  // };
 
-  const defaultValue2 = {
-    __typename: "RichTextField",
-    html: "<table><thead><tr><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr></tbody></table>",
-    json: '[{"children":[{"children":[{"children":[{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"}],"type":"table-row"}],"type":"table-head"},{"children":[{"children":[{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"}],"type":"table-row"},{"children":[{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"}],"type":"table-row"}],"type":"table-body"}],"type":"table"}]',
-  };
+  // const defaultValue2 = {
+  //   __typename: "RichTextField",
+  //   html: "<table><thead><tr><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr></tbody></table>",
+  //   json: '[{"children":[{"children":[{"children":[{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"},{"children":[{"text":""}],"type":"table-header-cell"}],"type":"table-row"}],"type":"table-head"},{"children":[{"children":[{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"}],"type":"table-row"},{"children":[{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"},{"children":[{"children":[{"text":""}],"type":"paragraph"}],"type":"table-cell"}],"type":"table-row"}],"type":"table-body"}],"type":"table"}]',
+  // };
   // const defaultValueWithMenus = {
   //   json: JSON.stringify(
   //     addMenusToTableValue(JSON.parse(defaultValue2.json) as Table[])
