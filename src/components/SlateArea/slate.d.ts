@@ -18,12 +18,12 @@ interface TableEditor {
 export type CustomEditor = BaseEditor &
   ReactEditor &
   HistoryEditor &
-  TableEditor;
+  TableEditor & { type: string };
 
 type BaseCustomElement = {
-  type: string;
+  type?: string;
   attributes?: {
-    [key: string]: string;
+    [key: string]: string | boolean;
   };
   children: (BaseCustomElement | CustomText)[];
   element?: Element;

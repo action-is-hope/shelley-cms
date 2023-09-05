@@ -4,6 +4,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { RenderLeafProps } from "slate-react";
 import type { LeafMap } from "../slateAreaTypes";
+import type { BaseCustomElement, CustomElement } from "../slate";
 
 /**
  * Renders a leaf. Use within `renderLeaf`.
@@ -18,10 +19,14 @@ export const Leaf = (props: RenderLeafProps & { leafMap: LeafMap }) => {
   // Note: This code mirrors the serializeToHTML code which is nearly identical.
   const formattedChildren = Object.entries(leaf).reduce(
     (newChildren, [key, val]) => {
-      const L = leafMap[key];
+      const L = leafMap[key] as unknown as React.ComponentType<CustomElement>;
 
       // If there is a renderer and the value is truthy (eg. {bold: true}).
-      return L && val ? <L {...renderLeafProps}>{newChildren}</L> : newChildren;
+      return L && val ? (
+        <L {...renderLeafProps}>{newChildren}</L>
+      ) : (
+        (newChildren as React.ComponentType<CustomElement>)
+      );
     },
     children
   );
