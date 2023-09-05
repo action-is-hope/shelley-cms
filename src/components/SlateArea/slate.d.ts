@@ -21,7 +21,7 @@ export type CustomEditor = BaseEditor &
   TableEditor & { type: string };
 
 type BaseCustomElement = {
-  type?: string;
+  type: string;
   attributes?: {
     [key: string]: string | boolean;
   };
