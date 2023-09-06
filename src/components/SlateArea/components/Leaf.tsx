@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { RenderLeafProps } from "slate-react";
 import type { LeafMap } from "../slateAreaTypes";
-import type { BaseCustomElement, CustomElement } from "../slate";
+import type { CustomElement } from "../slate";
 import type { ReactNode } from "react";
 
 /**
