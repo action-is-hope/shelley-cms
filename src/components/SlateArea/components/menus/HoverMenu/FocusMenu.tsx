@@ -1,4 +1,4 @@
-import { Node, NodeInterface, Transforms } from "slate";
+import { Node, Transforms } from "slate";
 import { ReactEditor, useSlate } from "slate-react";
 import React, { useEffect, useRef, useState } from "react";
 import type { FocusMenuButtonMap } from "../../../slateAreaTypes";
