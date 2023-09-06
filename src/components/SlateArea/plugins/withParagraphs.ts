@@ -2,7 +2,7 @@ import { Editor, Element, Node, Transforms } from "slate";
 import { jsx } from "slate-hyperscript";
 import type { ReactEditor } from "slate-react";
 import { isEmpty } from "../helpers";
-import type { CustomText } from "../slate";
+import type { CustomElement, CustomText } from "../slate";
 
 export const withParagraphs = (editor: Editor & ReactEditor) => {
   const { normalizeNode } = editor;
@@ -24,7 +24,7 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
       path[0] > 0
     ) {
       const prevElementPath = [path[0] - 1];
-      const prevElement = Node.get(editor, prevElementPath);
+      const prevElement = Node.get(editor, prevElementPath) as CustomElement;
 
       if (
         prevElement.type === "paragraph" &&
@@ -92,7 +92,7 @@ export const withParagraphs = (editor: Editor & ReactEditor) => {
       path[0] > 0
     ) {
       const prevElementPath = [path[0] - 1];
-      const prevElement = Node.get(editor, prevElementPath);
+      const prevElement = Node.get(editor, prevElementPath) as CustomElement;
 
       if (prevElement.type === node.type) {
         Transforms.setNodes(editor, { type: "paragraph" }, { at: path });
