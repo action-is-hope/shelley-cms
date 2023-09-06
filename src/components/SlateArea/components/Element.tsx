@@ -1,17 +1,19 @@
-import type { ReactElementMap } from "../slateAreaTypes";
+import type { ElementMap } from "../slateAreaTypes";
 
 export interface ElementProps extends Element {
-  reactElementMap: ReactElementMap;
+  elementMap: ElementMap;
   element: { type: string };
 }
-
+/**
+ * Renders an element. Use within `renderElement`.
+ */
 export const Element = ({
   attributes,
   children,
   element,
-  reactElementMap,
+  elementMap,
 }: ElementProps) => {
-  const ElementToRender = reactElementMap[element.type];
+  const ElementToRender = elementMap[element.type];
 
   if (ElementToRender) {
     return (
@@ -19,7 +21,7 @@ export const Element = ({
     );
   } else {
     console.warn(
-      `No element renderer for Slate type '${element.type}'. Have you forgotten to add it within the SlateArea Feature?`
+      `No element renderer for Slate type '${element.type}'. Have you forgot to add it within the SlateArea Feature?`
     );
     return <p {...attributes}>{children}</p>;
   }
