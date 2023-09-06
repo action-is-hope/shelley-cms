@@ -5,7 +5,7 @@ import type { ReactElement, ReactNode } from "react";
 export interface SlateAreaEvent {
   target: {
     name: string;
-    value: Element[];
+    value: any;
   };
 }
 
