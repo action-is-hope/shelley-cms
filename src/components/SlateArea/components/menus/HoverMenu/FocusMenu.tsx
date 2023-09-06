@@ -91,7 +91,7 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
         // update when we click the buttons. Therefore we introduce some state.
         // @todo: figure out why and remove the local state.
         isActive={
-          displayState[node.data.id]
+          node.data && displayState[node.data.id]
             ? displayState[node.data.id] === type
             : isActive(type)
         }
@@ -111,7 +111,7 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
 
   const setDisplay = (display: string) => {
     const node = getNode();
-    if (!node) return;
+    if (!node || !node.data) return;
 
     setDisplayState({ ...displayState, [node.data.id]: display });
 
@@ -121,7 +121,7 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
       {
         match: (_n) => {
           const n = _n as CustomElement;
-          if (!n.data) return false;
+          if (!n.data || !node.data) return false;
           return node.data.id === n.data.id;
         },
       }
