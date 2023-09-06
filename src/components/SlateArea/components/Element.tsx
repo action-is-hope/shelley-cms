@@ -1,3 +1,4 @@
+import type { CustomElementComponent } from "../slate";
 import type { ElementMap } from "../slateAreaTypes";
 
 export interface ElementProps extends Element {
@@ -13,7 +14,8 @@ export const Element = ({
   element,
   elementMap,
 }: ElementProps) => {
-  const ElementToRender = elementMap[element.type];
+  const ElementToRender: CustomElementComponent | undefined =
+    elementMap[element.type];
 
   if (ElementToRender) {
     return (

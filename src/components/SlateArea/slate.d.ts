@@ -55,6 +55,8 @@ export type CustomElement =
   | ListItemElement
   | LinkElement;
 
+export type CustomElementComponent = FunctionComponent<CustomElement>;
+
 // export type FormattedText = { text: string; bold?: true };
 
 // export type CustomText = FormattedText;
