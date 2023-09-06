@@ -8,7 +8,7 @@ import { ContentArea } from "../../components/ContentArea/ContentArea";
 // import ReorderItems from "../../components/ReorderItems/ReorderItems";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";
 // import SlateArea from "../../components/SlateArea/SlateArea";
-import { defaultFeatureSet } from "../../components/SlateArea/featureSets";
+// import { defaultFeatureSet } from "../../components/SlateArea/featureSets";
 // import { addMenusToTableValue } from "../../components/SlateArea/plugins/withTables/addMenusToTableValue";
 // import { removeMenusFromTableValue } from "../../components/SlateArea/plugins/withTables/removeMenusFromTableValue";
 // import type { Table } from "../../components/SlateArea/plugins/withTables/tableTypes";
