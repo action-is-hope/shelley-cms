@@ -17,7 +17,7 @@ export const getFocusMenuButtons = (features: Feature[]): FocusMenuButtonMap =>
   features
     .map((f) => f.focusMenuButtons)
     .filter(Boolean)
-    .reduce((acc: FocusMenuButtonMap, focusMenuButtons) => {
+    .reduce<FocusMenuButtonMap>((acc, focusMenuButtons) => {
       focusMenuButtons &&
         Object.entries(focusMenuButtons).forEach(([type, btns]) => {
           acc[type] = [...(acc[type] || []), ...btns];
@@ -29,23 +29,23 @@ export const getFocusMenuButtons = (features: Feature[]): FocusMenuButtonMap =>
 export const getElements = (features: Feature[]): ElementMap =>
   features
     .map((f) => f.elements)
-    .filter(Boolean)
-    .reduce((acc: ElementMap, m) => ({ ...acc, ...m }), {});
+    .filter((elements): elements is ElementMap => elements !== undefined)
+    .reduce<ElementMap>((acc, m) => ({ ...acc, ...m }), {});
 
 export const getLeaves = (features: Feature[]): LeafMap =>
   features
     .map((f) => f.leaves)
-    .filter(Boolean)
-    .reduce((acc: LeafMap, m) => ({ ...acc, ...m }), {});
+    .filter((leaves): leaves is LeafMap => leaves !== undefined)
+    .reduce<LeafMap>((acc, m) => ({ ...acc, ...m }), {});
 
 export const getMarkHotkeys = (features: Feature[]): HotkeyMap =>
   features
     .map((f) => f.markHotkeys)
     .filter(Boolean)
-    .reduce((acc: HotkeyMap, m) => ({ ...acc, ...m }), {});
+    .reduce<HotkeyMap>((acc, m) => ({ ...acc, ...m }), {});
 
 export const getBlockHotkeys = (features: Feature[]): HotkeyMap =>
   features
     .map((f) => f.blockHotkeys)
     .filter(Boolean)
-    .reduce((acc: HotkeyMap, m) => ({ ...acc, ...m }), {});
+    .reduce<HotkeyMap>((acc, m) => ({ ...acc, ...m }), {});

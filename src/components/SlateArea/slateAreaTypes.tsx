@@ -52,17 +52,13 @@ export type ToolbarButtonMap = {
   [slateType: string]: ToolbarButton[];
 };
 
-export type ReactElementMap = {
-  [slateType: string]: React.ComponentType<any>;
-};
-
 export type ElementMap = {
   [slateType: string]: Element;
 };
 
-// export type ElementMap<T> = {
-//   [slateType: string]: React.JSXElementConstructor<T>;
-// };
+export type ReactElementMap = {
+  [slateType: string]: React.ComponentType<any>;
+};
 
 export type LeafMap = {
   [matcher: string]: Element;
