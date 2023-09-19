@@ -40,7 +40,6 @@ export const addMenusToTableValue = (tableValue: Table[]) =>
                   type: "table-cell-empty",
                   children: [{ text: "" }],
                 },
-                // ...tableHead.children[0].children,
                 ...(tableHead?.children[0]?.children || []), // Use an empty array if children is undefined
               ],
             },
@@ -55,7 +54,6 @@ export const addMenusToTableValue = (tableValue: Table[]) =>
                 type: "table-row-menu",
                 children: [{ text: "" }],
               },
-              // ...tableBody.children[i].children,
               ...(tableBody?.children[i]?.children || []), // Use an empty array if children is undefined
             ],
           })),

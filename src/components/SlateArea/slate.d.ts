@@ -34,8 +34,7 @@ type BaseCustomElement = {
   };
 };
 
-// type CustomText = { text: string; bold?: true };
-type CustomText = { text: string };
+type CustomText = { text: string; bold?: true };
 
 export type ParagraphElement = BaseCustomElement;
 
@@ -56,10 +55,6 @@ export type CustomElement =
   | LinkElement;
 
 export type CustomElementComponent = FunctionComponent<CustomElement>;
-
-// export type FormattedText = { text: string; bold?: true };
-
-// export type CustomText = FormattedText;
 
 declare module "slate" {
   interface CustomTypes {

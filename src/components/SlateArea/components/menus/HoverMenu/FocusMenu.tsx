@@ -61,6 +61,7 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
 
   useEffect(updateMenu);
   useEffect(() => {
+    // @todo: Handle in another story as it is tied to the CMS itself.
     // const scrollContainer = document.querySelector("[data-scroll-cards]")!;
     // const handleScroll = () => window.requestAnimationFrame(updateMenu);
     // scrollContainer.addEventListener("scroll", handleScroll);
@@ -69,10 +70,8 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
 
   const onClickButton = (
     event: React.MouseEvent<HTMLElement>,
-    // nodeId,
     type: string
   ) => {
-    // console.log("@todo", nodeId);
     event.preventDefault();
     setDisplay(type);
   };
@@ -95,7 +94,6 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
             ? displayState[node.data.id] === type
             : isActive(type)
         }
-        // onMouseDown={(event) => onClickButton(event, node.data.id, type)}
         onMouseDown={(event) => onClickButton(event, type)}
       />
     ));

@@ -43,10 +43,9 @@ import type { CustomElement } from "./slate";
 export interface SlateAreaProps {
   placeholder?: string;
   /**
-   * @todo Add description
+   * The features that editor should exhibit, Bold, Italic etc.
    */
   featureSet?: FeatureFactory[];
-
   /**
    * Default value serialized as HTML.
    */
@@ -59,46 +58,32 @@ export interface SlateAreaProps {
       }
     | { text: { json: string } }
     | string;
-
   /**
    * onChange handler returning an object of current field values on change.
    */
   onChange?: (event: SlateAreaEvent) => void;
-
   /**
    * onFocus handler.
    */
-  // onFocus?: (e?: any) => void;
   onFocus?: () => void;
-
   /**
    * Slate area name.
    */
   name: string;
-
   /**
    * When true menus are not rendered. Used for tests.
    * @todo: Is there another way we can make tests run?
    */
   disableMenus?: boolean;
-
-  /**
-   * Editor mode to use
-   */
-  // mode?: "Free" | "FreeBlock";
-
   className?: string;
-
   /**
    * Limits the input to a single line.
    */
   singleLine?: boolean;
-
   /**
    * Inline menu component.
    */
   InlineMenu?: React.ComponentType<any>;
-
   /**
    * Props passed to inline menu.
    */

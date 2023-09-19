@@ -1,5 +1,4 @@
 import type { Editor, Element } from "slate";
-// import type { WidgetProps } from "components/Widget/Widget";
 import type { ReactElement, ReactNode } from "react";
 
 export interface SlateAreaEvent {
@@ -29,7 +28,7 @@ export interface HoverMenuButton {
 export interface InlineMenuButton {
   icon: string;
   label: string;
-  // widgetProps?: Partial<WidgetProps>;
+  widgetProps?: any;
 }
 
 export interface FocusMenuButton {
