@@ -35,6 +35,7 @@ import "./widget.st.css";
 
 // Slate
 import "./slateArea.st.css";
+import "./slateTable.st.css";
 
 // = Project
 import { classes as light } from "./themes/light.st.css";

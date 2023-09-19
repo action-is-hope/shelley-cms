@@ -1,0 +1,19 @@
+@st-import CMS, [
+  --color-background-contrast-2,
+  --color-ui-raw
+] from "./project.st.css";
+
+@st-import SlateTable from "../../components/SlateArea/features/TableFeature/elements/slateTable.st.css";
+
+@st-scope CMS {
+
+  SlateTable::headerCell {
+    background-color: var(--color-background-contrast-2);
+  }
+
+  SlateTable::headerCell,
+  SlateTable::cell {
+    border: 1px solid rgba(var(--color-ui-raw), 0.2);
+  }
+
+}

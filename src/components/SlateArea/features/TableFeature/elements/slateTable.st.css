@@ -40,12 +40,12 @@
   border: 1px solid black;
   width: 50px;
   text-align: center;
-  background: lightgray,
+  background: lightgray;
 }
 
-.headerCell span {
-  /*lighter grey?*/
-  color: pink
+.cell,
+.headerCell {
+  padding: 6px;
 }
 
 .menuRow {
