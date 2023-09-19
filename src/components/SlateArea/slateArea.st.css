@@ -1,25 +1,13 @@
 .root {
-  -st-states: multiline, largeLeftPadding;
+  -st-states: multiline, largeLeftPadding, vol(number);
 }
 
 .container {
   position: relative;
 }
 
-.root:multiline {
+.root:multiline {}
 
-  /* > h4,
-  > h5,
-  > p,
-  > ul,
-  > ol,
-  > dl,
-  > blockquote {
-    Set max width of typed content matching that of front end widest reading area.
-    max-width: 38rem;
-    margin: 0 0 calc(var(--spacing-unit) * 2);
-  } */
-}
 
 .root:largeLeftPadding {
   padding-left: 65px;
@@ -28,69 +16,18 @@
 .root {
   font-size: 1.1rem;
   font-family: inherit;
-  padding-left: calc(var(--spacing-unit) * 3);
-  margin-left: calc(var(--spacing-unit) * 3);
-  /* // Match line-height of theme. #themeSync :-) */
+
+  /* // Match line-height of theme.*/
   line-height: 1.45;
   /* // Ensures the offset padding is still clickable if -ve margin pulls over another item. */
   position: relative;
   /* // Some margin on the RHS to stop fields interferring with the ComponentEditor controls. */
   margin-right: calc(var(--spacing-unit) * 10);
-  color: themepalettetextsecondary;
-  /* // Set max width of typed heading more closely matching that of front end widest reading area. */
-  /* "& h1, & h2, & h3": ;
-    maxWidth: 42re;
-    // Tweak when we have more info
-  },
-  ."& h2" { fontSize: 1.8rem" ;
-  ."& h3" { fontSize: 1.5rem" ;
-  "& blockquote": ;
-    borderLeft: `2px solid ${theme.palette.text.secondary}`;
-    padding: theme.spacing.unit;
-    paddingLeft: theme.spacing.unit * 2;
-    marginLeft: -theme.spacing.unit * 2 - 2;
-    fontSize: 1.1e;
-  },
-  
+  /* 
   "&:empty": ;
     display: non;
   },
-  "&:after": ;
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -4;
-    background: rgba(0, 0, 0, 0.2);
-    width: 4;
-    opacity: 0;
-    transition: all 0.2s linea;
-  },
-  "&:focus-within": ;
-    "&:after": ;
-      opacity: ;
-    }
-  },
-  "& a": ;
-    lineHeight: 1.4rem;
-    textDecoration: underline;
-    marginBottom: 3;
-    color: theme.palette.secondary.main;
-    "&:hover": ;
-      color: theme.palette.secondary.dar;
-    },
-    "&:visited": ;
-      color: theme.palette.secondary.mai;
-    }
-  },
-  "& ul, ol": ;
-    marginBottom: theme.spacing.unit * 3;
-    paddingLeft: 1;
-  },
-  "& li": ;
-    marginBottom: theme.spacing.uni;
-  } */
+ */
 }
 
 

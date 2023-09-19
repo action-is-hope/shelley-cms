@@ -4,12 +4,22 @@ import { StoryGrid } from "../StoryLayout";
 
 import { SlateArea } from "../../components/SlateArea/SlateArea";
 
-import { BasicSlateArea } from "./SlateArea.examples";
+import {
+  BasicSlateArea,
+  SlateAreaTable,
+  SlateAreaVolume,
+} from "./SlateArea.examples";
 
 <Meta
   title="Editor/SlateArea"
   component={SlateArea}
-  decorators={[(Story) => <Story />]}
+  decorators={[
+    (Story) => (
+      <div style={{ marginTop: "60px", marginBottom: "60px" }}>
+        <Story />
+      </div>
+    ),
+  ]}
 />
 
 # Slate Area
@@ -39,4 +49,44 @@ Slate Area is a wrapper around the Slate editor. It provides a toolbar ....
   }}
 >
   {BasicSlateArea.bind({})}
+</Story>
+
+## Table
+
+<Story
+  name="b) Slate Area Table"
+  args={{
+    errorCount: undefined,
+  }}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<SlateArea />
+);`,
+      },
+    },
+  }}
+>
+  {SlateAreaTable.bind({})}
+</Story>
+
+## Volume
+
+<Story
+  name="c) Slate Area Volume"
+  args={{
+    errorCount: undefined,
+  }}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<SlateArea />
+);`,
+      },
+    },
+  }}
+>
+  {SlateAreaVolume.bind({})}
 </Story>

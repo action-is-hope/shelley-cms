@@ -40,6 +40,7 @@ import type {
 } from "./slateAreaTypes";
 import { st, classes } from "./slateArea.st.css";
 import type { CustomElement } from "./slate";
+import type { Volume } from "@actionishope/shelley";
 export interface SlateAreaProps {
   placeholder?: string;
   /**
@@ -52,7 +53,7 @@ export interface SlateAreaProps {
   defaultValue:
     | {
         __typename?: "RichTextField";
-        html: string;
+        html?: string;
         json: string;
         singleLine?: boolean;
       }
@@ -75,6 +76,12 @@ export interface SlateAreaProps {
    * @todo: Is there another way we can make tests run?
    */
   disableMenus?: boolean;
+  /**
+   * Defines how 'loud' the field should be.
+   * @default 1
+   */
+  vol?: Volume;
+  /** Classname */
   className?: string;
   /**
    * Limits the input to a single line.
@@ -93,7 +100,6 @@ export interface SlateAreaProps {
 const SlateArea = ({
   placeholder,
   className,
-  // mode,
   featureSet,
   defaultValue,
   name,
@@ -103,6 +109,7 @@ const SlateArea = ({
   singleLine,
   InlineMenu,
   inlineMenuProps = {},
+  vol = 2,
 }: SlateAreaProps) => {
   const getFeatureSet = useCallback(() => {
     if (featureSet) return featureSet;
@@ -239,6 +246,7 @@ const SlateArea = ({
           className={st(
             classes.root,
             {
+              vol: vol !== false ? vol : undefined,
               multiline: !singleLine,
               // Make space for the inline menu. Also more user friendly for larger
               // bodies of text as we give a nice "margin" (padding) that makes it easy to

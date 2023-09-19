@@ -1,34 +1,28 @@
-    .button {
-      /* color: contrastText; */
-      color: #fff;
-      cursor: pointer;
-      font-size: 25px;
+.button {
+  color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+  display: inline-flex;
+  vertical-align: bottom;
+}
 
-      display: inline-flex;
-      vertical-align: bottom;
-    }
+.button[data-active='true'] {
+  /* Stole Mediums col; */
+  color: #34e79a;
+}
 
-    .button[data-active='true'] {
-      /* Stole Mediums col; */
-      color: #34e79a;
-    }
-
-    .menu {
-      /* // hover menu styles */
-      padding: 12px;
-      position: absolute;
-      z-index: 1;
-      top: -10000px;
-      left: -10000px;
-      margin-top: -6px;
-      opacity: 0;
-      background-color: #333;
-      border-radius: 5px;
-      transition: opacity 0.75;
-      display: flex;
-      gap: 15px;
-    }
-
-    .menu .button {
-      color: hotpink;
-    }
+.menu {
+  /* // hover menu styles */
+  padding: 12px;
+  position: absolute;
+  z-index: 1;
+  top: -10000px;
+  left: -10000px;
+  margin-top: -6px;
+  opacity: 0;
+  background-color: #333;
+  border-radius: 5px;
+  transition: opacity 0.75;
+  display: flex;
+  gap: 15px;
+}
