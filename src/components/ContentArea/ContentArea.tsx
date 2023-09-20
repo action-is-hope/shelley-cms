@@ -30,7 +30,7 @@ function ContentArea(props: ContentAreaProps, ref?: React.Ref<HTMLDivElement>) {
       {...rest}
       {...focusOnProps}
     >
-      <div className={classes.scroller} data-id={dataId}>
+      <div className={classes.scroller} data-id={dataId} data-content-scroller>
         {children}
       </div>
     </FocusOn>

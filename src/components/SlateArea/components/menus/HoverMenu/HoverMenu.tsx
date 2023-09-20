@@ -53,20 +53,23 @@ const HoverMenu = ({ hoverMenuButtons }: NewHoverMenuProps) => {
       : { top: 0, left: 0, width: 0 };
 
     el.style.opacity = "1";
-    el.style.top = `${rect.top + window.pageYOffset - el.offsetHeight}px`;
+    el.style.top = `${rect.top + window.scrollY - el.offsetHeight}px`;
     el.style.left = `${Math.max(
-      rect.left + window.pageXOffset - el.offsetWidth / 2 + rect.width / 2,
+      rect.left + window.scrollX - el.offsetWidth / 2 + rect.width / 2,
       10
     )}px`;
   };
 
   useEffect(updateMenu);
   useEffect(() => {
-    // const scrollContainer = document.querySelector("[data-scroll-cards]")!;
-    // const handleScroll = () => window.requestAnimationFrame(updateMenu);
-    // scrollContainer.addEventListener("scroll", handleScroll);
-    // return () => scrollContainer.removeEventListener("scroll", handleScroll);
-  }, []);
+    const scrollContainer = document.querySelector("[data-content-scroller]");
+
+    if (scrollContainer) {
+      const handleScroll = () => window.requestAnimationFrame(updateMenu);
+      scrollContainer.addEventListener("scroll", handleScroll);
+      return () => scrollContainer.removeEventListener("scroll", handleScroll);
+    } else return;
+  });
 
   return (
     <Portal>
