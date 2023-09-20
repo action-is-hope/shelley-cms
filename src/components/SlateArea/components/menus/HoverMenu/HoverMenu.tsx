@@ -36,7 +36,6 @@ const HoverMenu = ({ hoverMenuButtons }: NewHoverMenuProps) => {
   };
   const updateMenu = () => {
     const el = ref.current;
-    // const { selection } = editor;
 
     if (!el) {
       return;

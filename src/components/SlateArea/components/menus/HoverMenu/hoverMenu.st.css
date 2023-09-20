@@ -15,7 +15,7 @@
   /* // hover menu styles */
   padding: 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 100;
   top: -10000px;
   left: -10000px;
   margin-top: -6px;
