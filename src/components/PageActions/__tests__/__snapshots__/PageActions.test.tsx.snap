@@ -8,7 +8,7 @@ exports[`PageActions renders page actions block with custom className 1`] = `
     className="PageActions__Test__info"
   >
     <div
-      className="Text__Test__root Text__Test---vol-1-1 spacing__Test__mb1 PageActions__Test__lastSaved"
+      className="Text__Test__root Text__Test---vol-1-1 DefaultSpacing__Test__mb1 PageActions__Test__lastSaved"
     >
       Changes saved: 5 mins ago
     </div>
@@ -17,7 +17,7 @@ exports[`PageActions renders page actions block with custom className 1`] = `
     className="PageActions__Test__actions"
   >
     <div
-      className="Text__Test__root Text__Test---vol-1-1 spacing__Test__mb1 PageActions__Test__statusText"
+      className="Text__Test__root Text__Test---vol-1-1 DefaultSpacing__Test__mb1 PageActions__Test__statusText"
     >
       <span
         className="PageActions__Test__led PageActions__Test__draft"
@@ -78,6 +78,12 @@ exports[`PageActions renders page actions block with custom className 1`] = `
         onTouchStart={[Function]}
         type="button"
       >
+         
+        <span
+          className="VisuallyHidden__Test__root"
+        >
+          Publish menu
+        </span>
         <svg
           aria-hidden={true}
           className="Icon__Test__root"
@@ -87,11 +93,6 @@ exports[`PageActions renders page actions block with custom className 1`] = `
             d="M13 4v2l-5 5-5-5v-2l5 5z"
           />
         </svg>
-        <span
-          className="VisuallyHidden__Test__root"
-        >
-          Publish menu
-        </span>
       </button>
     </div>
   </div>
