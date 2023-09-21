@@ -61,13 +61,13 @@
     font-weight: normal;
   }
 
-  SlateArea h2:not(:only-child),
-  SlateArea h3:not(:only-child),
-  SlateArea h4:not(:only-child),
-  SlateArea h5:not(:only-child),
-  SlateArea p:not(:only-child),
-  SlateArea ol:not(:only-child),
-  SlateArea ul:not(:only-child) {
+  SlateArea h2:not(:only-child):not(:last-child),
+  SlateArea h3:not(:only-child):not(:last-child),
+  SlateArea h4:not(:only-child):not(:last-child),
+  SlateArea h5:not(:only-child):not(:last-child),
+  SlateArea p:not(:only-child):not(:last-child),
+  SlateArea ol:not(:only-child):not(:last-child),
+  SlateArea ul:not(:only-child):not(:last-child) {
     margin: 0 0 calc(var(--spacing-unit) * 1.5);
   }
 

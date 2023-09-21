@@ -8,6 +8,7 @@ import {
   BasicSlateArea,
   SlateAreaTable,
   SlateAreaVolume,
+  SlateAreaWithMenu,
 } from "./SlateArea.examples";
 
 <Meta
@@ -71,10 +72,30 @@ Slate Area is a wrapper around the Slate editor. It provides a toolbar ....
   {SlateAreaTable.bind({})}
 </Story>
 
+## With Menu
+
+<Story
+  name="c) Slate Area with Menu"
+  args={{
+    errorCount: undefined,
+  }}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<SlateArea />
+);`,
+      },
+    },
+  }}
+>
+  {SlateAreaWithMenu.bind({})}
+</Story>
+
 ## Volume
 
 <Story
-  name="c) Slate Area Volume"
+  name="d) Slate Area Volume"
   args={{
     errorCount: undefined,
   }}

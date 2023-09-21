@@ -7,6 +7,17 @@ import { LinkFeature } from "../../components/SlateArea/features/LinkFeature/Lin
 import { ParagraphFeature } from "../../components/SlateArea/features/ParagraphFeature/ParagraphFeature";
 import { TableFeature } from "../../components/SlateArea/features/TableFeature/TableFeature";
 
+import { Button } from "@actionishope/shelley/Button";
+import { Menu } from "@actionishope/shelley/Menu";
+import { MenuTrigger } from "@actionishope/shelley/MenuTrigger";
+import { Item } from "@actionishope/shelley/Item";
+import { default as AddIcon } from "@actionishope/shelley/icons/Add";
+import { default as AddImageIcon } from "@actionishope/shelley/icons/AddImage";
+import { default as AddPDFIcon } from "@actionishope/shelley/icons/PictureAsPdf";
+import { default as AddVideoIcon } from "@actionishope/shelley/icons/PermMedia";
+import { default as AddSocialIcon } from "@actionishope/shelley/icons/Share";
+
+import { classes as speedDial } from "../../styles/cms/speedDialMenu.st.css";
 export const BasicSlateArea = () => {
   return (
     <SlateArea
@@ -15,6 +26,54 @@ export const BasicSlateArea = () => {
       name="body"
       defaultValue={`Default text value`}
     />
+  );
+};
+
+export const SlateAreaWithMenu = () => {
+  return (
+    <>
+      <SlateArea
+        onFocus={() => console.log("onFocus")}
+        onChange={(value) => console.log("onChange", value)}
+        name="body"
+        defaultValue={`Default text value`}
+      />
+      <MenuTrigger
+        portalSelector="#portal"
+        onOpenChange={(isOpen) => console.log("isOpen:", isOpen)}
+        // isOpen
+        hideArrow
+        placement="right"
+        offset={20}
+        popupClassName={speedDial.inlineMenuPopup}
+      >
+        <Button
+          tone={false}
+          variant="fab"
+          vol={2}
+          icon={<AddIcon alt="Add item" />}
+          className={speedDial.inlineMenuButton}
+        />
+        <Menu
+          selectionMode="none"
+          onAction={(value) => console.log(value)}
+          className={speedDial.inlineMenu}
+        >
+          <Item key="addImage">
+            <AddImageIcon alt="Add image" />
+          </Item>
+          <Item key="addVideo">
+            <AddVideoIcon alt="Add video" />
+          </Item>
+          <Item key="addDocument">
+            <AddPDFIcon alt="Add Document" />
+          </Item>
+          <Item key="addSocial">
+            <AddSocialIcon alt="Add Social" />
+          </Item>
+        </Menu>
+      </MenuTrigger>
+    </>
   );
 };
 
