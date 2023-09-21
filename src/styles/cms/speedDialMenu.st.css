@@ -1,0 +1,71 @@
+@st-import Button from "@actionishope/shelley/Button/button.st.css";
+@st-import Menu from "@actionishope/shelley/Menu/menu.st.css";
+@st-import MenuItem from "@actionishope/shelley/MenuItem/menuItem.st.css";
+@st-import Popup from "@actionishope/shelley/Popup/popup.st.css";
+@st-import CMS, [
+  --spacing-unit,
+  --color-background-contrast-1,
+  --color-ui] from "./project.st.css";
+
+.inlineMenu {
+  -st-extends: Menu;
+}
+
+.inlineMenuButton {
+  -st-extends: Button;
+}
+
+@st-scope CMS {
+
+  .inlineMenuButton {
+    position: relative;
+    top: calc(var(--spacing-unit) * -2.4);
+    left: 7px;
+    background: #a0a0a0;
+    color: #fff;
+  }
+
+  .inlineMenuButton svg {
+    transition: transform 100ms;
+  }
+
+  [aria-expanded="true"].inlineMenuButton svg {
+    transform: rotate(45deg);
+  }
+
+  Popup.inlineMenuPopup {
+    border: none;
+    background-color: transparent;
+  }
+
+  Menu.inlineMenu {
+    display: inline-flex;
+    gap: 1em;
+    border: none
+  }
+
+  Menu.inlineMenu::item {
+    border-left: none;
+    border-radius: 999px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.55em;
+    cursor: pointer;
+  }
+
+  Menu.inlineMenu MenuItem::text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  Menu.inlineMenu MenuItem:isFocused {
+    /* background-color: whatever-you-like; */
+    color: var(--color-ui);
+    background-color: var(--color-background-contrast-1);
+  }
+
+  Menu.inlineMenu svg {
+    grid-area: "checkmark";
+  }
+}

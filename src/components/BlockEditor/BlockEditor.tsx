@@ -132,7 +132,6 @@ function BlockEditor(props: BlockEditorProps, ref?: React.Ref<HTMLDivElement>) {
                   <MoreHor />
                 </Badge>
               }
-              // icon={<MoreHor />}
             />
             <Menu
               className={classes.menu}

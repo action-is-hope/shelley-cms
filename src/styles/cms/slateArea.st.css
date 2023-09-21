@@ -1,0 +1,147 @@
+@st-import CMS, [
+  --color-ui,
+  --color-ui-inverse,
+  --spacing-unit,
+  --color-accent-2,
+  --color-focus,
+  --text-vol-3-scale, --text-vol-3-max,
+  --text-vol-4-scale, --text-vol-4-max,
+  --text-vol-5-scale, --text-vol-5-max,
+  --text-vol-6-scale, --text-vol-6-max,
+  --field-padding,
+] from "./project.st.css";
+
+@st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
+
+
+@st-import Field from "@actionishope/shelley/Field/field.st.css";
+@st-import [respScale] from "../formatters/common";
+@st-import [
+    hideWebkitAppearance,
+    disabledField,
+    inputVol1,
+    inputVol2,
+    inputVol3,
+    inputVol4,
+    inputVol5,
+    inputVol6
+] from "@actionishope/shelley/styles/default/mixins/formElements.st.css";
+
+@st-scope CMS {
+  SlateArea {
+    color: inherit;
+    -webkit-font-smoothing: antialiased;
+    padding: var(--field-padding);
+    padding-left: calc(var(--spacing-unit) * 3.2);
+  }
+
+  SlateArea::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    background: var(--color-focus);
+    width: 2px;
+    opacity: 0;
+    transition: all 0.2s linear;
+  }
+
+  SlateArea:focus-within::after {
+    opacity: 1;
+  }
+
+
+  SlateArea h2,
+  SlateArea h3,
+  SlateArea h4,
+  SlateArea h5 {
+    font-weight: normal;
+  }
+
+  SlateArea h2:not(:only-child):not(:last-child),
+  SlateArea h3:not(:only-child):not(:last-child),
+  SlateArea h4:not(:only-child):not(:last-child),
+  SlateArea h5:not(:only-child):not(:last-child),
+  SlateArea p:not(:only-child):not(:last-child),
+  SlateArea ol:not(:only-child):not(:last-child),
+  SlateArea ul:not(:only-child):not(:last-child) {
+    margin: 0 0 calc(var(--spacing-unit) * 1.5);
+  }
+
+  SlateArea h2 {
+    font-size: 1.7rem
+  }
+
+  SlateArea h3 {
+    font-size: 1.4rem
+  }
+
+  SlateArea h4 {
+    font-size: 1.2rem
+  }
+
+  SlateArea h5 {
+    font-size: 1.1rem
+  }
+
+  SlateArea h6 {
+    font-size: 1rem
+  }
+
+  SlateArea blockquote {
+    border-left: 2px solid var(--color-accent-2);
+    padding: var(--spacing-unit);
+    font-size: 1.1em;
+  }
+
+  SlateArea a {
+    text-decoration: underline;
+    margin-bottom: 3px;
+    color: var(--color-accent-2);
+  }
+
+  SlateArea ol,
+  SlateArea ul {
+    padding-left: 1px;
+  }
+
+  SlateArea li {
+    margin-bottom: calc(var(--spacing-unit) / 2)
+  }
+
+  /*==== VOLUMES ====*/
+
+  /* = Volume 1 */
+  SlateArea:vol(1) {
+    -st-mixin: inputVol1;
+  }
+
+  /* = Volume 2 */
+  SlateArea:vol(2) {
+    -st-mixin: inputVol2;
+  }
+
+  /* = Volume 3 */
+  SlateArea:vol(3) {
+    -st-mixin: inputVol3
+  }
+
+  /* = Volume 4 */
+  SlateArea:vol(4) {
+    -st-mixin: inputVol4
+  }
+
+  /* = Volume 5 */
+  SlateArea:vol(5) {
+    -st-mixin: inputVol5
+  }
+
+  /* = Volume 6 */
+  SlateArea:vol(6) {
+    -st-mixin: inputVol6
+  }
+
+}

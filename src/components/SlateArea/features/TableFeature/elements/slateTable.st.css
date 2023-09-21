@@ -1,0 +1,54 @@
+.root {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.cell {
+  border: 1px solid black;
+  width: 50px;
+  text-align: center;
+}
+
+.cell p:only-child {
+  margin-bottom: 0;
+}
+
+.emptyCell {
+  width: 50px;
+}
+
+.cellMenu {
+  width: 50px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.cellMenuIcon {
+  -st-states: type(enum(column, row));
+}
+
+.cellMenuIcon:type(column) {
+  transform: rotate(180deg);
+}
+
+.cellMenuIcon:type(row) {
+  transform: rotate(90deg);
+}
+
+.headerCell {
+  border: 1px solid black;
+  width: 50px;
+  text-align: center;
+  background: lightgray;
+}
+
+.cell,
+.headerCell {
+  padding: 6px;
+}
+
+.menuRow {
+  width: 1%;
+  padding-right: 10px
+}

@@ -1,0 +1,113 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+
+import { SlateArea } from "../../components/SlateArea/SlateArea";
+
+import {
+  BasicSlateArea,
+  SlateAreaTable,
+  SlateAreaVolume,
+  SlateAreaWithMenu,
+} from "./SlateArea.examples";
+
+<Meta
+  title="Editor/SlateArea"
+  component={SlateArea}
+  decorators={[
+    (Story) => (
+      <div style={{ marginTop: "60px", marginBottom: "60px" }}>
+        <Story />
+      </div>
+    ),
+  ]}
+/>
+
+# Slate Area
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { SlateArea } from "@actionishope/shelley-cms";
+  `}
+/>
+
+Slate Area is a wrapper around the Slate editor. It provides a toolbar ....
+
+<Story
+  name="a) Slate Area"
+  args={{
+    errorCount: undefined,
+  }}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<SlateArea />
+);`,
+      },
+    },
+  }}
+>
+  {BasicSlateArea.bind({})}
+</Story>
+
+## Table
+
+<Story
+  name="b) Slate Area Table"
+  args={{
+    errorCount: undefined,
+  }}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<SlateArea />
+);`,
+      },
+    },
+  }}
+>
+  {SlateAreaTable.bind({})}
+</Story>
+
+## With Menu
+
+<Story
+  name="c) Slate Area with Menu"
+  args={{
+    errorCount: undefined,
+  }}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<SlateArea />
+);`,
+      },
+    },
+  }}
+>
+  {SlateAreaWithMenu.bind({})}
+</Story>
+
+## Volume
+
+<Story
+  name="d) Slate Area Volume"
+  args={{
+    errorCount: undefined,
+  }}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<SlateArea />
+);`,
+      },
+    },
+  }}
+>
+  {SlateAreaVolume.bind({})}
+</Story>

@@ -7,6 +7,7 @@ import { ContentArea } from "../../components/ContentArea/ContentArea";
 
 // import ReorderItems from "../../components/ReorderItems/ReorderItems";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";
+import SlateArea from "../../components/SlateArea/SlateArea";
 
 const contentBlocksData = [
   {
@@ -55,24 +56,8 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
     >
       {/* @todo: provide a form comp defining alignment. */}
       <form action="">
-        <TextField
-          type="textarea"
-          rows={1}
-          variant="quiet"
-          placeholder={"Title"}
-          label={"Title"}
-          labelPosition="hidden"
-          vol={6}
-        />
-        <TextField
-          type="textarea"
-          rows={1}
-          variant="quiet"
-          placeholder={"Description"}
-          label={"Description"}
-          labelPosition="hidden"
-          vol={2}
-        />
+        <SlateArea vol={6} defaultValue={`Title`} name="title" />
+        <SlateArea vol={3} defaultValue={`Description`} name="description" />
       </form>
     </BlockEditor>
   );
