@@ -74,6 +74,6 @@
   },
   // https://stackoverflow.com/questions/58999086/cypress-causing-type-errors-in-jest-assertions
   // https://github.com/cypress-io/cypress-and-jest-typescript-example
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/react.d.ts"],
   "exclude": ["cypress.d.ts"]
 }
