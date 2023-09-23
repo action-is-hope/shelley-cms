@@ -49,6 +49,7 @@ type usePreviewReturn = {
   previewProps: PreviewProps;
   previewChromeProps: PreviewChromeProps;
   previewActionsProps: PreviewActionsProps;
+  setPreviewMode: (mode: PreviewModeType) => void;
   refs: Refs;
 };
 
@@ -148,6 +149,7 @@ const usePreview = (): usePreviewReturn => {
     previewProps,
     previewChromeProps,
     previewActionsProps,
+    setPreviewMode,
     refs: {
       previewRef,
       previewModesRef,
