@@ -39,6 +39,7 @@ function PreviewModes(
         labelPosition="hidden"
         onChange={(key) => onChange && onChange(key as PreviewModeType)}
         defaultValue={defaultValue}
+        value={props.value}
         data-id={dataId ? `${dataId}--radioGroup` : undefined}
       >
         <Radio

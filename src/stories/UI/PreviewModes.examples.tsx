@@ -1,20 +1,22 @@
 import { P } from "@actionishope/shelley";
 import { useState } from "react";
-import { PreviewModes } from "../../components/PreviewModes/PreviewModes";
+import {
+  PreviewModes,
+  PreviewModeType,
+} from "../../components/PreviewModes/PreviewModes";
 
 export const BasicExample = () => {
-  const [mode, setMode] = useState("web");
+  const [mode, setMode] = useState<PreviewModeType>("web");
 
   return (
     <>
       <PreviewModes
         className={"custom-class"}
-        defaultValue={"web"}
+        value={mode}
         onChange={(key) => {
           console.log(key);
           setMode(key);
         }}
-        // ref={previewModesRef}
       />
       <P vol={1}>Mode is set to "{mode}"</P>
     </>

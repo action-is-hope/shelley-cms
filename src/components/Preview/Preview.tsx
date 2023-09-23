@@ -47,7 +47,7 @@ function Preview(props: PreviewProps, ref?: React.Ref<HTMLDivElement>) {
       <PreviewModes
         className={classes.previewModes}
         onChange={onModeChange}
-        defaultValue={previewMode}
+        value={previewMode}
         data-id={dataId ? `${dataId}--previewModes` : undefined}
         ref={previewModesRef}
       />
