@@ -5,7 +5,7 @@
 @st-import Modal from "@actionishope/shelley/Modal/modal.st.css";
 
 .root {
-  -st-states: isMobile;
+  -st-states: isMobile, disableActionBar, hasSidebar;
 }
 
 .actionBar {}
@@ -16,13 +16,13 @@
 
 .main {}
 
-.sideBar {}
+.sidebar {}
 
-.sideBarMobile {}
+.sidebarMobile {}
 
-.sideBarDesktop {}
+.sidebarDesktop {}
 
-.sideBarModal {
+.sidebarModal {
   -st-extends: Modal;
 }
 

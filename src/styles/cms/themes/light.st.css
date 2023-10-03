@@ -34,6 +34,7 @@
     --color-ui-raw-inverse,
     /* = Accent colors */
     --color-accent-1,
+    --color-accent-1-50,
     --color-accent-2,
     --color-accent-3,
     --color-accent-4,
@@ -120,7 +121,8 @@
 
   /* = Accent colors */
   --color-accent-1: var(--color-header-background);
-  --color-accent-2: rgb(68 134 136);
+  --color-accent-1-50: rgb(8 92 103 / 50%);
+  --color-accent-2: rgb(8 134 136);
   --color-accent-3: rgb(37 43 45 / 80%);
 
   /* = Background colors */

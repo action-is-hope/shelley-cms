@@ -11,5 +11,7 @@
 
   Dialog {
     border-radius: 0;
+    /* @TODO apply this fix for intermittant greying of the overlay to shelley. */
+    position: relative;
   }
 }

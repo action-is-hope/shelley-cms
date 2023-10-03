@@ -21,6 +21,10 @@
   filter: blur(0);
 }
 
+.drawer {
+  -st-extends: Modal;
+}
+
 @st-scope CMS {
   Modal::content {
     position: relative;
@@ -117,5 +121,23 @@
     transform: translateX(100%);
     opacity: 0;
     transition: transform 190ms, opacity 190ms;
+  }
+
+  /* Override modal into a 'Drawer' style for use with transition slideFromEnd.*/
+  .drawer {
+    justify-content: end;
+  }
+
+  .drawer.enter .content {
+    opacity: 1;
+  }
+
+  .drawer.enterActive .content {
+    transition: transform 190ms;
+  }
+
+  .drawer.exitActive .content {
+    transition: transform 190ms;
+    opacity: 1;
   }
 }

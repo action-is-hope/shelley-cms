@@ -1,4 +1,4 @@
-import { P, TextField, Button } from "@actionishope/shelley";
+import { P, TextField, Button, ProgressCircle } from "@actionishope/shelley";
 import {
   BlockEditor,
   BlockEditorProps,
@@ -70,7 +70,7 @@ export const BlockEditorExampleWithReorder = (
     <ContentArea focusOnProps={{ enabled: false }}>
       {contentBlocksData.map((item) => (
         <BlockEditor
-          data-id="TEST123"
+          data-id="TEST1234"
           label={item.label}
           // errorCount={2}
           // onManageSelect={() => console.log("onManageSelect")}
@@ -105,5 +105,13 @@ export const BlockEditorExampleWithReorder = (
         </BlockEditor>
       ))}
     </ContentArea>
+  );
+};
+
+export const BlockEditorLoading = (args: Partial<BlockEditorProps>) => {
+  return (
+    <BlockEditor data-id="TEST12345" label={"Block name"} {...args}>
+      <ProgressCircle isIndeterminate />
+    </BlockEditor>
   );
 };

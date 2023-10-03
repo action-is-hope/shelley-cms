@@ -7,7 +7,7 @@
 
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 
-@st-scope CMS {
+@st-scope body CMS {
 
   TextField:variant(filled)::fieldContainer {
     background-color: var(--color-background-field-fill);

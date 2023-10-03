@@ -23,29 +23,31 @@ type OverloadedChildren = (isMobile: boolean) => ReactElement;
 export interface FinderProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "title" | "children">,
     ComponentBase {
-  sideBarContent?: OverloadedChildren | ReactElement;
+  sidebarContent?: OverloadedChildren | ReactElement;
   children: OverloadedChildren | ReactElement;
   filterTriggerString?: string;
-  title: ReactNode;
-  addButton: ReactNode;
+  title?: ReactNode;
+  addButton?: ReactNode;
   searchFieldProps: {
     onChange: (value: string) => void;
     placeholder?: string;
     label?: string;
   };
   searchBarChildren?: ReactNode;
+  disableActionBar?: boolean;
 }
 function Finder(props: FinderProps, ref?: React.Ref<HTMLDivElement>) {
   const {
     className: classNameProp,
     addButton,
     children,
-    sideBarContent,
+    sidebarContent,
     filterTriggerString = "Search filters",
     title,
     "data-id": dataId,
     searchFieldProps,
     searchBarChildren,
+    disableActionBar = false,
     ...rest
   } = props;
   const measureRef = useRef(null);
@@ -59,30 +61,36 @@ function Finder(props: FinderProps, ref?: React.Ref<HTMLDivElement>) {
 
   return (
     <div
-      className={st(classes.root, { isMobile }, classNameProp)}
+      className={st(
+        classes.root,
+        { isMobile, disableActionBar, hasSidebar: Boolean(sidebarContent) },
+        classNameProp
+      )}
       data-id={dataId}
       ref={ref ? mergeRefs(measureRef, ref) : measureRef}
       {...rest}
     >
-      <div className={classes.actionBar}>
-        <H1
-          className={classes.title}
-          vol={4}
-          data-id={dataId ? `${dataId}--title` : undefined}
-        >
-          {title}
-        </H1>
-        <div className={classes.actionButton}>{addButton}</div>
-      </div>
+      {!disableActionBar && (
+        <div className={classes.actionBar}>
+          <H1
+            className={classes.title}
+            vol={4}
+            data-id={dataId ? `${dataId}--title` : undefined}
+          >
+            {title}
+          </H1>
+          <div className={classes.actionButton}>{addButton}</div>
+        </div>
+      )}
 
-      {!isMobile && (
+      {!isMobile && sidebarContent && (
         <div
-          className={st(classes.sideBar, classes.sideBarDesktop)}
-          data-id={dataId ? `${dataId}--sideBarDesktop` : undefined}
+          className={st(classes.sidebar, classes.sidebarDesktop)}
+          data-id={dataId ? `${dataId}--sidebarDesktop` : undefined}
         >
-          {typeof sideBarContent === "function"
-            ? sideBarContent(isMobile)
-            : sideBarContent}
+          {typeof sidebarContent === "function"
+            ? sidebarContent(isMobile)
+            : sidebarContent}
         </div>
       )}
 
@@ -102,13 +110,13 @@ function Finder(props: FinderProps, ref?: React.Ref<HTMLDivElement>) {
             {...searchFieldProps}
             data-id={dataId ? `${dataId}--searchField` : undefined}
           />
-          {isMobile && (
+          {isMobile && sidebarContent && (
             <DialogTrigger
               transition="startToEnd"
               portalSelector="#portal"
               isDismissable
               disableModalBackdropBlur
-              modalClassName={classes.sideBarModal}
+              modalClassName={classes.sidebarModal}
               data-id={dataId ? `${dataId}--mobileFilterModal` : undefined}
             >
               <IconButton
@@ -117,10 +125,10 @@ function Finder(props: FinderProps, ref?: React.Ref<HTMLDivElement>) {
               >
                 <Filter />
               </IconButton>
-              <div className={st(classes.sideBar, classes.sideBarMobile)}>
-                {typeof sideBarContent === "function"
-                  ? sideBarContent(isMobile)
-                  : sideBarContent}
+              <div className={st(classes.sidebar, classes.sidebarMobile)}>
+                {typeof sidebarContent === "function"
+                  ? sidebarContent(isMobile)
+                  : sidebarContent}
               </div>
             </DialogTrigger>
           )}
