@@ -7,17 +7,18 @@ export interface CardProps
     React.HTMLProps<HTMLDivElement> {
   /** make onPress conditional and if yes then aria props must be specified? */
 }
+
 /**
  * Card is a basic container that houses the construction of larger more complex UI elements.
  */
 function Card(props: CardProps, ref?: React.Ref<HTMLDivElement>) {
-  const { className: classNameProp, children, ...rest } = props;
+  const { className: classNameProp, children, onPress, ...rest } = props;
   return (
     <div className={st(classes.root, classNameProp)} {...rest} ref={ref}>
       {props.onPress && (
         <Button
           aria-label="Title"
-          onPress={props.onPress}
+          onPress={onPress}
           className={classes.mainButton}
           variant={false}
           tone={false}

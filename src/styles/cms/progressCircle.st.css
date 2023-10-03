@@ -1,0 +1,22 @@
+@namespace "ProgressCircleCMS";
+@st-import Shelley, [
+    --light-01-raw,
+    --color-ui-raw,
+    --color-accent-1,
+  ] from "./project.st.css";
+@st-import ProgressCircle, [
+    --loader-circle-track-color,
+    --loader-circle-track-fill-color
+  ] from "@actionishope/shelley/ProgressCircle/progressCircle.st.css";
+
+@st-scope Shelley {
+  ProgressCircle {
+    --loader-circle-track-fill-color: var(--color-accent-1);
+    --loader-circle-track-color: rgba(var(--color-ui-raw), 0.2)
+  }
+
+  ProgressCircle:variant(overBackground) {
+    --loader-circle-track-fill-color: var(--color-accent-1);
+    --loader-circle-track-color: rgba(var(--color-ui-raw), 0.2)
+  }
+}

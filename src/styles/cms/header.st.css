@@ -75,7 +75,8 @@
 
     Header::nav > a {
       width: 100%;
-      color: #000
+      color: #000;
+      text-decoration: none;
     }
 
     Header Button .avatar {

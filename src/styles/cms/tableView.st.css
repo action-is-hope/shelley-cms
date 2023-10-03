@@ -46,6 +46,14 @@
 
   TableView::column {
     background-color: var(--color-background-main);
+    font-weight: 500;
+    /* @TODO: bugfix - apply this in shelley. */
+    z-index: 10;
+  }
+
+  /* @TODO: apply something like this shelley default */
+  TableView::cell svg {
+    font-size: 20px;
   }
 
 }

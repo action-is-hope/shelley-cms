@@ -4,6 +4,7 @@ import { StoryGrid } from "../StoryLayout";
 import { BlockEditor } from "../../components/BlockEditor/BlockEditor";
 import {
   BasicBlockEditor,
+  BlockEditorLoading,
   BlockEditorExampleWithReorder,
 } from "./BlockEditor.examples";
 
@@ -150,6 +151,27 @@ The following example shows the ReorderComponent being used with a few of the Bl
 <ArgsTable story="b) Reorder as child" />
 
 <Source language="tsx" id="editor-blockeditor--b-reorder-as-child" />
+
+Use a `ProgressCircle` to indicate fields are loading.
+
+<Story
+  name="c) BlockEditor - Loading"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<BlockEditor label="Block name">
+  <ProgressCircle isIndeterminate />
+</BlockEditor>
+`,
+      },
+    },
+  }}
+>
+  {BlockEditorLoading.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-blockeditor--c-block-editor-loading" />
 
 ...
 

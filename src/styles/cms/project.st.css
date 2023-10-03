@@ -17,6 +17,7 @@
   breakpoint-lg,
   breakpoint-lg-max,
   breakpoint-xl,
+  breakpoint-xxl,
   --text-vol-1-scale,
   --text-vol-2-scale,
   --text-vol-3-scale,
@@ -94,6 +95,8 @@
   --color-ui-raw-inverse: var(--dark-01-raw);
 
   /* = Accent colors */
+  --color-accent-1: rgb(117 234 255);
+  --color-accent-1-50: rgba(117 234 255 / 50%);
   --color-accent-1: #75eaff;
   --color-accent-2: #75ffd4;
   --color-accent-3: #c0eeff;
@@ -127,7 +130,7 @@
   --color-focus-mode-background: #000;
 
   /* = Header colors */
-  --color-header-background: #035C67;
+  --color-header-background: rgb(6 92 103);
   --color-header: rgba(var(--light-01-raw), 0.9);
   --color-header-border: #73e6fa63;
 
