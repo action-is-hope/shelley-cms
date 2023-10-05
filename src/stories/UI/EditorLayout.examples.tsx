@@ -34,7 +34,7 @@ export const BasicExample = () => {
     previewProps,
     previewChromeProps,
     previewActionsProps,
-  } = usePreview();
+  } = usePreview("laptop");
 
   // We need to set this dialog to open as part of BlockEditor->onMangeSelect
   const [contentActionDialogOpen, setContentActionDialogOpen] = useState(false);

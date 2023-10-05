@@ -53,7 +53,7 @@ type usePreviewReturn = {
   refs: Refs;
 };
 
-const usePreview = (): usePreviewReturn => {
+const usePreview = (defaultPreviewMode: PreviewModeType): usePreviewReturn => {
   const isDeviceMd = useIsDevice("md");
   /** Refs */
   const previewRef = useRef<HTMLDivElement>(null);
@@ -64,7 +64,8 @@ const usePreview = (): usePreviewReturn => {
 
   /** States */
   const [focusMode, setFocusMode] = useState<boolean>(false);
-  const [previewMode, setPreviewMode] = useState<PreviewModeType>("web");
+  const [previewMode, setPreviewMode] =
+    useState<PreviewModeType>(defaultPreviewMode);
   const [fullScreenMode, setFullScreenMode] = useState<boolean>(false);
 
   const editorLayoutProps: EditorLayoutProps = {
