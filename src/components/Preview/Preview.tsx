@@ -29,7 +29,7 @@ function Preview(props: PreviewProps, ref?: React.Ref<HTMLDivElement>) {
     className: classNameProp,
     children,
     focusOnProps,
-    previewMode = "web",
+    previewMode = "laptop",
     onModeChange,
     previewModesRef,
     "data-id": dataId,

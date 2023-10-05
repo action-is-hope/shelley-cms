@@ -21,7 +21,7 @@ export const BasicExample = () => {
     previewProps,
     previewChromeProps,
     previewActionsProps,
-  } = usePreview();
+  } = usePreview("laptop");
 
   return (
     <div className={classes.previewExample}>
