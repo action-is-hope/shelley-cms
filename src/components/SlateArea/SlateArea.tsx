@@ -1,4 +1,11 @@
-import { createEditor, Editor, Element as SlateElement } from "slate";
+import {
+  createEditor,
+  Editor,
+  Transforms,
+  Range,
+  Element as SlateElement,
+  BaseRange,
+} from "slate";
 import { withHistory } from "slate-history";
 import { Editable, Slate, withReact } from "slate-react";
 import isHotkey, { KeyboardEventLike } from "is-hotkey";
@@ -218,6 +225,14 @@ const SlateArea = ({
     if (onFocus) onFocus();
   };
 
+  const [prevSelection, setPrevSelection] = useState<BaseRange | null>(null);
+
+  const doesFeatureExist = (featureName: string) => {
+    return featureSet?.some(
+      (func: { name: string }) => func.name === featureName
+    ) as boolean;
+  };
+
   return (
     <ErrorBoundary>
       <Slate
@@ -258,11 +273,19 @@ const SlateArea = ({
             className
           )}
           onKeyDown={(event) => {
-            // @todo What was the purpose of this?
-            // if (event.key === "Tab") {
-            //   event.preventDefault();
-            //   Transforms.move(editor, { distance: 2, unit: "line" });
-            // }
+            // Provide tabbing if in a Table so that we do not get trapped within a Table.
+            // @todo: Needs work -> Initial focus needs to find the first cell and focus it.
+            if (event.key === "Tab" && doesFeatureExist("TableFeature")) {
+              // Get the current selection
+              const currentSelection = editor.selection;
+              if (prevSelection !== currentSelection) {
+                event.preventDefault();
+                // Move the cursor to the next cell (or handle other logic)
+                Transforms.move(editor, { distance: 1, unit: "line" });
+              }
+              // Update the previous selection
+              setPrevSelection(currentSelection);
+            }
 
             const markHotkey =
               matchKeyboardEventAgainstHotkeys(markHotkeys)(event);
