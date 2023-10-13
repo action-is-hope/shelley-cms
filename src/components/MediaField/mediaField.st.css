@@ -4,7 +4,7 @@
 
 .root {
   -st-states: type(enum(icon, video, image, document));
-  margin: 20px 0;
+  margin: 20px;
 }
 
 .label {}
@@ -38,7 +38,7 @@
 .editControls {
   grid-area: preview;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
   min-height: 110px;
   cursor: pointer;

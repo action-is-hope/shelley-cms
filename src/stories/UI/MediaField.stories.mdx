@@ -35,6 +35,8 @@ MediaField is a generic UI for displaying adding and displaying media items.
         code: dedent`
 <MediaField
   onAdd={() => console.log("Add Media")}
+  onEdit={() => console.log("Edit Media")}
+  onRemove={() => console.log("Remove media")}
 />`,
       },
     },
@@ -52,6 +54,9 @@ MediaField is a generic UI for displaying adding and displaying media items.
       source: {
         code: dedent`
 <MediaField
+  onAdd={() => console.log("Add Media")}
+  onEdit={() => console.log("Edit Media")}
+  onRemove={() => console.log("Remove media")}
   type="image"
   mediaPreview={
     <img
