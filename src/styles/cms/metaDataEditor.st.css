@@ -148,6 +148,14 @@
     background-color: var(--color-background-3);
   }
 
+  MetaDataEditor Field:isDisabled {
+    filter: none;
+  }
+
+  MetaDataEditor:isOpen Field:isDisabled {
+    filter: saturate(15%) brightness(70%);
+  }
+
   /* Target fields with label by side as designed. */
   MetaDataEditor Field:labelPosition(side) {
     grid-template-columns: 96px 1fr;

@@ -1,9 +1,4 @@
-import {
-  createEditor,
-  Editor,
-  Element as SlateElement,
-  Transforms,
-} from "slate";
+import { createEditor, Editor, Element as SlateElement } from "slate";
 import { withHistory } from "slate-history";
 import { Editable, Slate, withReact } from "slate-react";
 import isHotkey, { KeyboardEventLike } from "is-hotkey";
@@ -95,6 +90,8 @@ export interface SlateAreaProps {
    * Props passed to inline menu.
    */
   inlineMenuProps?: any;
+  /** Apply specified tabindex to the editor */
+  tabIndex?: number;
 }
 
 const SlateArea = ({
@@ -110,6 +107,7 @@ const SlateArea = ({
   InlineMenu,
   inlineMenuProps = {},
   vol = 2,
+  tabIndex,
 }: SlateAreaProps) => {
   const getFeatureSet = useCallback(() => {
     if (featureSet) return featureSet;
@@ -236,6 +234,7 @@ const SlateArea = ({
 
         <Editable
           onFocus={handleFocus}
+          tabIndex={tabIndex}
           {...{ placeholder, renderElement, renderLeaf, name }}
           // NOTE: Do not remove renderPlaceholder or it will break the drag and drop functionality!
           renderPlaceholder={({ children, attributes }) => (
@@ -259,10 +258,11 @@ const SlateArea = ({
             className
           )}
           onKeyDown={(event) => {
-            if (event.key === "Tab") {
-              event.preventDefault();
-              Transforms.move(editor, { distance: 2, unit: "line" });
-            }
+            // @todo What was the purpose of this?
+            // if (event.key === "Tab") {
+            //   event.preventDefault();
+            //   Transforms.move(editor, { distance: 2, unit: "line" });
+            // }
 
             const markHotkey =
               matchKeyboardEventAgainstHotkeys(markHotkeys)(event);

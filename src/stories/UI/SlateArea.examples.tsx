@@ -142,6 +142,7 @@ export const SlateAreaTable = () => {
     <SlateArea
       name="table"
       defaultValue={defaultValueWithMenus}
+      tabIndex={-1}
       featureSet={[
         ParagraphFeature,
         BoldFeature,
