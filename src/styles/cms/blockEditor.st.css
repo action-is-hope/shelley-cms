@@ -70,7 +70,7 @@
 
   BlockEditor::mainContent > form {
     padding-right: 80px;
-    padding-left: 2px;
+    padding-left: 0;
   }
 
   BlockEditor::mainContent > form > TextField::fieldInput,
@@ -80,7 +80,7 @@
   }
 
   BlockEditor::mainContent form > TextField::fieldContainer::before {
-    background-color: transparent;
+    /* background-color: transparent; */
   }
 
   /* ReorderItems - Overrides*/

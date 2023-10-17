@@ -3,6 +3,7 @@
   --color-ui,
   --color-ui-inverse,
   --spacing-unit,
+  --color-accent-1,
   --color-accent-2,
   --color-focus,
   --text-vol-3-scale, --text-vol-3-max,
@@ -31,8 +32,40 @@
 @st-scope CMS {
   SlateArea {
     color: inherit;
-    -webkit-font-smoothing: antialiased;
     padding: var(--field-padding);
+  }
+
+  SlateArea::placeholder {
+    color: green
+  }
+
+  SlateArea::before {
+    content: 'RTF';
+    display: block;
+    position: absolute;
+    font-size: 9px;
+    letter-spacing: 1px;
+    left: 0px;
+    top: calc(50% - 8px);
+    /* top: 0; */
+    /* font-style: italic; */
+    font-weight: 900;
+    background-color: var(--color-focus);
+    color: white;
+    padding: 1px 4px;
+    opacity: 0;
+    transition: all 0.2s linear;
+    /* font-family: Copperplate, Copperplate Gothic Light, fantasy;
+    font-family: Arial, Helvetica, sans-serif; */
+    /* -webkit-font-smoothing: antialiased; */
+  }
+
+  SlateArea:focus-within::before {
+    opacity: 1;
+  }
+
+  SlateArea::before {
+    /* top: 10px; */
   }
 
   SlateArea::after {
@@ -44,9 +77,13 @@
     left: 0;
     background: rgba(0, 0, 0, 0.2);
     background: var(--color-focus);
-    width: 2px;
+    width: 0;
     opacity: 0;
     transition: all 0.2s linear;
+  }
+
+  SlateArea::after {
+    box-shadow: 0 0 1px 1px var(--color-focus);
   }
 
   SlateArea:focus-within::after {

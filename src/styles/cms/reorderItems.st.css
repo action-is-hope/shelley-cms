@@ -53,7 +53,8 @@
     border: 1px dashed #9a326c;
   }
 
-  ReorderItems::item TextField:variant(quiet) {
+  ReorderItems::item TextField:variant(quiet),
+  ReorderItems::item SlateArea {
     margin-left: calc(var(--spacing-unit) * -1);
   }
 

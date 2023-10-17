@@ -9,7 +9,9 @@ import {
 } from "@actionishope/shelley";
 import { ReorderItems } from "../../components/ReorderItems/ReorderItems";
 import { useState } from "react";
-
+import SlateArea from "../../components/SlateArea/SlateArea";
+import { classes } from "../../styles/cms/field.st.css";
+import { Link } from "../../components/icons";
 export const ReorderBlocksExample = () => {
   const contentBlocksData = [
     { id: "1", label: "Title", description: "Description/Identity text" },
@@ -66,21 +68,47 @@ export const ReorderFieldGroupsExample = () => {
         variant="quiet"
         vol={3}
       />
-      <TextField
-        label="Description"
-        labelPosition="hidden"
-        placeholder="Description"
-        variant="quiet"
+      <SlateArea
         vol={2}
+        placeholder={`Description`}
+        name="title"
+        defaultValue={""}
       />
-      <ButtonGroup>
-        <Button vol={1} variant="primary">
-          Save CTA
-        </Button>
-        <Button vol={1} variant="secondary">
-          Cancel
-        </Button>
-      </ButtonGroup>
+      <div>
+        <TextField
+          label="CTA"
+          labelPosition="hidden"
+          placeholder="CTA Text"
+          variant="outlined"
+          vol={1}
+          className={classes.ctaLink}
+        />
+        <TextField
+          label="CTA"
+          labelPosition="hidden"
+          placeholder="CTA Text"
+          variant="outlined"
+          vol={1}
+          className={classes.ctaButton}
+        />
+        <TextField
+          label={<Link />}
+          labelPosition="top"
+          placeholder="CTA URL"
+          variant="quiet"
+          vol={1}
+          value="http://google.com"
+          className={classes.url}
+        />
+        <ButtonGroup>
+          <Button vol={1} variant="primary">
+            Save CTA
+          </Button>
+          <Button vol={1} variant="secondary">
+            Cancel
+          </Button>
+        </ButtonGroup>
+      </div>
     </form>
   );
 
