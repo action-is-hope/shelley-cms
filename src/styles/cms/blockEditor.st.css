@@ -12,6 +12,7 @@
 
 /* = Root Component */
 @st-import BlockEditor, [menu] from "../../components/BlockEditor/blockEditor.st.css";
+@st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import ProgressCircle, [ --loader-circle-medium-height, --loader-circle-medium-width] from "@actionishope/shelley/ProgressCircle/progressCircle.st.css";
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
@@ -67,9 +68,19 @@
     /* border-bottom-color: transparent; */
   }
 
-  BlockEditor::mainContent > form > TextField::fieldInput {
+  BlockEditor::mainContent > form {
+    padding-right: 80px;
+    padding-left: 2px;
+  }
+
+  BlockEditor::mainContent > form > TextField::fieldInput,
+  BlockEditor::mainContent > form > SlateArea {
     padding-left: calc(var(--spacing-unit) * 3.2);
     -webkit-font-smoothing: antialiased;
+  }
+
+  BlockEditor::mainContent form > TextField::fieldContainer::before {
+    background-color: transparent;
   }
 
   /* ReorderItems - Overrides*/

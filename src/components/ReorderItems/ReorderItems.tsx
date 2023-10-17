@@ -13,6 +13,7 @@ import { Button } from "@actionishope/shelley/Button";
 import { H2, P } from "@actionishope/shelley/Text";
 import CloseSmall from "../icons/CloseSmall";
 import { st, classes } from "./reorderItems.st.css";
+import DragIndicator from "../icons/DragIndicator";
 export interface moveItemParams {
   fromIndex: number;
   toIndex: number;
@@ -165,6 +166,7 @@ function ReorderItems(
                           )}
                           {item?.content}
                         </div>
+                        <DragIndicator className={classes.dragIcon} />
                       </div>
                     )}
                   </Draggable>

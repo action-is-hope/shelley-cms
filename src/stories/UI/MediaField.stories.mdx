@@ -1,0 +1,184 @@
+import { TextField } from "@actionishope/shelley";
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import { MediaField } from "../../components/MediaField/MediaField";
+import { classes } from "../../components/MediaField/mediaField.st.css";
+
+<Meta
+  title="Editor/MediaField"
+  argTypes={{
+    reviewRequired: {
+      control: { type: "boolean" },
+    },
+  }}
+  component={MediaField}
+  decorators={[(Story) => <Story />]}
+/>
+
+# MediaField
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { MediaField } from "@actionishope/shelley-cms";
+  `}
+/>
+
+MediaField is a generic UI for displaying adding and displaying media items.
+
+<Story
+  name="a) MediaField"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<MediaField
+  onAdd={() => console.log("Add Media")}
+  onEdit={() => console.log("Edit Media")}
+  onRemove={() => console.log("Remove media")}
+/>`,
+      },
+    },
+  }}
+>
+  <MediaField onAdd={() => console.log("Add Media")} />
+</Story>
+
+<Source language="tsx" id="editor-mediafield--a-media-field" />
+
+<Story
+  name="b) MediaField with preview"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<MediaField
+  onAdd={() => console.log("Add Media")}
+  onEdit={() => console.log("Edit Media")}
+  onRemove={() => console.log("Remove media")}
+  type="image"
+  mediaPreview={
+    <img
+      src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
+      alt=""
+    />
+  }
+/>`,
+      },
+    },
+  }}
+>
+  <MediaField
+    type="image"
+    onAdd={() => console.log("Add Media")}
+    onEdit={() => console.log("Edit Media")}
+    onRemove={() => console.log("Remove media")}
+    mediaPreview={
+      <img
+        src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
+        alt=""
+      />
+    }
+  />
+</Story>
+
+<Source language="tsx" id="editor-mediafield--b-media-field-with-preview" />
+
+## Content
+
+Takes any children but designed to work with inputs fields. You can position them by applying the relevant grid area.
+
+<Story
+  name="c) MediaField with children"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+import { classes } from "@actionishope/shelley-cms/components/MediaField/mediaField.st.css";\n
+<MediaField
+  type="image"
+  mediaPreview={
+    <img
+      src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
+      alt=""
+    />
+  }
+>
+  <TextField
+    className={classes.altArea}
+    type="textarea"
+    rows={1}
+    variant="quiet"
+    placeholder="Alt text"
+    label="Alt text"
+    labelPosition="hidden"
+    vol={2}
+  />
+  <TextField
+    className={classes.captionArea}
+    type="textarea"
+    rows={1}
+    variant="quiet"
+    placeholder="Caption"
+    label="Caption"
+    labelPosition="hidden"
+    vol={2}
+  />
+</MediaField>`,
+      },
+    },
+  }}
+>
+  <MediaField
+    type="image"
+    mediaPreview={
+      <img
+        src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
+        alt=""
+      />
+    }
+  >
+    <TextField
+      className={classes.altArea}
+      type="textarea"
+      rows={1}
+      variant="quiet"
+      placeholder="Alt text"
+      label="Alt text"
+      labelPosition="hidden"
+      vol={2}
+    />
+    <TextField
+      className={classes.captionArea}
+      type="textarea"
+      rows={1}
+      variant="quiet"
+      placeholder="Caption"
+      label="Caption"
+      labelPosition="hidden"
+      vol={2}
+    />
+  </MediaField>
+</Story>
+
+<Source language="tsx" id="editor-mediafield--c-media-field-with-children" />
+
+## TextField Props
+
+<ArgsTable of={MediaField} />
+
+## Stying
+
+Add some info...
+
+<Source
+  language="css"
+  dark
+  format={false}
+  code={dedent`
+    #docs {
+      write-some: style-docs;
+    }
+  `}
+/>

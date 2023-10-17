@@ -1,8 +1,9 @@
 import {
   createEditor,
   Editor,
-  Element as SlateElement,
   Transforms,
+  Element as SlateElement,
+  BaseRange,
 } from "slate";
 import { withHistory } from "slate-history";
 import { Editable, Slate, withReact } from "slate-react";
@@ -95,6 +96,8 @@ export interface SlateAreaProps {
    * Props passed to inline menu.
    */
   inlineMenuProps?: any;
+  /** Apply specified tabindex to the editor */
+  tabIndex?: number;
 }
 
 const SlateArea = ({
@@ -110,6 +113,7 @@ const SlateArea = ({
   InlineMenu,
   inlineMenuProps = {},
   vol = 2,
+  tabIndex,
 }: SlateAreaProps) => {
   const getFeatureSet = useCallback(() => {
     if (featureSet) return featureSet;
@@ -220,6 +224,14 @@ const SlateArea = ({
     if (onFocus) onFocus();
   };
 
+  const [prevSelection, setPrevSelection] = useState<BaseRange | null>(null);
+
+  const doesFeatureExist = (featureName: string) => {
+    return featureSet?.some(
+      (func: { name: string }) => func.name === featureName
+    ) as boolean;
+  };
+
   return (
     <ErrorBoundary>
       <Slate
@@ -236,6 +248,7 @@ const SlateArea = ({
 
         <Editable
           onFocus={handleFocus}
+          tabIndex={tabIndex}
           {...{ placeholder, renderElement, renderLeaf, name }}
           // NOTE: Do not remove renderPlaceholder or it will break the drag and drop functionality!
           renderPlaceholder={({ children, attributes }) => (
@@ -259,9 +272,18 @@ const SlateArea = ({
             className
           )}
           onKeyDown={(event) => {
-            if (event.key === "Tab") {
-              event.preventDefault();
-              Transforms.move(editor, { distance: 2, unit: "line" });
+            // Provide tabbing if in a Table so that we do not get trapped within a Table.
+            // @todo: Needs work -> Initial focus needs to find the first cell and focus it.
+            if (event.key === "Tab" && doesFeatureExist("TableFeature")) {
+              // Get the current selection
+              const currentSelection = editor.selection;
+              if (prevSelection !== currentSelection) {
+                event.preventDefault();
+                // Move the cursor to the next cell (or handle other logic)
+                Transforms.move(editor, { distance: 1, unit: "line" });
+              }
+              // Update the previous selection
+              setPrevSelection(currentSelection);
             }
 
             const markHotkey =

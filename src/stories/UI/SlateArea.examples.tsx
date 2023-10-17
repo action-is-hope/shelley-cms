@@ -142,6 +142,8 @@ export const SlateAreaTable = () => {
     <SlateArea
       name="table"
       defaultValue={defaultValueWithMenus}
+      onChange={(value) => console.log("onChange", value)}
+      // tabIndex={-1}
       featureSet={[
         ParagraphFeature,
         BoldFeature,

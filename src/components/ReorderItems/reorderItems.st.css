@@ -62,3 +62,5 @@
 .contentDescription {
   -st-extends: Text;
 }
+
+.dragIcon {}

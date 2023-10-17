@@ -10,6 +10,9 @@
 /* = Root Component */
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
+@st-import Button from "@actionishope/shelley/Button/button.st.css";
+@st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
+@st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
 
 @st-scope CMS {
   ReorderItems {
@@ -42,8 +45,26 @@
 
   ReorderItems::item {
     padding: var(--spacing-unit);
+    padding-right: calc(var(--spacing-unit) * 3);
+    padding-bottom: calc(var(--spacing-unit) * 2);
     border-radius: 4px;
     margin-bottom: calc(var(--spacing-unit) * 2);
+    position: relative;
+    border: 1px dashed #9a326c;
+  }
+
+  ReorderItems::item TextField:variant(quiet) {
+    margin-left: calc(var(--spacing-unit) * -1);
+  }
+
+  ReorderItems::item TextField:variant(quiet)::fieldInput,
+  ReorderItems::item SlateArea {
+    padding-left: calc(var(--spacing-unit) * 2);
+  }
+
+  ReorderItems::item ButtonGroup {
+    margin-top: var(--spacing-unit);
+    margin-left: var(--spacing-unit);
   }
 
   ReorderItems::item:isDragging {
@@ -55,21 +76,29 @@
     box-shadow: 0 0 1px 1px rgb(6 92 103);
   }
 
+  ReorderItems::dragIcon {
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 12px);
+    font-size: 1.5em;
+  }
 
   ReorderItems::content {
     position: relative;
     /* Something to grab if fields are present. */
     padding-top: calc(var(--spacing-unit) / 2);
-
   }
 
   ReorderItems::deleteButton:variant("fab") {
     border: 1px solid var(--color-border-2);
+    border: 1px dashed #9a326c;
     top: -28px;
     left: -28px;
+    /* left: 100%; */
     width: 30px;
     height: 30px;
     position: absolute;
+    opacity: 1;
   }
 
   ReorderItems::contentLabel {
@@ -82,4 +111,6 @@
   }
 
   ReorderItems::contentDescription {}
+
+
 }
