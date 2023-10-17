@@ -1,0 +1,50 @@
+import {
+  Meta,
+  Canvas,
+  Story,
+  Preview,
+  ArgsTable,
+  Source,
+} from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { Button, ButtonGroup, Icon, TextField } from "@actionishope/shelley";
+import { StoryCenteredInline } from "../StoryLayout";
+import { classes as field } from "../../styles/cms/field.st.css";
+
+<Meta
+  title="Inputs/Fields"
+  argTypes={{
+    tone: {
+      options: [1, 2, 3, 4],
+      control: { type: "inline-radio" },
+      description: "Tone of the button",
+    },
+    variant: {
+      options: ["primary", "secondary", "quiet", "fab"],
+      control: { type: "inline-radio" },
+    },
+    vol: {
+      options: [1, 2, 3, 4, 5, 6],
+      control: { type: "inline-radio" },
+    },
+  }}
+/>
+
+# Field examples
+
+<Story name="a) CTA">
+  <StoryCenteredInline>
+    <div style={{ display: "flex", gap: "20px", flexDirection: "column" }}>
+      <TextField label="Name" vol={3} variant="quiet" />
+      <TextField
+        label="CTA"
+        className={field.cta}
+        labelPosition="hidden"
+        placeholder="Call to action text"
+        vol={1}
+      />
+    </div>
+  </StoryCenteredInline>
+</Story>
+
+## Button variants

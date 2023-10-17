@@ -4,6 +4,7 @@ import {
   MenuTrigger,
   Menu,
   Button,
+  ButtonGroup,
   Item,
 } from "@actionishope/shelley";
 import { ReorderItems } from "../../components/ReorderItems/ReorderItems";
@@ -49,12 +50,19 @@ export const ReorderBlocksExample = () => {
 
 export const ReorderFieldGroupsExample = () => {
   const ItemForm = (props: Partial<InputTextProps>) => (
-    <form style={{ display: "grid", gap: "16px" }}>
+    <form>
       <TextField
         {...props}
         label="Test"
         labelPosition="hidden"
         placeholder="Title"
+        variant="quiet"
+        vol={5}
+      />
+      <TextField
+        label="Subtitle"
+        labelPosition="hidden"
+        placeholder="Subtitle"
         variant="quiet"
         vol={3}
       />
@@ -63,8 +71,16 @@ export const ReorderFieldGroupsExample = () => {
         labelPosition="hidden"
         placeholder="Description"
         variant="quiet"
-        vol={1}
+        vol={2}
       />
+      <ButtonGroup>
+        <Button vol={1} variant="primary">
+          Save CTA
+        </Button>
+        <Button vol={1} variant="secondary">
+          Cancel
+        </Button>
+      </ButtonGroup>
     </form>
   );
 

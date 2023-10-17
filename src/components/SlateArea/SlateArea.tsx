@@ -2,7 +2,6 @@ import {
   createEditor,
   Editor,
   Transforms,
-  Range,
   Element as SlateElement,
   BaseRange,
 } from "slate";

@@ -33,7 +33,6 @@
     color: inherit;
     -webkit-font-smoothing: antialiased;
     padding: var(--field-padding);
-    padding-left: calc(var(--spacing-unit) * 3.2);
   }
 
   SlateArea::after {

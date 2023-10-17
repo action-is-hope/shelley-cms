@@ -6,6 +6,7 @@
 
 /* = Root Component */
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
+@st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 
 @st-scope body CMS {
 
@@ -17,5 +18,20 @@
   Field:labelPosition(side)::helpText {
     padding-left: var(--spacing-unit);
     color: var(--color-text-3);
+  }
+
+  .cta {
+    -st-extends: TextField;
+  }
+
+  .cta:variant(outlined)::fieldInput {
+    padding-top: calc((var(--spacing-unit) * 1));
+    padding-bottom: calc((var(--spacing-unit) * 1))
+  }
+
+  .cta:variant(outlined)::fieldset {
+    border-radius: 999em;
+    border-width: 2px;
+    border-color: black;
   }
 }
