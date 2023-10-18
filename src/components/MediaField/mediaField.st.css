@@ -3,14 +3,32 @@
 @st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/default/mixins/focus.st.css";
 
 .root {
-  -st-states: type(enum(icon, video, image, document));
-  margin: 20px;
+  -st-states: type(enum(icon, video, image, document)), hasPreview;
 }
 
 .label {}
 
-.mediaPreview {
+.trigger {
+  -st-extends: Button;
+}
+
+.grid {
   display: grid;
+  grid-template-columns: 50px 20px 1fr;
+  grid-template-areas: 'trigger orText children';
+  align-items: center;
+  margin: 0;
+}
+
+.trigger {
+  grid-area: trigger;
+}
+
+.orText {
+  grid-area: orText;
+}
+
+.root:hasPreview::grid {
   grid-template-areas:
     'preview alt'
     'preview caption'
@@ -18,7 +36,6 @@
   grid-template-columns: 4fr 6fr;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  margin: 0;
 }
 
 .media {
@@ -40,7 +57,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  min-height: 110px;
+  height: 100%;
   cursor: pointer;
   position: relative;
   outline: none;
@@ -60,18 +77,18 @@
   cursor: default;
 }
 
-.button {
+.editButton {
   -st-extends: Button;
 }
 
-.button:variant(fab) {
+.editButton:variant(fab) {
   transition: transform 0.25s;
   transition: transform 0.2s, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease !important;
   transform: scale(0);
   z-index: 10;
 }
 
-.editControls:focus-within .button {
+.editControls:focus-within .editButton {
   transform: scale(1);
 }
 
@@ -89,3 +106,5 @@
   grid-area: copyright;
   height: fit-content;
 }
+
+.childrenArea {}

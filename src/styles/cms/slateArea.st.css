@@ -5,6 +5,7 @@
   --spacing-unit,
   --color-accent-1,
   --color-accent-2,
+  --color-background-3,
   --color-focus,
   --text-vol-3-scale, --text-vol-3-max,
   --text-vol-4-scale, --text-vol-4-max,
@@ -35,10 +36,6 @@
     padding: var(--field-padding);
   }
 
-  SlateArea::placeholder {
-    color: green
-  }
-
   SlateArea::before {
     content: 'RTF';
     display: block;
@@ -47,17 +44,12 @@
     letter-spacing: 1px;
     left: 0px;
     top: calc(50% - 8px);
-    /* top: 0; */
-    /* font-style: italic; */
     font-weight: 900;
     background-color: var(--color-focus);
     color: white;
     padding: 1px 4px;
     opacity: 0;
-    transition: all 0.2s linear;
-    /* font-family: Copperplate, Copperplate Gothic Light, fantasy;
-    font-family: Arial, Helvetica, sans-serif; */
-    /* -webkit-font-smoothing: antialiased; */
+    transition: opacity 0.2s linear;
   }
 
   SlateArea:focus-within::before {
@@ -179,6 +171,62 @@
   /* = Volume 6 */
   SlateArea:vol(6) {
     -st-mixin: inputVol6
+  }
+
+  /* CTA */
+  .cta {
+    -st-extends: SlateArea;
+  }
+
+  .cta {
+    margin-top: var(--spacing-unit);
+    width: fit-content;
+    min-width: 185px;
+  }
+
+  .cta:vol(1) {
+    font-size: 14px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--color-accent-1);
+  }
+
+  .cta:vol(1):focus-within {
+    border-color: var(--color-focus);
+  }
+
+  .cta:vol(1)::before {
+    top: -8px;
+    top: auto;
+    bottom: -8px;
+    left: var(--spacing-unit);
+    left: 0
+  }
+
+  .cta:vol(1):focus-within::after {
+    box-shadow: none;
+    opacity: 0;
+  }
+
+  .ctaButton {
+    -st-extends: cta;
+  }
+
+  .ctaButton {
+    border-radius: 999em;
+    background-color: var(--color-background-3);
+  }
+
+
+  /* CTA LINK */
+
+  .ctaLink {
+    -st-extends: cta;
+  }
+
+  .ctaLink:vol(1) {
+    border-width: 0 0 2px 0;
+    border-radius: 0;
   }
 
 }

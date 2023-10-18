@@ -11,6 +11,7 @@ import {
 } from "../../components/BlockEditor/BlockEditor";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
 import { classes } from "../../styles/cms/field.st.css";
+import { classes as slateArea } from "../../styles/cms/slateArea.st.css";
 // import ReorderItems from "../../components/ReorderItems/ReorderItems";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";
 import SlateArea from "../../components/SlateArea/SlateArea";
@@ -65,7 +66,7 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
       <form action="">
         <SlateArea vol={6} defaultValue={`Title`} name="title" />
         <SlateArea vol={3} defaultValue={`Description`} name="description" />
-        <div>
+        <div className={classes.ctaContainer}>
           <TextField
             label="CTA"
             labelPosition="hidden"
@@ -73,6 +74,20 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
             variant="outlined"
             vol={1}
             className={classes.ctaButton}
+          />
+          <SlateArea
+            vol={1}
+            defaultValue={``}
+            name="description"
+            placeholder="CTA Text"
+            className={slateArea.ctaButton}
+          />
+          <SlateArea
+            vol={1}
+            defaultValue={``}
+            name="description"
+            placeholder="CTA Text"
+            className={slateArea.ctaLink}
           />
           <TextField
             label={<Link />}
@@ -136,6 +151,7 @@ export const BlockEditorExampleWithReorder = (
             />
           </form>
           {item.includeReorderExample && <ReorderFieldGroupsExample />}
+          <Button variant="secondary">Add Item</Button>
         </BlockEditor>
       ))}
     </ContentArea>

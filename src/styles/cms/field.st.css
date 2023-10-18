@@ -12,6 +12,7 @@
 /* = Root Component */
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
+@st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
 
 @st-scope body CMS {
 
@@ -32,7 +33,7 @@
   }
 
   Field:variant(quiet)::fieldContainer::before {
-    width: 0px;
+    width: 0;
     transition: all 0.2s linear;
     background-color: var(--color-focus);
     opacity: 0;
@@ -41,10 +42,18 @@
   Field:variant(quiet)::fieldContainer:focus-within::before {
     background-color: var(--color-focus);
     opacity: 1;
-    width: 0px;
+    width: 0;
   }
 
-  /* .Default4287363713__root .Field350840386__root.Field350840386---variant-5-quiet .Field350840386__fieldContainer:focus-within::before, .Default4287363713__root .Field350840386__root.Field350840386---variant-5-quiet .Field350840386__fieldContainer:focus-within::after */
+  .ctaContainer {}
+
+  .ctaContainer .url {
+    margin-top: calc(var(--spacing-unit) / 4);
+    margin-left: calc(var(--spacing-unit) * -1);
+    margin-bottom: var(--spacing-unit);
+  }
+
+  .ctaContainer ButtonGroup {}
 
   /* CTA */
   .cta {
@@ -94,7 +103,6 @@
 
   .url {
     -st-extends: TextField;
-    margin: 10px 0 0
   }
 
   .url:variant(quiet)::fieldInput {
@@ -103,11 +111,25 @@
     color: var(--color-accent-1);
   }
 
+  .url:variant(quiet):vol(1):labelPosition(top)::fieldContainer::before {
+    top: 10px;
+    bottom: 10px;
+    left: 8px
+  }
+
   .url:vol(1)::inputLabel {
     position: absolute;
     font-size: 10px;
     left: 16px;
-    top: 10px;
+    top: 9px;
+  }
+
+  .url:vol(1)::inputLabel svg {
+    transition: all 0.2s linear
+  }
+
+  .url:vol(1):focus-within::inputLabel svg {
+    color: var(--color-focus);
   }
 
   .url:variant(quiet):vol(1):labelPosition(top)::fieldInput {

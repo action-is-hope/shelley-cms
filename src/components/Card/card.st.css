@@ -1,3 +1,4 @@
+@namespace "Card";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 
 .root {

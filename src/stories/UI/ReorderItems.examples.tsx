@@ -8,9 +8,12 @@ import {
   Item,
 } from "@actionishope/shelley";
 import { ReorderItems } from "../../components/ReorderItems/ReorderItems";
+import { MediaField } from "../../components/MediaField/MediaField";
+
 import { useState } from "react";
 import SlateArea from "../../components/SlateArea/SlateArea";
-import { classes } from "../../styles/cms/field.st.css";
+import { st, classes } from "../../styles/cms/field.st.css";
+import { classes as mediaField } from "../../components/MediaField/mediaField.st.css";
 import { Link } from "../../components/icons";
 export const ReorderBlocksExample = () => {
   const contentBlocksData = [
@@ -54,8 +57,63 @@ export const ReorderFieldGroupsExample = () => {
   const ItemForm = (props: Partial<InputTextProps>) => (
     <form>
       <TextField
+        // label="Media URL"
+        label={<Link alt="Media URL" />}
+        labelPosition="top"
+        placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
+        variant="quiet"
+        vol={1}
+        className={st(classes.url)}
+      />
+      <MediaField
+        type="image"
+        onAdd={() => console.log("Add Media")}
+        onEdit={() => console.log("Edit Media")}
+        onRemove={() => console.log("Remove media")}
+      >
+        <TextField
+          // label="Media URL"
+          label={<Link alt="Media URL" />}
+          labelPosition="top"
+          placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
+          variant="quiet"
+          vol={1}
+          className={st(mediaField.childrenArea, classes.url)}
+        />
+      </MediaField>
+
+      <MediaField
+        type="image"
+        onAdd={() => console.log("Add Media")}
+        onEdit={() => console.log("Edit Media")}
+        onRemove={() => console.log("Remove media")}
+        mediaPreview={
+          <img
+            src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
+            alt=""
+          />
+        }
+      >
+        {(hasPreview) => {
+          return (
+            <>
+              {!hasPreview && (
+                <TextField
+                  label={<Link alt="Media URL" />}
+                  labelPosition="top"
+                  placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
+                  variant="quiet"
+                  vol={1}
+                  className={st(mediaField.childrenArea, classes.url)}
+                />
+              )}
+            </>
+          );
+        }}
+      </MediaField>
+      <TextField
         {...props}
-        label="Test"
+        label="Title"
         labelPosition="hidden"
         placeholder="Title"
         variant="quiet"
@@ -74,7 +132,7 @@ export const ReorderFieldGroupsExample = () => {
         name="title"
         defaultValue={""}
       />
-      <div>
+      <div className={classes.ctaContainer}>
         <TextField
           label="CTA"
           labelPosition="hidden"

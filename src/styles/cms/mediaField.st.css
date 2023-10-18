@@ -1,0 +1,45 @@
+@namespace "MediaFieldCMS";
+@st-import CMS, [
+  --color-ui,
+  --color-ui-inverse,
+  --spacing-unit
+] from "./project.st.css";
+
+@st-import BlockEditor, [menu] from "../../components/BlockEditor/blockEditor.st.css";
+@st-import MediaField from "../../components/MediaField/mediaField.st.css";
+
+@st-import Modal, [
+  enter,
+  enterActive,
+  enterDone,
+  exit,
+  exitActive,
+  exitDone,
+  content,
+  backdrop blurBackground
+] from "@actionishope/shelley/Modal/modal.st.css";
+
+@st-scope CMS {
+
+  MediaField {
+    margin: calc(var(--spacing-unit) * 1)
+  }
+
+  MediaField::grid {
+    margin-left: calc(var(--spacing-unit) * -0.95)
+  }
+
+  MediaField:hasPreview::grid {
+    margin-left: 0
+  }
+
+  MediaField::grid {
+    grid-column-gap: calc(var(--spacing-unit) * 1);
+  }
+
+  MediaField::orText {
+    font-style: italic;
+  }
+
+  MediaField:hasPreview::grid {}
+}

@@ -13,6 +13,7 @@
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
 @st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
+@st-import [ ctaContainer ] from "./field.st.css";
 
 @st-scope CMS {
   ReorderItems {
@@ -63,9 +64,10 @@
     padding-left: calc(var(--spacing-unit) * 2);
   }
 
-  ReorderItems::item ButtonGroup {
-    margin-top: var(--spacing-unit);
-    margin-left: var(--spacing-unit);
+  ReorderItems::item ButtonGroup {}
+
+  ReorderItems::item .ctaContainer {
+    margin-left: calc(var(--spacing-unit) * 1);
   }
 
   ReorderItems::item:isDragging {
