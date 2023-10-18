@@ -1,13 +1,21 @@
-import { P, TextField, Button, ProgressCircle } from "@actionishope/shelley";
+import {
+  P,
+  TextField,
+  Button,
+  ButtonGroup,
+  ProgressCircle,
+} from "@actionishope/shelley";
 import {
   BlockEditor,
   BlockEditorProps,
 } from "../../components/BlockEditor/BlockEditor";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
-
+import { classes } from "../../styles/cms/field.st.css";
+import { classes as slateArea } from "../../styles/cms/slateArea.st.css";
 // import ReorderItems from "../../components/ReorderItems/ReorderItems";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";
 import SlateArea from "../../components/SlateArea/SlateArea";
+import { Link } from "../../components/icons";
 
 const contentBlocksData = [
   {
@@ -58,6 +66,47 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
       <form action="">
         <SlateArea vol={6} defaultValue={`Title`} name="title" />
         <SlateArea vol={3} defaultValue={`Description`} name="description" />
+        <div className={classes.ctaContainer}>
+          <TextField
+            label="CTA"
+            labelPosition="hidden"
+            placeholder="CTA Text"
+            variant="outlined"
+            vol={1}
+            className={classes.ctaButton}
+          />
+          <SlateArea
+            vol={1}
+            defaultValue={``}
+            name="description"
+            placeholder="CTA Text"
+            className={slateArea.ctaButton}
+          />
+          <SlateArea
+            vol={1}
+            defaultValue={``}
+            name="description"
+            placeholder="CTA Text"
+            className={slateArea.ctaLink}
+          />
+          <TextField
+            label={<Link />}
+            labelPosition="top"
+            placeholder="CTA URL"
+            variant="quiet"
+            vol={1}
+            value="http://google.com"
+            className={classes.url}
+          />
+          <ButtonGroup>
+            <Button vol={1} variant="primary">
+              Save CTA
+            </Button>
+            <Button vol={1} variant="secondary">
+              Cancel
+            </Button>
+          </ButtonGroup>
+        </div>
       </form>
     </BlockEditor>
   );
@@ -102,6 +151,7 @@ export const BlockEditorExampleWithReorder = (
             />
           </form>
           {item.includeReorderExample && <ReorderFieldGroupsExample />}
+          <Button variant="secondary">Add Item</Button>
         </BlockEditor>
       ))}
     </ContentArea>

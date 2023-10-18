@@ -3,7 +3,9 @@
   --color-ui,
   --color-ui-inverse,
   --spacing-unit,
+  --color-accent-1,
   --color-accent-2,
+  --color-background-3,
   --color-focus,
   --text-vol-3-scale, --text-vol-3-max,
   --text-vol-4-scale, --text-vol-4-max,
@@ -13,8 +15,6 @@
 ] from "./project.st.css";
 
 @st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
-
-
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import [respScale] from "../formatters/common";
 @st-import [
@@ -31,8 +31,31 @@
 @st-scope CMS {
   SlateArea {
     color: inherit;
-    -webkit-font-smoothing: antialiased;
     padding: var(--field-padding);
+  }
+
+  SlateArea::before {
+    content: 'RTF';
+    display: block;
+    position: absolute;
+    font-size: 9px;
+    letter-spacing: 1px;
+    left: 0px;
+    top: calc(50% - 8px);
+    font-weight: 900;
+    background-color: var(--color-focus);
+    color: white;
+    padding: 1px 4px;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+  }
+
+  SlateArea:focus-within::before {
+    opacity: 1;
+  }
+
+  SlateArea::before {
+    /* top: 10px; */
   }
 
   SlateArea::after {
@@ -44,9 +67,13 @@
     left: 0;
     background: rgba(0, 0, 0, 0.2);
     background: var(--color-focus);
-    width: 2px;
+    width: 0;
     opacity: 0;
     transition: all 0.2s linear;
+  }
+
+  SlateArea::after {
+    box-shadow: 0 0 1px 1px var(--color-focus);
   }
 
   SlateArea:focus-within::after {
@@ -142,6 +169,62 @@
   /* = Volume 6 */
   SlateArea:vol(6) {
     -st-mixin: inputVol6
+  }
+
+  /* CTA */
+  .cta {
+    -st-extends: SlateArea;
+  }
+
+  .cta {
+    margin-top: var(--spacing-unit);
+    width: fit-content;
+    min-width: 185px;
+  }
+
+  .cta:vol(1) {
+    font-size: 14px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--color-accent-1);
+  }
+
+  .cta:vol(1):focus-within {
+    border-color: var(--color-focus);
+  }
+
+  .cta:vol(1)::before {
+    top: -8px;
+    top: auto;
+    bottom: -8px;
+    left: var(--spacing-unit);
+    left: 0
+  }
+
+  .cta:vol(1):focus-within::after {
+    box-shadow: none;
+    opacity: 0;
+  }
+
+  .ctaButton {
+    -st-extends: cta;
+  }
+
+  .ctaButton {
+    border-radius: 999em;
+    background-color: var(--color-background-3);
+  }
+
+
+  /* CTA LINK */
+
+  .ctaLink {
+    -st-extends: cta;
+  }
+
+  .ctaLink:vol(1) {
+    border-width: 0 0 2px 0;
+    border-radius: 0;
   }
 
 }

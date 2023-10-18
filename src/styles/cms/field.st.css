@@ -1,14 +1,25 @@
-/* = Project scope and vars. */
+@namespace "FieldCMS";
 @st-import CMS, [
   --spacing-unit,
-  --color-text-3
+  --color-accent-1,
+  --color-text-3,
+  --color-focus,
+  --color-ui,
+  --color-background-3,
+  --color-background-main,
 ] from "./project.st.css";
 
-/* = Root Component */
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
+@st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
 
 @st-scope body CMS {
+
+  Field::fieldInput::placeholder,
+  Field::fieldInput textarea::placeholder {
+    color: var(--color-ui);
+    opacity: 0.34;
+  }
 
   Field:variant(outlined)::fieldContainer,
   Field:variant(outlined)::fieldset {
@@ -20,18 +31,106 @@
     color: var(--color-text-3);
   }
 
+  Field:variant(quiet)::fieldContainer::before {
+    width: 0;
+    transition: all 0.2s linear;
+    background-color: var(--color-focus);
+    opacity: 0;
+  }
+
+  Field:variant(quiet)::fieldContainer:focus-within::before {
+    background-color: var(--color-focus);
+    opacity: 1;
+    width: 0;
+  }
+
+  .ctaContainer {}
+
+  .ctaContainer .url {
+    margin-top: calc(var(--spacing-unit) / 4);
+    margin-left: calc(var(--spacing-unit) * -1);
+    margin-bottom: var(--spacing-unit);
+  }
+
+  .ctaContainer ButtonGroup {}
+
+  /* CTA */
   .cta {
     -st-extends: TextField;
   }
 
+  .cta {
+    margin-top: var(--spacing-unit);
+    width: fit-content;
+  }
+
   .cta:variant(outlined)::fieldInput {
-    padding-top: calc((var(--spacing-unit) * 1));
-    padding-bottom: calc((var(--spacing-unit) * 1))
+    font-size: 14px;
   }
 
   .cta:variant(outlined)::fieldset {
-    border-radius: 999em;
     border-width: 2px;
-    border-color: black;
+    border-color: var(--color-accent-1);
+  }
+
+  .ctaButton {
+    -st-extends: cta;
+  }
+
+  .ctaButton:variant(outlined)::fieldContainer {
+    border-radius: 999em;
+    background-color: var(--color-background-3);
+  }
+
+  .ctaButton:variant(outlined)::fieldset {
+    border-radius: 999em;
+  }
+
+  /* CTA LINK */
+
+  .ctaLink {
+    -st-extends: cta;
+  }
+
+  .ctaLink:variant(outlined)::fieldset {
+    border-width: 0 0 2px 0;
+    border-radius: 0;
+  }
+
+  /* URL */
+
+  .url {
+    -st-extends: TextField;
+  }
+
+  .url:variant(quiet)::fieldInput {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--color-accent-1);
+  }
+
+  .url:variant(quiet):vol(1):labelPosition(top)::fieldContainer::before {
+    top: 10px;
+    bottom: 10px;
+    left: 8px
+  }
+
+  .url:vol(1)::inputLabel {
+    position: absolute;
+    font-size: 10px;
+    left: 16px;
+    top: 9px;
+  }
+
+  .url:vol(1)::inputLabel svg {
+    transition: all 0.2s linear
+  }
+
+  .url:vol(1):focus-within::inputLabel svg {
+    color: var(--color-focus);
+  }
+
+  .url:variant(quiet):vol(1):labelPosition(top)::fieldInput {
+    padding-left: 40px
   }
 }

@@ -1,4 +1,4 @@
-/* = Project scope and vars. */
+@namespace "BlockEditorCMS";
 @st-import CMS, [
   --spacing-unit,
   --color-text-2,
@@ -7,16 +7,17 @@
   --color-background-3,
   --grad-1,
   --color-border-1,
-  --color-border-dialog
+  --color-border-dialog,
+  --field-padding
 ] from "./project.st.css";
 
-/* = Root Component */
 @st-import BlockEditor, [menu] from "../../components/BlockEditor/blockEditor.st.css";
 @st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
+@st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import ProgressCircle, [ --loader-circle-medium-height, --loader-circle-medium-width] from "@actionishope/shelley/ProgressCircle/progressCircle.st.css";
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
-
+@st-import [ ctaContainer ] from "./field.st.css";
 
 @st-scope CMS {
 
@@ -64,13 +65,13 @@
     background-color: var(--color-background-main);
   }
 
-  BlockEditor:last-of-type::mainContent {
-    /* border-bottom-color: transparent; */
-  }
-
   BlockEditor::mainContent > form {
     padding-right: 80px;
-    padding-left: 2px;
+    padding-left: 0;
+  }
+
+  BlockEditor::mainContent > form .ctaContainer {
+    margin-left: calc(var(--spacing-unit) * 3.2);
   }
 
   BlockEditor::mainContent > form > TextField::fieldInput,
@@ -79,17 +80,14 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  BlockEditor::mainContent form > TextField::fieldContainer::before {
-    background-color: transparent;
+  BlockEditor::mainContent > Button {
+    margin-top: calc(var(--spacing-unit) * 1);
+    margin-left: calc(var(--spacing-unit) * 3.2)
   }
 
   /* ReorderItems - Overrides*/
-  BlockEditor::mainContent ReorderItems {
-    margin-bottom: -1.3rem;
-  }
 
   BlockEditor::mainContent ReorderItems {
-    /* background: var(--grad-1); */
     background-color: var(--color-background-2);
   }
 

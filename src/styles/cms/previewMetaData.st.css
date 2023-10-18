@@ -1,4 +1,4 @@
-/* = Project scope and vars. */
+@namespace "PreviewMetaDataCMS";
 @st-import CMS, [
   breakpoint-lg,
   breakpoint-sm-max,
@@ -25,7 +25,6 @@
   --facebook-domain,
   --facebook-font
 ] from "./project.st.css";
-/* = Root Component */
 @st-import PreviewMetaData from "../../components/PreviewMetaData/previewMetaData.st.css";
 
 @st-scope CMS {

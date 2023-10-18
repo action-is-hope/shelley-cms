@@ -28,6 +28,7 @@ import "./previewChrome.st.css";
 import "./previewMetaData.st.css";
 import "./previewModes.st.css";
 import "./metaDataEditor.st.css";
+import "./mediaField.st.css";
 import "./reorderItems.st.css";
 import "./staleContentWidget.st.css";
 import "./tableView.st.css";

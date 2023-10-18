@@ -8,8 +8,13 @@ import {
   Item,
 } from "@actionishope/shelley";
 import { ReorderItems } from "../../components/ReorderItems/ReorderItems";
-import { useState } from "react";
+import { MediaField } from "../../components/MediaField/MediaField";
 
+import { useState } from "react";
+import SlateArea from "../../components/SlateArea/SlateArea";
+import { st, classes } from "../../styles/cms/field.st.css";
+import { classes as mediaField } from "../../components/MediaField/mediaField.st.css";
+import { Link } from "../../components/icons";
 export const ReorderBlocksExample = () => {
   const contentBlocksData = [
     { id: "1", label: "Title", description: "Description/Identity text" },
@@ -52,8 +57,63 @@ export const ReorderFieldGroupsExample = () => {
   const ItemForm = (props: Partial<InputTextProps>) => (
     <form>
       <TextField
+        // label="Media URL"
+        label={<Link alt="Media URL" />}
+        labelPosition="top"
+        placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
+        variant="quiet"
+        vol={1}
+        className={st(classes.url)}
+      />
+      <MediaField
+        type="image"
+        onAdd={() => console.log("Add Media")}
+        onEdit={() => console.log("Edit Media")}
+        onRemove={() => console.log("Remove media")}
+      >
+        <TextField
+          // label="Media URL"
+          label={<Link alt="Media URL" />}
+          labelPosition="top"
+          placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
+          variant="quiet"
+          vol={1}
+          className={st(mediaField.childrenArea, classes.url)}
+        />
+      </MediaField>
+
+      <MediaField
+        type="image"
+        onAdd={() => console.log("Add Media")}
+        onEdit={() => console.log("Edit Media")}
+        onRemove={() => console.log("Remove media")}
+        mediaPreview={
+          <img
+            src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
+            alt=""
+          />
+        }
+      >
+        {(hasPreview) => {
+          return (
+            <>
+              {!hasPreview && (
+                <TextField
+                  label={<Link alt="Media URL" />}
+                  labelPosition="top"
+                  placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
+                  variant="quiet"
+                  vol={1}
+                  className={st(mediaField.childrenArea, classes.url)}
+                />
+              )}
+            </>
+          );
+        }}
+      </MediaField>
+      <TextField
         {...props}
-        label="Test"
+        label="Title"
         labelPosition="hidden"
         placeholder="Title"
         variant="quiet"
@@ -66,21 +126,47 @@ export const ReorderFieldGroupsExample = () => {
         variant="quiet"
         vol={3}
       />
-      <TextField
-        label="Description"
-        labelPosition="hidden"
-        placeholder="Description"
-        variant="quiet"
+      <SlateArea
         vol={2}
+        placeholder={`Description`}
+        name="title"
+        defaultValue={""}
       />
-      <ButtonGroup>
-        <Button vol={1} variant="primary">
-          Save CTA
-        </Button>
-        <Button vol={1} variant="secondary">
-          Cancel
-        </Button>
-      </ButtonGroup>
+      <div className={classes.ctaContainer}>
+        <TextField
+          label="CTA"
+          labelPosition="hidden"
+          placeholder="CTA Text"
+          variant="outlined"
+          vol={1}
+          className={classes.ctaLink}
+        />
+        <TextField
+          label="CTA"
+          labelPosition="hidden"
+          placeholder="CTA Text"
+          variant="outlined"
+          vol={1}
+          className={classes.ctaButton}
+        />
+        <TextField
+          label={<Link />}
+          labelPosition="top"
+          placeholder="CTA URL"
+          variant="quiet"
+          vol={1}
+          value="http://google.com"
+          className={classes.url}
+        />
+        <ButtonGroup>
+          <Button vol={1} variant="primary">
+            Save CTA
+          </Button>
+          <Button vol={1} variant="secondary">
+            Cancel
+          </Button>
+        </ButtonGroup>
+      </div>
     </form>
   );
 

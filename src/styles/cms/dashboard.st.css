@@ -1,4 +1,4 @@
-/* = Project scope and vars. */
+@namespace "DashboardCMS";
 @st-import CMS, [
   --spacing-unit,
   --color-header-background,
@@ -9,7 +9,6 @@
 ] from "./project.st.css";
 @property st-global(--vh);
 
-/* = Root Component */
 @st-import Dashboard from "../../components/Dashboard/dashboard.st.css";
 
 @st-scope CMS {

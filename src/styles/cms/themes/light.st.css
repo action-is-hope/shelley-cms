@@ -50,6 +50,7 @@
     /* = Border colors */
     --color-border-1,
     --color-border-2,
+    --color-border-3,
     /* = Modal colors */
     --background-color-modal-backdrop,
     --color-border-dialog,
@@ -142,6 +143,7 @@
   /* = Border colors */
   --color-border-1: #fff;
   --color-border-2: rgba(var(--color-ui-raw-inverse), .7);
+  --color-border-3: rgba(var(--color-ui-raw), .7);
 
   /* = Modal colors */
   --background-color-modal-backdrop: rgb(0 0 0 / 40%);

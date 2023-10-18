@@ -1,14 +1,11 @@
-/* = Project scope and vars. */
+@namespace "PreviewActionsCMS";
 @st-import CMS, [
   --height-header-md,
   --color-background-2,
   --color-border-1,
 ] from "./project.st.css";
-/* = Root Component */
 @st-import PreviewActions from "../../components/PreviewActions/previewActions.st.css";
-/* = Child Components */
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
-
 
 @st-scope CMS {
 

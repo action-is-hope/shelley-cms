@@ -1,4 +1,4 @@
-/* = Project scope and vars. */
+@namespace "HeaderCMS";
 @st-import CMS, [
   --color-ui,
   --color-ui-inverse,
@@ -21,7 +21,6 @@
 ] from "./project.st.css";
 @property st-global(--vh);
 
-/* = Root Component */
 @st-import Header, [sitesDialog, userDialog, userDetails, themeSwitcher, avatar, userDetailsHeader] from "../../components/Header/header.st.css";
 @st-import Text from "@actionishope/shelley/Text/text.st.css";
 @st-import Icon from "@actionishope/shelley/Icon/icon.st.css";

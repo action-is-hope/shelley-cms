@@ -1,4 +1,4 @@
-/* = Project scope and vars. */
+@namespace "ListBoxOptionCMS";
 @st-import CMS, [
   --color-border-dialog,
   --background-color-modal-backdrop,
@@ -6,7 +6,6 @@
   --color-focus
 ] from "./project.st.css";
 
-/* = Root Component */
 @st-import ListBoxOption from "@actionishope/shelley/ListBoxOption/listBoxOption.st.css";
 
 @st-scope CMS {

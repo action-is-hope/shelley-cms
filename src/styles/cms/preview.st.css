@@ -1,4 +1,4 @@
-/* = Project scope and vars. */
+@namespace "PreviewCMS";
 @st-import CMS, [
   --spacing-unit,
   --height-header-md,
@@ -7,7 +7,6 @@
   --color-background-main,
   --color-background-3
 ] from "./project.st.css";
-/* = Root Component */
 @st-import Preview from "../../components/Preview/preview.st.css";
 
 @st-scope CMS {

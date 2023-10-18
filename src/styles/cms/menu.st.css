@@ -1,28 +1,19 @@
-/**
- * = Menu - menu.st.css
- * 
- * ========================================================================= */
+@namespace "MenuCMS";
 
-
-/* = Default project vars. */
 :import {
   -st-from: "@actionishope/shelley/styles/default/project.st.css";
   -st-named:
     --spacing-unit,
 }
 
-/* = Shelley project scope and vars. */
 :import {
   -st-from: "./project.st.css";
   -st-default: CMS;
   -st-named:
-    /* = CSS3 Switcher vars. */
     --color-background-main,
     --color-menu-selected-background,
     --color-menu-selected-text;
 }
-
-/* = Components */
 
 :import {
   -st-from: "@actionishope/shelley/MenuItem/menuItem.st.css";

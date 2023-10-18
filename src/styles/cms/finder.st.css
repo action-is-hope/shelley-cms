@@ -1,4 +1,4 @@
-/* = Project scope and vars. */
+@namespace "FinderCMS";
 @st-import CMS, [
   --color-ui,
   --color-ui-inverse,
@@ -16,7 +16,6 @@
 ] from "./project.st.css";
 @property st-global(--vh);
 
-/* = Root Component */
 @st-import Finder, [sidebarModal] from "../../components/Finder/finder.st.css";
 
 @st-import Card from "../../components/Card/card.st.css";
