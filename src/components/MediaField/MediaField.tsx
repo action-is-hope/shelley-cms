@@ -45,46 +45,44 @@ const MediaField = ({
     <div className={st(classes.root, { type, hasPreview: Boolean(mediaPreview) }, className)}>
       {labelText && <label className={classes.label}>{labelText}</label>}
       <div className={classes.grid}>
-      {!mediaPreview ? (
+      { !mediaPreview ? (
         <>
-        <Button
-          data-id="SelectImage"
-          icon={<Media alt={addText} />}
-          variant="fab"
-          onPress={onAdd}
-          className={classes.trigger}
-        />
-        {/* <Text vol={1} as="span" className={classes.orText}>HELLO</Text> */}
-        {!mediaPreview && children && <Text vol={1} as="span" className={classes.orText}>or</Text>}
+          <Button
+            data-id="SelectImage"
+            icon={<Media alt={addText} />}
+            variant="fab"
+            onPress={onAdd}
+            className={classes.trigger}
+          />
+          { !mediaPreview && children && <Text vol={1} as="span" className={classes.orText}>or</Text> }
         </>
       ) : (
           <>
             <div className={classes.media}>{mediaPreview}</div>
             <nav
-            // tabIndex makes container tabbable so keyboard users can see the options *before* they are focused.
-            tabIndex={0}
-            ref={navRef}
-            className={classes.editControls}
-            onClick={handleClick}
-          >
-            <Button
-              variant="fab"
-              className={classes.editButton}
-              onPress={onRemove}
-              vol={2}
-              icon={<Trash alt={removeText} />}
-            />
-            <Button
-              variant="fab"
-              className={classes.editButton}
-              onPress={onEdit}
-              vol={2}
-              icon={<Edit alt={editText} />}
-            />
-          </nav>
+              tabIndex={0}
+              ref={navRef}
+              className={classes.editControls}
+              onClick={handleClick}
+            >
+              <Button
+                variant="fab"
+                className={classes.editButton}
+                onPress={onRemove}
+                vol={2}
+                icon={<Trash alt={removeText} />}
+              />
+              <Button
+                variant="fab"
+                className={classes.editButton}
+                onPress={onEdit}
+                vol={2}
+                icon={<Edit alt={editText} />}
+              />
+            </nav>
           </>
       )}
-      {typeof children === "function" ? children(Boolean(mediaPreview)) : children}
+        {typeof children === "function" ? children(Boolean(mediaPreview)) : children}
       </div>
     </div>
   );

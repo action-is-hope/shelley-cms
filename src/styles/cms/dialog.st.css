@@ -1,10 +1,9 @@
-/* = Project scope and vars. */
+@namespace "DialogCMS";
 @st-import CMS, [
     --color-border-dialog,
     --background-color-modal-backdrop,
 ] from "./project.st.css";
 
-/* = Root Component */
 @st-import Dialog from "@actionishope/shelley/Dialog/dialog.st.css";
 
 @st-scope CMS {

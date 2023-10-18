@@ -6,7 +6,6 @@ import { ItalicFeature } from "../../components/SlateArea/features/ItalicFeature
 import { LinkFeature } from "../../components/SlateArea/features/LinkFeature/LinkFeature";
 import { ParagraphFeature } from "../../components/SlateArea/features/ParagraphFeature/ParagraphFeature";
 import { TableFeature } from "../../components/SlateArea/features/TableFeature/TableFeature";
-
 import { Button } from "@actionishope/shelley/Button";
 import { Menu } from "@actionishope/shelley/Menu";
 import { MenuTrigger } from "@actionishope/shelley/MenuTrigger";

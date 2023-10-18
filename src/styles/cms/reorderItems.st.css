@@ -1,13 +1,12 @@
-/* = Project scope and vars. */
+@namespace "ReorderItemsCMS";
 @st-import CMS, [
   --spacing-unit,
   --color-background-main,
   --color-header-background,
   --color-header,
-  --color-border-2
+  --color-border-3
 ] from "./project.st.css";
 
-/* = Root Component */
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
@@ -16,9 +15,6 @@
 @st-import [ ctaContainer ] from "./field.st.css";
 
 @st-scope CMS {
-  ReorderItems {
-    /* background-color: yellow !important; */
-  }
 
   ReorderItems::header {
     padding: 16px 24px;
@@ -51,7 +47,7 @@
     border-radius: 4px;
     margin-bottom: calc(var(--spacing-unit) * 2);
     position: relative;
-    border: 1px dashed #9a326c;
+    border: 1px dashed var(--color-border-3);
   }
 
   ReorderItems::item TextField:variant(quiet),
@@ -93,11 +89,9 @@
   }
 
   ReorderItems::deleteButton:variant("fab") {
-    border: 1px solid var(--color-border-2);
-    border: 1px dashed #9a326c;
+    border: 1px dashed var(--color-border-3);
     top: -28px;
     left: -28px;
-    /* left: 100%; */
     width: 30px;
     height: 30px;
     position: absolute;
@@ -114,6 +108,4 @@
   }
 
   ReorderItems::contentDescription {}
-
-
 }

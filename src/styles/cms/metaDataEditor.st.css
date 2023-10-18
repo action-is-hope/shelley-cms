@@ -1,4 +1,4 @@
-/* = Project scope and vars. */
+@namespace "metaDataEditorCMS";
 @st-import CMS, [
   breakpoint-md,
   --color-background-2,
@@ -10,16 +10,12 @@
   --box-shadow-metaData,
   --color-form-base-border
 ] from "./project.st.css";
-/* = Root Component */
+
 @st-import MetaDataEditor from "../../components/MetaDataEditor/metaDataEditor.st.css";
-/* Children */
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 
 @st-scope CMS {
-
-  /* State */
   MetaDataEditor {
-    /* --currentHeight: var(--height-header-sm); */
     --currentHeight: var(--height-header-md);
   }
 }

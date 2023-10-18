@@ -1,14 +1,11 @@
-/* = Project scope and vars. */
+@namespace "PreviewModesCMS";
 @st-import CMS, [--color-background-main] from "./project.st.css";
-/* = Root Component */
 @st-import PreviewModes from "../../components/PreviewModes/previewModes.st.css";
 
 @st-scope CMS {
   PreviewModes {
     height: 64px;
     width: 100%;
-    /* text-align: center; */
-    /* border-bottom: 1px dashed var(--color-border-2); */
     background: var(--color-background-main);
     z-index: 1;
     padding-top: 18px;

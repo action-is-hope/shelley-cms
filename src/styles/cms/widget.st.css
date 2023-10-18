@@ -1,4 +1,4 @@
-/* = Project scope and vars. */
+@namespace "WidgetCMS";
 @st-import CMS, [
   --spacing-unit,
   --color-background-contrast-1,
@@ -6,7 +6,6 @@
   breakpoint-md
 ] from "./project.st.css";
 
-/* = Root Component */
 @st-import Widget from "../../components/Widget/widget.st.css";
 
 @st-scope CMS {

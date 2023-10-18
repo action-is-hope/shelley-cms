@@ -1,4 +1,4 @@
-/* = Project scope and vars. */
+@namespace "EditorLayoutCMS";
 @st-import CMS, [
   breakpoint-lg,
   breakpoint-sm-max,

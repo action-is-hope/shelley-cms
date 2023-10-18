@@ -1,26 +1,15 @@
-/**
- * = BUTTON - button.st.css
- *
- * We only have one, so far so good. YOu should have enough sizes and hooks
- * but you can always add your own custome classes for whatever you need or 
- * wrap this button up inside other buttons pre configured for your usecases.
- * 
- * ========================================================================= */
+@namespace "ButtonCMS";
 
-
-/* = Default project vars. */
 :import {
   -st-from: "@actionishope/shelley/styles/default/project.st.css";
   -st-named:
     --spacing-unit;
 }
 
-/* = Shelley project scope and vars. */
 :import {
   -st-from: "./project.st.css";
   -st-default: CMS;
   -st-named:
-    /* = CSS3 Switcher vars. */
     --color-ui-inverse,
     --color-ui-raw-inverse,
     --color-accent-1,
@@ -31,7 +20,6 @@
     --color-background-3;
 }
 
-/* = Root Component */
 :import {
   -st-from: "@actionishope/shelley/Button/button.st.css";
   -st-default: Button;
@@ -41,15 +29,12 @@
     --text-color;
 }
 
-/* = Parent components */
 :import {
   -st-from: "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
   -st-default: ButtonGroup;
   -st-named: --seperator-color;
 }
 
-
-/* = This is how we can scope the styles in Stylable. */
 @st-scope CMS {
 
   Button {

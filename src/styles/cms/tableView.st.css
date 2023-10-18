@@ -1,4 +1,4 @@
-/* tableView.st.css */
+@namespace "TableViewCMS";
 @st-import CMS, [
     --color-background-main,
     --color-background-row as --project-color-background-row,
@@ -13,7 +13,7 @@
     --color-text-row-isHoveredSelected as --project-color-text-row-isHoveredSelected,
     --color-border-tbody as --project-color-border-tbody
   ] from "./project.st.css";
-/* Component API */
+
 @st-import TableView, [row] from "@actionishope/shelley/TableView/tableView.st.css";
 @st-import [
   --color-background-row,

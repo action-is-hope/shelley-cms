@@ -1,4 +1,5 @@
-/* = Default project vars. */
+@namespace "PageActionsCMS";
+
 :import {
   -st-from: "@actionishope/shelley/styles/default/project.st.css";
   -st-named:
@@ -7,12 +8,10 @@
     breakpoint-md-max;
 }
 
-/* = Shelley project scope and vars. */
 :import {
   -st-from: "./project.st.css";
   -st-default: CMS;
   -st-named:
-    /* = CSS3 Switcher vars. */
     --color-ui-inverse,
     --color-accent-1,
     --color-accent-2,
@@ -21,7 +20,6 @@
     --color-background-2;
 }
 
-/* = Root Component */
 :import {
   -st-from: "../../components/PageActions/pageActions.st.css";
   -st-default: PageActions;

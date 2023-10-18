@@ -15,7 +15,7 @@ import {
   classes as previewChrome,
 } from "../../components/PreviewChrome/previewChrome.st.css";
 import {
-  BlockEditorExampleWithReorder,
+  // BlockEditorExampleWithReorder,
   BasicBlockEditor,
 } from "./BlockEditor.examples";
 import { MetaDataEditorWithChildrenExample } from "./MetaDataEditor.examples";
@@ -58,7 +58,6 @@ export const BasicExample = () => {
           <MetaDataEditorWithChildrenExample />
           {/* BlockEditors */}
           <BasicBlockEditor {...blockEditorProps} />
-          <BlockEditorExampleWithReorder {...blockEditorProps} />
           <BasicBlockEditor {...blockEditorProps} />
           <BasicBlockEditor {...blockEditorProps} />
           <BasicBlockEditor {...blockEditorProps} />

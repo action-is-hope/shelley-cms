@@ -1,3 +1,4 @@
+@namespace "SpeedDialMenuCMS";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import Menu from "@actionishope/shelley/Menu/menu.st.css";
 @st-import MenuItem from "@actionishope/shelley/MenuItem/menuItem.st.css";

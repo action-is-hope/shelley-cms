@@ -15,8 +15,6 @@
 ] from "./project.st.css";
 
 @st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
-
-
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import [respScale] from "../formatters/common";
 @st-import [

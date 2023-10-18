@@ -1,4 +1,4 @@
-/* = Project scope and vars. */
+@namespace "FieldCMS";
 @st-import CMS, [
   --spacing-unit,
   --color-accent-1,
@@ -9,7 +9,6 @@
   --color-background-main,
 ] from "./project.st.css";
 
-/* = Root Component */
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
@@ -62,7 +61,6 @@
 
   .cta {
     margin-top: var(--spacing-unit);
-    /* margin-left: var(--spacing-unit); */
     width: fit-content;
   }
 

@@ -1,10 +1,9 @@
-/* = Project scope and vars. */
+@namespace "BadgeCMS";
 @st-import CMS, [
   --color-ui,
   --color-ui-inverse
 ] from "./project.st.css";
 
-/* = Root Component */
 @st-import Badge from "../../components/Badge/badge.st.css";
 
 @st-scope CMS {
