@@ -37,7 +37,7 @@
   }
 
   ReorderItems::dragContainer:empty {
-    display: none;
+    /* display: none; */
   }
 
   ReorderItems::dragContainer:isDragging {
@@ -112,4 +112,5 @@
   }
 
   ReorderItems::contentDescription {}
+
 }

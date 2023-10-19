@@ -15,6 +15,7 @@
 ] from "./project.st.css";
 
 @st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
+@st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import [respScale] from "../formatters/common";
 @st-import [
@@ -182,6 +183,10 @@
     min-width: 185px;
   }
 
+  ReorderItems::item .cta:vol(1):multiline {
+    margin-left: 0;
+  }
+
   .cta:vol(1) {
     font-size: 14px;
     border-width: 2px;
@@ -214,7 +219,6 @@
     border-radius: 999em;
     background-color: var(--color-background-3);
   }
-
 
   /* CTA LINK */
 

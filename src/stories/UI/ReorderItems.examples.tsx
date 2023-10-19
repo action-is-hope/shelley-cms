@@ -136,20 +136,28 @@ export const ReorderFieldGroupsExample = () => {
       <div className={field.ctaContainer}>
         <FocusOn enabled={false}>
           <div>
-            <SlateArea
-              placeholder="CTA Text"
-              vol={1}
-              defaultValue={""}
-              name={""}
-              className={slateArea.ctaLink}
-            />
+            <div className={field.ctaFieldRemove}>
+              <SlateArea
+                placeholder="CTA Text"
+                vol={1}
+                defaultValue={""}
+                name={""}
+                className={slateArea.ctaLink}
+              />
+              <Button
+                variant="fab"
+                tone={10}
+                vol={1}
+                icon={<Trash alt="Remove CTA" />}
+              />
+            </div>
             <TextField
               label={<Link />}
               labelPosition="top"
               placeholder="CTA URL"
               variant="quiet"
               vol={1}
-              value="http://google.com"
+              value="http://google.com/abihihid/shhddldh"
               className={field.url}
             />
           </div>
@@ -162,12 +170,6 @@ export const ReorderFieldGroupsExample = () => {
             </Button>
           </ButtonGroup>
         </FocusOn>
-        <Button
-          variant="fab"
-          tone={10}
-          vol={1}
-          icon={<Trash alt="Remove CTA" />}
-        />
       </div>
     </form>
   );
