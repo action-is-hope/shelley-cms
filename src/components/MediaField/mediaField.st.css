@@ -33,7 +33,7 @@
     'preview alt'
     'preview caption'
     'preview copyright';
-  grid-template-columns: 4fr 6fr;
+  grid-template-columns: 4fr 7fr;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 }
@@ -50,6 +50,11 @@
   max-width: 100%;
   margin: auto;
   max-height: 200px;
+}
+
+.media > img {
+  object-fit: contain;
+
 }
 
 .editControls {

@@ -13,6 +13,7 @@
 
 @st-import BlockEditor, [menu] from "../../components/BlockEditor/blockEditor.st.css";
 @st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
+@st-import MediaField from "../../components/MediaField/mediaField.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import ProgressCircle, [ --loader-circle-medium-height, --loader-circle-medium-width] from "@actionishope/shelley/ProgressCircle/progressCircle.st.css";
@@ -80,8 +81,14 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  BlockEditor::mainContent > form > MediaField {
+    margin: calc(var(--spacing-unit) * 2) 0 var(--spacing-unit);
+    padding-left: calc(var(--spacing-unit) * 3.2);
+  }
+
+
   BlockEditor::mainContent > Button {
-    margin-top: calc(var(--spacing-unit) * 1);
+    margin-top: calc(var(--spacing-unit) * 2);
     margin-left: calc(var(--spacing-unit) * 3.2)
   }
 

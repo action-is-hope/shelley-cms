@@ -9,12 +9,13 @@ import {
 } from "@actionishope/shelley";
 import { ReorderItems } from "../../components/ReorderItems/ReorderItems";
 import { MediaField } from "../../components/MediaField/MediaField";
-
+import { FocusOn } from "react-focus-on";
 import { useState } from "react";
 import SlateArea from "../../components/SlateArea/SlateArea";
-import { st, classes } from "../../styles/cms/field.st.css";
+import { st, classes as field } from "../../styles/cms/field.st.css";
 import { classes as mediaField } from "../../components/MediaField/mediaField.st.css";
-import { Link } from "../../components/icons";
+import { classes as slateArea } from "../../styles/cms/slateArea.st.css";
+import { Link, Trash } from "../../components/icons";
 export const ReorderBlocksExample = () => {
   const contentBlocksData = [
     { id: "1", label: "Title", description: "Description/Identity text" },
@@ -63,7 +64,7 @@ export const ReorderFieldGroupsExample = () => {
         placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
         variant="quiet"
         vol={1}
-        className={st(classes.url)}
+        className={st(field.url)}
       />
       <MediaField
         type="image"
@@ -78,7 +79,7 @@ export const ReorderFieldGroupsExample = () => {
           placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
           variant="quiet"
           vol={1}
-          className={st(mediaField.childrenArea, classes.url)}
+          className={st(mediaField.childrenArea, field.url)}
         />
       </MediaField>
 
@@ -104,7 +105,7 @@ export const ReorderFieldGroupsExample = () => {
                   placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
                   variant="quiet"
                   vol={1}
-                  className={st(mediaField.childrenArea, classes.url)}
+                  className={st(mediaField.childrenArea, field.url)}
                 />
               )}
             </>
@@ -132,40 +133,41 @@ export const ReorderFieldGroupsExample = () => {
         name="title"
         defaultValue={""}
       />
-      <div className={classes.ctaContainer}>
-        <TextField
-          label="CTA"
-          labelPosition="hidden"
-          placeholder="CTA Text"
-          variant="outlined"
+      <div className={field.ctaContainer}>
+        <FocusOn enabled={false}>
+          <div>
+            <SlateArea
+              placeholder="CTA Text"
+              vol={1}
+              defaultValue={""}
+              name={""}
+              className={slateArea.ctaLink}
+            />
+            <TextField
+              label={<Link />}
+              labelPosition="top"
+              placeholder="CTA URL"
+              variant="quiet"
+              vol={1}
+              value="http://google.com"
+              className={field.url}
+            />
+          </div>
+          <ButtonGroup>
+            <Button vol={1} variant="primary">
+              Save CTA
+            </Button>
+            <Button vol={1} variant="secondary">
+              Cancel
+            </Button>
+          </ButtonGroup>
+        </FocusOn>
+        <Button
+          variant="fab"
+          tone={10}
           vol={1}
-          className={classes.ctaLink}
+          icon={<Trash alt="Remove CTA" />}
         />
-        <TextField
-          label="CTA"
-          labelPosition="hidden"
-          placeholder="CTA Text"
-          variant="outlined"
-          vol={1}
-          className={classes.ctaButton}
-        />
-        <TextField
-          label={<Link />}
-          labelPosition="top"
-          placeholder="CTA URL"
-          variant="quiet"
-          vol={1}
-          value="http://google.com"
-          className={classes.url}
-        />
-        <ButtonGroup>
-          <Button vol={1} variant="primary">
-            Save CTA
-          </Button>
-          <Button vol={1} variant="secondary">
-            Cancel
-          </Button>
-        </ButtonGroup>
       </div>
     </form>
   );

@@ -9,13 +9,15 @@ import {
   BlockEditor,
   BlockEditorProps,
 } from "../../components/BlockEditor/BlockEditor";
+import { FocusOn } from "react-focus-on";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
-import { classes } from "../../styles/cms/field.st.css";
-import { classes as slateArea } from "../../styles/cms/slateArea.st.css";
+import { st, classes as field } from "../../styles/cms/field.st.css";
+import { MediaField } from "../../components/MediaField/MediaField";
 // import ReorderItems from "../../components/ReorderItems/ReorderItems";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";
 import SlateArea from "../../components/SlateArea/SlateArea";
-import { Link } from "../../components/icons";
+import { Link, Trash } from "../../components/icons";
+import { classes as mediaField } from "../../components/MediaField/mediaField.st.css";
 
 const contentBlocksData = [
   {
@@ -64,18 +66,67 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
     >
       {/* @todo: provide a form comp defining alignment. */}
       <form action="">
+        <MediaField
+          type="image"
+          onAdd={() => console.log("Add Media")}
+          onEdit={() => console.log("Edit Media")}
+          onRemove={() => console.log("Remove media")}
+        >
+          <TextField
+            // label="Media URL"
+            label={<Link alt="Media URL" />}
+            labelPosition="top"
+            placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
+            variant="quiet"
+            vol={1}
+            className={st(mediaField.childrenArea, field.url)}
+          />
+        </MediaField>
+
+        <MediaField
+          type="image"
+          onAdd={() => console.log("Add Media")}
+          onEdit={() => console.log("Edit Media")}
+          onRemove={() => console.log("Remove media")}
+          mediaPreview={
+            <img
+              src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
+              alt=""
+            />
+          }
+        >
+          {(hasPreview) => {
+            return (
+              <>
+                {!hasPreview && (
+                  <TextField
+                    label={<Link alt="Media URL" />}
+                    labelPosition="top"
+                    placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
+                    variant="quiet"
+                    vol={1}
+                    className={st(mediaField.childrenArea, field.url)}
+                  />
+                )}
+              </>
+            );
+          }}
+        </MediaField>
+
         <SlateArea vol={6} defaultValue={`Title`} name="title" />
         <SlateArea vol={3} defaultValue={`Description`} name="description" />
-        <div className={classes.ctaContainer}>
-          <TextField
-            label="CTA"
-            labelPosition="hidden"
-            placeholder="CTA Text"
-            variant="outlined"
-            vol={1}
-            className={classes.ctaButton}
-          />
-          <SlateArea
+        <div className={field.ctaContainer}>
+          <FocusOn enabled={false}>
+            <div>
+              <TextField
+                label="CTA"
+                labelPosition="hidden"
+                placeholder="CTA Text"
+                variant="outlined"
+                vol={1}
+                className={field.ctaButton}
+              />
+              {/* <SlateArea
             vol={1}
             defaultValue={``}
             name="description"
@@ -88,24 +139,32 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
             name="description"
             placeholder="CTA Text"
             className={slateArea.ctaLink}
-          />
-          <TextField
-            label={<Link />}
-            labelPosition="top"
-            placeholder="CTA URL"
-            variant="quiet"
+          /> */}
+              <TextField
+                label={<Link />}
+                labelPosition="top"
+                placeholder="CTA URL"
+                variant="quiet"
+                vol={1}
+                value="http://google.com"
+                className={field.url}
+              />
+            </div>
+            <ButtonGroup>
+              <Button vol={1} variant="primary">
+                Save CTA
+              </Button>
+              <Button vol={1} variant="secondary">
+                Cancel
+              </Button>
+            </ButtonGroup>
+          </FocusOn>
+          <Button
+            variant="fab"
+            tone={10}
             vol={1}
-            value="http://google.com"
-            className={classes.url}
+            icon={<Trash alt="Remove CTA" />}
           />
-          <ButtonGroup>
-            <Button vol={1} variant="primary">
-              Save CTA
-            </Button>
-            <Button vol={1} variant="secondary">
-              Cancel
-            </Button>
-          </ButtonGroup>
         </div>
       </form>
     </BlockEditor>
