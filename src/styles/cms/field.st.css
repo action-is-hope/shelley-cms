@@ -11,6 +11,7 @@
 
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
+@st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
 
 @st-scope body CMS {
@@ -44,15 +45,24 @@
     width: 0;
   }
 
-  .ctaContainer {}
+  .ctaContainer {
+    margin-top: var(--spacing-unit);
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    max-width: 430px;
+  }
 
   .ctaContainer .url {
     margin-top: calc(var(--spacing-unit) / 4);
     margin-left: calc(var(--spacing-unit) * -1);
-    margin-bottom: var(--spacing-unit);
+    margin-bottom: calc(var(--spacing-unit) / 3);
   }
 
-  .ctaContainer ButtonGroup {}
+  .ctaContainer Button:variant(fab) {
+    position: relative;
+    top: 3px;
+  }
 
   /* CTA */
   .cta {
@@ -60,7 +70,6 @@
   }
 
   .cta {
-    margin-top: var(--spacing-unit);
     width: fit-content;
   }
 

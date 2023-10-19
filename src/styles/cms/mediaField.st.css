@@ -2,7 +2,10 @@
 @st-import CMS, [
   --color-ui,
   --color-ui-inverse,
-  --spacing-unit
+  --spacing-unit,
+  breakpoint-sm,
+  breakpoint-md,
+  breakpoint-lg
 ] from "./project.st.css";
 
 @st-import BlockEditor, [menu] from "../../components/BlockEditor/blockEditor.st.css";
@@ -30,7 +33,8 @@
   }
 
   MediaField:hasPreview::grid {
-    margin-left: 0
+    margin-left: 0;
+    grid-gap: var(--spacing-unit);
   }
 
   MediaField::grid {
@@ -39,7 +43,38 @@
 
   MediaField::orText {
     font-style: italic;
+    align-self: center;
+    justify-self: end;
   }
 
-  MediaField:hasPreview::grid {}
+  MediaField:hasPreview::grid {
+    grid-template-columns: 2fr 1fr;
+    grid-row-gap: 0;
+
+    grid-template-areas:
+      'preview'
+      'alt'
+      'caption'
+      'copyright';
+  }
+}
+
+@media value(breakpoint-sm) {
+  @st-scope CMS {
+    MediaField:hasPreview::grid {
+      grid-template-areas:
+        'preview alt'
+        'preview caption'
+        'preview copyright';
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    MediaField:hasPreview::grid {
+      grid-template-columns: 4fr 12fr;
+    }
+  }
 }

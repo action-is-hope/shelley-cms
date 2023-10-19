@@ -16,7 +16,7 @@ export interface MediaFieldProps {
   className?: string;
   mediaPreview?: ReactNode;
   type?: "image" | "video" | "icon" | "document";
-  children: ReactNode | ((hasPreview: boolean) => void);
+  children?: ReactNode | ((hasPreview: boolean) => void);
 }
 
 const MediaField = ({

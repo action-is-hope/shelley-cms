@@ -36,6 +36,10 @@
     padding-bottom: 1px;
   }
 
+  ReorderItems::dragContainer:empty {
+    display: none;
+  }
+
   ReorderItems::dragContainer:isDragging {
     background-color: #121821;
   }
