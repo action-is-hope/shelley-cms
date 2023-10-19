@@ -12,7 +12,6 @@ import {
 import { FocusOn } from "react-focus-on";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
 import { st, classes as field } from "../../styles/cms/field.st.css";
-import { classes as slateArea } from "../../styles/cms/slateArea.st.css";
 import { MediaField } from "../../components/MediaField/MediaField";
 // import ReorderItems from "../../components/ReorderItems/ReorderItems";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";
