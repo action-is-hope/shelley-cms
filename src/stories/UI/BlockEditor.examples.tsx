@@ -13,7 +13,7 @@ import { FocusOn } from "react-focus-on";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
 import { st, classes as field } from "../../styles/cms/field.st.css";
 import { MediaField } from "../../components/MediaField/MediaField";
-import ReorderItems from "../../components/ReorderItems/ReorderItems";
+// import ReorderItems from "../../components/ReorderItems/ReorderItems";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";
 import SlateArea from "../../components/SlateArea/SlateArea";
 import { Link, Trash } from "../../components/icons";
