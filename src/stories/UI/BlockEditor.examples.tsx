@@ -13,7 +13,7 @@ import { FocusOn } from "react-focus-on";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
 import { st, classes as field } from "../../styles/cms/field.st.css";
 import { MediaField } from "../../components/MediaField/MediaField";
-// import ReorderItems from "../../components/ReorderItems/ReorderItems";
+import ReorderItems from "../../components/ReorderItems/ReorderItems";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";
 import SlateArea from "../../components/SlateArea/SlateArea";
 import { Link, Trash } from "../../components/icons";
@@ -118,14 +118,22 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
         <div className={field.ctaContainer}>
           <FocusOn enabled={false}>
             <div>
-              <TextField
-                label="CTA"
-                labelPosition="hidden"
-                placeholder="CTA Text"
-                variant="outlined"
-                vol={1}
-                className={field.ctaButton}
-              />
+              <div className={field.ctaFieldRemove}>
+                <TextField
+                  label="CTA"
+                  labelPosition="hidden"
+                  placeholder="CTA Text"
+                  variant="outlined"
+                  vol={1}
+                  className={field.ctaButton}
+                />
+                <Button
+                  variant="fab"
+                  tone={10}
+                  vol={1}
+                  icon={<Trash alt="Remove CTA" />}
+                />
+              </div>
               {/* <SlateArea
             vol={1}
             defaultValue={``}
@@ -159,14 +167,10 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
               </Button>
             </ButtonGroup>
           </FocusOn>
-          <Button
-            variant="fab"
-            tone={10}
-            vol={1}
-            icon={<Trash alt="Remove CTA" />}
-          />
         </div>
       </form>
+      <ReorderFieldGroupsExample />
+      <Button>Add Item</Button>
     </BlockEditor>
   );
 };

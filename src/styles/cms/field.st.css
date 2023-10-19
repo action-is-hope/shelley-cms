@@ -47,13 +47,16 @@
 
   .ctaContainer {
     margin-top: var(--spacing-unit);
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-    max-width: 430px;
+    /* max-width: 430px; */
   }
 
-  .ctaContainer .url {
+  .ctaFieldRemove {
+    display: flex;
+    align-items: baseline;
+    gap: calc(var(--spacing-unit) / 2);
+  }
+
+  .ctaContainer TextField.url {
     margin-top: calc(var(--spacing-unit) / 4);
     margin-left: calc(var(--spacing-unit) * -1);
     margin-bottom: calc(var(--spacing-unit) / 3);
@@ -77,7 +80,7 @@
     font-size: 14px;
   }
 
-  .cta:variant(outlined)::fieldset {
+  TextField.cta:variant(outlined)::fieldset {
     border-width: 2px;
     border-color: var(--color-accent-1);
   }

@@ -5,6 +5,7 @@
   --color-background-main,
   --color-background-2,
   --color-background-3,
+  --color-background-4,
   --grad-1,
   --color-border-1,
   --color-border-dialog,
@@ -96,12 +97,22 @@
 
   BlockEditor::mainContent ReorderItems {
     background-color: var(--color-background-2);
+    margin-top: calc(var(--spacing-unit) * 2);
   }
 
   BlockEditor::mainContent ReorderItems::dragContainer {
-    padding-bottom: calc(var(--spacing-unit) * 1.5);
+    padding-bottom: calc(var(--spacing-unit) * 4);
     margin-top: calc(var(--spacing-unit));
-    padding-left: 56px
+    margin-left: calc(var(--spacing-unit) * .5);
+    padding-left: 56px;
+  }
+
+  BlockEditor::mainContent ReorderItems + Button {
+    margin-top: 0;
+  }
+
+  BlockEditor::mainContent ReorderItems {
+    margin-bottom: calc(var(--spacing-unit) * -4);
   }
 
   BlockEditor::mainContent ReorderItems::dragContainer:isDragging {
@@ -110,13 +121,15 @@
 
   BlockEditor::mainContent ReorderItems::item {
     background-color: var(--color-background-3);
+    background-color: var(--color-background-4);
     /* Limit width of items to shorten reading width. */
-    max-width: 80%;
+    max-width: 90%;
   }
+
 
   BlockEditor::label {
     padding-left: calc(var(--spacing-unit) * 2);
-    margin-bottom: 4px;
+    margin-bottom: var(--spacing-unit);
     color: var(--color-text-2);
     text-transform: uppercase;
     letter-spacing: 2px;

@@ -29,7 +29,7 @@
   }
 
   MediaField::grid {
-    margin-left: calc(var(--spacing-unit) * -0.95)
+    margin-left: calc(var(--spacing-unit) * -0.7)
   }
 
   MediaField:hasPreview::grid {
@@ -48,9 +48,8 @@
   }
 
   MediaField:hasPreview::grid {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-row-gap: 0;
-
     grid-template-areas:
       'preview'
       'alt'
@@ -66,15 +65,9 @@
         'preview alt'
         'preview caption'
         'preview copyright';
-      grid-template-columns: 1fr 2fr;
-    }
-  }
-}
-
-@media value(breakpoint-md) {
-  @st-scope CMS {
-    MediaField:hasPreview::grid {
-      grid-template-columns: 4fr 12fr;
+      grid-column-gap: calc(var(--spacing-unit) *2);
+      grid-row-gap: calc(var(--spacing-unit) *2);
+      grid-template-columns: 215px 1fr;
     }
   }
 }
