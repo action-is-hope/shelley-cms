@@ -88,76 +88,73 @@
 
 
   BlockEditor::mainContent > Button {
-    margin-top: calc(var(--spacing-unit) * 2;
-        margin-left: calc(var(--spacing-unit) * 3.2)
-    }
+    margin-top: calc(var(--spacing-unit) * 2);
+    margin-left: calc(var(--spacing-unit) * 3.2)
+  }
 
-    /* ReorderItems - Overrides*/
+  /* ReorderItems - Overrides*/
 
-    BlockEditor::mainContent ReorderItems {
-      background-color: var(--color-background-2);
-    }
+  BlockEditor::mainContent ReorderItems {
+    background-color: var(--color-background-2);
+  }
 
-    BlockEditor::mainContent ReorderItems::dragContainer {
-      padding-bottom: calc(var(--spacing-unit) * 1.5);
-      margin-top: calc(var(--spacing-unit));
-      padding-left: 56px
-    }
+  BlockEditor::mainContent ReorderItems::dragContainer {
+    padding-bottom: calc(var(--spacing-unit) * 1.5);
+    margin-top: calc(var(--spacing-unit));
+    padding-left: 56px
+  }
 
-    BlockEditor::mainContent ReorderItems::dragContainer:isDragging {
-      background-color: #83838312;
-    }
+  BlockEditor::mainContent ReorderItems::dragContainer:isDragging {
+    background-color: #83838312;
+  }
 
-    BlockEditor::mainContent ReorderItems::item {
-      background-color: var(--color-background-3);
-      /* Limit width of items to shorten reading width. */
-      max-width: 80%;
-    }
+  BlockEditor::mainContent ReorderItems::item {
+    background-color: var(--color-background-3);
+    /* Limit width of items to shorten reading width. */
+    max-width: 80%;
+  }
 
-    BlockEditor::label {
-      padding-left: calc(var(--spacing-unit) * 2);
-      margin-bottom: 4px;
-      color: var(--color-text-2);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: 400;
-    }
+  BlockEditor::label {
+    padding-left: calc(var(--spacing-unit) * 2);
+    margin-bottom: 4px;
+    color: var(--color-text-2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 400;
+  }
 
-    BlockEditor::warningMessage {
-      color: #e5990d;
-    }
+  BlockEditor::warningMessage {
+    color: #e5990d;
+  }
 
-    BlockEditor::modal {
-      grid-area: stack;
-      z-index: 15;
-    }
+  BlockEditor::modal {
+    grid-area: stack;
+    z-index: 15;
+  }
 
-    BlockEditor::modal::backdrop {
-      border-style: solid;
-      border-width: 1px 0;
-      border-color: var(--color-border-dialog);
-    }
+  BlockEditor::modal::backdrop {
+    border-style: solid;
+    border-width: 1px 0;
+    border-color: var(--color-border-dialog);
+  }
 
-    BlockEditor::modal::content {
-      position: relative;
-      margin: 60px 8px 60px 8px;
-      padding-bottom: 1px;
-      /* Kicks in the inclusion of margin-bottom of the last item in the container. */
-      max-height: 85vh;
-      align-self: flex-start;
-    }
+  BlockEditor::modal::content {
+    position: relative;
+    margin: 60px 8px 60px 8px;
+    padding-bottom: 1px;
+    /* Kicks in the inclusion of margin-bottom of the last item in the container. */
+    max-height: 85vh;
+    align-self: flex-start;
+  }
 
-    BlockEditor::settingsTitle {
-      margin: 0 0 12px;
-      padding: 12px 24px 12px;
-      border-bottom: 1px dashed var(--color-border-dialog);
-    }
+  BlockEditor::settingsTitle {
+    margin: 0 0 12px;
+    padding: 12px 24px 12px;
+    border-bottom: 1px dashed var(--color-border-dialog);
+  }
 
-    BlockEditor::dialog {
-      border: 1px solid var(--color-border-dialog);
-    }
+  BlockEditor::dialog {
+    border: 1px solid var(--color-border-dialog);
   }
 }
-}
-}}
