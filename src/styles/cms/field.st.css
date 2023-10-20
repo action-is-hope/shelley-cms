@@ -104,7 +104,7 @@
     -st-extends: cta;
   }
 
-  .ctaLink:variant(outlined)::fieldset {
+  TextField.ctaLink:variant(outlined)::fieldset {
     border-width: 0 0 2px 0;
     border-radius: 0;
   }
