@@ -1,7 +1,12 @@
 @namespace "SlateArea";
 
 .root {
-  -st-states: multiline, largeLeftPadding, vol(number);
+  -st-states:
+    multiline,
+    largeLeftPadding,
+    vol(number),
+    isDisabled,
+    isReadOnly;
 }
 
 .container {

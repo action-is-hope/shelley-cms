@@ -98,6 +98,7 @@ export interface SlateAreaProps {
   inlineMenuProps?: any;
   /** Apply specified tabindex to the editor */
   tabIndex?: number;
+  isReadOnly?: boolean;
 }
 
 const SlateArea = ({
@@ -108,6 +109,7 @@ const SlateArea = ({
   name,
   onFocus,
   onChange,
+  isReadOnly,
   // disableMenus = false,
   singleLine,
   InlineMenu,
@@ -248,6 +250,7 @@ const SlateArea = ({
 
         <Editable
           onFocus={handleFocus}
+          readOnly={isReadOnly}
           tabIndex={tabIndex}
           {...{ placeholder, renderElement, renderLeaf, name }}
           // NOTE: Do not remove renderPlaceholder or it will break the drag and drop functionality!
@@ -261,6 +264,7 @@ const SlateArea = ({
             {
               vol: vol !== false ? vol : undefined,
               multiline: !singleLine,
+              isReadOnly,
               // Make space for the inline menu. Also more user friendly for larger
               // bodies of text as we give a nice "margin" (padding) that makes it easy to
               // select text.
