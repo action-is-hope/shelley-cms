@@ -100,23 +100,23 @@
   }
 
   SlateArea h2 {
-    font-size: 1.7rem
+    font-size: 1.7em;
   }
 
   SlateArea h3 {
-    font-size: 1.4rem
+    font-size: 1.4em;
   }
 
   SlateArea h4 {
-    font-size: 1.2rem
+    font-size: 1.2em;
   }
 
   SlateArea h5 {
-    font-size: 1.1rem
+    font-size: 1.1em;
   }
 
   SlateArea h6 {
-    font-size: 1rem
+    font-size: 1em;
   }
 
   SlateArea blockquote {
@@ -134,6 +134,7 @@
   SlateArea ol,
   SlateArea ul {
     padding-left: 1px;
+    margin-left: var(--spacing-unit);
   }
 
   SlateArea li {
