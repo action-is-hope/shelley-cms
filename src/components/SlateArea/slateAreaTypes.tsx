@@ -26,19 +26,19 @@ export interface HoverMenuButton {
 }
 
 export interface InlineMenuButton {
-  icon: string;
+  icon: ReactElement;
   label: string;
   widgetProps?: any;
 }
 
 export interface FocusMenuButton {
-  icon: string;
+  icon: ReactElement;
   label: string;
   type: string;
 }
 
 export interface ToolbarButton {
-  icon: string;
+  icon: ReactElement;
   label: string;
   onClick: string;
 }

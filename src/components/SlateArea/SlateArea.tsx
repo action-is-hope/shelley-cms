@@ -176,10 +176,14 @@ const SlateArea = ({
 
   // Add the initial value when setting up our state.
   let parsedDefaultValue: unknown;
-  if (typeof defaultValue === "object") {
+  if (defaultValue && typeof defaultValue === "object") {
     if ("json" in defaultValue) {
       parsedDefaultValue = JSON.parse(defaultValue.json);
-    } else if ("text" in defaultValue && defaultValue.text.json) {
+    } else if (
+      "text" in defaultValue &&
+      defaultValue.text &&
+      defaultValue.text.json
+    ) {
       parsedDefaultValue = JSON.parse(defaultValue.text.json);
     }
   } else {
