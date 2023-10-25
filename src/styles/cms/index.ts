@@ -39,6 +39,7 @@ import "./widget.st.css";
 import "./slateArea.st.css";
 import "./slateTable.st.css";
 import "./speedDialMenu.st.css";
+import "./hoverMenu.st.css";
 
 // = Project
 import { classes as light } from "./themes/light.st.css";

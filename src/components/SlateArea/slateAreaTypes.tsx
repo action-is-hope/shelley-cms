@@ -28,6 +28,7 @@ export interface HoverMenuButton {
 export interface InlineMenuButton {
   icon: ReactElement;
   label: string;
+  name: string;
   widgetProps?: any;
 }
 
@@ -91,7 +92,7 @@ export interface Feature {
   toolbarMenuButtons?: ToolbarButtonMap;
 
   elements?: {
-    [slateType: string]: ReactNode;
+    [slateType: string]: ReactNode | ((props: any) => ReactNode);
   };
 
   leaves?: {

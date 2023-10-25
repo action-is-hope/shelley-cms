@@ -73,7 +73,7 @@ const HoverMenu = ({ hoverMenuButtons }: NewHoverMenuProps) => {
 
   return (
     <Portal>
-      <div ref={ref} className={classes.menu}>
+      <div ref={ref} className={classes.root}>
         {hoverMenuButtons.map(
           ({ kind, type: format, icon, isActive, onMouseDown }) => {
             switch (kind) {
