@@ -3,7 +3,10 @@
 @st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/default/mixins/focus.st.css";
 
 .root {
-  -st-states: type(enum(icon, video, image, document)), hasPreview;
+  -st-states:
+    type(enum(icon, video, image, document)),
+    hasPreview,
+    vol(number)
 }
 
 .label {}
@@ -38,6 +41,10 @@
   grid-row-gap: 20px;
 }
 
+.helpText {
+  grid-area: caption;
+}
+
 .media {
   grid-area: preview;
   display: flex;
@@ -54,7 +61,6 @@
 
 .media > img {
   object-fit: contain;
-
 }
 
 .editControls {
@@ -71,10 +77,10 @@
 
 .editControls::after {
   -st-mixin: pseudoFocus;
-  border-radius: 4px;
+  /* border-radius: 4px; */
 }
 
-.editControls:focus-visible::after {
+.editControls:focus::after {
   -st-mixin: pseudoFocusVisible;
 }
 

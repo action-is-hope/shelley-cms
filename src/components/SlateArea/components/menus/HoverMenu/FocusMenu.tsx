@@ -55,7 +55,11 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
     const parentRect = nativeNode.parentElement!.getBoundingClientRect();
 
     el.style.opacity = "1";
-    el.style.top = `${nativeRect.top - parentRect.top - el.offsetHeight / 2}px`;
+    el.style.top = `calc(${
+      nativeRect.top - parentRect.top - el.offsetHeight / 2
+    }px + 33px)`;
+    // @todo remove in next release -> Test to see the values in live.
+    el.style.fontFamily = `calc(${nativeRect.top}px) - ${parentRect.top}px - ${el.offsetHeight}px / 2)`;
     el.style.left = `${nativeRect.left - parentRect.left}px`;
   };
 
@@ -134,7 +138,7 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
   };
 
   return (
-    <div ref={ref} className={classes.menu}>
+    <div ref={ref} className={classes.root}>
       {renderButtons()}
     </div>
   );

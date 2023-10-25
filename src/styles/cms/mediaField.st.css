@@ -38,13 +38,22 @@
   }
 
   MediaField::grid {
+    grid-template-columns: 48px 16px 1fr;
     grid-column-gap: calc(var(--spacing-unit) * 1);
+  }
+
+  MediaField:vol(1)::grid {
+    grid-template-columns: 32px 16px 1fr;
+  }
+
+  MediaField:vol(2)::grid {
+    grid-template-columns: 40px 16px 1fr;
   }
 
   MediaField::orText {
     font-style: italic;
     align-self: center;
-    justify-self: end;
+    justify-self: center;
   }
 
   MediaField:hasPreview::grid {
@@ -66,7 +75,7 @@
         'preview caption'
         'preview copyright';
       grid-column-gap: calc(var(--spacing-unit) *2);
-      grid-row-gap: calc(var(--spacing-unit) *2);
+      /* grid-row-gap: calc(var(--spacing-unit) *2); */
       grid-template-columns: 200px 1fr;
     }
   }

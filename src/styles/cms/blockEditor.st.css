@@ -83,7 +83,7 @@
   }
 
   BlockEditor::mainContent > form > MediaField {
-    margin: calc(var(--spacing-unit) * 2) 0 var(--spacing-unit);
+    margin: calc(var(--spacing-unit) * 1.3) 0 calc(var(--spacing-unit) / 2);
     padding-left: calc(var(--spacing-unit) * 3.2);
   }
 

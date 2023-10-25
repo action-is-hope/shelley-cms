@@ -19,9 +19,7 @@
 @st-scope CMS {
 
   .inlineMenuButton {
-    position: relative;
-    top: calc(var(--spacing-unit) * -2.4);
-    left: 7px;
+    margin-top: -3px;
     background: #a0a0a0;
     color: #fff;
   }

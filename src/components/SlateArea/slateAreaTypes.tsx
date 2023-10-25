@@ -92,7 +92,7 @@ export interface Feature {
   toolbarMenuButtons?: ToolbarButtonMap;
 
   elements?: {
-    [slateType: string]: ReactNode;
+    [slateType: string]: ReactNode | ((props: any) => ReactNode);
   };
 
   leaves?: {

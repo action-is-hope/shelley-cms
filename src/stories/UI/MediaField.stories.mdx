@@ -1,4 +1,4 @@
-import { TextField } from "@actionishope/shelley";
+import { TextField, P } from "@actionishope/shelley";
 import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
 import dedent from "ts-dedent";
 import { StoryGrid } from "../StoryLayout";
@@ -42,7 +42,9 @@ MediaField is a generic UI for displaying adding and displaying media items.
     },
   }}
 >
-  <MediaField onAdd={() => console.log("Add Media")} />
+  <MediaField vol={2} onAdd={() => console.log("Add Media")}>
+    Hi
+  </MediaField>
 </Story>
 
 <Source language="tsx" id="editor-mediafield--a-media-field" />
@@ -74,6 +76,13 @@ MediaField is a generic UI for displaying adding and displaying media items.
     onAdd={() => console.log("Add Media")}
     onEdit={() => console.log("Edit Media")}
     onRemove={() => console.log("Remove media")}
+    selectedMediaHelp={
+      <P vol={1}>
+        <em>
+          <a href="#">Remove image</a> to use a video instead.
+        </em>
+      </P>
+    }
     mediaPreview={
       <img
         src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
@@ -138,8 +147,8 @@ import { classes } from "@actionishope/shelley-cms/components/MediaField/mediaFi
         alt=""
       />
     }
-  >{() => (
-        <TextField
+  >
+    <TextField
       className={classes.altArea}
       type="textarea"
       rows={1}
@@ -158,9 +167,7 @@ import { classes } from "@actionishope/shelley-cms/components/MediaField/mediaFi
       label="Caption"
       labelPosition="hidden"
       vol={2}
-    />)}
-  }
-
+    />
   </MediaField>
 </Story>
 
