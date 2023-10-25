@@ -28,6 +28,7 @@ export interface HoverMenuButton {
 export interface InlineMenuButton {
   icon: ReactElement;
   label: string;
+  name: string;
   widgetProps?: any;
 }
 

@@ -138,8 +138,8 @@ import { classes } from "@actionishope/shelley-cms/components/MediaField/mediaFi
         alt=""
       />
     }
-  >
-    <TextField
+  >{() => (
+        <TextField
       className={classes.altArea}
       type="textarea"
       rows={1}
@@ -158,7 +158,9 @@ import { classes } from "@actionishope/shelley-cms/components/MediaField/mediaFi
       label="Caption"
       labelPosition="hidden"
       vol={2}
-    />
+    />)}
+  }
+
   </MediaField>
 </Story>
 
