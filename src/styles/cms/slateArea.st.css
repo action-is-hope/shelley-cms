@@ -1,17 +1,11 @@
 @namespace "SlateAreaCMS";
 @st-import CMS, [
-  --color-ui,
-  --color-ui-inverse,
   --spacing-unit,
   --color-accent-1,
-  --color-accent-2,
   --color-background-3,
-  --color-focus,
-  --text-vol-3-scale, --text-vol-3-max,
-  --text-vol-4-scale, --text-vol-4-max,
-  --text-vol-5-scale, --text-vol-5-max,
-  --text-vol-6-scale, --text-vol-6-max,
+  --color-background-slate-media,
   --field-padding,
+  
 ] from "./project.st.css";
 
 @st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
@@ -29,12 +23,22 @@
     inputVol6
 ] from "@actionishope/shelley/styles/default/mixins/formElements.st.css";
 
-.mediaItem {}
+@st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/default/mixins/focus.st.css";
+
+.mediaItem {
+  -st-states: isFocused;
+}
 
 .mediaContent {}
 
-.mediaElement {
-  -st-states: isFocused, isSelected;
+.mediaInlineElement {}
+
+.mediaElementPseudoFocus {
+  -st-mixin: pseudoFocus;
+}
+
+.mediaElementPseudoFocusVisible {
+  -st-mixin: pseudoFocusVisible;
 }
 
 @st-scope CMS {
@@ -74,7 +78,6 @@
     top: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.2);
     background: var(--color-focus);
     width: 0;
     opacity: 0;
@@ -201,10 +204,9 @@
     border-width: 2px;
     border-style: solid;
     border-color: var(--color-accent-1);
-  }
 
-  .cta:vol(1):focus-within {
-    border-color: var(--color-focus);
+
+    ;
   }
 
   .cta:vol(1)::before {
@@ -242,9 +244,9 @@
 
   /* Media */
   .mediaItem {
-    background-color: var(--color-background-3);
+    background-color: var(--color-background-slate-media);
     padding: 20px;
-    margin-top: 30px 0 40px -20px;
+    margin: 30px 0 40px -20px;
   }
 
   .mediaContent {
@@ -253,20 +255,21 @@
     gap: 10px;
   }
 
-  .mediaElement {
+  .mediaInlineElement {
     display: flex;
     align-items: center;
     font-style: italic;
     gap: 10px;
     padding-right: 10px;
+    color: var(--color-accent-1);
   }
 
-  .mediaElement:isFocused {
-    box-shadow: 0 0 0 3px var(--color-focus);
-  }
-
-  .element > svg {
+  .mediaInlineElement > svg {
     font-size: 28px;
+  }
+
+  .mediaElementPseudoFocus {
+    box-shadow: 0 0 0 3px var(--color-focus)
   }
 
 }

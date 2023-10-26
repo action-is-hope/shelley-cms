@@ -58,9 +58,7 @@ const FocusMenu = ({ focusMenuButtons }: FocusMenuProps) => {
     el.style.top = `calc(${
       nativeRect.top - parentRect.top - el.offsetHeight / 2
     }px + 33px)`;
-    // @todo remove in next release -> Test to see the values in live.
-    el.style.fontFamily = `calc(${nativeRect.top}px) - ${parentRect.top}px - ${el.offsetHeight}px / 2)`;
-    el.style.left = `${nativeRect.left - parentRect.left}px`;
+    el.style.left = `${nativeRect.left - parentRect.left + 40}px`;
   };
 
   useEffect(updateMenu);

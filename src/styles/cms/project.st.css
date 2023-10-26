@@ -135,6 +135,10 @@
   --color-header: rgba(var(--light-01-raw), 0.9);
   --color-header-border: #73e6fa63;
 
+  /* = Slate */
+  --color-background-slate-menu: #09343a;
+  --color-background-slate-media: #171c27;
+
   /* = Text colors */
   --color-text-1: var(--light-01);
   --color-text-2: rgba(var(--light-01-raw), 0.9);

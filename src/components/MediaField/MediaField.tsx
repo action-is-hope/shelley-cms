@@ -3,6 +3,7 @@ import { Button } from "@actionishope/shelley/Button";
 import { st, classes } from "./mediaField.st.css";
 import { Edit, Media, Trash } from "../icons";
 import { P, Text } from "@actionishope/shelley/Text";
+import type { Volume } from "@actionishope/shelley";
 
 export interface MediaFieldProps {
   addText?: string;
@@ -17,7 +18,7 @@ export interface MediaFieldProps {
   mediaPreview?: ReactNode;
   type?: "image" | "video" | "icon" | "document";
   children?: ReactNode | ((hasPreview: boolean) => void);
-  vol?: 1 | 2 | 3,
+  vol?: Volume,
   selectedMediaHelp?: ReactNode
 }
 
