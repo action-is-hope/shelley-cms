@@ -47,6 +47,8 @@
     --color-background-4,
     --color-background-listBox-option-hover,
     --color-background-field-fill,
+    --color-background-slate-menu,
+    --color-background-slate-media,
     /* = Border colors */
     --color-border-1,
     --color-border-2,
@@ -139,7 +141,8 @@
   --border-color-popup: rgba(var(--color-ui-raw), 0.2);
   --background-color-popup: var(--color-background-modal);
   --color-popup: var(--color-ui);
-
+  --color-background-slate-menu: var(--color-accent-1);
+  --color-background-slate-media: #f3f3f391;
   /* = Border colors */
   --color-border-1: #fff;
   --color-border-2: rgba(var(--color-ui-raw-inverse), .7);

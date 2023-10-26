@@ -1,16 +1,7 @@
 @namespace "SlateHoverMenuCMS";
 @st-import CMS, [
-  --spacing-unit,
-  --light-01,
-  --color-ui,
-  --color-ui-inverse,
-  --color-accent-1,
   --color-focus,
-  --color-header-background,
-  --color-background-3,
-  --color-background-contrast-1,
-  --color-background-contrast-2,
-  --color-text-4
+  --color-background-slate-menu
 ] from "./project.st.css";
 
 @st-import SlateMenu from "../../components/SlateArea/components/menus/HoverMenu/hoverMenu.st.css";
@@ -19,8 +10,8 @@
   SlateMenu {
     padding: 12px 20px;
     gap: 20px;
-    border-radius: 0;
-    background-color: rgb(2 23 26);
+    border-radius: 999px;
+    background-color: var(--color-background-slate-menu);
     border: 2px solid var(--color-focus);
     z-index: 50;
   }
