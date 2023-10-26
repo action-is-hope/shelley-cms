@@ -47,55 +47,63 @@ const MediaField = ({
   };
   
   return (
-    <div className={st(classes.root, { type, hasPreview: Boolean(mediaPreview), vol }, className)}>
+    <div
+      className={st(
+        classes.root,
+        { type, hasPreview: Boolean(mediaPreview), vol: vol !== false ? vol : undefined },
+        className
+      )}
+    >
       {labelText && <label className={classes.label}>{labelText}</label>}
       <div className={classes.grid}>
-      { !mediaPreview ? (
-        <>
-          <Button
-            data-id="SelectImage"
-            icon={<Media alt={addText} />}
-            variant="fab"
-            onPress={onAdd}
-            vol={vol}
-            className={classes.trigger}
-          />
-          { !mediaPreview && children && <Text vol={1} as="span" className={classes.orText}>or</Text> }
-        </>
-      ) : (
-        <>
-          <div className={classes.media}>{mediaPreview}</div>
-          <nav
-            tabIndex={0}
-            ref={navRef}
-            className={classes.editControls}
-            onClick={handleClick}
-          >
+        {!mediaPreview ? (
+          <>
             <Button
+              data-id="SelectImage"
+              icon={<Media alt={addText} />}
               variant="fab"
-              className={classes.editButton}
-              onPress={onRemove}
-              vol={2}
-              icon={<Trash alt={removeText} />}
+              onPress={onAdd}
+              vol={vol}
+              className={classes.trigger}
             />
-            <Button
-              variant="fab"
-              className={classes.editButton}
-              onPress={onEdit}
-              vol={2}
-              icon={<Edit alt={editText} />}
-            />
-          </nav>
-        </>
-      )}
+            {!mediaPreview && children && (
+              <Text vol={1} as="span" className={classes.orText}>
+                or
+              </Text>
+            )}
+          </>
+        ) : (
+          <>
+            <div className={classes.media}>{mediaPreview}</div>
+            <nav
+              tabIndex={0}
+              ref={navRef}
+              className={classes.editControls}
+              onClick={handleClick}
+            >
+              <Button
+                variant="fab"
+                className={classes.editButton}
+                onPress={onRemove}
+                vol={2}
+                icon={<Trash alt={removeText} />}
+              />
+              <Button
+                variant="fab"
+                className={classes.editButton}
+                onPress={onEdit}
+                vol={2}
+                icon={<Edit alt={editText} />}
+              />
+            </nav>
+          </>
+        )}
         {mediaPreview && selectedMediaHelp && (
           <P className={classes.helpText} vol={2}>
             {selectedMediaHelp}
           </P>
         )}
-        {typeof children === "function"
-          ? children(Boolean(mediaPreview))
-          : children}
+        {typeof children === "function" ? children(Boolean(mediaPreview)) : children}
       </div>
     </div>
   );
