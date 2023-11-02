@@ -23,7 +23,8 @@ export const BasicSlateArea = () => {
       onFocus={() => console.log("onFocus")}
       onChange={(value) => console.log("onChange", value)}
       name="body"
-      defaultValue={`Default text value`}
+      defaultValue={``}
+      placeholder="HI"
     />
   );
 };

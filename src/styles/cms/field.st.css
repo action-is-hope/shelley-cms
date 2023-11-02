@@ -19,8 +19,22 @@
   Field::fieldInput::placeholder,
   Field::fieldInput textarea::placeholder {
     color: var(--color-ui);
+  }
+
+  Field:labelPosition(over)::fieldInput::placeholder,
+  Field:labelPosition(over)::fieldInput textarea::placeholder {
+    opacity: 0;
+  }
+
+  Field::fieldInput::placeholder,
+  Field::fieldInput textarea::placeholder,
+  Field:labelPosition(over)::fieldInput:focus::placeholder,
+  Field:labelPosition(over):hasValue::fieldInput::placeholder,
+  Field:labelPosition(over)::fieldInput textarea:focus::placeholder,
+  Field:labelPosition(over):hasValue::fieldInput textarea::placeholder {
     opacity: 0.34;
   }
+
 
   Field:variant(outlined)::fieldContainer,
   Field:variant(outlined)::fieldset {

@@ -2,7 +2,7 @@ import type React from "react";
 import type { Ref } from "react";
 import { Icon, IconProps } from "@actionishope/shelley/Icon";
 
-const Italic: React.VFC<IconProps> = (props) => {
+const Bold: React.VFC<IconProps> = (props) => {
   const { ref, ...rest } = props;
   return (
     <Icon {...rest} viewBox="0 0 24 24" ref={ref as Ref<SVGSVGElement>}>
@@ -10,4 +10,4 @@ const Italic: React.VFC<IconProps> = (props) => {
     </Icon>
   );
 };
-export default Italic;
+export default Bold;
