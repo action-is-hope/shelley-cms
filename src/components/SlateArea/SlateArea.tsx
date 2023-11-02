@@ -259,9 +259,9 @@ const SlateArea = ({
           {...{ placeholder, renderElement, renderLeaf, name }}
           // NOTE: Do not remove renderPlaceholder or it will break the drag and drop functionality!
           renderPlaceholder={({ children, attributes }) => (
-            <div {...attributes}>
-              <p>{children}</p>
-            </div>
+            <span {...attributes}>
+              <span>{children}</span>
+            </span>
           )}
           className={st(
             classes.root,
