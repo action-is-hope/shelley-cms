@@ -50,6 +50,7 @@ export interface BlockEditorProps
   shards?: Array<React.RefObject<any> | HTMLElement>;
   /** A label, typically the block name. */
   label?: string;
+  settingsCloseText?: string;
 }
 
 type overlayStatus = boolean;
@@ -72,6 +73,7 @@ function BlockEditor(props: BlockEditorProps, ref?: React.Ref<HTMLDivElement>) {
     warningMessage,
     errorCount = 0,
     shards = [],
+    settingsCloseText = "Close",
     "data-id": dataId,
     ...rest
   } = props;
@@ -197,7 +199,7 @@ function BlockEditor(props: BlockEditorProps, ref?: React.Ref<HTMLDivElement>) {
                   return closeOverlay();
                 }}
               >
-                Cancel
+                {settingsCloseText}
               </Button>
             </ButtonGroup>
           </Dialog>

@@ -1,11 +1,8 @@
 import {
   TextField,
   InputTextProps,
-  MenuTrigger,
-  Menu,
   Button,
   ButtonGroup,
-  Item,
 } from "@actionishope/shelley";
 import { ReorderItems } from "../../components/ReorderItems/ReorderItems";
 import { MediaField } from "../../components/MediaField/MediaField";
@@ -18,7 +15,12 @@ import { classes as slateArea } from "../../styles/cms/slateArea.st.css";
 import { Link, Trash } from "../../components/icons";
 export const ReorderBlocksExample = () => {
   const contentBlocksData = [
-    { id: "1", label: "Title", description: "Description/Identity text" },
+    {
+      id: "1",
+      label: "Title",
+      description:
+        '<p>Lorem Ipsum is <a href="http://something.com">simply dummy text</a> of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>',
+    },
     { id: "2", label: "Hero", description: "Description/Identity text" },
     { id: "3", label: "Body", description: "Description/Identity text" },
     { id: "4", label: "Body", description: "Description/Identity text" },
@@ -220,53 +222,3 @@ export const ReorderFieldGroupsExample = () => {
     />
   );
 };
-
-export const TestMenu = () => (
-  <MenuTrigger portalSelector="#portal" crossOffset={-50}>
-    <Button>Menu</Button>
-    <Menu onAction={(info) => alert(info)}>
-      <Item key="publish">Publish</Item>
-      <Item key="archive">Archive</Item>
-      <Item key="delete">Delete</Item>
-    </Menu>
-  </MenuTrigger>
-  // <MenuTrigger portalSelector="#portal" crossOffset={-50}>
-  //   <Button
-  //     className={classes.menuTrigger}
-  //     variant="fab"
-  //     tone={10}
-  //     aria-label="Block menu"
-  //     vol={1}
-  //     data-id={dataId ? `${dataId}--menuTrigger` : undefined}
-  //     // icon={
-  //     //   <Badge badgeContent={messages?.length}>
-  //     //     <MoreHor />
-  //     //   </Badge>
-  //     // }
-  //     icon={<MoreHor />}
-  //   />
-  //   <Menu
-  //     className={classes.menu}
-  //     disabledKeys={disabledKeys}
-  //     data-id={dataId ? `${dataId}--menu` : undefined}
-  //     onAction={(actionKey) => {
-  //       switch (actionKey) {
-  //         case "manage":
-  //           onManageSelect &&
-  //             invokeContentManager(onManageSelect, onFocus);
-  //           break;
-  //         case "settings":
-  //           invokeSettings(onFocus);
-  //           break;
-  //         case "remove":
-  //           onRemoveSelect && onRemoveSelect();
-  //           break;
-  //       }
-  //     }}
-  //   >
-  //     <Item key="manage">{strings.manageTitle}</Item>
-  //     <Item key="settings">{strings.settingsTitle}</Item>
-  //     <Item key="remove">{strings.removeTitle}</Item>
-  //   </Menu>
-  // </MenuTrigger>
-);

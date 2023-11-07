@@ -46,6 +46,10 @@ export interface ReorderItemsProps extends Partial<Responders>, ComponentBase {
   removeItemString?: string;
 }
 
+function stripHtmlTags(input: string): string {
+  return input.replace(/<[^>]*>/g, "");
+}
+
 function ReorderItems(
   props: ReorderItemsProps,
   ref?: React.Ref<HTMLDivElement>
@@ -154,6 +158,7 @@ function ReorderItems(
                           {item?.description && (
                             <P
                               vol={2}
+                              truncate
                               className={classes.contentDescription}
                               data-id={
                                 dataId
@@ -161,7 +166,7 @@ function ReorderItems(
                                   : undefined
                               }
                             >
-                              {item.description}
+                              {stripHtmlTags(item.description)}
                             </P>
                           )}
                           {item?.content}

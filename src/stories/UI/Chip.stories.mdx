@@ -1,0 +1,96 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import { Chip } from "../../components/Chip/Chip";
+import {
+  BasicChipSet,
+  ChipsSetAdornment,
+  ChipsSetBlockEditor,
+} from "./Chip.examples";
+
+<Meta
+  title="Editor/Chip"
+  component={Chip}
+  decorators={[
+    (Story) => (
+      <StoryGrid>
+        <Story />
+      </StoryGrid>
+    ),
+  ]}
+/>
+
+# Chip
+
+<Source
+  language="tsx"
+  code={dedent`
+    import { Chip } from "@actionishope/shelley-cms";
+  `}
+/>
+
+Chip are used for things like tagging where a 'chip' of information is presented with an optional remove button.
+
+## Basic example
+
+<Story
+  name="a) Chips"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<div className={chip.container}>
+  <Chip onRemove={() => console.log("removed")}>Something chipper</Chip>
+  <Chip onRemove={() => console.log("removed")}>
+    Something else chipper
+  </Chip>
+</div>
+);`,
+      },
+    },
+  }}
+>
+  {BasicChipSet.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-chip--a-chips" />
+
+## Chips as Adornment
+
+Chips can be used in conjunction with Fields as an adornment.
+
+<Story
+  name="b) ChipsSetAdornment"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<TextField
+  placeholder="Chip example"
+  label="Text Chip"
+  vol={1}
+  startAdornment={
+    <div className={chip.container}>
+      <Chip noWrap>part-one</Chip>
+      <Chip noWrap>part-two</Chip>
+    </div>
+  }
+/>`,
+      },
+    },
+  }}
+>
+  {ChipsSetAdornment.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-chip--b-chips-set-adornment" />
+
+## Chips as Adornment
+
+Chips can be used in conjunction with Fields as an adornment.
+
+<Story name="b) Chips in BlockEditors">{ChipsSetBlockEditor.bind({})}</Story>
+
+## Chip Props
+
+<ArgsTable of={Chip} />

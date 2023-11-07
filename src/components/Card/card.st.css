@@ -22,5 +22,6 @@
 .actions {}
 
 .mainButton {
-  -st-extends: Button
+  -st-extends: Button;
+  z-index: 10;
 }
