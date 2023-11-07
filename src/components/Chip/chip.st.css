@@ -1,0 +1,44 @@
+@namespace "Chip";
+@st-import Button from "@actionishope/shelley/Button/button.st.css";
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
+
+.root {
+  -st-states:
+    variant(enum(outlined, filled)),
+    vol(enum(1, 2, 3)),
+    hasRemove,
+    noWrap;
+  -st-extends: Text;
+}
+
+.removeButton {
+  -st-extends: Button;
+}
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999em;
+  padding: 4px 12px;
+  background-color: #fff;
+}
+
+.root:noWrap {
+  white-space: nowrap;
+}
+
+.root:hasRemove {
+  padding: 0 0 0 12px;
+}
+
+.text {
+  line-height: 1;
+}
+
+.container {
+  /* margin: 20px 0; */
+  align-self: center;
+  display: flex;
+  gap: 10px;
+}

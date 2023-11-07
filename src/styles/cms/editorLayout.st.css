@@ -71,6 +71,12 @@
 
 @st-scope CMS {
   EditorLayout::preview {
+    /** 
+     * We don't ever need the preview to blur (filter) or be translucent directly inside the editor. 
+     * This doesn't affect the blur if it is set on a higher element in the tree. 
+     */
+    opacity: 1;
+    filter: none;
     transition: width 160ms, left 160ms, opacity 160ms;
     position: static;
     width: 100vw;

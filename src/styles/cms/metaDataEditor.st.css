@@ -10,9 +10,21 @@
   --box-shadow-metaData,
   --color-form-base-border
 ] from "./project.st.css";
-
 @st-import MetaDataEditor from "../../components/MetaDataEditor/metaDataEditor.st.css";
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
+@st-import Modal, [blurBackground] from "@actionishope/shelley/Modal/modal.st.css";
+
+@st-scope .blurBackground {
+  CMS MetaDataEditor[data-focus-on-hidden] {
+    /* We don't want this translucent as things can scroll behind it. */
+    opacity: 1;
+  }
+
+  CMS MetaDataEditor[data-focus-on-hidden] * {
+    /* Instead we can adjust the children making them 'slightly' translucent, too much compounds making them invisible. */
+    opacity: .9;
+  }
+}
 
 @st-scope CMS {
   MetaDataEditor {

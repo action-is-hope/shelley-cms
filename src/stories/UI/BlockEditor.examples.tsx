@@ -1,9 +1,14 @@
 import {
   P,
+  H3,
   TextField,
   Button,
   ButtonGroup,
   ProgressCircle,
+  Select,
+  Checkbox,
+  Item,
+  Switch,
 } from "@actionishope/shelley";
 import {
   BlockEditor,
@@ -13,7 +18,6 @@ import { FocusOn } from "react-focus-on";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
 import { st, classes as field } from "../../styles/cms/field.st.css";
 import { MediaField } from "../../components/MediaField/MediaField";
-// import ReorderItems from "../../components/ReorderItems/ReorderItems";
 import { ReorderFieldGroupsExample } from "./ReorderItems.examples";
 import SlateArea from "../../components/SlateArea/SlateArea";
 import { Link, Trash } from "../../components/icons";
@@ -56,11 +60,40 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
       // onRemoveSelect={() => console.log("onRemoveSelect")}
       // onSettingsClose={() => console.log("onSettingsClose")}
       // disableClickAwayListener
-      settingsRender={(close) => (
-        <div>
-          <P>Setting form etc.</P>
-          <Button onPress={() => close()}>Close</Button>
-        </div>
+      settingsRender={() => (
+        <form>
+          <TextField
+            label="Media URL"
+            placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
+            variant="outlined"
+            vol={1}
+          />
+
+          <Select
+            label="Choose frequency"
+            portalSelector="#settingsPortal1"
+            onSelectionChange={(key) => console.log(key)}
+          >
+            <Item key="rarely">Rarely</Item>
+            <Item key="sometimes">Sometimes</Item>
+            <Item key="always">Always</Item>
+          </Select>
+
+          <Checkbox defaultSelected>Subscribe (uncontrolled)</Checkbox>
+
+          <H3 vol={3}>Advanced Settings</H3>
+          <div>
+            <Switch>Switch label</Switch>
+          </div>
+          <div>
+            <Switch>Switch label</Switch>
+          </div>
+          <div>
+            <Switch>Switch label</Switch>
+          </div>
+          <P>Description text</P>
+          <div id="settingsPortal1"></div>
+        </form>
       )}
       {...args}
     >
@@ -115,6 +148,16 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
 
         <SlateArea vol={6} defaultValue={`Title`} name="title" />
         <SlateArea vol={3} defaultValue={`Description`} name="description" />
+        <Select
+          label="Choose frequency"
+          portalSelector="#portal"
+          onSelectionChange={(key) => console.log(key)}
+        >
+          <Item key="rarely">Rarely</Item>
+          <Item key="sometimes">Sometimes</Item>
+          <Item key="always">Always</Item>
+        </Select>
+
         <div className={field.ctaContainer}>
           <FocusOn enabled={false}>
             <div>
@@ -134,20 +177,6 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
                   icon={<Trash alt="Remove CTA" />}
                 />
               </div>
-              {/* <SlateArea
-            vol={1}
-            defaultValue={``}
-            name="description"
-            placeholder="CTA Text"
-            className={slateArea.ctaButton}
-          />
-          <SlateArea
-            vol={1}
-            defaultValue={``}
-            name="description"
-            placeholder="CTA Text"
-            className={slateArea.ctaLink}
-          /> */}
               <TextField
                 label={<Link />}
                 labelPosition="top"
@@ -168,6 +197,7 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
             </ButtonGroup>
           </FocusOn>
         </div>
+        <P vol={2}>Description text</P>
       </form>
       <ReorderFieldGroupsExample />
       <Button>Add Item</Button>

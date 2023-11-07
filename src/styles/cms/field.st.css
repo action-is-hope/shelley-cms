@@ -13,8 +13,18 @@
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
+@st-import Chip, [container as chipContainer] from "../../components/Chip/chip.st.css";
 
 @st-scope body CMS {
+
+  Field .chipContainer {
+    margin-left: 6px;
+  }
+
+  Field Chip {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
   Field::fieldInput::placeholder,
   Field::fieldInput textarea::placeholder {

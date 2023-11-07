@@ -16,10 +16,16 @@
 @st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
 @st-import MediaField from "../../components/MediaField/mediaField.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
+@st-import Field from "@actionishope/shelley/Field/field.st.css";
+@st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
+@st-import Checkbox from "@actionishope/shelley/Checkbox/checkbox.st.css";
 @st-import ProgressCircle, [ --loader-circle-medium-height, --loader-circle-medium-width] from "@actionishope/shelley/ProgressCircle/progressCircle.st.css";
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
 @st-import [ ctaContainer ] from "./field.st.css";
+@st-import [--dialog-padding-x, --dialog-padding-y] from "@actionishope/shelley/styles/default/dialog.st.css";
+@st-import Chip, [container as chipContainer] from "../../components/Chip/chip.st.css";
 
 @st-scope CMS {
 
@@ -76,10 +82,16 @@
     margin-left: calc(var(--spacing-unit) * 3.2);
   }
 
-  BlockEditor::mainContent > form > TextField::fieldInput,
+  BlockEditor::mainContent > form > TextField:variant(quiet)::fieldInput,
   BlockEditor::mainContent > form > SlateArea {
     padding-left: calc(var(--spacing-unit) * 3.2);
     -webkit-font-smoothing: antialiased;
+  }
+
+  BlockEditor::mainContent > form > Field:variant(outlined) {
+    margin: calc(var(--spacing-unit) * 1.5) 0 calc(var(--spacing-unit) * 1.5);
+    margin-left: calc(var(--spacing-unit) * 3.2);
+    max-width: 89.5%;
   }
 
   BlockEditor::mainContent > form > MediaField {
@@ -87,10 +99,19 @@
     padding-left: calc(var(--spacing-unit) * 3.2);
   }
 
+  BlockEditor::mainContent > form > Text {
+    margin: calc(var(--spacing-unit) / 2) 0;
+    padding-left: calc(var(--spacing-unit) * 3.2);
+  }
 
   BlockEditor::mainContent > Button {
     margin-top: calc(var(--spacing-unit) * 2);
     margin-left: calc(var(--spacing-unit) * 3.2)
+  }
+
+  BlockEditor::mainContent > form > .chipContainer {
+    margin-left: calc(var(--spacing-unit) * 3.2);
+    margin-bottom: calc(var(--spacing-unit) * 2);
   }
 
   /* ReorderItems - Overrides*/
@@ -167,7 +188,35 @@
     border-bottom: 1px dashed var(--color-border-dialog);
   }
 
+  /* Settings Dialog */
   BlockEditor::dialog {
+    --dialog-padding-x: var(--spacing-unit);
+    --dialog-padding-y: var(--spacing-unit);
     border: 1px solid var(--color-border-dialog);
+  }
+
+  BlockEditor::dialog::content {
+    margin-top: 0;
+  }
+
+  BlockEditor::dialog::content Text {
+    margin-bottom: var(--spacing-unit);
+  }
+
+  BlockEditor::dialog::content form {
+    padding-top: var(--spacing-unit);
+  }
+
+  BlockEditor::dialog::content Field {
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+  }
+
+  BlockEditor::dialog::content Switch,
+  BlockEditor::dialog::content Checkbox {
+    margin-bottom: var(--spacing-unit);
+  }
+
+  BlockEditor::dialog::content Switch {
+    padding: 0 6px
   }
 }
