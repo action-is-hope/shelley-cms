@@ -1,10 +1,7 @@
 import { TextField, Select, Item } from "@actionishope/shelley";
 import { MetaDataEditor } from "../../components/MetaDataEditor/MetaDataEditor";
-import Flatpickr from "react-flatpickr";
 import { classes } from "../../components/MetaDataEditor/metaDataEditor.st.css";
 import { useState, SetStateAction } from "react";
-import "flatpickr/dist/flatpickr.min.css";
-import "flatpickr/dist/themes/material_green.css";
 
 export const MetaDataEditorExample = () => {
   const [langauge, setLanguage] = useState("en");
@@ -137,19 +134,14 @@ export const MetaDataEditorWithChildrenExample = () => {
             labelPosition="side"
             onSelectionChange={(key) => console.log(key)}
             variant="outlined"
-            portalSelector={"#metaPortal"}
+            portalSelector="#portal"
+            /* Example that disables the clickaway listener. */
+            onOpenChange={setDisableClickAway}
           >
             <Item key="rarely">Rarely</Item>
             <Item key="sometimes">Sometimes</Item>
             <Item key="always">Always</Item>
           </Select>
-          {/* Example that disables the clickaway listener. */}
-          <Flatpickr
-            placeholder="Select a date range"
-            options={{ mode: "range" }}
-            onOpen={() => setDisableClickAway(true)}
-            onClose={() => setDisableClickAway(false)}
-          />
         </>
       )}
     </MetaDataEditor>
