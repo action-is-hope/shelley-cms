@@ -1,4 +1,11 @@
-import React, { Ref, ReactElement, forwardRef, useRef, useState } from "react";
+import React, {
+  Ref,
+  ReactElement,
+  forwardRef,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
 import useSize from "@react-hook/size";
 import ClickAwayListener from "react-click-away-listener";
 import { st, classes } from "./metaDataEditor.st.css";
@@ -37,6 +44,8 @@ export interface MetaDataEditorProps<T>
   isOpen?: boolean;
   /** Children - passing in a render function will be called with isOpen. */
   children: OverloadedChildren | React.ReactNode;
+  /** Diable the clickAway */
+  disableClickAway?: boolean;
 }
 
 function MetaDataEditor<T extends object>(
@@ -53,6 +62,7 @@ function MetaDataEditor<T extends object>(
     urlPicker,
     isOpen: isOpenProp = false,
     "data-id": dataId,
+    disableClickAway: disableClickAwayProp = false,
     ...rest
   } = props;
 
@@ -63,9 +73,17 @@ function MetaDataEditor<T extends object>(
   const { options: languageOptions, ...restLangSelector } =
     languageSelectorProps;
 
+  const [disableClickAway, setDisableClickAway] =
+    useState(disableClickAwayProp);
+
+  useEffect(() => {
+    setDisableClickAway(disableClickAwayProp);
+  }, [disableClickAwayProp]);
   // @todo data-id support
   return (
-    <ClickAwayListener onClickAway={() => setIsOpen(false)}>
+    <ClickAwayListener
+      onClickAway={() => !disableClickAway && setIsOpen(false)}
+    >
       <div
         className={st(classes.root, { isOpen }, classNameProp)}
         {...rest}
@@ -104,6 +122,7 @@ function MetaDataEditor<T extends object>(
                 portalSelector="#portal"
                 labelPosition="hidden"
                 {...restLangSelector}
+                onOpenChange={setDisableClickAway}
                 data-id={dataId ? `${dataId}--languageField` : undefined}
               >
                 {languageOptions.map((option) => (

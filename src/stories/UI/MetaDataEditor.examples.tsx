@@ -1,8 +1,10 @@
 import { TextField, Select, Item } from "@actionishope/shelley";
 import { MetaDataEditor } from "../../components/MetaDataEditor/MetaDataEditor";
-
+import Flatpickr from "react-flatpickr";
 import { classes } from "../../components/MetaDataEditor/metaDataEditor.st.css";
 import { useState, SetStateAction } from "react";
+import "flatpickr/dist/flatpickr.min.css";
+import "flatpickr/dist/themes/material_green.css";
 
 export const MetaDataEditorExample = () => {
   const [langauge, setLanguage] = useState("en");
@@ -64,9 +66,12 @@ export const MetaDataEditorExample = () => {
 export const MetaDataEditorWithChildrenExample = () => {
   const [langauge, setLanguage] = useState("en");
 
+  const [disableClickAway, setDisableClickAway] = useState(false);
+
   return (
     <MetaDataEditor
       data-id="TEST-123"
+      disableClickAway={disableClickAway}
       // Provide URL ComboBox component
       urlPicker={
         <TextField
@@ -138,6 +143,13 @@ export const MetaDataEditorWithChildrenExample = () => {
             <Item key="sometimes">Sometimes</Item>
             <Item key="always">Always</Item>
           </Select>
+          {/* Example that disables the clickaway listener. */}
+          <Flatpickr
+            placeholder="Select a date range"
+            options={{ mode: "range" }}
+            onOpen={() => setDisableClickAway(true)}
+            onClose={() => setDisableClickAway(false)}
+          />
         </>
       )}
     </MetaDataEditor>
