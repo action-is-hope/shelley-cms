@@ -1,6 +1,5 @@
 import { TextField, Select, Item } from "@actionishope/shelley";
 import { MetaDataEditor } from "../../components/MetaDataEditor/MetaDataEditor";
-
 import { classes } from "../../components/MetaDataEditor/metaDataEditor.st.css";
 import { useState, SetStateAction } from "react";
 
@@ -64,9 +63,12 @@ export const MetaDataEditorExample = () => {
 export const MetaDataEditorWithChildrenExample = () => {
   const [langauge, setLanguage] = useState("en");
 
+  const [disableClickAway, setDisableClickAway] = useState(false);
+
   return (
     <MetaDataEditor
       data-id="TEST-123"
+      disableClickAway={disableClickAway}
       // Provide URL ComboBox component
       urlPicker={
         <TextField
@@ -132,7 +134,9 @@ export const MetaDataEditorWithChildrenExample = () => {
             labelPosition="side"
             onSelectionChange={(key) => console.log(key)}
             variant="outlined"
-            portalSelector={"#metaPortal"}
+            portalSelector="#portal"
+            /* Example that disables the clickaway listener. */
+            onOpenChange={setDisableClickAway}
           >
             <Item key="rarely">Rarely</Item>
             <Item key="sometimes">Sometimes</Item>
