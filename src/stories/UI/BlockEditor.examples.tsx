@@ -1,9 +1,9 @@
 import {
   P,
-  H3,
   TextField,
   Button,
   ButtonGroup,
+  CheckboxGroup,
   ProgressCircle,
   Select,
   Checkbox,
@@ -62,6 +62,10 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
       // disableClickAwayListener
       settingsRender={() => (
         <form>
+          <CheckboxGroup description="There must always be a title for accessibility but you can choose to visually hide it.">
+            <Switch>Title visible</Switch>
+          </CheckboxGroup>
+
           <TextField
             label="Media URL"
             placeholder="media url: https://vimeo.com/728522953/a4971ecdb3"
@@ -71,7 +75,7 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
 
           <Select
             label="Choose frequency"
-            portalSelector="#settingsPortal1"
+            portalSelector="#settingsPortal"
             onSelectionChange={(key) => console.log(key)}
           >
             <Item key="rarely">Rarely</Item>
@@ -79,20 +83,15 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
             <Item key="always">Always</Item>
           </Select>
 
-          <Checkbox defaultSelected>Subscribe (uncontrolled)</Checkbox>
-
-          <H3 vol={3}>Advanced Settings</H3>
-          <div>
+          <CheckboxGroup>
+            <Checkbox defaultSelected>Subscribe (uncontrolled)</Checkbox>
+          </CheckboxGroup>
+          <CheckboxGroup label="Advanced settings">
             <Switch>Switch label</Switch>
-          </div>
-          <div>
             <Switch>Switch label</Switch>
-          </div>
-          <div>
             <Switch>Switch label</Switch>
-          </div>
-          <P>Description text</P>
-          <div id="settingsPortal1"></div>
+          </CheckboxGroup>
+          <P vol={1}>Description text</P>
         </form>
       )}
       {...args}
