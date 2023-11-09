@@ -1,4 +1,4 @@
-@namespace "ContentActionsCMS";
+@st-namespace "ContentActionsCMS";
 @st-import CMS, [
   --spacing-unit,
   --grad-2,

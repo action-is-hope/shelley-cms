@@ -1,4 +1,4 @@
-@namespace "StaleContentWidgetCMS";
+@st-namespace "StaleContentWidgetCMS";
 @st-import CMS, [
   --spacing-unit,
   breakpoint-md

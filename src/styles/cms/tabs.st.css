@@ -1,4 +1,4 @@
-@namespace "TabsCMS";
+@st-namespace "TabsCMS";
 @st-import CMS, [
     --color-ui-inverse,
     --color-ui-raw,

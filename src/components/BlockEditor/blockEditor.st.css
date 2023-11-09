@@ -1,4 +1,4 @@
-@namespace "BlockEditor";
+@st-namespace "BlockEditor";
 
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import Menu from "@actionishope/shelley/Menu/menu.st.css";

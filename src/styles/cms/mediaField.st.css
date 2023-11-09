@@ -1,4 +1,4 @@
-@namespace "MediaFieldCMS";
+@st-namespace "MediaFieldCMS";
 @st-import CMS, [
   --color-ui,
   --color-ui-inverse,

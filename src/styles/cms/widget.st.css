@@ -1,4 +1,4 @@
-@namespace "WidgetCMS";
+@st-namespace "WidgetCMS";
 @st-import CMS, [
   --spacing-unit,
   --color-background-contrast-1,

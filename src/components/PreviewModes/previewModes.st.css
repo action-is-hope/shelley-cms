@@ -1,5 +1,5 @@
 /* previewModes.st.css */
-@namespace "PreviewModes";
+@st-namespace "PreviewModes";
 @st-import RadioGroup from "@actionishope/shelley/RadioGroup/radioGroup.st.css";
 @st-import Radio from "@actionishope/shelley/Radio/radio.st.css";
 @st-import Icon from "@actionishope/shelley/Icon/icon.st.css";

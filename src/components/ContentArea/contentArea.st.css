@@ -1,5 +1,5 @@
 /* contentArea.st.css */
-@namespace "ContentArea";
+@st-namespace "ContentArea";
 
 @property st-global(--vh);
 @st-import BlockEditor from "../BlockEditor/blockEditor.st.css";

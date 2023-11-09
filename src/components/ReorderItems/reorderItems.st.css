@@ -1,5 +1,5 @@
 /* reorderItems.st.css */
-@namespace "ReorderItems";
+@st-namespace "ReorderItems";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import Text from "@actionishope/shelley/Text/text.st.css";
 

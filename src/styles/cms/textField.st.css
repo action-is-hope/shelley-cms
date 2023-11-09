@@ -1,4 +1,4 @@
-@namespace "TextFieldCMS";
+@st-namespace "TextFieldCMS";
 @st-import CMS, [
   --color-ui,
   --color-ui-inverse,

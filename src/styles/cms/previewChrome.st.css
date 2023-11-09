@@ -1,4 +1,4 @@
-@namespace "PreviewCMS";
+@st-namespace "PreviewCMS";
 @st-import CMS, [ --spacing-unit ] from "./project.st.css";
 @st-import PreviewChrome, [iframe, chrome] from "../../components/PreviewChrome/previewChrome.st.css";
 

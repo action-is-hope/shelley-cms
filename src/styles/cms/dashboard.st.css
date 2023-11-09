@@ -1,4 +1,4 @@
-@namespace "DashboardCMS";
+@st-namespace "DashboardCMS";
 @st-import CMS, [
   --spacing-unit,
   --color-header-background,

@@ -1,5 +1,5 @@
 /* contentActions.st.css */
-@namespace "ContentActions";
+@st-namespace "ContentActions";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import Modal, [enterDone, content] from "@actionishope/shelley/Modal/modal.st.css";
 @st-import Dialog from "@actionishope/shelley/Dialog/dialog.st.css";
