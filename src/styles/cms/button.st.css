@@ -1,4 +1,4 @@
-@namespace "ButtonCMS";
+@st-namespace "ButtonCMS";
 
 :import {
   -st-from: "@actionishope/shelley/styles/default/project.st.css";

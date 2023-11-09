@@ -1,5 +1,5 @@
 /* pageActions.st.css */
-@namespace "PageActions";
+@st-namespace "PageActions";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
 @st-import Menu from "@actionishope/shelley/Menu/menu.st.css";

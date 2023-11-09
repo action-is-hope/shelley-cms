@@ -1,4 +1,4 @@
-@namespace "ModalCMS";
+@st-namespace "ModalCMS";
 @st-import CMS, [
   --color-ui,
   --color-ui-inverse

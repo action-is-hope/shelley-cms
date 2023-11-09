@@ -1,5 +1,5 @@
 /* badge.st.css */
-@namespace "Badge";
+@st-namespace "Badge";
 
 .root {
   -st-states:

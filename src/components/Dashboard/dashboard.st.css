@@ -1,5 +1,5 @@
 /* dashboard.st.css */
-@namespace "Dashboard";
+@st-namespace "Dashboard";
 
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 

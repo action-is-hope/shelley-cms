@@ -1,4 +1,4 @@
-@namespace "LabelCMS";
+@st-namespace "LabelCMS";
 
 :import {
   -st-from: "./project.st.css";

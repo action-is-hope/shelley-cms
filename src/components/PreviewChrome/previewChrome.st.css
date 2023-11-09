@@ -1,5 +1,5 @@
 /* previewChrome.st.css */
-@namespace "PreviewChrome";
+@st-namespace "PreviewChrome";
 
 .root {
   -st-states:

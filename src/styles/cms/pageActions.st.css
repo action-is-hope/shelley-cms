@@ -1,4 +1,4 @@
-@namespace "PageActionsCMS";
+@st-namespace "PageActionsCMS";
 
 :import {
   -st-from: "@actionishope/shelley/styles/default/project.st.css";

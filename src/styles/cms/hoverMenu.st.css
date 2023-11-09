@@ -1,4 +1,4 @@
-@namespace "SlateHoverMenuCMS";
+@st-namespace "SlateHoverMenuCMS";
 @st-import CMS, [
   --color-focus,
   --color-background-slate-menu

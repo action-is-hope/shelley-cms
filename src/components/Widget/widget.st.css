@@ -1,5 +1,5 @@
 /* widget.st.css */
-@namespace "Widget";
+@st-namespace "Widget";
 
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 

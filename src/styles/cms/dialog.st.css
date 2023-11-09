@@ -1,4 +1,4 @@
-@namespace "DialogCMS";
+@st-namespace "DialogCMS";
 @st-import CMS, [
     --color-border-dialog,
     --background-color-modal-backdrop,

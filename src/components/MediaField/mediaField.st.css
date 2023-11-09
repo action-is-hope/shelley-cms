@@ -1,4 +1,4 @@
-@namespace "MediaField";
+@st-namespace "MediaField";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/default/mixins/focus.st.css";
 

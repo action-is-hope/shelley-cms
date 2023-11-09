@@ -1,4 +1,4 @@
-@namespace "BadgeCMS";
+@st-namespace "BadgeCMS";
 @st-import CMS, [
   --color-ui,
   --color-ui-inverse

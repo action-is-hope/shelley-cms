@@ -1,4 +1,4 @@
-@namespace "EditorLayoutCMS";
+@st-namespace "EditorLayoutCMS";
 @st-import CMS, [
   breakpoint-lg,
   breakpoint-sm-max,

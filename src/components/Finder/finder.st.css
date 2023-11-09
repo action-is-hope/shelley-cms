@@ -1,5 +1,5 @@
 /* finder.st.css */
-@namespace "Finder";
+@st-namespace "Finder";
 
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import Modal from "@actionishope/shelley/Modal/modal.st.css";

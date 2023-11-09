@@ -1,4 +1,4 @@
-@namespace "SlateTableCMS";
+@st-namespace "SlateTableCMS";
 @st-import CMS, [
   --color-background-contrast-2,
   --color-ui-raw

@@ -1,4 +1,4 @@
-@namespace "BlockEditorCMS";
+@st-namespace "BlockEditorCMS";
 @st-import CMS, [
   --spacing-unit,
   --color-text-2,

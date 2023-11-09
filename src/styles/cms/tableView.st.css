@@ -1,4 +1,4 @@
-@namespace "TableViewCMS";
+@st-namespace "TableViewCMS";
 @st-import CMS, [
     --color-background-main,
     --color-background-row as --project-color-background-row,

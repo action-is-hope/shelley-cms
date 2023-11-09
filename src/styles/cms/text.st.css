@@ -1,4 +1,4 @@
-@namespace "TextCMS";
+@st-namespace "TextCMS";
 
 :import {
   -st-from: "@actionishope/shelley/styles/default/project.st.css";

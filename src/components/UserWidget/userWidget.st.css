@@ -1,5 +1,5 @@
 /* userWidget.st.css */
-@namespace "UserWidget";
+@st-namespace "UserWidget";
 @st-import Widget from "../Widget/widget.st.css";
 
 .root {

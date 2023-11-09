@@ -1,4 +1,4 @@
-@namespace "PreviewModesCMS";
+@st-namespace "PreviewModesCMS";
 @st-import CMS, [--color-background-main] from "./project.st.css";
 @st-import PreviewModes from "../../components/PreviewModes/previewModes.st.css";
 

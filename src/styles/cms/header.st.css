@@ -1,4 +1,4 @@
-@namespace "HeaderCMS";
+@st-namespace "HeaderCMS";
 @st-import CMS, [
   --color-ui,
   --color-ui-inverse,

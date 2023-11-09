@@ -1,5 +1,5 @@
 /* staleContentWidget.st.css */
-@namespace "StaleContentWidget";
+@st-namespace "StaleContentWidget";
 @st-import Widget from "../Widget/widget.st.css";
 @st-import ProgressCircle, [
     --loader-circle-width,

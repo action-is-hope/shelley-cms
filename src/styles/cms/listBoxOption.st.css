@@ -1,4 +1,4 @@
-@namespace "ListBoxOptionCMS";
+@st-namespace "ListBoxOptionCMS";
 @st-import CMS, [
   --color-border-dialog,
   --background-color-modal-backdrop,

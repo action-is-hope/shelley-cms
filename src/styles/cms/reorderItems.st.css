@@ -1,4 +1,4 @@
-@namespace "ReorderItemsCMS";
+@st-namespace "ReorderItemsCMS";
 @st-import CMS, [
   --spacing-unit,
   --color-background-main,

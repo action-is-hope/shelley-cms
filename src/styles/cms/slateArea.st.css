@@ -1,4 +1,4 @@
-@namespace "SlateAreaCMS";
+@st-namespace "SlateAreaCMS";
 @st-import CMS, [
   --spacing-unit,
   --color-accent-1,

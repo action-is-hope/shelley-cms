@@ -1,4 +1,4 @@
-@namespace "PreviewCMS";
+@st-namespace "PreviewCMS";
 @st-import CMS, [
   --spacing-unit,
   --height-header-md,
