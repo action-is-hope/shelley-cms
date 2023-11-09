@@ -20,6 +20,7 @@
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
+@st-import CheckboxGroup from "@actionishope/shelley/CheckboxGroup/checkboxGroup.st.css";
 @st-import Checkbox from "@actionishope/shelley/Checkbox/checkbox.st.css";
 @st-import ProgressCircle, [ --loader-circle-medium-height, --loader-circle-medium-width] from "@actionishope/shelley/ProgressCircle/progressCircle.st.css";
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
@@ -207,16 +208,15 @@
     padding-top: var(--spacing-unit);
   }
 
-  BlockEditor::dialog::content Field {
+  BlockEditor::dialog::content Field:not(:last-child) {
     margin-bottom: calc(var(--spacing-unit) * 1.5);
   }
 
   BlockEditor::dialog::content Switch,
-  BlockEditor::dialog::content Checkbox {
-    margin-bottom: var(--spacing-unit);
-  }
+  BlockEditor::dialog::content Checkbox {}
 
-  BlockEditor::dialog::content Switch {
-    padding: 0 6px
+  CheckboxGroup Switch {
+    font-size: .95em;
+    padding: calc(var(--spacing-unit) * 0.2) 6px;
   }
 }

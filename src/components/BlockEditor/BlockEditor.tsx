@@ -202,6 +202,7 @@ function BlockEditor(props: BlockEditorProps, ref?: React.Ref<HTMLDivElement>) {
                 {settingsCloseText}
               </Button>
             </ButtonGroup>
+            <div id="settingsPortal" />
           </Dialog>
         )}
       </Modal>
