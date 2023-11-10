@@ -212,6 +212,7 @@ export const ReorderFieldGroupsExample = () => {
     <ReorderItems
       items={blockItems}
       onRemoveSelect={(index) => console.log("Index", index)}
+      hasButtonAfter
       moveItem={({ fromIndex, toIndex, result }) => {
         console.log(result);
         const items = Array.from(blockItems);

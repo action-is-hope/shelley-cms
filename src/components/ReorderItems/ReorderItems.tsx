@@ -44,6 +44,8 @@ export interface ReorderItemsProps extends Partial<Responders>, ComponentBase {
   moveItem?: ({ fromIndex, toIndex, result }: moveItemParams) => void;
   /** Remove item string */
   removeItemString?: string;
+  /** Pulls up the bottom margin to overlay a Button */
+  hasButtonAfter?: boolean;
 }
 
 function stripHtmlTags(input: string): string {
@@ -65,6 +67,7 @@ function ReorderItems(
     hightlightItemIndex,
     onDragEnd: onDragEndProp,
     "data-id": dataId,
+    hasButtonAfter,
     ...rest
   } = props;
 
@@ -89,7 +92,7 @@ function ReorderItems(
   return (
     <section
       id={id}
-      className={st(classes.root, classNameProp)}
+      className={st(classes.root, { hasButtonAfter }, classNameProp)}
       ref={ref}
       data-id={dataId}
     >

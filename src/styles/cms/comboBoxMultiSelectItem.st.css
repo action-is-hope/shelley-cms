@@ -1,14 +1,13 @@
 @st-namespace "ComboBoxMultiSelectItemCMS";
 
 @st-import CMS, [
-    --color-menu-selected-background,
-    --color-menu-selected-text
+    --color-background-listBox-option-hover
   ] from "./project.st.css";
 @st-import ComboBoxMultiSelectItem from "@actionishope/shelley/ComboBoxMultiSelect/comboBoxMultiSelectItem.st.css";
 
 @st-scope CMS {
   ComboBoxMultiSelectItem:isFocused {
-    background-color: var(--color-menu-selected-background);
-    color: var(--color-menu-selected-text);
+    background-color: var(--color-background-listBox-option-hover);
+    cursor: pointer;
   }
 }
