@@ -1,7 +1,5 @@
 @st-namespace "ListBoxOptionCMS";
 @st-import CMS, [
-  --color-border-dialog,
-  --background-color-modal-backdrop,
   --color-background-listBox-option-hover,
   --color-focus
 ] from "./project.st.css";

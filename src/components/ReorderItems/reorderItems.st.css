@@ -7,13 +7,20 @@
   overflow: hidden;
 }
 
-.root {}
+.root {
+  -st-states:
+    hasButtonAfter,
+    hasScrollArea;
+}
 
 .header {}
 
 .title {
   -st-extends: Text;
 }
+
+.scrollArea {}
+
 
 .dragContainer {
   -st-states: isDragging;
@@ -64,3 +71,9 @@
 }
 
 .dragIcon {}
+
+.root:hasScrollArea::scrollArea {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 50vh;
+}
