@@ -27,6 +27,7 @@ export interface PageActionsProps<T>
   status: statusOptions;
   /** The last saved value, e.g "a week ago", "a few minutes" etc. */
   lastSaved?: string;
+  lastSavedDateTime?: string;
   /**
    * Changes the button into a "Review required" state with
    * onAction responding with "review"
@@ -63,6 +64,7 @@ function PageActions<T extends { key: string }>(
     position,
     onAction: onActionProp,
     "data-id": dataId,
+    lastSavedDateTime,
     ...rest
   } = props;
 
@@ -113,18 +115,6 @@ function PageActions<T extends { key: string }>(
     },
   };
 
-  // const disabledKeys = Children.map(children, (child) => {
-  //   if (child?.key === "archive" && status === "archived") {
-  //     return child?.key;
-  //   }
-  //   if (child?.key === "unpublish" && status === "unpublished") {
-  //     return child?.key;
-  //   }
-  //   if (child?.key === "make-draft" && status === "draft") {
-  //     return child?.key;
-  //   }
-  // });
-
   return (
     <div
       className={st(classes.root, classNameProp)}
@@ -138,6 +128,7 @@ function PageActions<T extends { key: string }>(
           vol={1}
           className={st(spacing.mb1, classes.lastSaved)}
           data-id={dataId ? `${dataId}--last-saved` : undefined}
+          title={lastSavedDateTime}
         >
           {lastSaved && `${strings.changesSaved} ${lastSaved}`}
         </Text>

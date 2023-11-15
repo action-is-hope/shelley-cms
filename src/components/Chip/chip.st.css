@@ -37,6 +37,7 @@
 }
 
 .container {
+  -st-states: isCollapsed;
   align-self: center;
   display: flex;
   gap: 10px;

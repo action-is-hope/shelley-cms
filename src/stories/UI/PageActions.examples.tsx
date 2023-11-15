@@ -21,6 +21,7 @@ export const BasicExample = (args: PageActionsPropsDocs) => {
     <PageActions
       className={"custom classnames"}
       lastSaved="5 mins ago"
+      lastSavedDateTime="17:29 - 5th November 2023"
       reviewRequired={reviewRequired}
       position={{ portalSelector: "#portal" }}
       {...args}

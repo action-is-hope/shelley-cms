@@ -133,6 +133,10 @@
     margin-top: 0;
   }
 
+  BlockEditor::mainContent ReorderItems:last-child {
+    margin-bottom: -1.3rem;
+  }
+
   BlockEditor::mainContent ReorderItems:hasButtonAfter {
     margin-bottom: calc(var(--spacing-unit) * -4);
   }

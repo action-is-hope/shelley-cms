@@ -31,4 +31,12 @@
   .container {
     gap: calc(var(--spacing-unit) * .5);
   }
+
+  .container:isCollapsed Chip::text {
+    max-width: 30px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
