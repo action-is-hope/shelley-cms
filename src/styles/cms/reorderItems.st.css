@@ -36,10 +36,6 @@
     padding-bottom: 1px;
   }
 
-  ReorderItems::dragContainer:empty {
-    /* display: none; */
-  }
-
   ReorderItems::dragContainer:isDragging {
     background-color: #121821;
   }
@@ -49,9 +45,13 @@
     padding-right: calc(var(--spacing-unit) * 3);
     padding-bottom: calc(var(--spacing-unit) * 2);
     border-radius: 4px;
-    margin-bottom: calc(var(--spacing-unit) * 2);
     position: relative;
     border: 1px dashed var(--color-border-3);
+  }
+
+  ReorderItems::item:not(:last-child),
+  ReorderItems:hasButtonAfter::item:last-child {
+    margin-bottom: calc(var(--spacing-unit) * 2);
   }
 
   ReorderItems::item TextField:variant(quiet),
@@ -63,8 +63,6 @@
   ReorderItems::item SlateArea {
     padding-left: calc(var(--spacing-unit) * 2);
   }
-
-  ReorderItems::item ButtonGroup {}
 
   ReorderItems::item .ctaContainer {
     margin-left: calc(var(--spacing-unit) * 1);
@@ -92,7 +90,7 @@
     padding-top: calc(var(--spacing-unit) / 2);
   }
 
-  ReorderItems::deleteButton:variant("fab") {
+  ReorderItems::deleteButton:variant(fab) {
     border: 1px dashed var(--color-border-3);
     top: -28px;
     left: -28px;
@@ -110,7 +108,5 @@
     padding: 4px;
     display: inline-flex;
   }
-
-  ReorderItems::contentDescription {}
 
 }

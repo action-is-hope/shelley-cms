@@ -5,6 +5,7 @@ import { Chip } from "../../components/Chip/Chip";
 import {
   BasicChipSet,
   ChipsSetAdornment,
+  ChipsSetAdornmentCollapsed,
   ChipsSetBlockEditor,
 } from "./Chip.examples";
 
@@ -85,11 +86,41 @@ Chips can be used in conjunction with Fields as an adornment.
 
 <Source language="tsx" id="editor-chip--b-chips-set-adornment" />
 
-## Chips as Adornment
+## Chips as Adornment - Collapsed
 
-Chips can be used in conjunction with Fields as an adornment.
+When thinsg get wide we likely want to collapse chips... We can use the title attribute as a tooltip to expose the value to users.
 
-<Story name="b) Chips in BlockEditors">{ChipsSetBlockEditor.bind({})}</Story>
+<Story
+  name="c) ChipsSetAdornment - collapsed"
+  parameters={{
+    docs: {
+      source: {
+        code: dedent`
+<TextField
+  placeholder="Chip example"
+  label="Text Chip"
+  vol={1}
+  startAdornment={
+    <div className={st(chip.container, { isCollapsed: true })}>
+      <Chip title="part-one" noWrap>part-one</Chip>
+      <Chip title="part-two" noWrap>part-two</Chip>
+    </div>
+  }
+/>`,
+      },
+    },
+  }}
+>
+  {ChipsSetAdornmentCollapsed.bind({})}
+</Story>
+
+<Source language="tsx" id="editor-chip--c-chips-set-adornment-collapsed" />
+
+## Chips in BlockEditors
+
+Chips can be used in conjunction with Fields and placed in BlockEditors.
+
+<Story name="d) Chips in BlockEditors">{ChipsSetBlockEditor.bind({})}</Story>
 
 ## Chip Props
 

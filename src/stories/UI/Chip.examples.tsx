@@ -2,7 +2,7 @@ import { TextField, Select, Item } from "@actionishope/shelley";
 import { BlockEditor } from "../../components/BlockEditor/BlockEditor";
 import SlateArea from "../../components/SlateArea/SlateArea";
 import { Chip } from "../../components/Chip/Chip";
-import { classes as chip } from "../../components/Chip/chip.st.css";
+import { st, classes as chip } from "../../components/Chip/chip.st.css";
 
 export const BasicChipSet = () => {
   return (
@@ -23,6 +23,26 @@ export const ChipsSetAdornment = () => {
       vol={1}
       startAdornment={
         <div className={chip.container}>
+          <Chip title="part-one" noWrap>
+            part-one
+          </Chip>
+          <Chip title="part-two" noWrap>
+            part-two
+          </Chip>
+        </div>
+      }
+    />
+  );
+};
+
+export const ChipsSetAdornmentCollapsed = () => {
+  return (
+    <TextField
+      placeholder="Chip example"
+      label="Text Chip"
+      vol={1}
+      startAdornment={
+        <div className={st(chip.container, { isCollapsed: true })}>
           <Chip noWrap>part-one</Chip>
           <Chip noWrap>part-two</Chip>
         </div>
