@@ -1,10 +1,13 @@
 import React, { forwardRef } from "react";
 import { st, classes } from "./card.st.css";
 import { Button, ButtonProps } from "@actionishope/shelley/Button";
+import type { ComponentBase } from "@actionishope/shelley";
 
 export interface CardProps
   extends Pick<ButtonProps, "onPress">,
-    React.HTMLProps<HTMLDivElement> {
+    React.HTMLProps<HTMLDivElement>,
+    ComponentBase {
+  ariaButtonLabel?: string;
   /** make onPress conditional and if yes then aria props must be specified? */
 }
 
@@ -12,12 +15,25 @@ export interface CardProps
  * Card is a basic container that houses the construction of larger more complex UI elements.
  */
 function Card(props: CardProps, ref?: React.Ref<HTMLDivElement>) {
-  const { className: classNameProp, children, onPress, ...rest } = props;
+  const {
+    className: classNameProp,
+    children,
+    onPress,
+    ariaButtonLabel,
+    "data-id": dataId,
+    ...rest
+  } = props;
   return (
-    <div className={st(classes.root, classNameProp)} {...rest} ref={ref}>
+    <div
+      className={st(classes.root, classNameProp)}
+      data-id={dataId}
+      {...rest}
+      ref={ref}
+    >
       {props.onPress && (
         <Button
-          aria-label="Title"
+          aria-label={ariaButtonLabel}
+          data-id={dataId ? `${dataId}--mainButton` : undefined}
           onPress={onPress}
           className={classes.mainButton}
           variant={false}

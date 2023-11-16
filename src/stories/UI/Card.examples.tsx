@@ -11,14 +11,18 @@ import CropPortrait from "../../components/icons/CropPortrait";
 import { classes as card } from "../../styles/cms/card.st.css";
 export const BasicExample = () => {
   return (
-    <Card onPress={() => console.log("onPressFired")}>
-      <CardHeader>
-        <H2 vol={1} uppercase>
-          Add Block
-          <Add aria-hidden="true" />
+    <Card
+      onPress={() => console.log("onPressFired")}
+      data-id="standardTitle"
+      ariaButtonLabel="Standard Title"
+    >
+      <CardHeader data-id="standardTitle--header">
+        <H2 vol={1} data-id="standardTitle--header--title" uppercase>
+          Standard Title
+          <Add aria-hidden="true" data-id="standardTitle--header--addIcon" />
         </H2>
       </CardHeader>
-      <CardContent>
+      <CardContent data-id="standardTitle--content">
         <P vol={1}>A simple, yet effective text only description here.</P>
       </CardContent>
     </Card>
