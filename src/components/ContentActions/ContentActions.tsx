@@ -15,6 +15,7 @@ export interface ContentActionsProps
   extends Omit<React.HTMLProps<HTMLDivElement>, "type" | "ref">,
     Pick<DialogTriggerProps, "isOpen" | "onOpenChange"> {
   shards?: shards;
+  addContentBlockButton: boolean;
 }
 function ContentActions(
   props: ContentActionsProps,
@@ -26,10 +27,16 @@ function ContentActions(
     shards,
     isOpen,
     onOpenChange,
+    addContentBlockButton,
     ...rest
   } = props;
 
   const targetRef = useRef(null);
+
+  if (!addContentBlockButton) {
+    return <></>;
+  }
+
   return (
     <div className={st(classes.root, classNameProp)} {...rest} ref={ref}>
       <DialogTrigger
