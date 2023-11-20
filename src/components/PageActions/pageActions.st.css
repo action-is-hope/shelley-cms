@@ -24,6 +24,8 @@
   -st-extends: Button;
 }
 
+.loader {}
+
 .menuTrigger {
   -st-extends: Button;
 }
@@ -70,6 +72,11 @@
 .updated {
   background-color: #15c8e8;
   border: 1px solid #75eaff;
+}
+
+.loader {
+  position: absolute;
+  right: 10px;
 }
 
 /* 

@@ -3,6 +3,7 @@ export { default as Bold } from "./Bold";
 export { default as AddToBoard } from "./AddToBoard";
 export { default as ArrowDown2 } from "./ArrowDown2";
 export { default as Calendar } from "./Calendar";
+export { default as CloseCircle } from "./CloseCircle";
 export { default as CloseSmall } from "./CloseSmall";
 export { default as CompressScreen } from "./CompressScreen";
 export { default as Content } from "./Content";

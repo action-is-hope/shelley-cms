@@ -12,6 +12,7 @@ import {
 import { Icon } from "@actionishope/shelley/Icon";
 import { st, classes } from "./pageActions.st.css";
 import { classes as spacing } from "@actionishope/shelley/styles/default/spacing.st.css";
+import { ProgressCircle } from "@actionishope/shelley";
 
 export type statusOptions =
   | "published"
@@ -48,6 +49,7 @@ export interface PageActionsProps<T>
     MenuTriggerProps,
     "placement" | "shouldFlip" | "offset" | "crossOffset" | "portalSelector"
   >;
+  isSaving?: boolean;
 }
 
 function PageActions<T extends { key: string }>(
@@ -65,6 +67,7 @@ function PageActions<T extends { key: string }>(
     onAction: onActionProp,
     "data-id": dataId,
     lastSavedDateTime,
+    isSaving = false,
     ...rest
   } = props;
 
@@ -153,6 +156,16 @@ function PageActions<T extends { key: string }>(
             variant="primary"
             tone={reviewRequired ? 2 : 1}
             className={classes.reviewButton}
+            icon={
+              isSaving && (
+                <ProgressCircle
+                  className={classes.loader}
+                  size="small"
+                  isIndeterminate
+                  variant="overBackground"
+                />
+              )
+            }
             data-id={dataId ? `${dataId}--actionButton` : undefined}
             fullWidth
             onPress={() =>
@@ -169,6 +182,7 @@ function PageActions<T extends { key: string }>(
                   <path d="M13 4v2l-5 5-5-5v-2l5 5z"></path>
                 </Icon>
               }
+              isDisabled
               className={classes.menuTrigger}
               data-id={dataId ? `${dataId}--menuTrigger` : undefined}
               vol={4}

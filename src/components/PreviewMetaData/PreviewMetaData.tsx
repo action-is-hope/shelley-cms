@@ -92,7 +92,7 @@ export const Google = ({
   slug,
   "data-id": dataId,
 }: PreviewMetaDataItemProps) => (
-  <article className={st(classes.previewItem, classes.google)}>
+  <article className={st(classes.previewItem, classes.google)} data-id={dataId}>
     <Icon
       viewBox="0 0 272 92"
       className={classes.googleLogo}
@@ -124,19 +124,19 @@ export const Google = ({
     <aside className={classes.googleListing}>
       <p
         className={classes.googleUrl}
-        data-id={dataId ? `${dataId}--googleUrl` : undefined}
+        data-id={dataId ? `${dataId}--url` : undefined}
       >
         {slug}
       </p>
       <p
         className={classes.googleTitle}
-        data-id={dataId ? `${dataId}--googleTitle` : undefined}
+        data-id={dataId ? `${dataId}--title` : undefined}
       >
         {title}
       </p>
       <p
         className={classes.googleDescription}
-        data-id={dataId ? `${dataId}--googleDescription` : undefined}
+        data-id={dataId ? `${dataId}--description` : undefined}
       >
         {description}
       </p>
@@ -151,7 +151,10 @@ export const Twitter = ({
   image,
   "data-id": dataId,
 }: PreviewMetaDataItemProps) => (
-  <article className={st(classes.previewItem, classes.twitter)}>
+  <article
+    className={st(classes.previewItem, classes.twitter)}
+    data-id={dataId}
+  >
     <Icon
       viewBox="0 0 400 400"
       className={classes.twitterLogo}
@@ -170,25 +173,25 @@ export const Twitter = ({
           className={classes.twitterImage}
           src={image}
           alt=""
-          data-id={dataId ? `${dataId}--twitterImage` : undefined}
+          data-id={dataId ? `${dataId}--image` : undefined}
         />
       )}
       <div className={classes.twitterText}>
         <p
           className={classes.twitterTitle}
-          data-id={dataId ? `${dataId}--twitterTitle` : undefined}
+          data-id={dataId ? `${dataId}--title` : undefined}
         >
           {title}
         </p>
         <p
           className={classes.twitterDescription}
-          data-id={dataId ? `${dataId}--twitterDescription` : undefined}
+          data-id={dataId ? `${dataId}--description` : undefined}
         >
           {description}
         </p>
         <p
           className={classes.twitterDomain}
-          data-id={dataId ? `${dataId}--twitterDomain` : undefined}
+          data-id={dataId ? `${dataId}--domain` : undefined}
         >
           <Icon viewBox="0 0 24 24" className={classes.twitterLinkIcon}>
             <g>
@@ -210,7 +213,10 @@ export const Facebook = ({
   image,
   "data-id": dataId,
 }: PreviewMetaDataItemProps) => (
-  <article className={st(classes.previewItem, classes.facebook)}>
+  <article
+    className={st(classes.previewItem, classes.facebook)}
+    data-id={dataId}
+  >
     <Icon
       viewBox="0 0 266.893 266.895"
       className={classes.facebookLogo}
@@ -236,24 +242,24 @@ export const Facebook = ({
             className={classes.facebookImage}
             src={image}
             alt=""
-            data-id={dataId ? `${dataId}--facebookImage` : undefined}
+            data-id={dataId ? `${dataId}--image` : undefined}
           />
         )}
         <p
           className={classes.facebookDomain}
-          data-id={dataId ? `${dataId}--facebookDomain` : undefined}
+          data-id={dataId ? `${dataId}--domain` : undefined}
         >
           {domain}
         </p>
         <p
           className={classes.facebookTitle}
-          data-id={dataId ? `${dataId}--facebookTitle` : undefined}
+          data-id={dataId ? `${dataId}--title` : undefined}
         >
           {title}
         </p>
         <p
           className={classes.facebookDescription}
-          data-id={dataId ? `${dataId}--facebookDescription` : undefined}
+          data-id={dataId ? `${dataId}--description` : undefined}
         >
           {description}
         </p>

@@ -24,6 +24,7 @@ export const BasicExample = (args: PageActionsPropsDocs) => {
       lastSavedDateTime="17:29 - 5th November 2023"
       reviewRequired={reviewRequired}
       position={{ portalSelector: "#portal" }}
+      data-id="pageActions"
       {...args}
       onAction={(actionKey) => {
         switch (actionKey) {
