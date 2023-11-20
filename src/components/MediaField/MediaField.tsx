@@ -50,7 +50,7 @@ const MediaField = ({
     <div
       className={st(
         classes.root,
-        { type, hasPreview: Boolean(mediaPreview), vol: vol !== false ? vol : undefined },
+        { type, hasPreview: Boolean(mediaPreview), hasChildren: Boolean(selectedMediaHelp) || Boolean(children), vol: vol !== false ? vol : undefined },
         className
       )}
     >
@@ -85,14 +85,14 @@ const MediaField = ({
                 variant="fab"
                 className={classes.editButton}
                 onPress={onRemove}
-                vol={2}
+                vol={vol === 3 ? 2 : 1}
                 icon={<Trash alt={removeText} />}
               />
               <Button
                 variant="fab"
                 className={classes.editButton}
                 onPress={onEdit}
-                vol={2}
+                vol={vol === 3 ? 2 : 1}
                 icon={<Edit alt={editText} />}
               />
             </nav>

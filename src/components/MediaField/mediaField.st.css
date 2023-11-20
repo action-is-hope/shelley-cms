@@ -6,6 +6,7 @@
   -st-states:
     type(enum(icon, video, image, document)),
     hasPreview,
+    hasChildren,
     vol(number)
 }
 
@@ -16,10 +17,8 @@
 }
 
 .grid {
+  justify-content: start;
   display: grid;
-  grid-template-columns: 50px 20px 1fr;
-  grid-template-areas: 'trigger orText children';
-  align-items: center;
   margin: 0;
 }
 
@@ -31,7 +30,7 @@
   grid-area: orText;
 }
 
-.root:hasPreview::grid {
+.root:hasPreview:hasChildren::grid {
   grid-template-areas:
     'preview alt'
     'preview caption'
