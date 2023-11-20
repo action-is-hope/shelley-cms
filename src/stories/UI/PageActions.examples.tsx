@@ -2,10 +2,10 @@ import { useState } from "react";
 import {
   PageActionsProps,
   PageActions,
-  statusOptions,
 } from "../../components/PageActions/PageActions";
 
 import { Item } from "@actionishope/shelley";
+import type { StatusOptions } from "../../typings/shared-types";
 
 // @todo Attempt (again) to get the automatic args table working in storybook. This is cause seemingly by using Omit, Pick etc
 export type PageActionsPropsDocs = PageActionsProps<object>;
@@ -14,7 +14,7 @@ export function PageActionsType(props: PageActionsPropsDocs) {
 }
 
 export const BasicExample = (args: PageActionsPropsDocs) => {
-  const [status, setStatus] = useState<statusOptions>("draft");
+  const [status, setStatus] = useState<StatusOptions>("draft");
   const [reviewRequired, setReviewRequired] = useState(true);
 
   return (
