@@ -31,6 +31,7 @@ export const BasicExample = () => {
       >
         {previewMode === "web" && (
           <PreviewMetaData
+            data-id="previewMetaData"
             title="Shelley Puma UI"
             description="A joyfully easy to use CMS UI built upon a little known library called Shelley."
             image="https://ik.imagekit.io/tcvka0ufln/pontoon_v3jIy64zcnwwx.jpeg?tr=w-1200,h-630,fo-auto"
@@ -40,7 +41,7 @@ export const BasicExample = () => {
           />
         )}
         {previewMode !== "web" && (
-          <PreviewChrome {...previewChromeProps}>
+          <PreviewChrome {...previewChromeProps} data-id="previewChrome">
             {/* Children... */}
             <div className={st(previewChrome.iframe)}>
               {/* Mimic the preview styles. If the preview is not white, set height too 100% and round corners for mobile preview. */}
@@ -65,6 +66,7 @@ export const BasicExample = () => {
       </Preview>
 
       <PreviewActions
+        data-id="previewActions"
         // className={editorLayout.previewActions}
         {...previewActionsProps}
       />

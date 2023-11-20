@@ -20,6 +20,7 @@ import { classes as finder } from "../../styles/cms/finder.st.css";
 
 export const BasicExample = () => (
   <Finder
+    data-id="finder"
     title={
       <>
         <ContentIcon aria-hidden="true" />

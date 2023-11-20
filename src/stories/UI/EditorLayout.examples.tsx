@@ -69,10 +69,12 @@ export const BasicExample = () => {
             // @todo: https://github.com/action-is-hope/shelley/issues/106
             isOpen={contentActionDialogOpen}
             onOpenChange={(isOpen) => setContentActionDialogOpen(isOpen)}
+            data-id="contentActions"
           >
             <Tabs
               aria-label="History of Ancient Rome"
               className={contentActions.tabs}
+              data-id="contentActions--tabs"
             >
               <Item key="FoR" title="Add Block">
                 <Checkbox

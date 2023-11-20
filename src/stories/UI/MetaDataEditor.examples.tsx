@@ -2,6 +2,7 @@ import { TextField, Select, Item } from "@actionishope/shelley";
 import { MetaDataEditor } from "../../components/MetaDataEditor/MetaDataEditor";
 import { classes } from "../../components/MetaDataEditor/metaDataEditor.st.css";
 import { useState, SetStateAction } from "react";
+import { MediaField } from "../../components/MediaField/MediaField";
 
 export const MetaDataEditorExample = () => {
   const [langauge, setLanguage] = useState("en");
@@ -22,9 +23,18 @@ export const MetaDataEditorExample = () => {
       }
       // Provide Media Uploader
       mediaUploader={
-        <img
-          src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
-          alt=""
+        <MediaField
+          type="image"
+          onAdd={() => console.log("Add Media")}
+          onEdit={() => console.log("Edit Media")}
+          onRemove={() => console.log("Remove media")}
+          vol={2}
+          mediaPreview={
+            <img
+              src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
+              alt=""
+            />
+          }
         />
       }
       // Title field props

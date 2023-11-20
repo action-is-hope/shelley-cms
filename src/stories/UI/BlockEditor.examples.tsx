@@ -120,6 +120,7 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
           onAdd={() => console.log("Add Media")}
           onEdit={() => console.log("Edit Media")}
           onRemove={() => console.log("Remove media")}
+          vol={3}
           mediaPreview={
             <img
               src="https://ucarecdn.com/68d4e740-b645-4273-bf86-5752a208a6ce/-/crop/3863x2172/0,396/-/preview/-/format/auto/"
@@ -145,6 +146,12 @@ export const BasicBlockEditor = (args: Partial<BlockEditorProps>) => {
           }}
         </MediaField>
 
+        <MediaField
+          type="image"
+          onAdd={() => console.log("Add Media")}
+          onEdit={() => console.log("Edit Media")}
+          onRemove={() => console.log("Remove media")}
+        />
         <SlateArea vol={6} defaultValue={`Title`} name="title" />
         <SlateArea vol={3} defaultValue={`Description`} name="description" />
         <Select

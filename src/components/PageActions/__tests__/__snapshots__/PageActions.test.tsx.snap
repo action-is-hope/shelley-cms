@@ -20,7 +20,7 @@ exports[`PageActions renders page actions block with custom className 1`] = `
       className="Text__Test__root Text__Test---vol-1-1 DefaultSpacing__Test__mb1 PageActions__Test__statusText"
     >
       <span
-        className="PageActions__Test__led PageActions__Test__draft"
+        className="StatusIndicator__Test__root StatusIndicator__Test---status-5-draft StatusIndicator__Test---vol-1-2 PageActions__Test__statusIndicator"
       />
       <strong>
         Status:

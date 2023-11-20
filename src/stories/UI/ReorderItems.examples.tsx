@@ -45,6 +45,7 @@ export const ReorderBlocksExample = () => {
       //     }
       title={"Reorder Content Blocks"}
       items={blocks}
+      data-id="reorderContentBlocks"
       onRemoveSelect={(index) => console.log("Index", index)}
       moveItem={({ fromIndex, toIndex }) => {
         const items = Array.from(blocks);

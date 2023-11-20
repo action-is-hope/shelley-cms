@@ -12,6 +12,7 @@ export const BasicExample = () => {
     <>
       <PreviewModes
         className={"custom-class"}
+        data-id="previewModes"
         value={mode}
         onChange={(key) => {
           console.log(key);

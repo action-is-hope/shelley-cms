@@ -11,6 +11,7 @@
   --color-form-base-border
 ] from "./project.st.css";
 @st-import MetaDataEditor from "../../components/MetaDataEditor/metaDataEditor.st.css";
+@st-import MediaField from "../../components/MediaField/mediaField.st.css";
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import Modal, [blurBackground] from "@actionishope/shelley/Modal/modal.st.css";
 
@@ -29,6 +30,18 @@
 @st-scope CMS {
   MetaDataEditor {
     --currentHeight: var(--height-header-md);
+  }
+
+  MetaDataEditor MediaField {
+    margin: 0;
+  }
+
+  MetaDataEditor MediaField:hasPreview::grid {
+    grid-gap: 0;
+  }
+
+  MetaDataEditor MediaField:hasPreview::editControls::after {
+    display: none;
   }
 }
 
@@ -76,6 +89,7 @@
     display: flex;
     align-items: center;
     height: var(--currentHeight);
+    justify-self: center;
   }
 
   MetaDataEditor::mediaUploader img {
@@ -147,7 +161,7 @@
     grid-area: children;
     display: grid;
     gap: calc(var(--spacing-unit) * 1.5);
-    padding: 4px calc(47px + var(--spacing-unit)) calc(var(--spacing-unit) * 1.5) 0
+    padding: calc(var(--spacing-unit) * 1.5) calc(47px + var(--spacing-unit)) calc(var(--spacing-unit) * 1.5) 0
   }
 
   /* Generic Fields */

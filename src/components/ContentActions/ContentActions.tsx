@@ -11,9 +11,11 @@ import {
 } from "@actionishope/shelley/Dialog";
 import type { shards } from "src/typings/shared-types";
 import { st, classes } from "./contentActions.st.css";
+import type { ComponentBase } from "@actionishope/shelley";
 export interface ContentActionsProps
   extends Omit<React.HTMLProps<HTMLDivElement>, "type" | "ref">,
-    Pick<DialogTriggerProps, "isOpen" | "onOpenChange"> {
+    Pick<DialogTriggerProps, "isOpen" | "onOpenChange">,
+    ComponentBase {
   shards?: shards;
 }
 function ContentActions(
@@ -26,12 +28,18 @@ function ContentActions(
     shards,
     isOpen,
     onOpenChange,
+    "data-id": dataId,
     ...rest
   } = props;
 
   const targetRef = useRef(null);
   return (
-    <div className={st(classes.root, classNameProp)} {...rest} ref={ref}>
+    <div
+      className={st(classes.root, classNameProp)}
+      {...rest}
+      ref={ref}
+      data-id={dataId}
+    >
       <DialogTrigger
         portalSelector="#portal"
         isOpen={isOpen}
@@ -44,15 +52,19 @@ function ContentActions(
       >
         <Button
           vol={4}
-          variant="secondary"
           tone={1}
-          ref={targetRef}
+          variant="secondary"
           className={classes.addBlockButton}
+          ref={targetRef}
+          data-id={dataId ? `${dataId}--addContentButton` : undefined}
         >
           Add Content Block
         </Button>
         {(close) => (
-          <Dialog className={classes.dialog}>
+          <Dialog
+            className={classes.dialog}
+            data-id={dataId ? `${dataId}--dialog` : undefined}
+          >
             <VisuallyHidden>
               <H2 vol={1} uppercase className={dialog.title} data-title>
                 Adding and managing block order
@@ -60,7 +72,11 @@ function ContentActions(
             </VisuallyHidden>
             <div className={dialog.content}>{children}</div>
             <ButtonGroup className={dialog.buttonGroup}>
-              <Button variant="secondary" onPress={close}>
+              <Button
+                variant="secondary"
+                onPress={close}
+                data-id={dataId ? `${dataId}--dialog--closeButton` : undefined}
+              >
                 Close
               </Button>
             </ButtonGroup>

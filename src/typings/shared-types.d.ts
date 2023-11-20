@@ -54,3 +54,10 @@ export interface Site {
 }
 
 export type shards = Array<React.RefObject<any> | HTMLElement> | undefined;
+
+export type StatusOptions =
+  | "published"
+  | "draft"
+  | "updated"
+  | "archived"
+  | "unpublished";

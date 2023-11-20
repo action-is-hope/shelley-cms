@@ -9,7 +9,7 @@
 ] from "./project.st.css";
 
 @st-import BlockEditor, [menu] from "../../components/BlockEditor/blockEditor.st.css";
-@st-import MediaField from "../../components/MediaField/mediaField.st.css";
+@st-import MediaField , [grid] from "../../components/MediaField/mediaField.st.css";
 
 @st-import Modal, [
   enter,
@@ -37,17 +37,23 @@
     grid-gap: var(--spacing-unit);
   }
 
-  MediaField::grid {
-    grid-template-columns: 48px 16px 1fr;
+  MediaField:hasChildren:not(:hasPreview)::grid {
+    grid-template-areas: 'trigger orText children';
+    align-items: center;
     grid-column-gap: calc(var(--spacing-unit) * 1);
   }
 
-  MediaField:vol(1)::grid {
+  MediaField:hasChildren:not(:hasPreview):vol(1)::grid {
     grid-template-columns: 32px 16px 1fr;
   }
 
-  MediaField:vol(2)::grid {
+  MediaField:hasChildren:not(:hasPreview):vol(2)::grid {
     grid-template-columns: 40px 16px 1fr;
+  }
+
+  MediaField:hasChildren:not(:hasPreview):vol(3)::grid {
+    grid-template-columns: 48px 16px 1fr;
+    ;
   }
 
   MediaField::orText {
@@ -56,7 +62,7 @@
     justify-self: center;
   }
 
-  MediaField:hasPreview::grid {
+  MediaField:hasPreview:hasChildren::grid {
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 0;
     grid-template-areas:
@@ -69,7 +75,7 @@
 
 @media value(breakpoint-sm) {
   @st-scope CMS {
-    MediaField:hasPreview::grid {
+    MediaField:hasPreview:hasChildren::grid {
       grid-template-areas:
         'preview alt'
         'preview caption'

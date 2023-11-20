@@ -2,7 +2,7 @@ import React, { forwardRef, ReactNode } from "react";
 import { st, classes } from "./chip.st.css";
 import { Button } from "@actionishope/shelley/Button";
 import { Text } from "@actionishope/shelley/Text";
-import { Trash } from "../icons";
+import { CloseSmall } from "../icons";
 
 // todo: Update and promote to Shelley.
 export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -42,7 +42,7 @@ function Chip(props: ChipProps, ref: React.Ref<HTMLBaseElement>) {
           className={classes.removeButton}
           tone={10}
           variant="fab"
-          icon={deleteIcon ?? <Trash alt={onRemoveAltText} />}
+          icon={deleteIcon ?? <CloseSmall alt={onRemoveAltText} />}
           vol={1}
           onPress={onRemove}
         />

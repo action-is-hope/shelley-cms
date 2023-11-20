@@ -1,0 +1,51 @@
+/* statusIndicator.st.css */
+@st-namespace "StatusIndicator";
+
+.root {
+  -st-states:
+    status(enum(published, draft, updated, archived, unpublished)),
+    vol(number);
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.root:vol(1) {
+  width: 8px;
+  height: 8px;
+}
+
+.root:vol(2) {
+  width: 10px;
+  height: 10px;
+}
+
+.root:vol(3) {
+  width: 12px;
+  height: 12px;
+}
+
+.root:status(archived) {
+  background-color: #f05751;
+  border: 1px solid #d9453f;
+}
+
+.root:status(draft) {
+  background-color: #fba012;
+  border: 1px solid #db8500;
+}
+
+.root:status(unpublished) {
+  background-color: #fba012;
+  border: 1px solid #db8500;
+}
+
+.root:status(published) {
+  background-color: #14d997;
+  border: 1px solid #0eb87f;
+}
+
+.root:status(updated) {
+  background-color: #15c8e8;
+  border: 1px solid #75eaff;
+}

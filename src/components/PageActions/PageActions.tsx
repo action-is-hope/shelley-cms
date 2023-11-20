@@ -12,19 +12,15 @@ import {
 import { Icon } from "@actionishope/shelley/Icon";
 import { st, classes } from "./pageActions.st.css";
 import { classes as spacing } from "@actionishope/shelley/styles/default/spacing.st.css";
-
-export type statusOptions =
-  | "published"
-  | "draft"
-  | "updated"
-  | "archived"
-  | "unpublished";
+import { ProgressCircle } from "@actionishope/shelley";
+import { StatusIndicator } from "../StatusIndicator/StatusIndicator";
+import type { StatusOptions } from "../../typings/shared-types";
 
 export interface PageActionsProps<T>
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "children">,
     ComponentBase {
   /** Provide a status */
-  status: statusOptions;
+  status: StatusOptions;
   /** The last saved value, e.g "a week ago", "a few minutes" etc. */
   lastSaved?: string;
   lastSavedDateTime?: string;
@@ -48,6 +44,7 @@ export interface PageActionsProps<T>
     MenuTriggerProps,
     "placement" | "shouldFlip" | "offset" | "crossOffset" | "portalSelector"
   >;
+  isSaving?: boolean;
 }
 
 function PageActions<T extends { key: string }>(
@@ -65,6 +62,7 @@ function PageActions<T extends { key: string }>(
     onAction: onActionProp,
     "data-id": dataId,
     lastSavedDateTime,
+    isSaving = false,
     ...rest
   } = props;
 
@@ -142,8 +140,10 @@ function PageActions<T extends { key: string }>(
           className={st(spacing.mb1, classes.statusText)}
           data-id={dataId ? `${dataId}--status` : undefined}
         >
-          {/* @todo: Convert to StatusIndicator component */}
-          <span className={st(classes.led, classes[status])}></span>
+          <StatusIndicator
+            className={classes.statusIndicator}
+            status={status}
+          />
           <strong>{strings.status}</strong> {strings[status]}
         </Text>
         {/* @todo: shelley -> Button group us adding extra props to the MenuTrigger in this scenario */}
@@ -153,6 +153,17 @@ function PageActions<T extends { key: string }>(
             variant="primary"
             tone={reviewRequired ? 2 : 1}
             className={classes.reviewButton}
+            icon={
+              isSaving && (
+                <ProgressCircle
+                  className={classes.loader}
+                  size="small"
+                  data-id={dataId ? `${dataId}--saveIndicator` : undefined}
+                  isIndeterminate
+                  variant="overBackground"
+                />
+              )
+            }
             data-id={dataId ? `${dataId}--actionButton` : undefined}
             fullWidth
             onPress={() =>
@@ -176,7 +187,6 @@ function PageActions<T extends { key: string }>(
             />
             <Menu
               onAction={(key) => onActionProp(key)}
-              // disabledKeys={disabledKeys}
               disabledKeys={disabledKeysProp}
               className={classes.menu}
               data-id={dataId ? `${dataId}--menu` : undefined}
