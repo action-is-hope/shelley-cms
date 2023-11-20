@@ -13,19 +13,14 @@ import { Icon } from "@actionishope/shelley/Icon";
 import { st, classes } from "./pageActions.st.css";
 import { classes as spacing } from "@actionishope/shelley/styles/default/spacing.st.css";
 import { ProgressCircle } from "@actionishope/shelley";
-
-export type statusOptions =
-  | "published"
-  | "draft"
-  | "updated"
-  | "archived"
-  | "unpublished";
+import { StatusIndicator } from "../StatusIndicator/StatusIndicator";
+import type { StatusOptions } from "../../typings/shared-types";
 
 export interface PageActionsProps<T>
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "children">,
     ComponentBase {
   /** Provide a status */
-  status: statusOptions;
+  status: StatusOptions;
   /** The last saved value, e.g "a week ago", "a few minutes" etc. */
   lastSaved?: string;
   lastSavedDateTime?: string;
@@ -145,8 +140,11 @@ function PageActions<T extends { key: string }>(
           className={st(spacing.mb1, classes.statusText)}
           data-id={dataId ? `${dataId}--status` : undefined}
         >
-          {/* @todo: Convert to StatusIndicator component */}
-          <span className={st(classes.led, classes[status])}></span>
+          <StatusIndicator
+            className={classes.statusIndicator}
+            status={status}
+          />
+          {/* <span className={st(classes.led, classes[status])}></span> */}
           <strong>{strings.status}</strong> {strings[status]}
         </Text>
         {/* @todo: shelley -> Button group us adding extra props to the MenuTrigger in this scenario */}
@@ -161,6 +159,7 @@ function PageActions<T extends { key: string }>(
                 <ProgressCircle
                   className={classes.loader}
                   size="small"
+                  data-id={dataId ? `${dataId}--saveIndicator` : undefined}
                   isIndeterminate
                   variant="overBackground"
                 />
@@ -182,7 +181,6 @@ function PageActions<T extends { key: string }>(
                   <path d="M13 4v2l-5 5-5-5v-2l5 5z"></path>
                 </Icon>
               }
-              isDisabled
               className={classes.menuTrigger}
               data-id={dataId ? `${dataId}--menuTrigger` : undefined}
               vol={4}
@@ -190,7 +188,6 @@ function PageActions<T extends { key: string }>(
             />
             <Menu
               onAction={(key) => onActionProp(key)}
-              // disabledKeys={disabledKeys}
               disabledKeys={disabledKeysProp}
               className={classes.menu}
               data-id={dataId ? `${dataId}--menu` : undefined}
