@@ -144,7 +144,6 @@ function PageActions<T extends { key: string }>(
             className={classes.statusIndicator}
             status={status}
           />
-          {/* <span className={st(classes.led, classes[status])}></span> */}
           <strong>{strings.status}</strong> {strings[status]}
         </Text>
         {/* @todo: shelley -> Button group us adding extra props to the MenuTrigger in this scenario */}

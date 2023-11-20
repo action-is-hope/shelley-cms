@@ -6,7 +6,7 @@ import type { StatusOptions } from "../../typings/shared-types";
 export interface StatusIndicatorProps
   extends React.HTMLAttributes<HTMLSpanElement> {
   status: StatusOptions;
-  vol: 1 | 2 | 3;
+  vol?: 1 | 2 | 3;
 }
 const StatusIndicator = forwardRef(
   (
