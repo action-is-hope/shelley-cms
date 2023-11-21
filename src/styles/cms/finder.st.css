@@ -7,6 +7,7 @@
   --spacing-unit,
   --height-header-sm,
   --height-header-md,
+  --color-background-3,
   --color-background-contrast-1,
   breakpoint-md,
   breakpoint-sm,
@@ -20,6 +21,7 @@
 
 @st-import Card from "../../components/Card/card.st.css";
 @st-import RadioGroup from "@actionishope/shelley/RadioGroup/radioGroup.st.css";
+@st-import Radio from "@actionishope/shelley/Radio/radio.st.css";
 
 @st-scope CMS {
 
@@ -76,16 +78,36 @@
   }
 
   Finder::sidebar RadioGroup {
-    padding: 0 var(--spacing-unit);
+    /* padding: 0 var(--spacing-unit); */
     gap: 6px;
     margin-bottom: calc(var(--spacing-unit) * 2)
+  }
+
+  Finder::sidebar RadioGroup {
+    font-size: .95em;
+  }
+
+  Finder::sidebar RadioGroup Radio {
+    padding: calc(var(--spacing-unit) * .5) var(--spacing-unit);
+  }
+
+  Finder::sidebar RadioGroup::inputLabel {
+    padding: 2px var(--spacing-unit) 0;
+    margin-bottom: 4px;
+  }
+
+  Finder::sidebar RadioGroup::group {
+    max-height: 9.2rem;
+    overflow-x: hidden;
+  }
+
+  Finder::sidebar RadioGroup Radio:hover {
+    background-color: var(--color-background-3);
   }
 
   Finder::sidebar RadioGroup:first-child {
     margin-top: calc(var(--spacing-unit) * 2 + 6px)
   }
-
-
 
   Finder::main {
     padding: var(--finder-padding);

@@ -67,11 +67,23 @@ export const DisableActionBarExample = () => (
       placeholder: "Search for content",
     }}
     sidebarContent={
-      <RadioGroup label="Page Status" vol={1}>
-        <Radio value="pub">Published</Radio>
-        <Radio value="draft">Draft</Radio>
-        <Radio value="arch">Archived</Radio>
-      </RadioGroup>
+      <>
+        <RadioGroup label="Page Status" vol={1}>
+          <Radio value="pub">Published</Radio>
+          <Radio value="draft">Draft</Radio>
+          <Radio value="arch">Archived</Radio>
+        </RadioGroup>
+
+        <RadioGroup label="Taxonomies" vol={1}>
+          <Radio value="pub">Global</Radio>
+          <Radio value="draft">English online</Radio>
+          <Radio value="draft">IELTS</Radio>
+          <Radio value="draft">Fields of Study</Radio>
+          <Radio value="arch">Our work</Radio>
+          <Radio value="arch">Education</Radio>
+          <Radio value="arch">Arts and film</Radio>
+        </RadioGroup>
+      </>
     }
   >
     <P vol={2}>
