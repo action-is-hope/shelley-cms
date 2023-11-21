@@ -208,6 +208,13 @@
   --facebook-desc: #b0b3b8;
   --facebook-domain: #b0b3b8;
   --facebook-font: Helvetica, Arial, sans-serif;
+
+  /* = Toast colours */
+  --background-color-neutral: rgb(106, 106, 106);
+  --background-color-info: rgb(2, 101, 220);
+  --background-color-success: rgb(0, 122, 77);
+  --background-color-warning: rgb(255, 102, 0);
+  --background-color-error: rgb(211, 21, 16);
 }
 
 /*=== Root Level CSS ===*/
