@@ -121,8 +121,8 @@ function MetaDataEditor<T extends object>(
                 variant="outlined"
                 portalSelector="#portal"
                 labelPosition="hidden"
-                {...restLangSelector}
                 onOpenChange={setDisableClickAway}
+                {...restLangSelector}
                 data-id={dataId ? `${dataId}--languageField` : undefined}
               >
                 {languageOptions.map((option) => (

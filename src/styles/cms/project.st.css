@@ -49,7 +49,12 @@
   --grid-v1-cols-md,
   --text-vol-10-max,
   --text-vol-10-scale,
-  --text-vol-10-line-height] from "@actionishope/shelley/styles/default/project.st.css";
+  --text-vol-10-line-height,
+  --background-color-neutral,
+  --background-color-info,
+  --background-color-success,
+  --background-color-warning,
+  --background-color-error] from "@actionishope/shelley/styles/default/project.st.css";
 
 /*=== BUILD-TIME 'VARIABLE' DEFINITIONS ===*/
 
