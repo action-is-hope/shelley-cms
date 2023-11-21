@@ -8,6 +8,8 @@ import { PageActions } from "../../components/PageActions/PageActions";
 import { ReorderItems } from "../../components/ReorderItems/ReorderItems";
 import { EditorLayout } from "../../components/EditorLayout/EditorLayout";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
+import { ToastProvider } from "@actionishope/shelley";
+
 import { classes as editorLayout } from "../../components/EditorLayout/editorLayout.st.css";
 
 import {
@@ -49,7 +51,7 @@ export const BasicExample = () => {
   const [blocks, updateBlocks] = useState(contentBlocksData);
 
   return (
-    <>
+    <ToastProvider>
       <BasicHeader />
 
       <EditorLayout {...editorLayoutProps}>
@@ -152,6 +154,6 @@ export const BasicExample = () => {
           <Item key="unpublish">Unpublish</Item>
         </PageActions>
       </EditorLayout>
-    </>
+    </ToastProvider>
   );
 };

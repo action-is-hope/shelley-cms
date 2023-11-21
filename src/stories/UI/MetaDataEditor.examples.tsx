@@ -3,6 +3,7 @@ import { MetaDataEditor } from "../../components/MetaDataEditor/MetaDataEditor";
 import { classes } from "../../components/MetaDataEditor/metaDataEditor.st.css";
 import { useState, SetStateAction } from "react";
 import { MediaField } from "../../components/MediaField/MediaField";
+import { Button, ButtonGroup, useToast } from "@actionishope/shelley";
 
 export const MetaDataEditorExample = () => {
   const [langauge, setLanguage] = useState("en");
@@ -74,6 +75,8 @@ export const MetaDataEditorWithChildrenExample = () => {
   const [langauge, setLanguage] = useState("en");
 
   const [disableClickAway, setDisableClickAway] = useState(false);
+
+  const toastQueue = useToast();
 
   return (
     <MetaDataEditor
@@ -152,6 +155,53 @@ export const MetaDataEditorWithChildrenExample = () => {
             <Item key="sometimes">Sometimes</Item>
             <Item key="always">Always</Item>
           </Select>
+
+          <ButtonGroup variant="secondary" style={{ position: "absolute" }}>
+            <Button
+              onPress={() =>
+                toastQueue.add(
+                  { title: "Bread can be toasted (P0)" },
+                  { priority: 0 }
+                )
+              }
+            >
+              Neutral (P0)
+            </Button>
+            <Button
+              onPress={() =>
+                toastQueue.add({ title: "Toasting... (P1)" }, { priority: 1 })
+              }
+            >
+              Info (P1)
+            </Button>
+            <Button
+              onPress={() =>
+                toastQueue.add({ title: "Toast is done (P2)" }, { priority: 2 })
+              }
+            >
+              Success (P2)
+            </Button>
+            <Button
+              onPress={() =>
+                toastQueue.add(
+                  { title: "Toast is burning (P3)" },
+                  { priority: 3 }
+                )
+              }
+            >
+              Warning (P3)
+            </Button>
+            <Button
+              onPress={() =>
+                toastQueue.add(
+                  { title: "Toast is on fire (P4)" },
+                  { priority: 4 }
+                )
+              }
+            >
+              Error (P4)
+            </Button>
+          </ButtonGroup>
         </>
       )}
     </MetaDataEditor>
