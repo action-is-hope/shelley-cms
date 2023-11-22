@@ -17,6 +17,7 @@ import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 import useSize from "@react-hook/size";
 import Search from "../icons/Search";
 import Filter from "../icons/Filter";
+import { SubHeader } from "../SubHeader/SubHeader";
 
 type OverloadedChildren = (isMobile: boolean) => ReactElement;
 
@@ -71,16 +72,13 @@ function Finder(props: FinderProps, ref?: React.Ref<HTMLDivElement>) {
       {...rest}
     >
       {!disableActionBar && (
-        <div className={classes.actionBar}>
-          <H1
-            className={classes.title}
-            vol={4}
-            data-id={dataId ? `${dataId}--title` : undefined}
-          >
-            {title}
-          </H1>
-          <div className={classes.actionButton}>{addButton}</div>
-        </div>
+        <SubHeader
+          title={title}
+          className={classes.actionBar}
+          data-id="actionBar"
+        >
+          {addButton}
+        </SubHeader>
       )}
 
       {!isMobile && sidebarContent && (

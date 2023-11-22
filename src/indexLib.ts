@@ -25,4 +25,5 @@ export * from "./components/ReorderItems/ReorderItems";
 export * from "./components/StaleContentWidget/StaleContentWidget";
 export * from "./components/StatusIndicator/StatusIndicator";
 export * from "./components/SlateArea/SlateArea";
+export * from "./components/SubHeader/SubHeader";
 export * from "./components/UserWidget/UserWidget";
