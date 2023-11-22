@@ -1,0 +1,39 @@
+@st-namespace "SubHeaderCMS";
+
+@st-import SubHeader from "../../components/SubHeader/subHeader.st.css";
+
+@st-import CMS, [
+  --color-background-contrast-1,
+  --color-accent-1,
+  --color-accent-1-50,
+  --spacing-unit
+] from "./project.st.css";
+
+
+@st-scope CMS {
+  SubHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-column: 1 / span 2;
+    padding-left: var(--spacing-unit);
+    padding-right: var(--spacing-unit);
+    background-color: var(--color-background-contrast-1);
+    border-bottom: 2px solid var(--color-accent-1-50);
+  }
+
+  SubHeader::title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) / 2);
+  }
+
+  SubHeader::title svg {
+    font-size: 1.2em;
+    color: var(--color-accent-1)
+  }
+
+  SubHeader::actionArea {
+    justify-self: end;
+  }
+}

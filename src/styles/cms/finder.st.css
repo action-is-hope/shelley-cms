@@ -47,32 +47,6 @@
     grid-template-columns: 1fr;
   }
 
-  Finder::actionBar {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    grid-column: 1 / span 2;
-    padding-left: var(--spacing-unit);
-    padding-right: var(--spacing-unit);
-    background-color: var(--color-background-contrast-1);
-    border-bottom: 2px solid var(--color-accent-1-50);
-  }
-
-  Finder::actionButton {
-    justify-self: end;
-  }
-
-  Finder::title {
-    display: flex;
-    align-items: center;
-    gap: calc(var(--spacing-unit) / 2);
-  }
-
-  Finder::title svg {
-    font-size: 1.2em;
-    color: var(--color-accent-1)
-  }
-
   Finder::sidebar {
     background-color: var(--color-background-contrast-1)
   }
@@ -84,7 +58,7 @@
   }
 
   Finder::sidebar RadioGroup {
-    font-size: .95em;
+    font-size: .9em;
   }
 
   Finder::sidebar RadioGroup Radio {
@@ -94,6 +68,11 @@
   Finder::sidebar RadioGroup::inputLabel {
     padding: 2px var(--spacing-unit) 0;
     margin-bottom: 4px;
+
+  }
+
+  Finder::sidebar RadioGroup::inputLabel::text {
+    font-weight: 600;
   }
 
   Finder::sidebar RadioGroup::group {
