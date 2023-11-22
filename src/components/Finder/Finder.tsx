@@ -9,7 +9,6 @@ import React, {
 import { st, classes } from "./finder.st.css";
 import { mergeRefs } from "@react-aria/utils";
 import { IconButton } from "@actionishope/shelley/IconButton";
-import { H1 } from "@actionishope/shelley/Text";
 import { DialogTrigger } from "@actionishope/shelley/Dialog";
 import { TextField } from "@actionishope/shelley/TextField";
 import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
