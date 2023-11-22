@@ -1,4 +1,4 @@
-@st-namespace "SubHeader";
+@st-namespace "SubHeaderCMS";
 
 @st-import SubHeader from "../../components/SubHeader/subHeader.st.css";
 
