@@ -10,7 +10,7 @@ import { st, classes } from "./finder.st.css";
 import { mergeRefs } from "@react-aria/utils";
 import { IconButton } from "@actionishope/shelley/IconButton";
 import { DialogTrigger } from "@actionishope/shelley/Dialog";
-import { TextField } from "@actionishope/shelley/TextField";
+import { TextField, TextInputProps } from "@actionishope/shelley/TextField";
 import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 
 import useSize from "@react-hook/size";
@@ -28,11 +28,7 @@ export interface FinderProps
   filterTriggerString?: string;
   title?: ReactNode;
   addButton?: ReactNode;
-  searchFieldProps: {
-    onChange: (value: string) => void;
-    placeholder?: string;
-    label?: string;
-  };
+  searchFieldProps: Partial<TextInputProps>;
   searchBarChildren?: ReactNode;
   disableActionBar?: boolean;
 }
