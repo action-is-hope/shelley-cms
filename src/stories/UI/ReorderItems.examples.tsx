@@ -71,6 +71,7 @@ export const ReorderFieldGroupsExample = () => {
       />
       <MediaField
         type="image"
+        vol={2}
         onAdd={() => console.log("Add Media")}
         onEdit={() => console.log("Edit Media")}
         onRemove={() => console.log("Remove media")}

@@ -126,8 +126,7 @@
   --color-accent-1: var(--color-header-background);
   --color-accent-1-50: rgb(8 92 103 / 50%);
   --color-accent-2: rgb(8 134 136);
-  --color-accent-3: rgb(37 43 45 / 80%);
-
+  --color-accent-3: #ed0ba7;
   /* = Background colors */
   --color-background-main: #e8e8e8;
   --color-background-contrast-1: #fff;

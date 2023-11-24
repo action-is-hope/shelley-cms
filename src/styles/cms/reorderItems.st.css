@@ -43,7 +43,7 @@
   ReorderItems::item {
     padding: var(--spacing-unit);
     padding-right: calc(var(--spacing-unit) * 3);
-    padding-bottom: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 1);
     border-radius: 4px;
     position: relative;
     border: 1px dashed var(--color-border-3);
@@ -86,8 +86,6 @@
 
   ReorderItems::content {
     position: relative;
-    /* Something to grab if fields are present. */
-    padding-top: calc(var(--spacing-unit) / 2);
   }
 
   ReorderItems::deleteButton:variant(fab) {

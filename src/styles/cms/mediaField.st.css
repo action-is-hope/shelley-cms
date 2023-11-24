@@ -29,7 +29,7 @@
   }
 
   MediaField::grid {
-    margin-left: calc(var(--spacing-unit) * -0.7)
+    margin-left: calc(var(--spacing-unit) * -0.4)
   }
 
   MediaField:hasPreview::grid {
@@ -53,7 +53,6 @@
 
   MediaField:hasChildren:not(:hasPreview):vol(3)::grid {
     grid-template-columns: 48px 16px 1fr;
-    ;
   }
 
   MediaField::orText {
