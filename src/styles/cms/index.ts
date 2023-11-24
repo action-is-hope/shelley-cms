@@ -38,6 +38,7 @@ import "./subHeader.st.css";
 import "./tableView.st.css";
 import "./userWidget.st.css";
 import "./widget.st.css";
+import "./settingsPanel.st.css";
 
 // Slate
 import "./slateArea.st.css";

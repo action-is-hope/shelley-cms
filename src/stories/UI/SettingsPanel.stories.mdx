@@ -1,0 +1,40 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
+import dedent from "ts-dedent";
+import { StoryGrid } from "../StoryLayout";
+import { BasicExample, FormExample } from "./SettingsPanel.examples";
+
+<Meta title="PageLayout/SettingsPanel" />
+
+# SettingsPanel
+
+## Example
+
+The following example uses a `CardHeader` and `CardContent` in conjunction with the `onPress` event to create a simple clickable card for adding a block.
+
+<Story
+  name="a) Settings panel - Table"
+  args={{}}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent``,
+      },
+    },
+  }}
+>
+  {BasicExample.bind({})}
+</Story>
+
+<Story
+  name="b) Settings panel - Form"
+  args={{}}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent``,
+      },
+    },
+  }}
+>
+  {FormExample.bind({})}
+</Story>

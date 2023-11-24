@@ -1,0 +1,137 @@
+@st-namespace "SettingsPanelCMS";
+
+@st-import CMS, [
+  --color-ui,
+  --color-focus,
+  --color-ui-inverse,
+  --color-accent-1,
+  --color-accent-3,
+  --color-background-3,
+  --spacing-unit,
+  --height-header-sm,
+  --height-header-md,
+  breakpoint-md,
+  breakpoint-md-max,
+] from "./project.st.css";
+@property st-global(--vh);
+
+@st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/default/mixins/focus.st.css";
+
+@st-import SettingsPanel, [active] from "../../components/SettingsPanel/settingsPanel.st.css";
+@st-import SubHeader from "../../components/SubHeader/subHeader.st.css";
+
+@st-scope CMS {
+
+  SettingsPanel {
+    --height-header: var(--height-header-sm);
+    grid-template-columns: 230px 1fr;
+    grid-template-rows: var(--height-header) 1fr;
+    grid-column-gap: var(--spacing-unit);
+    min-height: calc(var(--vh, 1vh) * 100 - var(--height-header));
+  }
+
+  SettingsPanel::subHeader {
+    height: var(--height-header);
+    grid-row: 1;
+    grid-column: span 2;
+  }
+
+  SettingsPanel::subHeader::title {
+    position: relative;
+    top: 3px
+  }
+
+  SettingsPanel::subHeader::title svg {
+    color: var(--color-accent-3);
+  }
+
+  SettingsPanel::innerScroll {
+    margin-top: var(--spacing-unit);
+    padding-right: var(--spacing-unit);
+    height: calc(var(--vh, 1vh) * 100 - calc(var(--height-header) * 2) - calc(var(--spacing-unit) * 2));
+  }
+
+  SettingsPanel::form {
+    display: grid;
+    gap: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-background-3);
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    margin-right: calc(var(--spacing-unit) * 1);
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 1);
+  }
+
+  SettingsPanel::settingsString {
+    position: absolute;
+    font-size: 0.4em;
+    font-weight: 500;
+    margin-top: calc(var(--spacing-unit) * -2.5);
+    margin-left: calc(var(--spacing-unit) / 1.5)
+  }
+
+  SettingsPanel::nav {
+    display: flex;
+    flex-direction: column;
+    padding: 30px calc(var(--spacing-unit) * 0.5);
+  }
+
+  SettingsPanel::nav a {
+    position: relative;
+    padding: 10px calc(var(--spacing-unit) * 0.5);
+    display: flex;
+    gap: calc(var(--spacing-unit) * .5);
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-ui);
+    outline: none;
+    border: none;
+  }
+
+  SettingsPanel::nav a::after {
+    -st-mixin: pseudoFocus;
+    border-radius: 4px;
+  }
+
+  SettingsPanel::nav a:focus-visible::after {
+    -st-mixin: pseudoFocusVisible;
+  }
+
+  SettingsPanel::nav a svg {
+    transition: color 0.19s ease;
+    font-size: 1.5em;
+    color: var(--color-accent-1);
+  }
+
+  SettingsPanel::nav a:hover svg,
+  SettingsPanel::nav a:focus-visible svg {
+    color: var(--color-focus);
+  }
+
+  SettingsPanel::nav a.active {
+    cursor: default;
+  }
+
+  SettingsPanel::nav a.active svg,
+  SettingsPanel::nav a.active:hover svg {
+    color: var(--color-accent-3);
+  }
+}
+
+@media value(breakpoint-md) {
+  @st-scope CMS {
+    SettingsPanel {
+      --height-header: var(--height-header-md);
+    }
+  }
+}
+
+@media value(breakpoint-md-max) {
+  @st-scope CMS {
+    SettingsPanel {
+      grid-template-columns: 35px 1fr;
+    }
+
+    SettingsPanel::nav span {
+      display: none;
+    }
+  }
+}

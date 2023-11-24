@@ -1,0 +1,32 @@
+@st-namespace "SettingsPanel";
+
+@st-import SubHeader from "../../components/SubHeader/subHeader.st.css";
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
+@st-import TableView from "@actionishope/shelley/TableView/tableView.st.css";
+
+.root {
+  display: grid;
+}
+
+.subHeader {
+  -st-extends: SubHeader;
+}
+
+.nav {}
+
+.main {}
+
+.innerScroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.form {}
+
+.settingsString {
+  -st-extends: Text;
+}
+
+.active {}
+
+@st-scope CMS {}
