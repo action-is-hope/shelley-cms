@@ -60,8 +60,9 @@
   }
 }
 
-@media screen and (min-width: 950px) and (max-height: 800px) {
+@media screen and (min-width: 1300px) and (max-height: 800px) {
   @st-scope CMS {
+
     PreviewChrome:previewMode(laptop):fullScreenMode .chrome {
       transform: scale(.35);
       transform-origin: center 2%;
@@ -69,8 +70,34 @@
   }
 }
 
+@media screen and (min-width: 1300px) and (min-height: 900px) {
+  @st-scope CMS {
+
+    PreviewChrome:previewMode(laptop) .chrome {
+      transform: scale(0.35);
+    }
+
+  }
+}
+
 @media screen and (min-width: 950px) and (min-height: 930px) {
   @st-scope CMS {
+
+    PreviewChrome:previewMode(laptop):fullScreenMode .chrome {
+      transform: scale(.5);
+      transform-origin: center 5%;
+    }
+  }
+}
+
+
+
+@media screen and (min-width: 1800px) and (min-height: 930px) {
+  @st-scope CMS {
+
+    PreviewChrome:previewMode(laptop) .chrome {
+      transform: scale(0.4);
+    }
 
     PreviewChrome:previewMode(laptop):fullScreenMode .chrome {
       transform: scale(.5);
@@ -88,7 +115,6 @@
     }
   }
 }
-
 
 /* = Tablet */
 @st-scope CMS {

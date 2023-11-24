@@ -58,8 +58,6 @@
 
 .content {
   position: relative;
-  /* Something to grab if fields are present. */
-  padding-top: 4px;
 }
 
 .contentLabel {

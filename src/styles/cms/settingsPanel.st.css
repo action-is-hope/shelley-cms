@@ -48,7 +48,7 @@
   SettingsPanel::innerScroll {
     margin-top: var(--spacing-unit);
     padding-right: var(--spacing-unit);
-    height: calc(var(--vh, 1vh) * 100 - calc(var(--height-header) * 2) - calc(var(--spacing-unit) * 2));
+    max-height: calc(var(--vh, 1vh) * 100 - calc(var(--height-header) * 2) - calc(var(--spacing-unit) * 2));
   }
 
   SettingsPanel::form {
@@ -57,6 +57,7 @@
     background-color: var(--color-background-3);
     margin-top: calc(var(--spacing-unit) * 1.5);
     margin-right: calc(var(--spacing-unit) * 1);
+    max-height: calc(var(--vh, 1vh) * 100 - calc(var(--height-header) * 2) - calc(var(--spacing-unit) * 3));
     padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 1);
   }
 

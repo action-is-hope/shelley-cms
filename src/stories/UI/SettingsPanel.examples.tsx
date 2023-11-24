@@ -14,7 +14,10 @@ import { BasicHeader } from "./Header.examples";
 // import { H2, H3, P, DialogTrigger, Dialog } from "@actionishope/shelley";
 
 import { SettingsPanel } from "../../components/SettingsPanel/SettingsPanel";
-import { classes } from "../../components/SettingsPanel/settingsPanel.st.css";
+import {
+  st,
+  classes,
+} from "../../components/SettingsPanel/settingsPanel.st.css";
 import {
   Settings,
   Languages,
@@ -208,7 +211,7 @@ export const FormExample = () => {
           </>
         }
       >
-        <form className={classes.form}>
+        <form className={st(classes.innerScroll, classes.form)}>
           <TextField hasValue label="Site name" />
           <TextField hasValue label="Site owner name" />
           <TextField hasValue label="Slogan" />
