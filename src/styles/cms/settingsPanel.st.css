@@ -16,6 +16,8 @@
 ] from "./project.st.css";
 @property st-global(--vh);
 @st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
+@st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
+@st-import CheckboxGroup from "@actionishope/shelley/CheckboxGroup/checkboxGroup.st.css";
 @st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/default/mixins/focus.st.css";
 
 @st-import SettingsPanel, [active] from "../../components/SettingsPanel/settingsPanel.st.css";
@@ -72,6 +74,12 @@
     margin-right: calc(var(--spacing-unit) * 1);
     max-height: calc(var(--vh, 1vh) * 100 - calc(var(--height-header) * 2) - calc(var(--spacing-unit) * 3));
     padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 1);
+  }
+
+  /* @todo: fix base theme styles with slateArea, I think this messed things up a bit. For now this will fix them here without breaking anything else.*/
+  SettingsPanel TextField:isDisabled::fieldInput,
+  SettingsPanel CheckboxGroup:isDisabled {
+    opacity: .5;
   }
 
   SettingsPanel::settingsString {
