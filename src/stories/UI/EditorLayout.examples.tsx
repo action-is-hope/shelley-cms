@@ -1,4 +1,4 @@
-import { H1, H2, P, Item, Tabs, Checkbox } from "@actionishope/shelley";
+import { H1, H2, P, Item, Tabs, Checkbox, Switch } from "@actionishope/shelley";
 import { Preview } from "../../components/Preview/Preview";
 import { PreviewMetaData } from "../../components/PreviewMetaData/PreviewMetaData";
 import { PreviewChrome } from "../../components/PreviewChrome/PreviewChrome";
@@ -10,12 +10,12 @@ import { EditorLayout } from "../../components/EditorLayout/EditorLayout";
 import { ContentArea } from "../../components/ContentArea/ContentArea";
 import { ToastProvider } from "@actionishope/shelley";
 
-import { classes as editorLayout } from "../../components/EditorLayout/editorLayout.st.css";
-
 import {
   st,
-  classes as previewChrome,
-} from "../../components/PreviewChrome/previewChrome.st.css";
+  classes as editorLayout,
+} from "../../components/EditorLayout/editorLayout.st.css";
+
+import { classes as previewChrome } from "../../components/PreviewChrome/previewChrome.st.css";
 import {
   // BlockEditorExampleWithReorder,
   BasicBlockEditor,
@@ -26,6 +26,7 @@ import { MultipleCardsExample } from "./Card.examples";
 import { ContentActions } from "../../components/ContentActions/ContentActions";
 import { classes as contentActions } from "../../components/ContentActions/contentActions.st.css";
 import { useState } from "react";
+import { Code, CodeOff } from "../../components/icons";
 
 export const BasicExample = () => {
   const {
@@ -49,7 +50,7 @@ export const BasicExample = () => {
     { id: "5", label: "Body", description: "Description/Identity text" },
   ];
   const [blocks, updateBlocks] = useState(contentBlocksData);
-
+  const [syncScrollEnabled, setSyncScrollEnabled] = useState(true);
   return (
     <ToastProvider>
       <BasicHeader />
@@ -108,6 +109,22 @@ export const BasicExample = () => {
           </ContentActions>
         </ContentArea>
         <Preview className={editorLayout.preview} {...previewProps}>
+          <Switch
+            className={st(editorLayout.syncScrollToggle, {
+              isEnabled: syncScrollEnabled,
+            })}
+            defaultSelected
+            onChange={() => setSyncScrollEnabled(!syncScrollEnabled)}
+            inputPosition="top"
+          >
+            <span title="Toggle sync-scrolling on / off">
+              {syncScrollEnabled ? (
+                <Code alt="Enabled sync scroll" />
+              ) : (
+                <CodeOff alt="Disable sync scroll" />
+              )}
+            </span>
+          </Switch>
           {previewMode === "web" && (
             <PreviewMetaData
               title="Shelley Puma UI"

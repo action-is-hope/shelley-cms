@@ -6,6 +6,7 @@
   --color-ui-inverse,
   --color-accent-1,
   --color-accent-3,
+  --color-background-contrast-1,
   --color-background-3,
   --spacing-unit,
   --height-header-sm,
@@ -14,7 +15,7 @@
   breakpoint-md-max,
 ] from "./project.st.css";
 @property st-global(--vh);
-
+@st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
 @st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/default/mixins/focus.st.css";
 
 @st-import SettingsPanel, [active] from "../../components/SettingsPanel/settingsPanel.st.css";
@@ -41,6 +42,18 @@
     top: 3px
   }
 
+  SettingsPanel::subHeader Switch {
+    gap: var(--spacing-unit);
+    font-style: italic;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: .75em;
+  }
+
+  SettingsPanel::subHeader Switch > span:first-child {
+    font-weight: 600;
+  }
+
   SettingsPanel::subHeader::title svg {
     color: var(--color-accent-3);
   }
@@ -54,7 +67,7 @@
   SettingsPanel::form {
     display: grid;
     gap: calc(var(--spacing-unit) * 2);
-    background-color: var(--color-background-3);
+    background-color: var(--color-background-contrast-1);
     margin-top: calc(var(--spacing-unit) * 1.5);
     margin-right: calc(var(--spacing-unit) * 1);
     max-height: calc(var(--vh, 1vh) * 100 - calc(var(--height-header) * 2) - calc(var(--spacing-unit) * 3));
@@ -121,6 +134,10 @@
   @st-scope CMS {
     SettingsPanel {
       --height-header: var(--height-header-md);
+    }
+
+    SettingsPanel::nav {
+      background-color: var(--color-background-contrast-1);
     }
   }
 }

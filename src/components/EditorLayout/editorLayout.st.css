@@ -1,6 +1,7 @@
 /* editorLayout.st.css */
 @st-namespace "EditorLayout";
 @st-import Preview from "../../components/Preview/preview.st.css";
+@st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
 @st-import PreviewActions from "../../components/PreviewActions/previewActions.st.css";
 @st-import ContentArea from "../../components/ContentArea/contentArea.st.css";
 @st-import PageActions from "../../components/PageActions/pageActions.st.css";
@@ -24,4 +25,10 @@
 
 .pageActions {
   -st-extends: PageActions;
+}
+
+.syncScrollToggle {
+  -st-extends: Switch;
+  -st-states: isEnabled;
+  position: absolute;
 }
