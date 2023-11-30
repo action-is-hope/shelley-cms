@@ -13,6 +13,7 @@
   --color-background-3,
   --color-border-dialog,
   --color-focus-mode-background,
+  --color-accent-1,
   --color-accent-3,
   --color-error,
 ] from "./project.st.css";
@@ -40,7 +41,6 @@
 
   EditorLayout::syncScrollToggle::inputContainer {
     opacity: 0;
-    transform: scale(0.5);
   }
 
   EditorLayout::syncScrollToggle:isEnabled svg {
