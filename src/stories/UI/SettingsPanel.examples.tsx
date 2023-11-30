@@ -195,7 +195,6 @@ export const FormExample = () => {
               <Switch
                 onChange={() => setIsEditing(!isEditing)}
                 inputPosition="end"
-                // defaultSelected={false}
                 isSelected={isEditing}
               >
                 Edit Site Settings

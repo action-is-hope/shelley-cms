@@ -31,7 +31,6 @@
 
   EditorLayout::preview {}
 
-
   EditorLayout::syncScrollToggle {
     font-size: 16px;
     z-index: 1000;
@@ -49,7 +48,6 @@
   }
 
   EditorLayout::syncScrollToggle svg {
-    /* transform: rotate(-45deg); */
     transform: rotate(90deg);
     color: var(--color-accent-3);
   }
