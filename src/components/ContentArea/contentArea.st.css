@@ -19,5 +19,5 @@
 }
 
 .scroller BlockEditor:last-of-type {
-  padding-bottom: 120px
+  padding-bottom: 40vh;
 }

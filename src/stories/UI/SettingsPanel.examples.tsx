@@ -8,11 +8,10 @@ import {
   TextField,
   Switch,
   CheckboxGroup,
+  Button,
+  ProgressCircle,
 } from "@actionishope/shelley";
 import { BasicHeader } from "./Header.examples";
-
-// import { H2, H3, P, DialogTrigger, Dialog } from "@actionishope/shelley";
-
 import { SettingsPanel } from "../../components/SettingsPanel/SettingsPanel";
 import {
   st,
@@ -25,6 +24,8 @@ import {
   People,
   MenuOpen,
 } from "../../components/icons";
+import { useState } from "react";
+import { Save } from "../../components/icons";
 
 export const BasicExample = () => {
   return (
@@ -179,6 +180,8 @@ export const BasicExample = () => {
 };
 
 export const FormExample = () => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   return (
     <>
       <BasicHeader />
@@ -186,6 +189,42 @@ export const FormExample = () => {
       <SettingsPanel
         icon={<Settings />}
         title="Site"
+        actionsArea={
+          <span style={{ display: "flex", gap: "20px" }}>
+            <CheckboxGroup>
+              <Switch
+                onChange={() => setIsEditing(!isEditing)}
+                inputPosition="end"
+                // defaultSelected={false}
+                isSelected={isEditing}
+              >
+                Edit Site Settings
+              </Switch>
+            </CheckboxGroup>
+            <Button
+              variant="primary"
+              name="Save changes"
+              isDisabled={!isEditing}
+              iconPos="start"
+              icon={
+                isSaving === true ? (
+                  <ProgressCircle
+                    isIndeterminate
+                    size="small"
+                    aria-label="Loading"
+                    variant="overBackground"
+                    data-id="siteInfo--loader"
+                  />
+                ) : (
+                  <Save />
+                )
+              }
+              onPress={() => setIsSaving(!isSaving)}
+            >
+              Save Changes
+            </Button>
+          </span>
+        }
         nav={
           <>
             <a href="#" className={classes.active}>
@@ -212,14 +251,25 @@ export const FormExample = () => {
         }
       >
         <form className={st(classes.innerScroll, classes.form)}>
-          <TextField hasValue label="Site name" />
-          <TextField hasValue label="Site owner name" />
-          <TextField hasValue label="Slogan" />
-          <TextField hasValue label="Email" />
-          <TextField hasValue label="Legal information" />
-          <TextField hasValue label="Google Tag Manager" />
-          <CheckboxGroup description="This prevents the system from trying to flush the CDN cache on publish. This is needed if the site is not yet configured in the CDN.">
-            <Switch>Bypass CDN invalidation</Switch>
+          <TextField hasValue isDisabled={!isEditing} label="Site name" />
+          <TextField hasValue isDisabled={!isEditing} label="Site owner name" />
+          <TextField hasValue isDisabled={!isEditing} label="Slogan" />
+          <TextField hasValue isDisabled={!isEditing} label="Email" />
+          <TextField
+            hasValue
+            isDisabled={!isEditing}
+            label="Legal information"
+          />
+          <TextField
+            hasValue
+            isDisabled={!isEditing}
+            label="Google Tag Manager"
+          />
+          <CheckboxGroup
+            isDisabled={!isEditing}
+            description="This prevents the system from trying to flush the CDN cache on publish. This is needed if the site is not yet configured in the CDN."
+          >
+            <Switch isDisabled={!isEditing}>Bypass CDN invalidation</Switch>
           </CheckboxGroup>
         </form>
       </SettingsPanel>

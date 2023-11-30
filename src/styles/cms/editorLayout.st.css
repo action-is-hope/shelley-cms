@@ -12,7 +12,9 @@
   --color-background-2,
   --color-background-3,
   --color-border-dialog,
-  --color-focus-mode-background
+  --color-focus-mode-background,
+  --color-accent-3,
+  --color-error,
 ] from "./project.st.css";
 
 /* = Root Component */
@@ -28,6 +30,30 @@
   }
 
   EditorLayout::preview {}
+
+
+  EditorLayout::syncScrollToggle {
+    font-size: 16px;
+    z-index: 1000;
+    margin-top: 10vh;
+    margin-left: 10px;
+  }
+
+  EditorLayout::syncScrollToggle::inputContainer {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  EditorLayout::syncScrollToggle:isEnabled svg {
+    color: var(--color-accent-1);
+  }
+
+  EditorLayout::syncScrollToggle svg {
+    /* transform: rotate(-45deg); */
+    transform: rotate(90deg);
+    color: var(--color-accent-3);
+  }
+
 
   EditorLayout {
     display: grid;
