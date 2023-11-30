@@ -250,16 +250,38 @@ export const FormExample = () => {
         }
       >
         <form className={st(classes.innerScroll, classes.form)}>
-          <TextField hasValue isDisabled={!isEditing} label="Site name" />
-          <TextField hasValue isDisabled={!isEditing} label="Site owner name" />
-          <TextField hasValue isDisabled={!isEditing} label="Slogan" />
-          <TextField hasValue isDisabled={!isEditing} label="Email" />
           <TextField
+            placeholder="Placeholder"
+            hasValue
+            isDisabled={!isEditing}
+            label="Site name"
+          />
+          <TextField
+            placeholder="Placeholder"
+            hasValue
+            isDisabled={!isEditing}
+            label="Site owner name"
+          />
+          <TextField
+            placeholder="Placeholder"
+            hasValue
+            isDisabled={!isEditing}
+            label="Slogan"
+          />
+          <TextField
+            placeholder="Placeholder"
+            hasValue
+            isDisabled={!isEditing}
+            label="Email"
+          />
+          <TextField
+            placeholder="Placeholder"
             hasValue
             isDisabled={!isEditing}
             label="Legal information"
           />
           <TextField
+            defaultValue="Default Value"
             hasValue
             isDisabled={!isEditing}
             label="Google Tag Manager"
