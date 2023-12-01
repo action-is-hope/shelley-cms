@@ -24,13 +24,14 @@ function ContentArea(props: ContentAreaProps, ref?: React.Ref<HTMLDivElement>) {
   } = props;
 
   return (
-    <FocusOn
-      className={st(classes.root, classNameProp)}
-      ref={ref}
-      {...rest}
-      {...focusOnProps}
-    >
-      <div className={classes.scroller} data-id={dataId} data-content-scroller>
+    <FocusOn className={st(classes.root, classNameProp)} {...focusOnProps}>
+      <div
+        className={classes.scroller}
+        data-id={dataId}
+        data-content-scroller
+        ref={ref}
+        {...rest}
+      >
         {children}
       </div>
     </FocusOn>
