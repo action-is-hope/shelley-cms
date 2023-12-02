@@ -58,6 +58,7 @@ export { default as CompareArrows } from "./CompareArrows";
 export { default as Tag } from "./Tag";
 export { default as Text } from "./Text";
 export { default as Twitter } from "./Twitter";
+export { default as X } from "./X";
 export { default as Trash } from "./Trash";
 export { default as ViewIn } from "./ViewIn";
 export { default as Widgets } from "./Widgets";
