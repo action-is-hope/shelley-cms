@@ -12,11 +12,13 @@ import {
 import type { shards } from "src/typings/shared-types";
 import { st, classes } from "./contentActions.st.css";
 import type { ComponentBase } from "@actionishope/shelley";
+
 export interface ContentActionsProps
   extends Omit<React.HTMLProps<HTMLDivElement>, "type" | "ref">,
     Pick<DialogTriggerProps, "isOpen" | "onOpenChange">,
     ComponentBase {
   shards?: shards;
+  focusMode?: boolean;
 }
 function ContentActions(
   props: ContentActionsProps,
@@ -28,6 +30,7 @@ function ContentActions(
     shards,
     isOpen,
     onOpenChange,
+    focusMode,
     "data-id": dataId,
     ...rest
   } = props;
@@ -44,7 +47,7 @@ function ContentActions(
         portalSelector="#portal"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        modalClassName={classes.halfScreenModal}
+        modalClassName={st(classes.halfScreenModal, { focusMode })}
         focusOnProps={{
           shards,
         }}

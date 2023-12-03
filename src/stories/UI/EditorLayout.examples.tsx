@@ -73,6 +73,7 @@ export const BasicExample = () => {
             isOpen={contentActionDialogOpen}
             onOpenChange={(isOpen) => setContentActionDialogOpen(isOpen)}
             data-id="contentActions"
+            focusMode={editorLayoutProps.gridMode === "focusMode"}
           >
             <Tabs
               aria-label="History of Ancient Rome"

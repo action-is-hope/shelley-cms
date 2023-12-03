@@ -136,6 +136,10 @@
       width: 55vw;
     }
 
+    .halfScreenModal:focusMode {
+      width: 100vw;
+    }
+
     .halfScreenModal [role=dialog] {
       width: 50vw;
       height: 70vh;

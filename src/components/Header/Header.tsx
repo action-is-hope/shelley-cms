@@ -37,6 +37,8 @@ export interface HeaderProps
   themeSwitcherProps?: SwitchProps;
   /** Is the user logged in */
   isSignedIn?: boolean;
+  /** CSS selector for where to load the Modals. */
+  portalSelector?: string;
 }
 
 function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
@@ -52,6 +54,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
     onSiteSelection,
     selectedSite,
     themeSwitcherProps,
+    portalSelector = "#portal",
     ...rest
   } = props;
 
@@ -71,7 +74,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
       ref={ref}
       data-id={dataId}
     >
-      <DialogTrigger isDismissable portalSelector="#portal">
+      <DialogTrigger isDismissable portalSelector={portalSelector}>
         <Button
           className={classes.siteListTrigger}
           variant={false}
@@ -142,7 +145,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
         />
 
         {user ? (
-          <DialogTrigger type="popup" portalSelector="#portal">
+          <DialogTrigger type="popup" portalSelector={portalSelector}>
             <IconButton
               data-id={dataId ? `${dataId}--userMenuTrigger` : undefined}
             >

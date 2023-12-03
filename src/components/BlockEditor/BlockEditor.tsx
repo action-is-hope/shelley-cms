@@ -15,17 +15,7 @@ import MoreHor from "../icons/MoreHor";
 import Badge from "../Badge/Badge";
 
 export type DialogClose = (close: () => void) => ReactElement;
-
-//TEMP
 export type onManageSelect = (visibility: boolean, activeTab: number) => void;
-
-// export type message = {
-//   id: string | number;
-//   content: string;
-//   settings?: boolean;
-//   type: "warning" | "error" | "info";
-//   "data-id"?: string;
-// };
 
 export interface BlockEditorProps
   extends Omit<React.HTMLAttributes<HTMLBaseElement>, "onFocus">,
@@ -51,6 +41,8 @@ export interface BlockEditorProps
   /** A label, typically the block name. */
   label?: string;
   settingsCloseText?: string;
+  /** CSS selector for where to load the Modals. */
+  portalSelector?: string;
 }
 
 type overlayStatus = boolean;
@@ -75,6 +67,7 @@ function BlockEditor(props: BlockEditorProps, ref?: React.Ref<HTMLDivElement>) {
     shards = [],
     settingsCloseText = "Close",
     "data-id": dataId,
+    portalSelector = "#portal",
     ...rest
   } = props;
 
@@ -121,7 +114,7 @@ function BlockEditor(props: BlockEditorProps, ref?: React.Ref<HTMLDivElement>) {
     >
       <nav className={classes.options}>
         {provideMenu && (
-          <MenuTrigger portalSelector="#portal" crossOffset={-50}>
+          <MenuTrigger portalSelector={portalSelector} crossOffset={-50}>
             <Button
               className={classes.menuTrigger}
               variant="fab"

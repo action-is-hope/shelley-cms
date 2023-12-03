@@ -19,6 +19,7 @@
 
 .halfScreenModal {
   -st-extends: Modal;
+  -st-states: focusMode;
 }
 
 Modal.halfScreenModal.enterDone .content {
