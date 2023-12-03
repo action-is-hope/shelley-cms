@@ -34,16 +34,15 @@
     overflow-x: hidden;
     position: absolute;
     top: 100px;
-    bottom: 50px
+    bottom: 50px;
+    width: 400px;
   }
 }
 
 @media value(breakpoint-md-max) {
   @st-scope CMS {
     PreviewMetaData {
-      right: -100vw;
-      width: 100vw;
-      max-width: 550px;
+
       bottom: 150px
     }
   }
@@ -100,6 +99,10 @@
     font-family: var(--google-font);
     padding-bottom: 1px;
     padding-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 350px;
   }
 
   /** Twitter */
@@ -116,10 +119,9 @@
   }
 
   PreviewMetaData::twitterLogo {
-    font-size: 41px;
-    width: 41px;
-    margin-left: -8px;
-    margin-bottom: 8px;
+    font-size: 24px;
+    width: 24px;
+    margin-bottom: 16px;
   }
 
   PreviewMetaData::twitterImage {
