@@ -3,6 +3,7 @@
 @st-import SubHeader from "../../components/SubHeader/subHeader.st.css";
 @st-import Text from "@actionishope/shelley/Text/text.st.css";
 @st-import TableView from "@actionishope/shelley/TableView/tableView.st.css";
+@st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
 
 .root {
   display: grid;
@@ -29,4 +30,14 @@
 
 .active {}
 
-@st-scope CMS {}
+.menuSelect {}
+
+.menus {}
+
+.reorderMenuItems {
+  -st-extends: ReorderItems;
+}
+
+.buttonGroup {}
+
+.addMultiLanguage {}

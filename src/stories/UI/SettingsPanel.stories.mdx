@@ -1,7 +1,11 @@
 import { Meta, Canvas, Story, ArgsTable, Source } from "@storybook/addon-docs";
 import dedent from "ts-dedent";
 import { StoryGrid } from "../StoryLayout";
-import { BasicExample, FormExample } from "./SettingsPanel.examples";
+import {
+  BasicExample,
+  FormExample,
+  MenuExample,
+} from "./SettingsPanel.examples";
 
 <Meta title="PageLayout/SettingsPanel" />
 
@@ -37,4 +41,18 @@ The following example uses a `CardHeader` and `CardContent` in conjunction with 
   }}
 >
   {FormExample.bind({})}
+</Story>
+
+<Story
+  name="c) Settings panel - Menus"
+  args={{}}
+  parameters={{
+    docs: {
+      source: {
+        code: dedent``,
+      },
+    },
+  }}
+>
+  {MenuExample.bind({})}
 </Story>

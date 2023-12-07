@@ -1,0 +1,33 @@
+@st-namespace "ReorderMenuItem";
+
+@st-import Disclosure from "@actionishope/shelley/DisclosureGroup/disclosure.st.css";
+
+.root {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: 1fr 1fr 40px;
+  align-items: center;
+}
+
+.root .root {
+  grid-template-columns: 1fr 1fr;
+  padding-right: 10px;
+}
+
+.labelField {
+  width: 100%;
+}
+
+.destinationField {
+  width: 100%;
+}
+
+.insertMenu {}
+
+.children {
+  grid-column: 1 / span 3;
+}
+
+.disclosure {
+  -st-extends: Disclosure;
+}
