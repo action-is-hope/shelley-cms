@@ -12,6 +12,7 @@ import { st, classes } from "./metaDataEditor.st.css";
 import { TextField, InputTextProps } from "@actionishope/shelley/TextField";
 import { Label } from "@actionishope/shelley/Label";
 import { Select, SelectProps } from "@actionishope/shelley/Select";
+import { ProgressCircle } from "@actionishope/shelley/ProgressCircle";
 import { VisuallyHidden } from "@actionishope/shelley/VisuallyHidden";
 import { Item } from "@actionishope/shelley/Item";
 import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
@@ -46,6 +47,8 @@ export interface MetaDataEditorProps<T>
   children: OverloadedChildren | React.ReactNode;
   /** Diable the clickAway */
   disableClickAway?: boolean;
+  /** Displays a loading spinner in the place of the Langauge selector */
+  isLanguageLoading?: boolean;
 }
 
 function MetaDataEditor<T extends object>(
@@ -63,6 +66,7 @@ function MetaDataEditor<T extends object>(
     isOpen: isOpenProp = false,
     "data-id": dataId,
     disableClickAway: disableClickAwayProp = false,
+    isLanguageLoading,
     ...rest
   } = props;
 
@@ -115,20 +119,27 @@ function MetaDataEditor<T extends object>(
                 onFocus={() => setIsOpen(true)}
                 data-id={dataId ? `${dataId}--titleField` : undefined}
               />
-              <Select
-                className={classes.languageField}
-                label="Page language"
-                variant="outlined"
-                portalSelector="#portal"
-                labelPosition="hidden"
-                onOpenChange={setDisableClickAway}
-                {...restLangSelector}
-                data-id={dataId ? `${dataId}--languageField` : undefined}
-              >
-                {languageOptions.map((option) => (
-                  <Item key={option.key}>{option.name}</Item>
-                ))}
-              </Select>
+              {isLanguageLoading ? (
+                <ProgressCircle
+                  isIndeterminate
+                  className={classes.languageLoader}
+                />
+              ) : (
+                <Select
+                  className={classes.languageField}
+                  label="Page language"
+                  variant="outlined"
+                  portalSelector="#portal"
+                  labelPosition="hidden"
+                  onOpenChange={setDisableClickAway}
+                  {...restLangSelector}
+                  data-id={dataId ? `${dataId}--languageField` : undefined}
+                >
+                  {languageOptions.map((option) => (
+                    <Item key={option.key}>{option.name}</Item>
+                  ))}
+                </Select>
+              )}
 
               <div className={classes.children} aria-hidden="true">
                 <TextField

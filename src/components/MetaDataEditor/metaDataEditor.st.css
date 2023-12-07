@@ -30,3 +30,9 @@
 .languageField {
   -st-extends: Select;
 }
+
+.languageLoader {
+  position: relative;
+  top: 16px;
+  left: 8px
+}
