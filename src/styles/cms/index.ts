@@ -33,6 +33,7 @@ import "./previewModes.st.css";
 import "./metaDataEditor.st.css";
 import "./mediaField.st.css";
 import "./reorderItems.st.css";
+import "./reorderMenuItem.st.css";
 import "./staleContentWidget.st.css";
 import "./subHeader.st.css";
 import "./tableView.st.css";

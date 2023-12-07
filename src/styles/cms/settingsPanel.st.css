@@ -16,8 +16,10 @@
 ] from "./project.st.css";
 @property st-global(--vh);
 @st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
+@st-import Select from "@actionishope/shelley/Select/select.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import CheckboxGroup from "@actionishope/shelley/CheckboxGroup/checkboxGroup.st.css";
+@st-import ProgressCircle from "@actionishope/shelley/ProgressCircle/progressCircle.st.css";
 @st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/default/mixins/focus.st.css";
 
 @st-import SettingsPanel, [active] from "../../components/SettingsPanel/settingsPanel.st.css";
@@ -31,6 +33,12 @@
     grid-template-rows: var(--height-header) 1fr;
     grid-column-gap: var(--spacing-unit);
     min-height: calc(var(--vh, 1vh) * 100 - var(--height-header));
+  }
+
+  SettingsPanel ProgressCircle {
+    margin-top: calc(var(--spacing-unit) * 3);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    margin-left: calc(50% - 32px)
   }
 
   SettingsPanel::subHeader {
@@ -64,6 +72,17 @@
     margin-top: var(--spacing-unit);
     padding-right: var(--spacing-unit);
     max-height: calc(var(--vh, 1vh) * 100 - calc(var(--height-header) * 2) - calc(var(--spacing-unit) * 2));
+  }
+
+  SettingsPanel::innerScroll > h2 {
+    position: sticky;
+    background-color: var(--color-background-contrast-1);
+    top: 0;
+    z-index: 100;
+    padding: calc(var(--spacing-unit) / 1) calc(var(--spacing-unit) * 1);
+    border-bottom: 1px solid var(--color-accent-1);
+    margin-left: var(--spacing-unit);
+    box-shadow: 0 14px 8px 0 var(--color-background-contrast-1);
   }
 
   SettingsPanel::form {
@@ -136,6 +155,44 @@
   SettingsPanel::nav a.active:hover svg {
     color: var(--color-accent-3);
   }
+
+  /* Menus */
+  SettingsPanel::menuSelect {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: var(--spacing-unit)
+  }
+
+  SettingsPanel::menuSelect Select {
+    width: 300px;
+    grid-template-columns: .5fr 1fr;
+  }
+
+
+  SettingsPanel::menus {
+    background-color: var(--color-background-contrast-1);
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    margin-right: calc(var(--spacing-unit) * 1);
+    max-height: calc(var(--vh, 1vh) * 100 - calc(var(--height-header) * 2) - calc(var(--spacing-unit) * 3));
+  }
+
+  SettingsPanel::reorderMenuItems::dragIcon {
+    right: 14px;
+    top: 1rem
+  }
+
+  SettingsPanel::buttonGroup {
+    align-items: center;
+    margin-left: calc(var(--spacing-unit) * 2);
+    margin-bottom: 40px;
+  }
+
+  SettingsPanel::addMultiLanguage {
+    padding: calc(var(--spacing-unit) * 2);
+    display: grid;
+    gap: calc(var(--spacing-unit) * 1.5)
+  }
 }
 
 @media value(breakpoint-md) {
@@ -160,4 +217,6 @@
       display: none;
     }
   }
+
+
 }

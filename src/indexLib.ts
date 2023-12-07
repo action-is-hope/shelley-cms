@@ -22,6 +22,7 @@ export * from "./components/PreviewChrome/PreviewChrome";
 export * from "./components/PreviewMetaData/PreviewMetaData";
 export * from "./components/PreviewModes/PreviewModes";
 export * from "./components/ReorderItems/ReorderItems";
+export * from "./components/ReorderMenuItem/ReorderMenuItem";
 export * from "./components/SettingsPanel/SettingsPanel";
 export * from "./components/StaleContentWidget/StaleContentWidget";
 export * from "./components/StatusIndicator/StatusIndicator";

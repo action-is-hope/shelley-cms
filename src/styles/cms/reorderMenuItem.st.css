@@ -1,0 +1,39 @@
+@st-namespace "ReorderMenuItemCMS";
+@st-import CMS, [
+  --spacing-unit,
+  --color-background-main,
+  --color-header-background,
+  --color-header,
+  --color-border-3
+] from "./project.st.css";
+
+@st-import ReorderMenuItem from "../../components/ReorderMenuItem/reorderMenuItem.st.css";
+@st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
+
+@st-scope CMS {
+
+  ReorderMenuItem ReorderItems::dragIcon {
+    /* top: .5rem; */
+  }
+
+  ReorderMenuItem::disclosure {
+    margin-top: 10px;
+    margin-bottom: -10px;
+  }
+
+  ReorderMenuItem::disclosure::trigger {
+    padding-left: calc(var(--spacing-unit) / 4);
+    padding-left: 0;
+  }
+
+  ReorderMenuItem::disclosure::content {
+    padding: 0
+  }
+
+  ReorderMenuItem::disclosure::content ReorderItems::dragContainer {
+    padding-top: calc(var(--spacing-unit) * 1.5);
+    padding-left: 18px;
+    padding-right: 0;
+  }
+
+}
