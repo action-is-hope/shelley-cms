@@ -1,6 +1,6 @@
 {
   "name": "@actionishope/shelley-cms",
-  "version": "2.1.26",
+  "version": "2.1.25",
   "license": "ISC",
   "description": "Shelley CMS UI.",
   "repository": {
@@ -51,7 +51,6 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@actionishope/shelley": "^4.1.7",
     "@react-hook/size": "^2.1.2",
     "is-hotkey": "^0.2.0",
     "is-url": "^1.2.4",
@@ -64,7 +63,11 @@
     "slate-react": "0.91.7",
     "use-debounce": "^3.3.0"
   },
+  "peerDependencies": {
+    "@actionishope/shelley": "^4.1.7"
+  },
   "devDependencies": {
+    "@actionishope/shelley": "^4.1.7",
     "@storybook/addon-a11y": "^6.5.15",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-docs": "^6.5.15",
