@@ -19,10 +19,12 @@ import { Add } from "../icons";
 export interface ReorderMenuItemProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "title">,
     ComponentBase {
-  type: "page" | "url";
+  type: "PAGE" | "EXTERNAL";
   insertMenuOnAction?: (key: Key) => void;
+  itemLabel?: string;
   itemLabelOnChange: TextInputProps["onChange"];
-  urlOnChange?: TextInputProps["onChange"];
+  externalUrl?: string;
+  externalUrlOnChange?: TextInputProps["onChange"];
   pagesListProps?: Partial<ComboBoxProps<{ id: string; value: string }>>;
   isSubMenuExpanded?: boolean;
 }
@@ -36,8 +38,10 @@ function ReorderMenuItem(
     children,
     type,
     pagesListProps,
+    itemLabel,
     itemLabelOnChange,
-    urlOnChange,
+    externalUrl,
+    externalUrlOnChange,
     insertMenuOnAction,
     isSubMenuExpanded,
     "data-id": dataId,
@@ -52,11 +56,12 @@ function ReorderMenuItem(
         label={"Label"}
         labelPosition="over"
         hasValue
+        defaultValue={itemLabel}
         placeholder="Menu item label"
         variant="outlined"
         vol={1}
       />
-      {type === "page" && pagesListProps && (
+      {type === "PAGE" && pagesListProps && (
         <ComboBox
           label="Page"
           className={classes.destinationField}
@@ -68,7 +73,7 @@ function ReorderMenuItem(
           {(item) => <Item>{item.value}</Item>}
         </ComboBox>
       )}
-      {type === "url" && (
+      {type === "EXTERNAL" && (
         <TextField
           className={classes.destinationField}
           label={"URL"}
@@ -76,7 +81,8 @@ function ReorderMenuItem(
           hasValue
           placeholder="https://example.com/your-url"
           variant="outlined"
-          onChange={urlOnChange}
+          defaultValue={externalUrl}
+          onChange={externalUrlOnChange}
           vol={1}
         />
       )}
