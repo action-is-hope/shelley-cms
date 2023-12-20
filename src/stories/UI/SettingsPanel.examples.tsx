@@ -324,7 +324,7 @@ export const MenuExample = () => {
       id: "19",
       content: (
         <ReorderMenuItem
-          type="url"
+          type="EXTERNAL"
           itemLabelOnChange={(value) => console.log(value)}
         />
       ),
@@ -333,7 +333,7 @@ export const MenuExample = () => {
       id: "20",
       content: (
         <ReorderMenuItem
-          type="page"
+          type="PAGE"
           itemLabelOnChange={(value) => console.log(value)}
         />
       ),
@@ -345,7 +345,8 @@ export const MenuExample = () => {
       id: "18",
       content: (
         <ReorderMenuItem
-          type="page"
+          type="PAGE"
+          itemLabel="Item 18"
           itemLabelOnChange={(value) => console.log(value)}
           insertMenuOnAction={(action) => console.log(action)}
           pagesListProps={{
@@ -372,7 +373,8 @@ export const MenuExample = () => {
       id: "19",
       content: (
         <ReorderMenuItem
-          type="url"
+          type="EXTERNAL"
+          itemLabel="Item 19"
           itemLabelOnChange={(value) => console.log(value)}
           insertMenuOnAction={(action) => console.log(action)}
         />
@@ -382,7 +384,8 @@ export const MenuExample = () => {
       id: "20",
       content: (
         <ReorderMenuItem
-          type="page"
+          type="PAGE"
+          itemLabel="Item 20"
           itemLabelOnChange={(value) => console.log(value)}
           pagesListProps={{
             defaultItems: pageOptions,
@@ -396,8 +399,11 @@ export const MenuExample = () => {
       id: "21",
       content: (
         <ReorderMenuItem
-          type="url"
+          type="EXTERNAL"
+          itemLabel="Item 21"
           itemLabelOnChange={(value) => console.log(value)}
+          externalUrl="https://whatever.com/21"
+          externalUrlOnChange={(value) => console.log(value)}
           insertMenuOnAction={(action) => console.log(action)}
         />
       ),
@@ -406,8 +412,11 @@ export const MenuExample = () => {
       id: "22",
       content: (
         <ReorderMenuItem
-          type="url"
+          type="EXTERNAL"
+          itemLabel="Item 22"
           itemLabelOnChange={(value) => console.log(value)}
+          externalUrl="https://whatever.com/22"
+          externalUrlOnChange={(value) => console.log(value)}
           insertMenuOnAction={(action) => console.log(action)}
         />
       ),
@@ -416,8 +425,11 @@ export const MenuExample = () => {
       id: "23",
       content: (
         <ReorderMenuItem
-          type="url"
+          type="EXTERNAL"
+          itemLabel="Item 23"
           itemLabelOnChange={(value) => console.log(value)}
+          externalUrl="https://whatever.com/23"
+          externalUrlOnChange={(value) => console.log(value)}
           insertMenuOnAction={(action) => console.log(action)}
         />
       ),

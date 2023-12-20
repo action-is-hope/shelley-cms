@@ -123,6 +123,7 @@ function MetaDataEditor<T extends object>(
                 <ProgressCircle
                   isIndeterminate
                   className={classes.languageLoader}
+                  aria-label="Translations loading..."
                 />
               ) : (
                 <Select
