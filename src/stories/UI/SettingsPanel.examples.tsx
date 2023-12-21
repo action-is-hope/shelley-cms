@@ -308,15 +308,15 @@ export const FormExample = () => {
 
 export const MenuExample = () => {
   const pageOptions = [
-    { id: "1", value: "https://www.ac.com/page-1 - Title 1" },
-    { id: "2", value: "https://www.ac.com/page-2 - Title 2" },
-    { id: "3", value: "https://www.ac.com/page-3 - Title 3" },
-    { id: "4", value: "https://www.ac.com/page-4 - Title 4" },
-    { id: "5", value: "https://www.ac.com/page-5 - Title 5" },
-    { id: "6", value: "https://www.ac.com/page-6 - Title 6" },
-    { id: "7", value: "https://www.ac.com/page-7 - Title 7" },
-    { id: "8", value: "https://www.ac.com/page-8 - Title 8" },
-    { id: "9", value: "https://www.ac.com/page-9 - Title 9" },
+    { id: "1", slug: "/page-1", title: "Title one", published: true },
+    { id: "2", slug: "/page-2", title: "Title two", published: true },
+    { id: "3", slug: "/page-3", title: "Title tree", published: true },
+    { id: "4", slug: "/page-4", title: "Title four", published: true },
+    { id: "5", slug: "/page-5", title: "Title five", published: true },
+    { id: "6", slug: "/page-6", title: "Title six", published: true },
+    { id: "7", slug: "/page-7", title: "Title seven", published: true },
+    { id: "8", slug: "/page-8", title: "Title eight", published: true },
+    { id: "9", slug: "/page-9", title: "Title nine", published: true },
   ];
 
   const nestedItems = [
@@ -349,8 +349,9 @@ export const MenuExample = () => {
           itemLabel="Item 18"
           itemLabelOnChange={(value) => console.log(value)}
           insertMenuOnAction={(action) => console.log(action)}
+          domain="http://www.ac.com"
           pagesListProps={{
-            defaultItems: pageOptions,
+            items: pageOptions,
             onSelectionChange: (key) => console.log(key),
           }}
         >
@@ -387,8 +388,9 @@ export const MenuExample = () => {
           type="PAGE"
           itemLabel="Item 20"
           itemLabelOnChange={(value) => console.log(value)}
+          domain="https://www.ac.com"
           pagesListProps={{
-            defaultItems: pageOptions,
+            items: pageOptions,
             onSelectionChange: (key) => console.log(key),
           }}
           insertMenuOnAction={(action) => console.log(action)}
