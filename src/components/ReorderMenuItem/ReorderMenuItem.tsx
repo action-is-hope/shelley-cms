@@ -23,9 +23,12 @@ export interface ReorderMenuItemProps
   insertMenuOnAction?: (key: Key) => void;
   itemLabel?: string;
   itemLabelOnChange: TextInputProps["onChange"];
+  domain?: string;
   externalUrl?: string;
   externalUrlOnChange?: TextInputProps["onChange"];
-  pagesListProps?: Partial<ComboBoxProps<{ id: string; value: string }>>;
+  pagesListProps?: Partial<
+    ComboBoxProps<{ id: string; title: string; slug: string }>
+  >;
   isSubMenuExpanded?: boolean;
 }
 
@@ -44,6 +47,7 @@ function ReorderMenuItem(
     externalUrlOnChange,
     insertMenuOnAction,
     isSubMenuExpanded,
+    domain,
     "data-id": dataId,
     ...rest
   } = props;
@@ -70,7 +74,12 @@ function ReorderMenuItem(
           hasValue
           {...pagesListProps}
         >
-          {(item) => <Item>{item.value}</Item>}
+          {(item) => (
+            <Item>
+              {domain}
+              {item.slug} - {item.title}
+            </Item>
+          )}
         </ComboBox>
       )}
       {type === "EXTERNAL" && (
