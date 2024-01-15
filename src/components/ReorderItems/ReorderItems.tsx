@@ -36,6 +36,10 @@ export interface ReorderItemsProps extends Partial<Responders>, ComponentBase {
   title?: string;
   /** Items to render */
   items: ReorderItem[];
+  /**
+   * Specify if it's a sub-list (a list nested within another list).
+   */
+  parentItemIndex?: number;
   /** Remove item callback */
   onRemoveSelect: (index?: number) => void;
   /** Highlights entry item - check existing functionality... */
@@ -68,8 +72,11 @@ function ReorderItems(
     onDragEnd: onDragEndProp,
     "data-id": dataId,
     hasButtonAfter,
+    parentItemIndex,
     ...rest
   } = props;
+
+  const isSubList = parentItemIndex !== undefined;
 
   const onDragEnd = (result: DropResult, provided: ResponderProvided) => {
     if (!result.destination) {
@@ -110,78 +117,108 @@ function ReorderItems(
             {/* @todo add help in for keyboard users. */}
           </header>
         )}
-        <DragDropContext {...rest} onDragEnd={onDragEnd}>
-          <Droppable droppableId={`${id}-droppable`}>
-            {(provided, snapshot) => (
-              <div
-                ref={provided.innerRef}
-                className={st(classes.dragContainer, {
-                  isDragging: snapshot.isDraggingOver,
-                })}
-              >
-                {items.map((item, index) => (
-                  <Draggable key={item.id} draggableId={item.id} index={index}>
-                    {(provided, snapshot: { isDragging: boolean }) => (
-                      <div
-                        className={st(classes.item, {
-                          isDragging: snapshot.isDragging,
-                          highlight:
-                            hightlightItemIndex &&
-                            hightlightItemIndex() === index,
-                        })}
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        style={provided.draggableProps.style}
-                      >
-                        <div className={classes.content}>
-                          <Button
-                            variant="fab"
-                            tone={10}
-                            className={classes.deleteButton}
-                            aria-label={removeItemString}
-                            onPress={() => onRemoveSelect(index)}
-                            icon={<CloseSmall />}
-                            data-id={
-                              dataId ? `${dataId}--deleteButton` : undefined
-                            }
-                          />
-                          {item?.label && (
-                            <P
-                              vol={false}
-                              uppercase
-                              className={classes.contentLabel}
+        <DragDropContext
+          {...rest}
+          onDragEnd={onDragEnd}
+          onDragStart={(info, info1) => console.log(info, info1)}
+        >
+          <Droppable
+            droppableId={
+              isSubList
+                ? `${id}-droppableSubItem-${parentItemIndex}`
+                : `${id}-droppableItem`
+            }
+            type={
+              isSubList
+                ? `droppableSubItem-${parentItemIndex}`
+                : "droppableItem"
+            }
+          >
+            {(provided, snapshot) => {
+              console.log("provided", provided);
+              return (
+                <div
+                  ref={provided.innerRef}
+                  className={st(classes.dragContainer, {
+                    isDragging: snapshot.isDraggingOver,
+                  })}
+                >
+                  {items.map((item, index) => (
+                    <Draggable
+                      key={
+                        isSubList
+                          ? `${id}-${parentItemIndex}-${index}`
+                          : `${id}-${index}`
+                      }
+                      draggableId={
+                        isSubList
+                          ? `${id}-${parentItemIndex}-${index}`
+                          : `${id}-${index}`
+                      }
+                      index={index}
+                    >
+                      {(provided, snapshot: { isDragging: boolean }) => (
+                        <div
+                          className={st(classes.item, {
+                            isDragging: snapshot.isDragging,
+                            highlight:
+                              hightlightItemIndex &&
+                              hightlightItemIndex() === index,
+                          })}
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          style={provided.draggableProps.style}
+                        >
+                          <div className={classes.content}>
+                            <Button
+                              variant="fab"
+                              tone={10}
+                              className={classes.deleteButton}
+                              aria-label={removeItemString}
+                              onPress={() => onRemoveSelect(index)}
+                              icon={<CloseSmall />}
                               data-id={
-                                dataId ? `${dataId}--itemLabel` : undefined
+                                dataId ? `${dataId}--deleteButton` : undefined
                               }
-                            >
-                              {item.label}
-                            </P>
-                          )}
-                          {item?.description && (
-                            <P
-                              vol={2}
-                              truncate
-                              className={classes.contentDescription}
-                              data-id={
-                                dataId
-                                  ? `${dataId}--itemDescription`
-                                  : undefined
-                              }
-                            >
-                              {stripHtmlTags(item.description)}
-                            </P>
-                          )}
-                          {item?.content}
+                            />
+                            {item?.label && (
+                              <P
+                                vol={false}
+                                uppercase
+                                className={classes.contentLabel}
+                                data-id={
+                                  dataId ? `${dataId}--itemLabel` : undefined
+                                }
+                              >
+                                {item.label}
+                              </P>
+                            )}
+                            {item?.description && (
+                              <P
+                                vol={2}
+                                truncate
+                                className={classes.contentDescription}
+                                data-id={
+                                  dataId
+                                    ? `${dataId}--itemDescription`
+                                    : undefined
+                                }
+                              >
+                                {stripHtmlTags(item.description)}
+                              </P>
+                            )}
+                            {item?.content}
+                          </div>
+                          <DragIndicator className={classes.dragIcon} />
                         </div>
-                        <DragIndicator className={classes.dragIcon} />
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              );
+            }}
           </Droppable>
         </DragDropContext>
       </React.Fragment>
