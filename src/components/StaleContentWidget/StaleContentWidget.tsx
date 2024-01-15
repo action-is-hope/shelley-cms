@@ -24,9 +24,11 @@ function StaleContentWidget(
   } = props;
 
   const freshContent =
-    circleProps.maxValue &&
-    circleProps.value &&
-    circleProps.maxValue - circleProps.value;
+    typeof circleProps.maxValue === "number" &&
+    typeof circleProps.value === "number"
+      ? circleProps.maxValue - circleProps.value
+      : 0;
+
   return (
     <Widget
       className={st(classes.root, classNameProp)}
