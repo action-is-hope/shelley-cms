@@ -35,7 +35,7 @@
     min-height: calc(var(--vh, 1vh) * 100 - var(--height-header));
   }
 
-  SettingsPanel ProgressCircle {
+  SettingsPanel > ProgressCircle {
     margin-top: calc(var(--spacing-unit) * 3);
     margin-bottom: calc(var(--spacing-unit) * 3);
     margin-left: calc(50% - 32px)
