@@ -550,10 +550,10 @@ export const MenuExample = () => {
             hasButtonAfter
             moveItem={({ fromIndex, toIndex, result }) => {
               console.log(result);
-              // const items = Array.from(menuItems);
-              // const [reorderedItem] = items.splice(fromIndex, 1);
-              // reorderedItem && items.splice(toIndex, 0, reorderedItem);
-              // updateMenuItems(items);
+              const items = Array.from(menuItems);
+              const [reorderedItem] = items.splice(fromIndex, 1);
+              reorderedItem && items.splice(toIndex, 0, reorderedItem);
+              updateMenuItems(items);
             }}
           />
           <ButtonGroup className={classes.buttonGroup}>
