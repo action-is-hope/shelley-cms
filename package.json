@@ -64,10 +64,10 @@
     "use-debounce": "^3.3.0"
   },
   "peerDependencies": {
-    "@actionishope/shelley": "^4.1.8"
+    "@actionishope/shelley": "^4.1.9"
   },
   "devDependencies": {
-    "@actionishope/shelley": "^4.1.7",
+    "@actionishope/shelley": "^4.1.9",
     "@storybook/addon-a11y": "^6.5.15",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-docs": "^6.5.15",

@@ -14,7 +14,8 @@
   "editor.formatOnSave": true,
 
   "eslint.autoFixOnSave": true,
-  "eslint.validate": [{
+  "eslint.validate": [
+    {
       "language": "javascript",
       "autoFix": true
     },
@@ -36,18 +37,10 @@
   "debug.node.autoAttach": "on",
 
   "beautify.language": {
-    "css": [
-      "css",
-      "less",
-      "scss",
-      "stylable"
-    ],
-    "html": [
-      "htm",
-      "html"
-    ]
+    "css": ["css", "less", "scss", "stylable"],
+    "html": ["htm", "html"]
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   }
 }
