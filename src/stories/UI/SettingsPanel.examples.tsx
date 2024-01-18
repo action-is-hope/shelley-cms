@@ -347,6 +347,7 @@ export const MenuExample = () => {
         <ReorderMenuItem
           type="PAGE"
           itemLabel="Item 18"
+          id="12345999"
           itemLabelOnChange={(value) => console.log(value)}
           insertMenuOnAction={(action) => console.log(action)}
           domain="http://www.ac.com"
@@ -357,14 +358,15 @@ export const MenuExample = () => {
         >
           <ReorderItems
             items={nestedItems}
+            parentItemIndex={0}
             onRemoveSelect={(index) => console.log("Index", index)}
             hasButtonAfter
             moveItem={({ fromIndex, toIndex, result }) => {
-              console.log(result);
-              const items = Array.from(menuItems);
-              const [reorderedItem] = items.splice(fromIndex, 1);
-              reorderedItem && items.splice(toIndex, 0, reorderedItem);
-              updateMenuItems(items);
+              console.log(result, fromIndex, toIndex);
+              // const items = Array.from(menuItems);
+              // const [reorderedItem] = items.splice(fromIndex, 1);
+              // reorderedItem && items.splice(toIndex, 0, reorderedItem);
+              // updateMenuItems(items);
             }}
           />
         </ReorderMenuItem>
@@ -548,10 +550,10 @@ export const MenuExample = () => {
             hasButtonAfter
             moveItem={({ fromIndex, toIndex, result }) => {
               console.log(result);
-              const items = Array.from(menuItems);
-              const [reorderedItem] = items.splice(fromIndex, 1);
-              reorderedItem && items.splice(toIndex, 0, reorderedItem);
-              updateMenuItems(items);
+              // const items = Array.from(menuItems);
+              // const [reorderedItem] = items.splice(fromIndex, 1);
+              // reorderedItem && items.splice(toIndex, 0, reorderedItem);
+              // updateMenuItems(items);
             }}
           />
           <ButtonGroup className={classes.buttonGroup}>
