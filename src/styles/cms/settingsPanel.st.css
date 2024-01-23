@@ -16,6 +16,7 @@
 ] from "./project.st.css";
 @property st-global(--vh);
 @st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
+@st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
 @st-import Select from "@actionishope/shelley/Select/select.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import CheckboxGroup from "@actionishope/shelley/CheckboxGroup/checkboxGroup.st.css";
@@ -45,6 +46,7 @@
     height: var(--height-header);
     grid-row: 1;
     grid-column: span 2;
+    grid-template-columns: .15fr 1fr;
   }
 
   SettingsPanel::subHeader::title {
@@ -157,15 +159,27 @@
   }
 
   /* Menus */
+
+  SettingsPanel::menuSelection {
+    display: grid;
+    grid-template-columns: 1fr 0.3fr;
+    /* justify-items: ; */
+    gap: var(--spacing-unit);
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 3);
+    margin-right: var(--spacing-unit);
+    background-color: var(--color-background-contrast-1);
+  }
+
+
   SettingsPanel::menuSelect {
-    display: flex;
+    display: grid;
     justify-content: right;
     align-items: center;
-    gap: var(--spacing-unit)
+    gap: var(--spacing-unit);
+    grid-template-columns: 1fr 0.3fr;
   }
 
   SettingsPanel::menuSelect Select {
-    width: 300px;
     grid-template-columns: .5fr 1fr;
   }
 
@@ -174,18 +188,28 @@
     background-color: var(--color-background-contrast-1);
     margin-top: calc(var(--spacing-unit) * 1.5);
     margin-right: calc(var(--spacing-unit) * 1);
-    max-height: calc(var(--vh, 1vh) * 100 - calc(var(--height-header) * 2) - calc(var(--spacing-unit) * 3));
+    max-height: calc(var(--vh, 1vh) * 100 - calc(var(--height-header) * 2) - calc(var(--spacing-unit) * 3) - 60px);
+  }
+
+  SettingsPanel::fixedButtonGroupContainer {
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  SettingsPanel::fixedButtonGroupContainer ButtonGroup {
+    align-items: center;
+  }
+
+  SettingsPanel::fixedButtonGroupContainer ButtonGroup:last-child {
+    justify-content: flex-end;
+    margin-right: calc(var(--spacing-unit) * 4);
   }
 
   SettingsPanel::reorderMenuItems::dragIcon {
     right: 14px;
     top: 1rem
-  }
-
-  SettingsPanel::buttonGroup {
-    align-items: center;
-    margin-left: calc(var(--spacing-unit) * 2);
-    margin-bottom: 40px;
   }
 
   SettingsPanel::addMultiLanguage {
