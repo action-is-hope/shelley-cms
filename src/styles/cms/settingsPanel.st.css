@@ -211,12 +211,6 @@
     right: 14px;
     top: 1rem
   }
-
-  SettingsPanel::addMultiLanguage {
-    padding: calc(var(--spacing-unit) * 2);
-    display: grid;
-    gap: calc(var(--spacing-unit) * 1.5)
-  }
 }
 
 @media value(breakpoint-md) {
