@@ -463,12 +463,19 @@ export const MenuExample = () => {
               <Item key="footer-nav">Footer Navigation</Item>
               <Item key="social-nav">Social Navigation</Item>
             </Select>
-            <Button
-              icon={<Preview alt="Preview Menu" />}
-              variant="fab"
-              vol={2}
-              tone={10}
-            />
+
+            <Select
+              label="Language"
+              labelPosition="hidden"
+              onSelectionChange={(key) => console.log(key)}
+              vol={1}
+              portalSelector="#portal"
+              selectedKey="main-nav"
+            >
+              <Item key="main-nav">English</Item>
+              <Item key="footer-nav">Footer Navigation</Item>
+              <Item key="social-nav">Social Navigation</Item>
+            </Select>
           </div>
         }
         nav={
@@ -498,7 +505,6 @@ export const MenuExample = () => {
       >
         <div className={st(classes.menus, classes.innerScroll)}>
           {/* <ProgressCircle isIndeterminate size="large" /> */}
-          {/* <H2 vol={3}>Main Navigation</H2> */}
           <ReorderItems
             className={classes.reorderMenuItems}
             items={menuItems}
@@ -512,8 +518,11 @@ export const MenuExample = () => {
               updateMenuItems(items);
             }}
           />
-          <ButtonGroup className={classes.buttonGroup}>
-            <Button icon={<Add />} variant="primary">
+        </div>
+
+        <div className={classes.fixedButtonGroupContainer}>
+          <ButtonGroup>
+            <Button icon={<Add />} variant="secondary">
               Add Page to menu
             </Button>
             <span>or</span>
@@ -521,49 +530,15 @@ export const MenuExample = () => {
               Add URL to menu
             </Button>
           </ButtonGroup>
-
-          <div className={classes.addMultiLanguage}>
-            <CheckboxGroup>
-              <Switch defaultSelected>
-                Create or edit and existing multi-language menu
-              </Switch>
-            </CheckboxGroup>
-
-            <Select
-              label="Select Language"
-              labelPosition="over"
-              onSelectionChange={(key) => console.log(key)}
-              vol={1}
-              portalSelector="#portal"
-              selectedKey="fr"
-            >
-              <Item key="fr">French</Item>
-              <Item key="de">German</Item>
-              <Item key="pl">Polish</Item>
-            </Select>
-          </div>
-
-          <ReorderItems
-            className={classes.reorderMenuItems}
-            items={menuItems}
-            onRemoveSelect={(index) => console.log("Index", index)}
-            hasButtonAfter
-            moveItem={({ fromIndex, toIndex, result }) => {
-              console.log(result);
-              const items = Array.from(menuItems);
-              const [reorderedItem] = items.splice(fromIndex, 1);
-              reorderedItem && items.splice(toIndex, 0, reorderedItem);
-              updateMenuItems(items);
-            }}
-          />
-          <ButtonGroup className={classes.buttonGroup}>
-            <Button icon={<Add />} variant="primary">
-              Add Page to menu
-            </Button>
-            <span>or</span>
-            <Button icon={<Add />} variant="secondary">
-              Add URL to menu
-            </Button>
+          <ButtonGroup>
+            <Button
+              icon={<Preview alt="Preview Menu" />}
+              variant="fab"
+              vol={2}
+              tone={10}
+              title="Preview Menu"
+            />
+            <Button variant="primary">Publish Menu</Button>
           </ButtonGroup>
         </div>
       </SettingsPanel>

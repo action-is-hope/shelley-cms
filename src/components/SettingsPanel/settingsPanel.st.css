@@ -32,12 +32,12 @@
 
 .menuSelect {}
 
+.menuSelection {}
+
 .menus {}
 
 .reorderMenuItems {
   -st-extends: ReorderItems;
 }
 
-.buttonGroup {}
-
-.addMultiLanguage {}
+.fixedButtonGroupContainer {}
