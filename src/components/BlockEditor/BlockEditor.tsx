@@ -163,7 +163,7 @@ function BlockEditor(props: BlockEditorProps, ref?: React.Ref<HTMLDivElement>) {
         className={classes.modal}
         portalSelector={false}
         variant={false}
-        focusOnProps={{ shards: shards, returnFocus: true }}
+        focusOnProps={{ shards: shards, returnFocus: true, scrollLock: false }}
         transitionProps={{
           // Add style hook for other sections of app UI when modal is up.
           onEntering: () => document.body.classList.add("blockEditorModalOn"),

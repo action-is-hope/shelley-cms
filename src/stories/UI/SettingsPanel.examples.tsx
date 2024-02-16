@@ -503,8 +503,8 @@ export const MenuExample = () => {
           </>
         }
       >
+        {/* <ProgressCircle isIndeterminate size="large" /> */}
         <div className={st(classes.menus, classes.innerScroll)}>
-          {/* <ProgressCircle isIndeterminate size="large" /> */}
           <ReorderItems
             className={classes.reorderMenuItems}
             items={menuItems}
