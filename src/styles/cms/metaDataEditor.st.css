@@ -8,7 +8,7 @@
   --height-header-md,
   --spacing-unit,
   --box-shadow-metaData,
-  --color-form-base-border
+  
 ] from "./project.st.css";
 @st-import MetaDataEditor from "../../components/MetaDataEditor/metaDataEditor.st.css";
 @st-import MediaField from "../../components/MediaField/mediaField.st.css";
@@ -104,7 +104,7 @@
     font-size: 14px;
   }
 
-  MetaDataEditor::urlField::fieldInput {
+  MetaDataEditor::urlField::input {
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -117,7 +117,7 @@
     margin-top: -1px;
   }
 
-  MetaDataEditor::titleField::fieldInput {
+  MetaDataEditor::titleField::input {
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -147,7 +147,7 @@
 
 
   MetaDataEditor::languageField:focus-within::fieldset,
-  MetaDataEditor::languageField:focus-within::fieldContainer {
+  MetaDataEditor::languageField:focus-within::inputContainer {
     border-radius: 0;
     box-shadow: none;
   }
@@ -167,7 +167,7 @@
   }
 
   /* Generic Fields */
-  MetaDataEditor Field::fieldContainer {
+  MetaDataEditor Field::inputContainer {
     /* background for all textbased fields. */
     background-color: var(--color-background-3);
   }
@@ -185,7 +185,7 @@
     grid-template-columns: 96px 1fr;
   }
 
-  MetaDataEditor Field:labelPosition(side)::inputLabel {
+  MetaDataEditor Field:labelPosition(side)::input {
     font-size: .85em;
     text-align: end;
   }

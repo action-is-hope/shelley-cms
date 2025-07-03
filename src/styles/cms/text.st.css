@@ -1,7 +1,7 @@
 @st-namespace "TextCMS";
 
 :import {
-  -st-from: "@actionishope/shelley/styles/default/project.st.css";
+  -st-from: "@actionishope/shelley/styles/project.st.css";
   -st-named:
     --spacing-unit;
 }

@@ -10,7 +10,7 @@
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
-@st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
+@st-import ButtonGroup from "@actionishope/shelley/Button/buttonGroup.st.css";
 @st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
 @st-import [ ctaContainer ] from "./field.st.css";
 
@@ -59,7 +59,7 @@
     margin-left: calc(var(--spacing-unit) * -1);
   }
 
-  ReorderItems::item TextField:variant(quiet)::fieldInput,
+  ReorderItems::item TextField:variant(quiet)::input,
   ReorderItems::item SlateArea {
     padding-left: calc(var(--spacing-unit) * 2);
   }

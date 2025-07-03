@@ -18,6 +18,16 @@
   breakpoint-lg-max,
   breakpoint-xl,
   breakpoint-xxl,
+
+  --color-focus,
+  --color-error,
+
+  --spacing-unit,
+  --field-padding,
+  --grid-gap] from "@actionishope/shelley/styles/project.st.css";
+
+
+/* 
   --text-vol-1-scale,
   --text-vol-2-scale,
   --text-vol-3-scale,
@@ -28,10 +38,9 @@
   --text-vol-5-max,
   --text-vol-6-scale,
   --text-vol-6-max,
-  --text-vol-7-scale,
-  --color-focus,
-  --color-error,
-  --color-form-base-border,
+  --text-vol-7-scale, 
+  
+    --color-form-base-border,
   --color-form-selection-border,
   --color-form-selection-notch,
   --color-switch-notch,
@@ -41,10 +50,8 @@
   --background-color-modal-backdrop,
   --background-color-popup,
   --border-color-popup,
-  --spacing-unit,
-  --field-padding,
-  --grid-gap,
-  --grid-v1-cols-xs,
+  
+    --grid-v1-cols-xs,
   --grid-v1-cols-sm,
   --grid-v1-cols-md,
   --text-vol-10-max,
@@ -54,7 +61,8 @@
   --background-color-info,
   --background-color-success,
   --background-color-warning,
-  --background-color-error] from "@actionishope/shelley/styles/default/project.st.css";
+  --background-color-error
+  */
 
 /*=== BUILD-TIME 'VARIABLE' DEFINITIONS ===*/
 
@@ -100,7 +108,6 @@
   --color-ui-raw-inverse: var(--dark-01-raw);
 
   /* = Accent colors */
-  --color-accent-1: rgb(117 234 255);
   --color-accent-1-50: rgba(117 234 255 / 50%);
   --color-accent-1: #75eaff;
   --color-accent-2: #75ffd4;

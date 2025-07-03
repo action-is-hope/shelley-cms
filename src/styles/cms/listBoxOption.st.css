@@ -4,7 +4,7 @@
   --color-focus
 ] from "./project.st.css";
 
-@st-import ListBoxOption from "@actionishope/shelley/ListBoxOption/listBoxOption.st.css";
+@st-import ListBoxOption from "@actionishope/shelley/ListBox/listBoxOption.st.css";
 
 @st-scope CMS {
 

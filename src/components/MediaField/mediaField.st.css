@@ -1,6 +1,6 @@
 @st-namespace "MediaField";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
-@st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/default/mixins/focus.st.css";
+@st-import [focus, focusVisible] from "@actionishope/shelley/styles/mixins/focus.st.css";
 
 .root {
   -st-states:
@@ -75,12 +75,12 @@
 }
 
 .editControls::after {
-  -st-mixin: pseudoFocus;
+  -st-mixin: focus;
   /* border-radius: 4px; */
 }
 
 .editControls:focus::after {
-  -st-mixin: pseudoFocusVisible;
+  -st-mixin: focusVisible;
 }
 
 .editControls:focus-within {

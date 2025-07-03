@@ -13,11 +13,14 @@
   -st-named:
     --color-focus,
     --color-error,
-    --color-form-base-border,
-    --color-form-selection-border,
+
     --color-form-selection-notch,
-    --color-switch-notch
+
 }
+
+/* --color-switch-notch
+    --color-form-base-border,
+    --color-form-selection-border, */
 
 :import {
   -st-from: "../project.st.css";
@@ -56,9 +59,7 @@
     /* = Modal colors */
     --background-color-modal-backdrop,
     --color-border-dialog,
-    --background-color-popup,
-    --color-popup,
-    --border-color-popup,
+
     /* = Dialog colors */
     --background-color-dialog,
     --color-dialog,
@@ -109,6 +110,12 @@
     --box-shadow-metaData
 }
 
+
+/* 
+    --background-color-popup,
+    --color-popup,
+    --border-color-popup,
+     */
 /* 
   = This 'theme' overrides some of the css variables defined in the project.st.css file,
   replacing the entire design of the application.

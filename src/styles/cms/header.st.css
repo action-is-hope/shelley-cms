@@ -11,14 +11,17 @@
   --color-header-border,
   --height-header-sm,
   --height-header-md,
-  --border-color-popup,
-  --text-vol-1-scale,
-  --text-vol-2-scale,
   --spacing-unit,
   breakpoint-md,
   breakpoint-md-max
 ] from "./project.st.css";
+
 @property st-global(--vh);
+
+/* 
+  --border-color-popup,
+  --text-vol-1-scale,
+  --text-vol-2-scale, */
 
 @st-import Header, [sitesDialog, userDialog, userDetails, themeSwitcher, avatar, userDetailsHeader] from "../../components/Header/header.st.css";
 @st-import Text from "@actionishope/shelley/Text/text.st.css";
@@ -28,6 +31,7 @@
 
 
 @st-scope CMS {
+
   Header {
     --height-header: var(--height-header-sm);
     background-color: var(--color-header-background);
@@ -136,12 +140,12 @@
     display: flex;
   }
 
-  Header > nav {
+  Header::nav {
     flex-grow: 1;
     margin-left: 14px
   }
 
-  Header > nav > a {
+  Header::nav > a {
     display: inline-flex;
     align-items: center;
     min-height: var(--height-header);

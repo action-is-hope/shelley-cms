@@ -1,5 +1,5 @@
 /** Import Base project */
-import { Project as Base } from "@actionishope/shelley/styles/default";
+import { root as Base } from "@actionishope/shelley/styles";
 import { Project as Shelley, Light, Dark } from "./cms";
 
 const themes = {

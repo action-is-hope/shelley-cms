@@ -22,10 +22,13 @@
   -st-default: Text;
 }
 
-/* = Root Component */
 :import {
   -st-from: "@actionishope/shelley/Button/button.st.css";
   -st-default: Button;
+}
+
+:import {
+  -st-from: "@actionishope/shelley/styles/button.st.css";
   -st-named:
     --bg-color,
     --border-color,
@@ -61,8 +64,8 @@
  *  h2Text:uppercase {...}
  */
 
-
-.root Button:variant(3):tone(3) {
+/* ?? */
+.root Button:variant(quiet):tone(info) {
   --bg-color: #000;
   --text-color: var(--color-accent-1);
 }

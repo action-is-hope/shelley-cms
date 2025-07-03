@@ -12,7 +12,7 @@
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
-@st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
+@st-import ButtonGroup from "@actionishope/shelley/Button/buttonGroup.st.css";
 @st-import Chip, [container as chipContainer] from "../../components/Chip/chip.st.css";
 
 @st-scope body CMS {
@@ -26,27 +26,27 @@
     padding-right: 10px;
   }
 
-  Field::fieldInput::placeholder,
-  Field::fieldInput textarea::placeholder {
+  Field::input::placeholder,
+  Field::input textarea::placeholder {
     color: var(--color-ui);
   }
 
-  Field:labelPosition(over)::fieldInput::placeholder,
-  Field:labelPosition(over)::fieldInput textarea::placeholder {
+  Field:labelPosition(over)::input::placeholder,
+  Field:labelPosition(over)::input textarea::placeholder {
     opacity: 0;
   }
 
-  Field::fieldInput::placeholder,
-  Field::fieldInput textarea::placeholder,
-  Field:labelPosition(over)::fieldInput:focus::placeholder,
-  Field:labelPosition(over):hasValue::fieldInput::placeholder,
-  Field:labelPosition(over)::fieldInput textarea:focus::placeholder,
-  Field:labelPosition(over):hasValue::fieldInput textarea::placeholder {
+  Field::input::placeholder,
+  Field::input textarea::placeholder,
+  Field:labelPosition(over)::input:focus::placeholder,
+  Field:labelPosition(over):hasValue::input::placeholder,
+  Field:labelPosition(over)::input textarea:focus::placeholder,
+  Field:labelPosition(over):hasValue::input textarea::placeholder {
     opacity: 0.34;
   }
 
 
-  Field:variant(outlined)::fieldContainer,
+  Field:variant(outlined)::inputContainer,
   Field:variant(outlined)::fieldset {
     border-radius: 0;
   }
@@ -56,14 +56,14 @@
     color: var(--color-text-3);
   }
 
-  Field:variant(quiet)::fieldContainer::before {
+  Field:variant(quiet)::inputContainer::before {
     width: 0;
     transition: all 0.2s linear;
     background-color: var(--color-focus);
     opacity: 0;
   }
 
-  Field:variant(quiet)::fieldContainer:focus-within::before {
+  Field:variant(quiet)::inputContainer:focus-within::before {
     background-color: var(--color-focus);
     opacity: 1;
     width: 0;
@@ -100,7 +100,7 @@
     width: fit-content;
   }
 
-  .cta:variant(outlined)::fieldInput {
+  .cta:variant(outlined)::input {
     font-size: 14px;
   }
 
@@ -113,7 +113,7 @@
     -st-extends: cta;
   }
 
-  .ctaButton:variant(outlined)::fieldContainer {
+  .ctaButton:variant(outlined)::inputContainer {
     border-radius: 999em;
     background-color: var(--color-background-3);
   }
@@ -139,34 +139,34 @@
     -st-extends: TextField;
   }
 
-  .url:variant(quiet)::fieldInput {
+  .url:variant(quiet)::input {
     font-size: 14px;
     font-style: italic;
     color: var(--color-accent-1);
   }
 
-  .url:variant(quiet):vol(1):labelPosition(top)::fieldContainer::before {
+  .url:variant(quiet):vol(1):labelPosition(top)::inputContainer::before {
     top: 10px;
     bottom: 10px;
     left: 8px
   }
 
-  .url:vol(1)::inputLabel {
+  .url:vol(1)::label {
     position: absolute;
     font-size: 10px;
     left: 16px;
     top: 9px;
   }
 
-  .url:vol(1)::inputLabel svg {
+  .url:vol(1)::label svg {
     transition: all 0.2s linear
   }
 
-  .url:vol(1):focus-within::inputLabel svg {
+  .url:vol(1):focus-within::label svg {
     color: var(--color-focus);
   }
 
-  .url:variant(quiet):vol(1):labelPosition(top)::fieldInput {
+  .url:variant(quiet):vol(1):labelPosition(top)::input {
     padding-left: 40px
   }
 }

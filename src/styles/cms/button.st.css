@@ -1,7 +1,7 @@
 @st-namespace "ButtonCMS";
 
 :import {
-  -st-from: "@actionishope/shelley/styles/default/project.st.css";
+  -st-from: "@actionishope/shelley/styles/project.st.css";
   -st-named:
     --spacing-unit;
 }
@@ -23,6 +23,10 @@
 :import {
   -st-from: "@actionishope/shelley/Button/button.st.css";
   -st-default: Button;
+}
+
+:import {
+  -st-from: "@actionishope/shelley/styles/button.st.css";
   -st-named:
     --bg-color,
     --border-color,
@@ -30,8 +34,12 @@
 }
 
 :import {
-  -st-from: "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
+  -st-from: "@actionishope/shelley/Button/buttonGroup.st.css";
   -st-default: ButtonGroup;
+}
+
+:import {
+  -st-from: "@actionishope/shelley/styles/buttonGroup.st.css";
   -st-named: --seperator-color;
 }
 

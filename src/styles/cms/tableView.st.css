@@ -15,7 +15,7 @@
   ] from "./project.st.css";
 
 @st-import TableView, [row] from "@actionishope/shelley/TableView/tableView.st.css";
-@st-import [
+/* @st-import [
   --color-background-row,
   --color-text-row,
   --color-background-row-isPressed,
@@ -27,11 +27,12 @@
   --color-background-row-isHoveredSelected,
   --color-text-row-isHoveredSelected,
   --color-border-tbody
-] from "@actionishope/shelley/styles/default/tableView.st.css";
+] from "@actionishope/shelley/styles/tableView.st.css"; */
+
 
 @st-scope CMS {
   TableView {
-    --color-background-row: var(--project-color-background-row);
+    /* --color-background-row: var(--project-color-background-row);
     --color-text-row: var(--project-color-text-row);
     --color-background-row-isPressed: var(--project-color-background-row-isPressed);
     --color-text-row-isPressed: var(--project-color-text-row-isPressed);
@@ -41,7 +42,7 @@
     --color-text-row-isHovered: var(--project-color-text-row-isHovered);
     --color-background-row-isHoveredSelected: var(--project-color-background-row-isHoveredSelected);
     --color-text-row-isHoveredSelected: var(--project-color-text-row-isHoveredSelected);
-    --color-border-tbody: var(--project-color-border-tbody);
+    --color-border-tbody: var(--project-color-border-tbody); */
   }
 
   TableView::column {

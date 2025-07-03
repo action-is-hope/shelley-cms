@@ -1,8 +1,11 @@
 /* header.st.css CSS API */
 @st-import Dialog from "@actionishope/shelley/Dialog/dialog.st.css";
 @st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
+@st-import AppBar from "@actionishope/shelley/AppBar/appBar.st.css";
 
-.root {}
+.root {
+  -st-extends: AppBar;
+}
 
 .navTrigger {}
 

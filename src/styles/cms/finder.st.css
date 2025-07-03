@@ -1,9 +1,5 @@
 @st-namespace "FinderCMS";
 @st-import CMS, [
-  --color-ui,
-  --color-ui-inverse,
-  --color-accent-1,
-  --color-accent-1-50,
   --spacing-unit,
   --height-header-sm,
   --height-header-md,
@@ -20,7 +16,7 @@
 @st-import Finder, [sidebarModal] from "../../components/Finder/finder.st.css";
 
 @st-import Card from "../../components/Card/card.st.css";
-@st-import RadioGroup from "@actionishope/shelley/RadioGroup/radioGroup.st.css";
+@st-import RadioGroup from "@actionishope/shelley/Radio/radioGroup.st.css";
 @st-import Radio from "@actionishope/shelley/Radio/radio.st.css";
 
 @st-scope CMS {
@@ -52,7 +48,6 @@
   }
 
   Finder::sidebar RadioGroup {
-    /* padding: 0 var(--spacing-unit); */
     gap: 6px;
     margin-bottom: calc(var(--spacing-unit) * 2)
   }
@@ -65,13 +60,13 @@
     padding: calc(var(--spacing-unit) * .5) var(--spacing-unit);
   }
 
-  Finder::sidebar RadioGroup::inputLabel {
+  Finder::sidebar RadioGroup::label {
     padding: 2px var(--spacing-unit) 0;
     margin-bottom: 4px;
 
   }
 
-  Finder::sidebar RadioGroup::inputLabel::text {
+  Finder::sidebar RadioGroup::label::text {
     font-weight: 600;
   }
 
@@ -102,15 +97,15 @@
   }
 
   Finder::searchField::fieldset,
-  Finder::searchField::fieldContainer {
+  Finder::searchField::inputContainer {
     border-radius: 999px;
   }
 
-  Finder::searchField::fieldContainer {
+  Finder::searchField::inputContainer {
     align-items: center;
   }
 
-  Finder::searchField::fieldContainer > svg {
+  Finder::searchField::inputContainer > svg {
     font-size: 1.2em;
     position: relative;
     left: .5em
@@ -135,7 +130,6 @@
   @st-scope CMS {
     Finder {
       --height-header: var(--height-header-md);
-      /* --finder-padding: calc(var(--spacing-unit) * 2); */
     }
   }
 }

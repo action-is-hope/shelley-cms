@@ -5,10 +5,13 @@
     --color-ui-raw-inverse,
     --color-accent-1,
   ] from "./project.st.css";
-@st-import ProgressCircle, [
+
+@st-import ProgressCircle from "@actionishope/shelley/Progress/progressCircle.st.css";
+
+@st-import [
     --loader-circle-track-color,
     --loader-circle-track-fill-color
-  ] from "@actionishope/shelley/ProgressCircle/progressCircle.st.css";
+  ] from "@actionishope/shelley/styles/progressCircle.st.css";
 
 @st-scope Shelley {
   ProgressCircle {
