@@ -1,5 +1,6 @@
 @st-namespace "MediaField";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
+@st-import IconButton from "@actionishope/shelley/Button/iconButton.st.css";
 @st-import [focus, focusVisible] from "@actionishope/shelley/styles/mixins/focus.st.css";
 
 .root {
@@ -88,10 +89,10 @@
 }
 
 .editButton {
-  -st-extends: Button;
+  -st-extends: IconButton;
 }
 
-.editButton:variant(fab) {
+.editButton {
   transition: transform 0.25s;
   transition: transform 0.2s, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease !important;
   transform: scale(0);

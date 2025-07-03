@@ -2,7 +2,6 @@
 @st-import CMS, [
   --spacing-unit,
   --color-background-contrast-1,
-  --color-text-3,
   breakpoint-md
 ] from "./project.st.css";
 

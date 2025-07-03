@@ -1,7 +1,7 @@
 import { Key, useEffect, useState } from "react";
 import { useSlateStatic } from "slate-react";
 import type { TableEditor } from "../../../plugins/withTables/withTables";
-import { Button } from "@actionishope/shelley/Button";
+import { IconButton } from "@actionishope/shelley/Button";
 import { MenuTrigger } from "@actionishope/shelley/Menu";
 import { Menu } from "@actionishope/shelley/Menu";
 import { Item } from "@actionishope/shelley/Item";
@@ -72,9 +72,9 @@ const CellMenu = ({ type }: CellMenuElementProps) => {
 			// closeOnSelect={false}
 			hideArrow
 		>
-			<Button
-				tone={10}
-				variant="fab"
+			<IconButton
+				// tone={10}
+				isFab
 				vol={1}
 				aria-label={type === "row" ? "Row menu" : "Column menu"}
 				icon={<Insert className={st(classes.cellMenuIcon, { type })} />}

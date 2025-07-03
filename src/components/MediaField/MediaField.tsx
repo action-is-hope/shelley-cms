@@ -1,5 +1,5 @@
 import { useRef, type ReactNode } from "react";
-import { Button } from "@actionishope/shelley/Button";
+import { IconButton } from "@actionishope/shelley/Button";
 import { st, classes } from "./mediaField.st.css";
 import { Edit, Media, Trash } from "../icons";
 import { P, Text } from "@actionishope/shelley/Text";
@@ -63,10 +63,10 @@ const MediaField = ({
 			<div className={classes.grid}>
 				{!mediaPreview ? (
 					<>
-						<Button
+						<IconButton
 							data-id="SelectImage"
 							icon={<Media alt={addText} />}
-							variant="fab"
+							isFab
 							onPress={onAdd}
 							vol={vol}
 							className={classes.trigger}
@@ -86,15 +86,15 @@ const MediaField = ({
 							className={classes.editControls}
 							onClick={handleClick}
 						>
-							<Button
-								variant="fab"
+							<IconButton
+								isFab
 								className={classes.editButton}
 								onPress={onRemove}
 								vol={vol === 3 ? 2 : 1}
 								icon={<Trash alt={removeText} />}
 							/>
-							<Button
-								variant="fab"
+							<IconButton
+								isFab
 								className={classes.editButton}
 								onPress={onEdit}
 								vol={vol === 3 ? 2 : 1}

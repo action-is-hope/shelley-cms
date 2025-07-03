@@ -1,6 +1,6 @@
 /* reorderItems.st.css */
 @st-namespace "ReorderItems";
-@st-import Button from "@actionishope/shelley/Button/button.st.css";
+@st-import IconButton from "@actionishope/shelley/Button/iconButton.st.css";
 @st-import Text from "@actionishope/shelley/Text/text.st.css";
 
 :global(.noScroll) {
@@ -48,7 +48,7 @@
 }
 
 .deleteButton {
-  -st-extends: Button;
+  -st-extends: IconButton;
   top: -28px;
   left: -28px;
   width: 30px;

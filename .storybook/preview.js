@@ -83,44 +83,78 @@ export const globalTypes = {
   shelleyTheme: {
     name: "Theme",
     description: "Theme Switcher",
-    defaultValue: themes["shelley"],
+    // defaultValue: themes["shelley"],
     toolbar: {
       icon: "switchalt",
       title: "Theme Switch",
       items: [
         {
-          value: "",
+          value: "none",
           title: "None",
         },
         {
-          value: themes["base"],
-          title: "Base",
+          value: "light",
+          title: "Light - Default",
         },
         {
-          value: themes["shelley"],
-          title: "Shelley CMS",
-        },
-        {
-          value: themes["shelleyLight"],
-          title: "Shelley CMS Light",
+          value: "dark",
+          title: "Dark",
         },
       ],
+      // items: [
+      //   {
+      //     value: "",
+      //     title: "None",
+      //   },
+      //   {
+      //     value: themes["base"],
+      //     title: "Base",
+      //   },
+      //   {
+      //     value: themes["shelley"],
+      //     title: "Shelley CMS",
+      //   },
+      //   {
+      //     value: themes["shelleyLight"],
+      //     title: "Shelley CMS Light",
+      //   },
+      // ],
     },
   },
 };
 // preview.js
 
 const withShelleyTheme = (Story, context) => {
+  document.documentElement.setAttribute(
+    "class",
+    context.globals.shelleyTheme !== "none" ? themes.cms : ""
+  );
+
+  document.documentElement.setAttribute(
+    "data-theme",
+    context.globals.shelleyTheme
+  );
+
   // Create a themed div for portal content so styles still work. Not needed if you put your theme class on html.
   if (!document.getElementById("portal")) {
     const portal = document.createElement("div");
     portal.setAttribute("id", "portal");
-    portal.setAttribute("class", context.globals.shelleyTheme);
+    // portal.setAttribute("class", context.globals.shelleyTheme);
     document.body.appendChild(portal);
   }
+  // return (
+  //   // We need it as a wrapper on the stories as well else the bg is wrong in the Docs.
+  //   <div className={context.globals.shelleyTheme}>
+  //     <Story {...context} />
+  //   </div>
+  // );
   return (
-    // We need it as a wrapper on the stories as well else the bg is wrong in the Docs.
-    <div className={context.globals.shelleyTheme}>
+    <div
+      style={{
+        background:
+          context.globals.shelleyTheme === "dark" ? "rgb(23, 26, 35)" : "#fff",
+      }}
+    >
       <Story {...context} />
     </div>
   );

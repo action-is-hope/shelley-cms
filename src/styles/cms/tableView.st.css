@@ -1,17 +1,6 @@
 @st-namespace "TableViewCMS";
 @st-import CMS, [
-    --color-background-main,
-    --color-background-row as --project-color-background-row,
-    --color-text-row as --project-color-text-row,
-    --color-background-row-isPressed as --project-color-background-row-isPressed,
-    --color-text-row-isPressed as --project-color-text-row-isPressed,
-    --color-background-row-isSelected as --project-color-background-row-isSelected,
-    --color-text-row-isSelected as --project-color-text-row-isSelected,
-    --color-background-row-isHovered as --project-color-background-row-isHovered,
-    --color-text-row-isHovered as --project-color-text-row-isHovered,
-    --color-background-row-isHoveredSelected as --project-color-background-row-isHoveredSelected,
-    --color-text-row-isHoveredSelected as --project-color-text-row-isHoveredSelected,
-    --color-border-tbody as --project-color-border-tbody
+    --bg-main,
   ] from "./project.st.css";
 
 @st-import TableView, [row] from "@actionishope/shelley/TableView/tableView.st.css";
@@ -46,7 +35,7 @@
   }
 
   TableView::column {
-    background-color: var(--color-background-main);
+    background-color: var(--bg-main);
     font-weight: 500;
     /* @TODO: bugfix - apply this in shelley. */
     z-index: 10;

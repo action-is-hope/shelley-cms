@@ -3,12 +3,8 @@
   --spacing-unit,
   --light-01,
   --color-ui,
-  --color-ui-inverse,
-  --color-accent-1,
   --color-header-background,
-  --color-background-3,
   --color-background-contrast-1,
-  --color-background-contrast-2,
   --color-text-4
 ] from "./project.st.css";
 

@@ -129,6 +129,7 @@ function MetaDataEditor<T extends object>(
 								<Select
 									className={classes.languageField}
 									label="Page language"
+									vol={1}
 									variant="outlined"
 									portalSelector="#portal"
 									labelPosition="hidden"
@@ -146,7 +147,7 @@ function MetaDataEditor<T extends object>(
 								<TextField
 									labelPosition="side"
 									type="textarea"
-									rows={1}
+									// rows={1}
 									vol={1}
 									variant="quiet"
 									{...descriptionProps}

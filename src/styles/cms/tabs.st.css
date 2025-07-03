@@ -1,7 +1,7 @@
 @st-namespace "TabsCMS";
 @st-import CMS, [
     --color-ui-inverse,
-    --color-ui-raw,
+    --color-ui-rgb,
     --color-accent-1
   ] from "./project.st.css";
 @st-import Tabs from "@actionishope/shelley/Tabs/tabs.st.css";
@@ -20,7 +20,7 @@
   }
 
   Tabs::tab:isDisabled {
-    color: rgba(var(--color-ui-raw), 0.5);
+    color: rgba(var(--color-ui-rgb), 0.5);
     cursor: not-allowed;
   }
 

@@ -1,5 +1,5 @@
 import React, { useState, ReactElement, forwardRef } from "react";
-import { Button } from "@actionishope/shelley/Button";
+import { Button, IconButton } from "@actionishope/shelley/Button";
 import { ButtonGroup } from "@actionishope/shelley/Button";
 import { H2 } from "@actionishope/shelley/Text";
 import { Menu } from "@actionishope/shelley/Menu";
@@ -115,10 +115,11 @@ function BlockEditor(props: BlockEditorProps, ref?: React.Ref<HTMLDivElement>) {
 			<nav className={classes.options}>
 				{provideMenu && (
 					<MenuTrigger portalSelector={portalSelector} crossOffset={-50}>
-						<Button
+						<IconButton
 							className={classes.menuTrigger}
-							variant="fab"
-							tone={10}
+							isFab
+							tone="contrast"
+							variant="secondary"
 							aria-label="Block menu"
 							vol={1}
 							data-id={dataId ? `${dataId}--menuTrigger` : undefined}

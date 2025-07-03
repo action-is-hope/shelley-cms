@@ -1,7 +1,7 @@
 @st-namespace "ReorderItemsCMS";
 @st-import CMS, [
   --spacing-unit,
-  --color-background-main,
+  --bg-main,
   --color-header-background,
   --color-header,
   --color-border-3

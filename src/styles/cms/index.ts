@@ -48,13 +48,7 @@ import "./speedDialMenu.st.css";
 import "./hoverMenu.st.css";
 
 // = Project
-import { classes as light } from "./themes/light.st.css";
-import { classes as dark } from "./themes/dark.st.css";
-import { classes as cms } from "./project.st.css";
+import { classes } from "./project.st.css";
 
 // = Main classname export
-export const Project = cms.root;
-
-// = Theme exports
-export const Light = light.root;
-export const Dark = dark.root;
+export const Project = classes.root;

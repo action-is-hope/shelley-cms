@@ -6,16 +6,15 @@
   --color-focus,
   --color-ui,
   --color-background-3,
-  --color-background-main,
 ] from "./project.st.css";
 
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
-@st-import Button from "@actionishope/shelley/Button/button.st.css";
+@st-import IconButton from "@actionishope/shelley/Button/iconButton.st.css";
 @st-import ButtonGroup from "@actionishope/shelley/Button/buttonGroup.st.css";
 @st-import Chip, [container as chipContainer] from "../../components/Chip/chip.st.css";
 
-@st-scope body CMS {
+@st-scope CMS {
 
   Field .chipContainer {
     margin-left: 6px;
@@ -86,7 +85,7 @@
     margin-bottom: calc(var(--spacing-unit) / 3);
   }
 
-  .ctaContainer Button:variant(fab) {
+  .ctaContainer IconButton {
     position: relative;
     top: 3px;
   }

@@ -1,0 +1,380 @@
+/**
+ * CMS Project - project.st.css
+ * 
+ * Your main project which is essentially a theme but it itself can have themes
+ * so project seems more appropriate. 
+ */
+/* @st-global-custom-property --vh; */
+@property st-global(--vh);
+
+@st-namespace "CMS";
+/* = Default project vars to be overridden and used. */
+@st-import [
+  breakpoint-sm,
+  breakpoint-sm-max,
+  breakpoint-md,
+  breakpoint-md-max,
+  breakpoint-lg,
+  breakpoint-lg-max,
+  breakpoint-xl,
+  breakpoint-xxl,
+
+  --color-focus,
+  --color-error,
+
+  --spacing-unit,
+  --field-padding,
+  --grid-gap,
+  
+
+  --popup-bg,
+  --popup-color,
+  --popup-border-width,
+  --popup-border-color,
+  --popup-drop-shadow,
+  --popup-radius,
+  ] from "@actionishope/shelley/styles/project.st.css";
+
+/* 
+  --text-vol-1-scale,
+  --text-vol-2-scale,
+  --text-vol-3-scale,
+  --text-vol-3-max,
+  --text-vol-4-scale,
+  --text-vol-4-max,
+  --text-vol-5-scale,
+  --text-vol-5-max,
+  --text-vol-6-scale,
+  --text-vol-6-max,
+  --text-vol-7-scale, 
+  
+    --color-form-base-border,
+  --color-form-selection-border,
+  --color-form-selection-notch,
+  --color-switch-notch,
+  --color-dialog,
+  --color-popup,
+  --background-color-dialog,
+  --background-color-modal-backdrop,
+  --background-color-popup,
+  --border-color-popup,
+  
+    --grid-v1-cols-xs,
+  --grid-v1-cols-sm,
+  --grid-v1-cols-md,
+  --text-vol-10-max,
+  --text-vol-10-scale,
+  --text-vol-10-line-height,
+  --background-color-neutral,
+  --background-color-info,
+  --background-color-success,
+  --background-color-warning,
+  --background-color-error
+  */
+
+/*=== BUILD-TIME 'VARIABLE' DEFINITIONS ===*/
+
+:vars {
+  /*=== TYPE AND TEXT ===*/
+
+  /** Fonts */
+  /* font-plain: Tahoma, Verdana, Segoe, sans-serif; */
+  font-plain: Helvetica Neue, Helvetica, Arial, sans-serif;
+  /* Georgia, serif; */
+  /* font-special: Helvetica Neue, Helvetica, Arial, sans-serif; */
+  font-special: futura-pt, Helvetica Neue, Helvetica, Arial, sans-serif;
+  /* Georgia, serif; */
+  font-mono: Menlo, Courier, Courier New, Andale Mono, monospace;
+}
+
+/*=== Root Level CSS Variables - 'run time' ===*/
+
+:root {
+  /*=== COLOURS - The Queens English darling... ===*/
+
+  /* = Core light - always light or dark regardless of theme. */
+  --light-01-rgb: 255, 255, 255;
+  --light-01: rgb(255, 255, 255);
+  /* = Core dark . */
+  --dark-01-rgb: 51, 51, 51;
+  --dark-01: rgb(51, 51, 51);
+  /* = 'raw' are just the rgb values we we can use them with rgba 
+   * where we can provide the alpha yet still have the raw value change
+   * for our style-switcher and within lots of alpha variant vars. 
+   * 
+   * e.g color: rgba(var(--color-ui-rgb), 0.9);
+   */
+
+  /* = Forground colors - main and inverted plus rgb versions as 'raw'. */
+  --color-ui: var(--light-01);
+  --color-ui-inverse: var(--dark-01);
+  --color-ui-rgb: var(--light-01-rgb);
+  --color-ui-rgb-inverse: var(--dark-01-rgb);
+
+  /* = Accent colors */
+  --color-accent-1-50: rgba(117 234 255 / 50%);
+  --color-accent-1: #75eaff;
+  --color-accent-2: #75ffd4;
+  --color-accent-3: #ff3490;
+
+  --color-accent-4: #f7e1b9;
+
+  /* = Background colors */
+  --bg-main: #0f1118;
+  --color-background-contrast-1: #000;
+  --color-background-contrast-2: #121821;
+  /* @todo rename these to be a bit more semantic... */
+  --color-background-2: hsl(220deg 27% 10%);
+  --color-background-3: #000;
+  --color-background-4: rgba(11, 13, 18, 0.34);
+  --color-background-5: rgba(11, 13, 18, 0.34);
+  --color-background-listBox-option-hover: rgba(255, 255, 255, 0.2);
+  --color-background-field-fill: #000;
+  /* = Border colors */
+  --color-border-1: #302e30;
+  --color-border-2: #5050506e;
+  --color-border-3: #6d6e71;
+
+  /* = Modal colors */
+  --background-color-modal-backdrop: #51a0af75;
+
+  /* Dialog colors */
+  --background-color-dialog: var(--bg-main);
+  --color-border-dialog: #51a0af;
+  --color-dialog: var(--color-ui);
+
+  /* = Focus mode colors */
+  --color-focus-mode-background: #000;
+
+  /* = Header colors */
+  --color-header-background: rgb(6 92 103);
+  --color-header: rgba(var(--light-01-rgb), 0.9);
+  --color-header-border: #73e6fa63;
+
+  /* = Slate */
+  --color-background-slate-menu: #09343a;
+  --color-background-slate-media: #171c27;
+
+  /* = Text colors */
+  --color-text-1: var(--light-01);
+  --color-text-2: rgba(var(--light-01-rgb), 0.9);
+  --color-text-3: rgba(var(--light-01-rgb), 0.8);
+  --color-text-4: rgba(var(--light-01-rgb), 0.7);
+
+  /* = Form colors */
+  /* --color-form-base-border: rgba(119, 140, 157, 0.7); */
+  /* --color-form-selection-border: rgba(119, 140, 157, 1); */
+  --color-form-selection-notch: var(--color-accent-2);
+
+  /* = Menu */
+  --color-menu-selected-background: hsl(211, 81%, 36%);
+  --color-menu-selected-text: white;
+
+  /* = Gradiants */
+  --grad-1: linear-gradient(90deg, #404b710d, transparent);
+  --grad-2: linear-gradient(
+    0deg,
+    rgba(15, 17, 24, 0.927608543417367) 43%,
+    rgb(15 17 24 / 0%) 100%
+  );
+
+  /* = Focus mode colors */
+  --color-focus-mode-background: #000;
+
+  /* = Table colours */
+  --color-background-row: var(--color-background-contrast-1);
+  --color-text-row: var(--color-text-3);
+  --color-background-row-isPressed: #1c1c1c;
+  --color-text-row-isPressed: var(--color-text-3);
+  --color-background-row-isSelected: #2b2e3b;
+  --color-text-row-isSelected: var(--color-text-3);
+  --color-background-row-isHovered: #2c2c2c;
+  --color-text-row-isHovered: var(--color-text-3);
+  --color-background-row-isHoveredSelected: #252835;
+  --color-text-row-isHoveredSelected: var(--color-text-3);
+  --color-border-tbody: rgba(var(--color-ui-rgb), 0.15);
+
+  /* = Header */
+  --height-header-sm: 56px;
+  --height-header-md: 65px;
+
+  /* = MetaDataEditor */
+  --box-shadow-metaData: 0 0 1px 2px #070707;
+
+  /* = Meta Data Social Preview */
+  --google-background: var(--bg-main);
+  --google-title: #5b9be8;
+  --google-desc: #bbbdc0;
+  --google-url: #bbbdc0;
+  --google-font: arial, sans-serif;
+
+  --twitter-background: var(--bg-main);
+  --twitter-listing-background: #151f2b;
+  --twitter-border: #313d46;
+  --twitter-title: #fff;
+  --twitter-desc: #8899a6;
+  --twitter-domain: #8899a6;
+  --twitter-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+
+  --facebook-background: var(--bg-main);
+  --facebook-listing-background: rgb(58 59 60 / 75%);
+  --facebook-border: transparent;
+  --facebook-title: #fff;
+  --facebook-desc: #b0b3b8;
+  --facebook-domain: #b0b3b8;
+  --facebook-font: Helvetica, Arial, sans-serif;
+
+  /* = Toast colours */
+  --background-color-neutral: rgb(106, 106, 106);
+  --background-color-info: rgb(2, 101, 220);
+  --background-color-success: rgb(0, 122, 77);
+  --background-color-warning: rgb(255, 102, 0);
+  --background-color-error: rgb(211, 21, 16);
+}
+
+.root {
+  -st-states: theme("[data-theme='$0']", enum(light, dark));
+}
+
+.root:theme(light) {
+  /* = Override our CSS runtime variables, if our user prefers it light as a feather. */
+
+  /* = Forground colors - main and inverted plus rgb versions as 'raw'. */
+  --color-ui: var(--dark-01);
+  --color-ui-rgb: var(--dark-01-rgb);
+  --color-ui-inverse: var(--light-01);
+  --color-ui-rgb-inverse: var(--light-01-rgb);
+
+  /* = Accent colors */
+  --color-accent-1: var(--color-header-background);
+  --color-accent-1-50: rgb(8 92 103 / 50%);
+  --color-accent-2: rgb(8 134 136);
+  --color-accent-3: #ed0ba7;
+  /* = Background colors */
+  --bg-main: #e8e8e8;
+  --color-background-contrast-1: #fff;
+  --color-background-contrast-2: #f2f2f2;
+  --color-background-2: #e2e2e2;
+  --color-background-3: #f3f3f3;
+  --color-background-4: rgb(255, 255, 255, 0.25);
+  --color-background-modal: rgba(249, 249, 249, 0.98);
+  --color-background-listBox-option-hover: rgba(255, 255, 255, 0.8);
+  --color-background-field-fill: #fff;
+  --border-color-popup: rgba(var(--color-ui-rgb), 0.2);
+  --background-color-popup: var(--color-background-modal);
+  --color-popup: var(--color-ui);
+  --color-background-slate-menu: var(--color-accent-1);
+  --color-background-slate-media: #f3f3f391;
+  /* = Border colors */
+  --color-border-1: #fff;
+  --color-border-2: rgba(var(--color-ui-rgb-inverse), 0.7);
+  --color-border-3: rgba(var(--color-ui-rgb), 0.4);
+
+  /* = Modal colors */
+  --background-color-modal-backdrop: rgb(0 0 0 / 40%);
+  --color-border-dialog: #fff;
+
+  /* Dialog colors */
+  --color-dialog: var(--color-ui);
+  --background-color-dialog: var(--bg-main);
+
+  /* = Focus mode colors*/
+  --color-focus-mode-background: #d2d2d2;
+
+  /* = Text colors */
+  --color-text-1: var(--dark-01);
+  --color-text-2: rgba(var(--dark-01-rgb), 0.9);
+  --color-text-3: rgba(var(--dark-01-rgb), 0.8);
+  --color-text-4: rgba(var(--dark-01-rgb), 0.7);
+
+  /* = Status colors - TBC */
+  --color-error: red;
+
+  /* = Form colors */
+  --color-form-base-border: rgba(121, 170, 216, 0.5);
+  --color-form-selection-border: rgba(121, 170, 216, 1);
+  --color-form-selection-notch: #37a7b5;
+  --color-switch-notch: #a5a5a5;
+
+  --color-focus-mode-background: var(--color-background-3);
+
+  /* = Table colours */
+  --color-background-row: var(--color-background-contrast-1);
+  --color-text-row: var(--color-text-3);
+  --color-background-row-isPressed: #f3f3f3;
+  --color-text-row-isPressed: var(--color-text-3);
+  --color-background-row-isSelected: #e9f0fc;
+  --color-text-row-isSelected: var(--color-text-3);
+  --color-background-row-isHovered: GhostWhite;
+  --color-text-row-isHovered: var(--color-text-3);
+  --color-background-row-isHoveredSelected: #dfedff;
+  --color-text-row-isHoveredSelected: var(--color-text-3);
+  --color-border-tbody: rgba(var(--color-ui-rgb), 0.15);
+
+  /* = Gradiants */
+  /* --grad-1: linear-gradient(90deg, #404b7105, transparent); */
+  --grad-1: linear-gradient(90deg, #9898982b, transparent);
+  /* --grad-2: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 200px, rgba(255, 255, 255, 0.5) 500px, rgba(255, 255, 255, 0.8) 100%); */
+  --grad-2: linear-gradient(
+    180deg,
+    rgba(232, 232, 232, 0) 0%,
+    rgba(232, 232, 232, 0.6) 35%,
+    rgba(232, 232, 232, 1) 100%
+  );
+  /* = MetaDataEditor */
+  --box-shadow-metaData: 0 0 1px 1px #f3f3f3;
+
+  /* = Meta Data Social Preview */
+  --google-background: #fff;
+  --google-title: #1a0dab;
+  --google-desc: #4d5156;
+  --google-url: #202124;
+
+  --twitter-background: #fff;
+  --twitter-listing-background: #fff;
+  --twitter-border: #c4cfd6;
+  --twitter-title: #1d2129;
+  --twitter-desc: #5b7083;
+  --twitter-domain: #5b7083;
+
+  --facebook-background: #fff;
+  --facebook-listing-background: #f0f2f5;
+  --facebook-border: #dddfe2;
+  --facebook-title: #1d2129;
+  --facebook-desc: #606770;
+  --facebook-domain: #606770;
+}
+
+/*=== Root Level CSS ===*/
+
+.root {
+  background-color: var(--bg-main);
+}
+
+/** 
+ * This ideally will just be a spinkling of higher level styles that use 
+ * variables. For the reset globals we set them in ./allGlobals.st.css 
+ * which is pulled in within index.ts */
+.root {
+  font-family: value(font-plain);
+  color: var(--color-ui);
+  /* height: var(--vh);*/
+  /* height: calc(var(--vh, 1vh) * 100); */
+  overflow: hidden;
+  /* width: 100vw; */
+}
+
+.root h1 {
+  font-family: value(font-special);
+}
+
+[data-focus-lock-disabled="disabled"] * {
+  /* Hides the scroll bars on locked containers which all show as soon as any dialog is open. Very annoying. */
+  scrollbar-width: none;
+}
+
+[data-focus-on-hidden="true"] *::-webkit-scrollbar {
+  opacity: 0;
+  width: 0;
+}

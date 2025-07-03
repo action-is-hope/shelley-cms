@@ -55,7 +55,7 @@ function ContentActions(
 			>
 				<Button
 					vol={4}
-					tone={1}
+					// tone={1}
 					variant="secondary"
 					className={classes.addBlockButton}
 					ref={targetRef}

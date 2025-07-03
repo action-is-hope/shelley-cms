@@ -151,7 +151,7 @@ function PageActions<T extends { key: string }>(
 					<Button
 						vol={4}
 						variant="primary"
-						tone={reviewRequired ? 2 : 1}
+						tone={reviewRequired ? "support" : "lead"}
 						className={classes.reviewButton}
 						icon={
 							isSaving && (
@@ -183,7 +183,7 @@ function PageActions<T extends { key: string }>(
 							className={classes.menuTrigger}
 							data-id={dataId ? `${dataId}--menuTrigger` : undefined}
 							vol={4}
-							tone={"primary"}
+							tone={"lead"}
 						/>
 						<Menu
 							onAction={(key) => onActionProp(key)}

@@ -46,7 +46,7 @@ function Finder(props: FinderProps, ref?: React.Ref<HTMLDivElement>) {
 		disableActionBar = false,
 		...rest
 	} = props;
-	const measureRef = useRef(null);
+	const measureRef = useRef<HTMLDivElement>(null);
 	const [containerWidth] = useSize(measureRef);
 	const [isMobile, setIsMobile] = useState(false);
 

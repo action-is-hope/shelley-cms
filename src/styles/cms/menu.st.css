@@ -10,7 +10,7 @@
   -st-from: "./project.st.css";
   -st-default: CMS;
   -st-named:
-    --color-background-main,
+    --bg-main,
     --color-menu-selected-background,
     --color-menu-selected-text;
 }
@@ -23,7 +23,7 @@
 @st-scope CMS {
 
   MenuPopup {
-    background: var(--color-background-main);
+    background: var(--bg-main);
   }
 
   MenuItem:isFocused {
