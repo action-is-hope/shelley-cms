@@ -10,6 +10,7 @@ import {
   CheckboxGroup,
   ButtonGroup,
   Button,
+  IconButton,
   ProgressCircle,
   Select,
   Item,
@@ -531,11 +532,12 @@ export const MenuExample = () => {
             </Button>
           </ButtonGroup>
           <ButtonGroup>
-            <Button
+            <IconButton
               icon={<Preview alt="Preview Menu" />}
-              variant="fab"
+              isFab
               vol={2}
-              tone={10}
+              tone='contrast'
+              // @ts-ignore @todo fix in shelley
               title="Preview Menu"
             />
             <Button variant="primary">Publish Menu</Button>
