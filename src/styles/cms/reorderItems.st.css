@@ -10,6 +10,7 @@
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
+/* @st-import IconButton from "@actionishope/shelley/Button/IconButton.st.css"; */
 @st-import ButtonGroup from "@actionishope/shelley/Button/buttonGroup.st.css";
 @st-import SlateArea from "../../components/SlateArea/slateArea.st.css";
 @st-import [ ctaContainer ] from "./field.st.css";
@@ -88,12 +89,12 @@
     position: relative;
   }
 
-  ReorderItems::deleteButton:variant(fab) {
+  ReorderItems::deleteButton:fab:vol(3) {
     border: 1px dashed var(--color-border-3);
     top: -28px;
     left: -28px;
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     position: absolute;
     opacity: 1;
   }

@@ -27,8 +27,12 @@
 
 @st-scope CMS {
 
+  Button {
+    justify-content: center;
+  }
+
   Button:not(IconButton) {
-    border-radius: 0;
+    /* border-radius: 0; */
   }
 
 

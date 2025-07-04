@@ -138,34 +138,34 @@
     -st-extends: TextField;
   }
 
-  .url:variant(quiet)::input {
+  Field.url:variant(quiet)::input {
     font-size: 14px;
     font-style: italic;
     color: var(--color-accent-1);
   }
 
-  .url:variant(quiet):vol(1):labelPosition(top)::inputContainer::before {
+  Field.url:variant(quiet):vol(1):labelPosition(top)::inputContainer::before {
     top: 10px;
     bottom: 10px;
     left: 8px
   }
 
-  .url:vol(1)::label {
+  Field.url:vol(1)::label {
     position: absolute;
     font-size: 10px;
     left: 16px;
     top: 9px;
   }
 
-  .url:vol(1)::label svg {
+  Field.url:vol(1)::label svg {
     transition: all 0.2s linear
   }
 
-  .url:vol(1):focus-within::label svg {
+  Field.url:vol(1):focus-within::label svg {
     color: var(--color-focus);
   }
 
-  .url:variant(quiet):vol(1):labelPosition(top)::input {
+  Field.url:variant(quiet):vol(1):labelPosition(top)::input {
     padding-left: 40px
   }
 }

@@ -166,7 +166,6 @@ function ReorderItems(
 													<IconButton
 														isFab
 														tone="contrast"
-														// variant="secondary"
 														className={classes.deleteButton}
 														aria-label={removeItemString}
 														onPress={() => onRemoveSelect(index)}

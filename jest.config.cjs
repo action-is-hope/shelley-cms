@@ -21,7 +21,7 @@ module.exports = {
   testRegex: "(src/__tests__/.*|(\\.|/)(test|spec))\\.([tj]sx?)$",
   moduleNameMapper: {
     ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-      "jest-rgb-loader",
+      "jest-raw-loader",
   },
   moduleFileExtensions: ["ts", "tsx", "js", "json", "node"],
   testPathIgnorePatterns: ["node_modules", ".cache", "dist"],

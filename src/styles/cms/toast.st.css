@@ -1,13 +1,5 @@
 @st-namespace "ToastCMS";
 @st-import CMS from "./project.st.css";
-
-/* , [
-  --background-color-neutral,
-  --background-color-info,
-  --background-color-success,
-  --background-color-warning,
-  --background-color-error] */
-
 @st-import Toast from "@actionishope/shelley/Toast/toast.st.css";
 @st-import ToastRegion from "@actionishope/shelley/Toast/toastRegion.st.css";
 

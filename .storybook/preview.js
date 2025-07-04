@@ -1,4 +1,3 @@
-import React from "react";
 import themes from "../src/styles";
 
 import { initializeRTL } from "storybook-addon-rtl";
@@ -101,24 +100,6 @@ export const globalTypes = {
           title: "Dark",
         },
       ],
-      // items: [
-      //   {
-      //     value: "",
-      //     title: "None",
-      //   },
-      //   {
-      //     value: themes["base"],
-      //     title: "Base",
-      //   },
-      //   {
-      //     value: themes["shelley"],
-      //     title: "Shelley CMS",
-      //   },
-      //   {
-      //     value: themes["shelleyLight"],
-      //     title: "Shelley CMS Light",
-      //   },
-      // ],
     },
   },
 };
@@ -139,20 +120,15 @@ const withShelleyTheme = (Story, context) => {
   if (!document.getElementById("portal")) {
     const portal = document.createElement("div");
     portal.setAttribute("id", "portal");
-    // portal.setAttribute("class", context.globals.shelleyTheme);
     document.body.appendChild(portal);
   }
-  // return (
-  //   // We need it as a wrapper on the stories as well else the bg is wrong in the Docs.
-  //   <div className={context.globals.shelleyTheme}>
-  //     <Story {...context} />
-  //   </div>
-  // );
   return (
     <div
       style={{
         background:
-          context.globals.shelleyTheme === "dark" ? "rgb(23, 26, 35)" : "#fff",
+          context.globals.shelleyTheme === "dark"
+            ? "rgb(23, 26, 35)"
+            : "#e8e8e8",
       }}
     >
       <Story {...context} />

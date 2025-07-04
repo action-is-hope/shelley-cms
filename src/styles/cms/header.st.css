@@ -44,6 +44,10 @@
     display: contents;
   }
 
+  Header::userMenuTrigger:not(:disabled):hover::before {
+    opacity: 0.1;
+  }
+
   Header::siteName {
     background: #000;
     display: inline-block;

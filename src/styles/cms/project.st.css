@@ -213,6 +213,7 @@
   /* = Override our CSS runtime variables, if our user prefers it light as a feather. */
   --font-family-heading: futura-pt, Helvetica Neue, Helvetica, Arial, sans-serif;
 
+  --button-radius: 0;
 
   /* = Forground colors - main and inverted plus rgb versions as 'raw'. */
   --color-ui: var(--dark-01);
