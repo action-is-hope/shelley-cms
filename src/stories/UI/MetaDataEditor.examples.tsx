@@ -161,6 +161,7 @@ export const MetaDataEditorWithChildrenExample = () => {
               onPress={() =>
                 toastQueue.add(
                   { title: "Bread can be toasted (P0)" },
+                  // @ts-ignore
                   { priority: 0 }
                 )
               }
@@ -169,14 +170,18 @@ export const MetaDataEditorWithChildrenExample = () => {
             </Button>
             <Button
               onPress={() =>
-                toastQueue.add({ title: "Toasting... (P1)" }, { priority: 1 })
+                toastQueue.add({ title: "Toasting... (P1)" }, 
+                  // @ts-ignore
+                  { priority: 1 })
               }
             >
               Info (P1)
             </Button>
             <Button
               onPress={() =>
-                toastQueue.add({ title: "Toast is done (P2)" }, { priority: 2 })
+                toastQueue.add({ title: "Toast is done (P2)" }, 
+                  // @ts-ignore
+                  { priority: 2 })
               }
             >
               Success (P2)
@@ -185,6 +190,7 @@ export const MetaDataEditorWithChildrenExample = () => {
               onPress={() =>
                 toastQueue.add(
                   { title: "Toast is burning (P3)" },
+                  // @ts-ignore
                   { priority: 3 }
                 )
               }
@@ -195,6 +201,7 @@ export const MetaDataEditorWithChildrenExample = () => {
               onPress={() =>
                 toastQueue.add(
                   { title: "Toast is on fire (P4)" },
+                  // @ts-ignore
                   { priority: 4 }
                 )
               }

@@ -44,7 +44,7 @@ export interface MetaDataEditorProps<T>
 	/** Control the isOpen state */
 	isOpen?: boolean;
 	/** Children - passing in a render function will be called with isOpen. */
-	children: OverloadedChildren | React.ReactNode;
+	children?: OverloadedChildren | React.ReactNode;
 	/** Diable the clickAway */
 	disableClickAway?: boolean;
 	/** Displays a loading spinner in the place of the Langauge selector */
