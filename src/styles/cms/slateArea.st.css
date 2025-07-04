@@ -23,9 +23,9 @@
     inputVol4,
     inputVol5,
     inputVol6
-] from "@actionishope/shelley/styles/default/mixins/formElements.st.css";
+] from "@actionishope/shelley/styles/mixins/formElements.st.css";
 
-@st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/default/mixins/focus.st.css";
+@st-import [focus, focusVisible] from "@actionishope/shelley/styles/mixins/focus.st.css";
 
 .mediaItem {
   -st-states: isFocused;

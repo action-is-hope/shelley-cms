@@ -1,7 +1,7 @@
 /* pageActions.st.css */
 @st-namespace "PageActions";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
-@st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
+@st-import ButtonGroup from "@actionishope/shelley/Button/buttonGroup.st.css";
 @st-import Menu from "@actionishope/shelley/Menu/menu.st.css";
 
 .root {

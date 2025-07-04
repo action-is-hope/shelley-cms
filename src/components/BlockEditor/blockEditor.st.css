@@ -7,7 +7,7 @@
 @st-import PreviewActions from "../../components/PreviewActions/previewActions.st.css";
 @st-import ContentArea from "../../components/ContentArea/contentArea.st.css";
 @st-import PageActions from "../../components/PageActions/pageActions.st.css";
-@st-import MenuItem from "@actionishope/shelley/MenuItem/menuItem.st.css";
+@st-import MenuItem from "@actionishope/shelley/Menu/menuItem.st.css";
 @st-import Dialog from "@actionishope/shelley/Dialog/dialog.st.css";
 
 .root {}

@@ -1,8 +1,12 @@
 /* header.st.css CSS API */
 @st-import Dialog from "@actionishope/shelley/Dialog/dialog.st.css";
 @st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
+@st-import AppBar from "@actionishope/shelley/AppBar/appBar.st.css";
+@st-import IconButton from "@actionishope/shelley/Button/iconButton.st.css";
 
-.root {}
+.root {
+  -st-extends: AppBar;
+}
 
 .navTrigger {}
 
@@ -39,6 +43,10 @@
 .userDetails {}
 
 .userDetailsHeader {}
+
+.userMenuTrigger {
+  -st-extends: IconButton;
+}
 
 /* @todo Create avatar component  */
 .avatar {

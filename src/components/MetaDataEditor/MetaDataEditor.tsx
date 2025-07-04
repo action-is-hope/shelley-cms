@@ -12,7 +12,7 @@ import { st, classes } from "./metaDataEditor.st.css";
 import { TextField, InputTextProps } from "@actionishope/shelley/TextField";
 import { Label } from "@actionishope/shelley/Label";
 import { Select, SelectProps } from "@actionishope/shelley/Select";
-import { ProgressCircle } from "@actionishope/shelley/ProgressCircle";
+import { ProgressCircle } from "@actionishope/shelley/Progress";
 import { VisuallyHidden } from "@actionishope/shelley/VisuallyHidden";
 import { Item } from "@actionishope/shelley/Item";
 import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
@@ -44,7 +44,7 @@ export interface MetaDataEditorProps<T>
   /** Control the isOpen state */
   isOpen?: boolean;
   /** Children - passing in a render function will be called with isOpen. */
-  children: OverloadedChildren | React.ReactNode;
+  children?: OverloadedChildren | React.ReactNode;
   /** Diable the clickAway */
   disableClickAway?: boolean;
   /** Displays a loading spinner in the place of the Langauge selector */
@@ -129,6 +129,7 @@ function MetaDataEditor<T extends object>(
                 <Select
                   className={classes.languageField}
                   label="Page language"
+                  vol={1}
                   variant="outlined"
                   portalSelector="#portal"
                   labelPosition="hidden"
@@ -146,7 +147,7 @@ function MetaDataEditor<T extends object>(
                 <TextField
                   labelPosition="side"
                   type="textarea"
-                  rows={1}
+                  // rows={1}
                   vol={1}
                   variant="quiet"
                   {...descriptionProps}

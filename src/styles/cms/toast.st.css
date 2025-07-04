@@ -1,11 +1,5 @@
 @st-namespace "ToastCMS";
-@st-import CMS, [
-  --background-color-neutral,
-  --background-color-info,
-  --background-color-success,
-  --background-color-warning,
-  --background-color-error] from "./project.st.css";
-
+@st-import CMS from "./project.st.css";
 @st-import Toast from "@actionishope/shelley/Toast/toast.st.css";
 @st-import ToastRegion from "@actionishope/shelley/Toast/toastRegion.st.css";
 
@@ -17,26 +11,6 @@
 
   Toast[data-animation=entering] {
     animation: slide-in .3s forwards;
-  }
-
-  Toast:priority(neutral) {
-    background: var(--background-color-neutral)
-  }
-
-  Toast:priority(info) {
-    background: var(--background-color-info)
-  }
-
-  Toast:priority(success) {
-    background: var(--background-color-success)
-  }
-
-  Toast:priority(warning) {
-    background: var(--background-color-warning)
-  }
-
-  Toast:priority(error) {
-    background: var(--background-color-error)
   }
 }
 

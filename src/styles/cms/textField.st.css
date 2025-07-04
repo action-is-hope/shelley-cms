@@ -9,7 +9,7 @@
 
 @st-scope body CMS {
 
-  TextField:variant(filled)::fieldContainer {
+  TextField:variant(filled)::inputContainer {
     background-color: var(--color-background-field-fill);
   }
 

@@ -16,7 +16,7 @@
   addMultipleCheckbox,
   reorderItems
 ] from "../../components/ContentActions/contentActions.st.css";
-@st-import [--dialog-padding-x, --dialog-padding-y] from "@actionishope/shelley/styles/default/dialog.st.css";
+@st-import [--dialog-padding-x, --dialog-padding-y] from "@actionishope/shelley/styles/dialog.st.css";
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";

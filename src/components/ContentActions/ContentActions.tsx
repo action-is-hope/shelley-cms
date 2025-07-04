@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef } from "react";
 import { classes as dialog } from "@actionishope/shelley/Dialog/dialog.st.css";
 import { Button } from "@actionishope/shelley/Button";
-import { ButtonGroup } from "@actionishope/shelley/ButtonGroup";
+import { ButtonGroup } from "@actionishope/shelley/Button";
 import { H2 } from "@actionishope/shelley/Text";
 import { VisuallyHidden } from "@actionishope/shelley/VisuallyHidden";
 import {
@@ -55,7 +55,7 @@ function ContentActions(
       >
         <Button
           vol={4}
-          tone={1}
+          // tone={1}
           variant="secondary"
           className={classes.addBlockButton}
           ref={targetRef}

@@ -19,7 +19,7 @@ function SettingsPanel(
 
   return (
     <div className={st(classes.root)} ref={ref}>
-      <Text as="nav" vol={1} className={classes.nav}>
+      <Text elementType="nav" vol={1} className={classes.nav}>
         {nav}
       </Text>
       <SubHeader
@@ -27,14 +27,14 @@ function SettingsPanel(
           <>
             {icon ?? <SettingsSuggestions />}
             <Text
-              as="span"
+              elementType="span"
               uppercase
               vol={false}
               className={classes.settingsString}
             >
               Settings
             </Text>{" "}
-            <Text as="span">{title}</Text>
+            <Text elementType="span">{title}</Text>
           </>
         }
         className={classes.subHeader}

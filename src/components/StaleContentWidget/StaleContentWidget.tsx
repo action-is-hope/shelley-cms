@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import {
   ProgressCircle,
   ProgressCircleProps,
-} from "@actionishope/shelley/ProgressCircle";
+} from "@actionishope/shelley/Progress";
 import { Text } from "@actionishope/shelley/Text";
 import { Widget, WidgetProps } from "../Widget/Widget";
 import { st, classes } from "./staleContentWidget.st.css";
@@ -42,15 +42,15 @@ function StaleContentWidget(
           {...circleProps}
           data-id={dataId ? `${dataId}--progressCircle` : undefined}
         />
-        <Text as="span" className={classes.total} vol={5}>
+        <Text elementType="span" className={classes.total} vol={5}>
           {circleProps.value}
           <span>Total</span>
         </Text>
-        <Text as="span" vol={2} className={classes.fresh}>
+        <Text elementType="span" vol={2} className={classes.fresh}>
           <span>Fresh</span>
           {freshContent}
         </Text>
-        <Text as="span" vol={2} className={classes.stale}>
+        <Text elementType="span" vol={2} className={classes.stale}>
           <span>Stale</span>
           {circleProps.value}
         </Text>

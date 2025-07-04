@@ -1,161 +1,64 @@
 @st-namespace "ButtonCMS";
 
-:import {
-  -st-from: "@actionishope/shelley/styles/default/project.st.css";
-  -st-named:
-    --spacing-unit;
-}
 
 :import {
   -st-from: "./project.st.css";
   -st-default: CMS;
   -st-named:
+    --color-ui,
     --color-ui-inverse,
-    --color-ui-raw-inverse,
-    --color-accent-1,
-    --color-accent-2,
-    --color-accent-3,
-    --color-accent-4,
-    --color-background-2,
     --color-background-3;
 }
 
 :import {
   -st-from: "@actionishope/shelley/Button/button.st.css";
   -st-default: Button;
-  -st-named:
-    --bg-color,
-    --border-color,
-    --text-color;
 }
 
 :import {
-  -st-from: "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
-  -st-default: ButtonGroup;
-  -st-named: --seperator-color;
+  -st-from: "@actionishope/shelley/Button/iconButton.st.css";
+  -st-default: IconButton;
+}
+
+:import {
+  -st-from: "@actionishope/shelley/styles/button.st.css";
+  -st-named: --tone;
 }
 
 @st-scope CMS {
 
   Button {
-    border-radius: 0;
+    justify-content: center;
   }
 
-  Button:isDisabled,
-  Button:isDisabled:hover,
-  Button:isDisabled:focus,
-  Button:isDisabled:active,
-  Button:isDisabled:active:hover {
-    opacity: 0.5
+  Button:not(IconButton) {
+    /* border-radius: 0; */
   }
 
-  /* = = The base <button> element. */
-  Button {
-    text-transform: uppercase;
-    cursor: pointer;
-    /* We'll assign this via our variants but set it with our tones. */
-    --accent: initial;
-    -webkit-font-smoothing: antialiased;
+
+  IconButton:fab {
+    box-shadow: none;
   }
 
-  /* = 'Text'  */
-  Button:variant(quiet) {
-    --text-color: var(--accent);
-  }
-
-  Button:variant(quiet):hover,
-  Button:variant(quiet):focus {
-    background-color: rgba(var(--color-ui-raw), .02);
-  }
-
-  /* = We need to a seperator color for when in a group. */
-  /* ButtonGroup Button:variant(quiet) {
-    --seperator-color: var(--accent);
+  /* Button:tone(5) {
+    --accent: var(--color-background-2);
   } */
 
-  /* = We need to a seperator color for when in a group. */
-  ButtonGroup Button:variant(primary) {
-    --seperator-color: rgba(var(--color-ui-raw-inverse), .4);
+
+  IconButton:tone(contrast) {
+    color: inherit;
+    --tone: var(--color-background-3);
   }
 
-
-  /* = 'Outline' */
-  Button:variant(secondary) {
-    --border-color: var(--accent);
-    background-color: var(--color-background-3);
-    -webkit-font-smoothing: antialiased;
+  IconButton:tone(contrast):variant(primary) {
+    color: var(--color-ui)
   }
 
-  /* = 'Filled' */
-  Button:variant(primary) {
-    --bg-color: var(--accent);
-    --text-color: var(--color-ui-inverse);
-  }
-
-  Button:variant(5) {
-    --bg-color: var(--accent);
-    --text-color: var(--color-ui-inverse);
-    border-radius: 0;
-  }
-
-  /* = We need to a seperator color for when in a group. */
-  ButtonGroup Button:variant(primary) {
-    --seperator-color: rgba(var(--color-ui-raw-inverse), .4);
-  }
-
-  /* = 'Floating Action Button (FAB)' - Thank you Material! */
-  Button:variant(fab) {
-    --bg-color: var(--accent);
-    --text-color: var(--color-ui-inverse);
-  }
-
-  ButtonGroup Button:variant(fab) {
-    --seperator-color: rgba(var(--color-ui-raw-inverse), .4);
-  }
-
-  /* = Tones/Colours */
-  Button:tone(1) {
-    --accent: var(--color-accent-1);
-  }
-
-  Button:tone(2) {
-    --accent: var(--color-accent-2);
-  }
-
-  Button:tone(3) {
-    --accent: var(--color-accent-3);
-  }
-
-  Button:tone(4) {
-    --accent: var(--color-accent-4);
-  }
-
-  Button:tone(5) {
-    --accent: var(--color-background-2);
-  }
-
-
-  Button:tone(10) {
-    --text-color: inherit;
-    --accent: transparent;
-  }
-
-  Button:tone(10) svg {
+  IconButton:tone(contrast) svg {
     opacity: 0.7;
   }
 
-  Button:tone(10):hover,
-  Button:tone(10):focus {
-    opacity: 1;
-  }
-
-  Button:tone(10):hover svg,
-  Button:tone(10):focus svg {
-    opacity: 1;
-  }
-
-  Button:tone(10):variant(fab) {
-    background-color: var(--color-background-3);
-    border-color: var(--color-ui-inverse)
+  IconButton:tone(contrast):not(Button:isDisabled):hover::before {
+    opacity: 0.1;
   }
 }

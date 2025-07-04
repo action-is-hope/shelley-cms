@@ -1,17 +1,17 @@
 @st-namespace "PreviewModesCMS";
-@st-import CMS, [--color-background-main] from "./project.st.css";
+@st-import CMS, [--bg-main] from "./project.st.css";
 @st-import PreviewModes from "../../components/PreviewModes/previewModes.st.css";
 
 @st-scope CMS {
   PreviewModes {
     height: 64px;
     width: 100%;
-    background: var(--color-background-main);
+    background: var(--bg-main);
     z-index: 1;
     padding-top: 18px;
     transition: border 80ms ease-in-out, margin 80ms ease-in-out;
     /* Hide borders to the left of itself. */
-    box-shadow: -1px 0px 0px 0 var(--color-background-main);
+    box-shadow: -1px 0px 0px 0 var(--bg-main);
     margin-top: -1px;
   }
 

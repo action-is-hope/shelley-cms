@@ -1,7 +1,7 @@
 @st-namespace "SlateTableCMS";
 @st-import CMS, [
   --color-background-contrast-2,
-  --color-ui-raw
+  --color-ui-rgb
 ] from "./project.st.css";
 
 @st-import SlateTable from "../../components/SlateArea/features/TableFeature/elements/slateTable.st.css";
@@ -14,7 +14,7 @@
 
   SlateTable::headerCell,
   SlateTable::cell {
-    border: 1px solid rgba(var(--color-ui-raw), 0.2);
+    border: 1px solid rgba(var(--color-ui-rgb), 0.2);
   }
 
 }

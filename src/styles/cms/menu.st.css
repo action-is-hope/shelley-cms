@@ -1,7 +1,7 @@
 @st-namespace "MenuCMS";
 
 :import {
-  -st-from: "@actionishope/shelley/styles/default/project.st.css";
+  -st-from: "@actionishope/shelley/styles/project.st.css";
   -st-named:
     --spacing-unit,
 }
@@ -10,20 +10,20 @@
   -st-from: "./project.st.css";
   -st-default: CMS;
   -st-named:
-    --color-background-main,
+    --bg-main,
     --color-menu-selected-background,
     --color-menu-selected-text;
 }
 
 :import {
-  -st-from: "@actionishope/shelley/MenuItem/menuItem.st.css";
+  -st-from: "@actionishope/shelley/Menu/menuItem.st.css";
   -st-default: MenuItem;
 }
 
 @st-scope CMS {
 
   MenuPopup {
-    background: var(--color-background-main);
+    background: var(--bg-main);
   }
 
   MenuItem:isFocused {

@@ -1,6 +1,6 @@
 @st-namespace "ReorderMenuItem";
 
-@st-import Disclosure from "@actionishope/shelley/DisclosureGroup/disclosure.st.css";
+@st-import Disclosure from "@actionishope/shelley/Disclosure/disclosure.st.css";
 
 .root {
   display: grid;

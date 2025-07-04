@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactNode } from "react";
 import { st, classes } from "./chip.st.css";
-import { Button } from "@actionishope/shelley/Button";
+import { IconButton } from "@actionishope/shelley/Button";
 import { Text } from "@actionishope/shelley/Text";
 import { CloseSmall } from "../icons";
 
@@ -12,6 +12,7 @@ export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
   noWrap?: boolean;
   variant?: "outlined" | "filled";
 }
+
 function Chip(props: ChipProps, ref: React.Ref<HTMLBaseElement>) {
   const {
     onRemove,
@@ -26,7 +27,7 @@ function Chip(props: ChipProps, ref: React.Ref<HTMLBaseElement>) {
 
   return (
     <Text
-      as="span"
+      elementType="span"
       className={st(
         classes.root,
         { noWrap, hasRemove: Boolean(onRemove), variant },
@@ -38,10 +39,10 @@ function Chip(props: ChipProps, ref: React.Ref<HTMLBaseElement>) {
     >
       <span className={classes.text}>{children}</span>
       {onRemove && (
-        <Button
+        <IconButton
           className={classes.removeButton}
-          tone={10}
-          variant="fab"
+          // tone={10}
+          isFab
           icon={deleteIcon ?? <CloseSmall alt={onRemoveAltText} />}
           vol={1}
           onPress={onRemove}

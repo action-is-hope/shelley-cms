@@ -8,7 +8,7 @@ exports[`PageActions renders page actions block with custom className 1`] = `
     className="PageActions__Test__info"
   >
     <div
-      className="Text__Test__root Text__Test---vol-1-1 DefaultSpacing__Test__mb1 PageActions__Test__lastSaved"
+      className="text__Test__root text__Test---vol-1-1 shelleySpacing__Test__mb1 PageActions__Test__lastSaved"
     >
       Changes saved: 5 mins ago
     </div>
@@ -17,7 +17,7 @@ exports[`PageActions renders page actions block with custom className 1`] = `
     className="PageActions__Test__actions"
   >
     <div
-      className="Text__Test__root Text__Test---vol-1-1 DefaultSpacing__Test__mb1 PageActions__Test__statusText"
+      className="text__Test__root text__Test---vol-1-1 shelleySpacing__Test__mb1 PageActions__Test__statusText"
     >
       <span
         className="StatusIndicator__Test__root StatusIndicator__Test---status-5-draft StatusIndicator__Test---vol-1-2 PageActions__Test__statusIndicator"
@@ -29,17 +29,17 @@ exports[`PageActions renders page actions block with custom className 1`] = `
       Draft
     </div>
     <div
-      className="ButtonGroup__Test__root ButtonGroup__Test---orientation-10-horizontal ButtonGroup__Test--splitButton PageActions__Test__buttonGroup"
+      className="btnGroup__Test__root btnGroup__Test---orientation-10-horizontal btnGroup__Test--splitButton PageActions__Test__buttonGroup"
     >
       <button
-        className="Button__Test__root Button__Test--fullWidth Button__Test---tone-1-1 Button__Test---variant-7-primary Button__Test---vol-1-4 PageActions__Test__reviewButton"
+        className="btn__Test__root btn__Test---variant-7-primary btn__Test---tone-4-lead btn__Test---vol-1-4 btn__Test--fullWidth PageActions__Test__reviewButton"
+        data-react-aria-pressable={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
         onDragStart={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
-        onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -48,26 +48,26 @@ exports[`PageActions renders page actions block with custom className 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        tabIndex={0}
         type="button"
       >
         <span
-          className="Button__Test__inner"
+          className="btn__Test__inner"
         >
           Publish
         </span>
       </button>
       <button
-        aria-controls={null}
         aria-expanded={false}
         aria-haspopup={true}
-        className="Button__Test__root Button__Test---tone-1-1 Button__Test---variant-7-primary Button__Test---vol-1-4 PageActions__Test__menuTrigger"
+        className="btn__Test__root btn__Test---variant-7-primary btn__Test---tone-4-lead btn__Test---vol-1-4 PageActions__Test__menuTrigger"
+        data-react-aria-pressable={true}
         id="react-aria-1"
         onBlur={[Function]}
         onClick={[Function]}
         onDragStart={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
-        onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -76,17 +76,19 @@ exports[`PageActions renders page actions block with custom className 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        preventFocusOnPress={true}
+        tabIndex={0}
         type="button"
       >
          
         <span
-          className="VisuallyHidden__Test__root"
+          className="visuallyHidden__Test__root"
         >
           Publish menu
         </span>
         <svg
           aria-hidden={true}
-          className="Icon__Test__root"
+          className="icon__Test__root"
           viewBox="0 0 16 16"
         >
           <path

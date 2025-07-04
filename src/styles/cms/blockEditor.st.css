@@ -2,7 +2,7 @@
 @st-import CMS, [
   --spacing-unit,
   --color-text-2,
-  --color-background-main,
+  --bg-main,
   --color-background-2,
   --color-background-3,
   --color-background-4,
@@ -20,12 +20,13 @@
 @st-import Button from "@actionishope/shelley/Button/button.st.css";
 @st-import Field from "@actionishope/shelley/Field/field.st.css";
 @st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
-@st-import CheckboxGroup from "@actionishope/shelley/CheckboxGroup/checkboxGroup.st.css";
+@st-import CheckboxGroup from "@actionishope/shelley/Checkbox/checkboxGroup.st.css";
 @st-import Checkbox from "@actionishope/shelley/Checkbox/checkbox.st.css";
-@st-import ProgressCircle, [ --loader-circle-medium-height, --loader-circle-medium-width] from "@actionishope/shelley/ProgressCircle/progressCircle.st.css";
+@st-import ProgressCircle from "@actionishope/shelley/Progress/progressCircle.st.css";
+@st-import [ --loader-circle-medium-height, --loader-circle-medium-width] from "@actionishope/shelley/styles/progressCircle.st.css";
 @st-import ReorderItems from "../../components/ReorderItems/reorderItems.st.css";
 @st-import [ ctaContainer ] from "./field.st.css";
-@st-import [--dialog-padding-x, --dialog-padding-y] from "@actionishope/shelley/styles/default/dialog.st.css";
+@st-import [--dialog-padding-x, --dialog-padding-y] from "@actionishope/shelley/styles/dialog.st.css";
 @st-import Chip, [container as chipContainer] from "../../components/Chip/chip.st.css";
 
 @st-scope CMS {
@@ -71,7 +72,7 @@
     grid-area: stack;
     padding: 0.8rem 0 1.3rem;
     border-bottom: 12px solid var(--color-background-3);
-    background-color: var(--color-background-main);
+    background-color: var(--bg-main);
   }
 
   BlockEditor::mainContent > form {
@@ -83,7 +84,7 @@
     margin-left: calc(var(--spacing-unit) * 3.2);
   }
 
-  BlockEditor::mainContent > form > TextField:variant(quiet)::fieldInput,
+  BlockEditor::mainContent > form > TextField:variant(quiet)::input,
   BlockEditor::mainContent > form > SlateArea {
     padding-left: calc(var(--spacing-unit) * 3.2);
     -webkit-font-smoothing: antialiased;

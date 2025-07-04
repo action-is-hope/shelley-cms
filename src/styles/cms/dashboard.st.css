@@ -2,7 +2,7 @@
 @st-import CMS, [
   --spacing-unit,
   --color-header-background,
-  --color-background-main,
+  --bg-main,
   --height-header-sm,
   --height-header-md,
   breakpoint-md
@@ -25,7 +25,7 @@
     padding-bottom: calc(var(--spacing-unit) * 2);
     position: sticky;
     top: 0;
-    background-color: var(--color-background-main);
+    background-color: var(--bg-main);
     display: flex;
     gap: calc(var(--spacing-unit) / 2);
     z-index: 10;

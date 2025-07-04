@@ -16,12 +16,12 @@
 ] from "./project.st.css";
 @property st-global(--vh);
 @st-import Switch from "@actionishope/shelley/Switch/switch.st.css";
-@st-import ButtonGroup from "@actionishope/shelley/ButtonGroup/buttonGroup.st.css";
+@st-import ButtonGroup from "@actionishope/shelley/Button/buttonGroup.st.css";
 @st-import Select from "@actionishope/shelley/Select/select.st.css";
 @st-import TextField from "@actionishope/shelley/TextField/textField.st.css";
-@st-import CheckboxGroup from "@actionishope/shelley/CheckboxGroup/checkboxGroup.st.css";
-@st-import ProgressCircle from "@actionishope/shelley/ProgressCircle/progressCircle.st.css";
-@st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/default/mixins/focus.st.css";
+@st-import CheckboxGroup from "@actionishope/shelley/Checkbox/checkboxGroup.st.css";
+@st-import ProgressCircle from "@actionishope/shelley/Progress/progressCircle.st.css";
+@st-import [focus, focusVisible] from "@actionishope/shelley/styles/mixins/focus.st.css";
 
 @st-import SettingsPanel, [active] from "../../components/SettingsPanel/settingsPanel.st.css";
 @st-import SubHeader from "../../components/SubHeader/subHeader.st.css";
@@ -99,7 +99,7 @@
   }
 
   /* @todo: fix base theme styles with slateArea, I think this messed things up a bit. For now this will fix them here without breaking anything else.*/
-  SettingsPanel TextField:isDisabled::fieldInput,
+  SettingsPanel TextField:isDisabled::input,
   SettingsPanel CheckboxGroup:isDisabled {
     opacity: .5;
   }
@@ -131,12 +131,12 @@
   }
 
   SettingsPanel::nav a::after {
-    -st-mixin: pseudoFocus;
+    -st-mixin: focus;
     border-radius: 4px;
   }
 
   SettingsPanel::nav a:focus-visible::after {
-    -st-mixin: pseudoFocusVisible;
+    -st-mixin: focusVisible;
   }
 
   SettingsPanel::nav a svg {

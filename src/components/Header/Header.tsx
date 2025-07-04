@@ -1,13 +1,12 @@
 import React, { forwardRef, useState } from "react";
 import type { Site, UserDetailsType } from "../../typings/shared-types";
-import { ActionButton } from "@actionishope/shelley/ActionButton";
 import { Button } from "@actionishope/shelley/Button";
 import { Dialog, DialogTrigger } from "@actionishope/shelley/Dialog";
-import { IconButton } from "@actionishope/shelley/IconButton";
+import { IconButton } from "@actionishope/shelley/Button/IconButton";
 import { Item } from "@actionishope/shelley/Item";
 import { H2, P } from "@actionishope/shelley/Text";
 import { ListBox } from "@actionishope/shelley/ListBox";
-import { Toolbar } from "@actionishope/shelley/Toolbar";
+import { AppBar } from "@actionishope/shelley/AppBar";
 import { Switch, SwitchProps } from "@actionishope/shelley/Switch";
 import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 import Menu from "../icons/Menu";
@@ -67,8 +66,8 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
     : `https://ui-avatars.com/api/?name=unknown`;
 
   return (
-    <Toolbar
-      as="header"
+    <AppBar
+      elementType="header"
       className={st(classes.root, classNameProp)}
       {...rest}
       ref={ref}
@@ -78,7 +77,7 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
         <Button
           className={classes.siteListTrigger}
           variant={false}
-          tone={10}
+          // tone={10}
           vol={5}
           icon={<List />}
           aria-label="Change site"
@@ -147,6 +146,9 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
         {user ? (
           <DialogTrigger type="popup" portalSelector={portalSelector}>
             <IconButton
+              tone={false}
+              variant={false}
+              className={classes.userMenuTrigger}
               data-id={dataId ? `${dataId}--userMenuTrigger` : undefined}
             >
               <span className={classes.avatar}>
@@ -198,25 +200,25 @@ function Header(props: HeaderProps, ref?: React.Ref<HTMLDivElement>) {
                   Dark mode
                 </Switch>
               )}
-              <ActionButton
+              <Button
                 onPress={onSignOut}
                 data-id={dataId ? `${dataId}--signOutButton` : undefined}
               >
                 Sign out
-              </ActionButton>
+              </Button>
             </div>
           </DialogTrigger>
         ) : (
-          <ActionButton
+          <Button
             onPress={onSignIn}
-            isQuiet
+            // isQuiet
             data-id={dataId ? `${dataId}--signInButton` : undefined}
           >
             Sign in
-          </ActionButton>
+          </Button>
         )}
       </div>
-    </Toolbar>
+    </AppBar>
   );
 }
 

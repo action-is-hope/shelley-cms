@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { st, classes } from "./finder.st.css";
 import { mergeRefs } from "@react-aria/utils";
-import { IconButton } from "@actionishope/shelley/IconButton";
+import { IconButton } from "@actionishope/shelley/Button/IconButton";
 import { DialogTrigger } from "@actionishope/shelley/Dialog";
 import { TextField, TextInputProps } from "@actionishope/shelley/TextField";
 import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
@@ -46,7 +46,7 @@ function Finder(props: FinderProps, ref?: React.Ref<HTMLDivElement>) {
     disableActionBar = false,
     ...rest
   } = props;
-  const measureRef = useRef(null);
+  const measureRef = useRef<HTMLDivElement>(null);
   const [containerWidth] = useSize(measureRef);
   const [isMobile, setIsMobile] = useState(false);
 

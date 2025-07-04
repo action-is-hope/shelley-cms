@@ -1,9 +1,10 @@
 @st-namespace "ChipCMS";
 @st-import CMS, [
   --color-background-3,
-  --color-form-base-border,
   --spacing-unit
 ] from "./project.st.css";
+
+/* --color-form-base-border, */
 
 @st-import Chip, [container] from "../../components/Chip/chip.st.css";
 

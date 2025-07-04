@@ -8,7 +8,7 @@ import { ParagraphFeature } from "../../components/SlateArea/features/ParagraphF
 import { TableFeature } from "../../components/SlateArea/features/TableFeature/TableFeature";
 import { Button } from "@actionishope/shelley/Button";
 import { Menu } from "@actionishope/shelley/Menu";
-import { MenuTrigger } from "@actionishope/shelley/MenuTrigger";
+import { MenuTrigger } from "@actionishope/shelley/Menu";
 import { Item } from "@actionishope/shelley/Item";
 import { default as AddIcon } from "@actionishope/shelley/icons/Add";
 import { default as AddImageIcon } from "@actionishope/shelley/icons/AddImage";

@@ -2,16 +2,16 @@ import React, { forwardRef, Ref, ReactElement } from "react";
 import type { CollectionChildren } from "@react-types/shared/src/collections";
 import type { ComponentBase } from "@actionishope/shelley/typings/shared-types";
 import { Button } from "@actionishope/shelley/Button";
-import { ButtonGroup } from "@actionishope/shelley/ButtonGroup";
+import { ButtonGroup } from "@actionishope/shelley/Button";
 import { Text } from "@actionishope/shelley/Text";
 import { Menu } from "@actionishope/shelley/Menu";
 import {
   MenuTrigger,
   MenuTriggerProps,
-} from "@actionishope/shelley/MenuTrigger";
+} from "@actionishope/shelley/Menu/MenuTrigger";
 import { Icon } from "@actionishope/shelley/Icon";
 import { st, classes } from "./pageActions.st.css";
-import { classes as spacing } from "@actionishope/shelley/styles/default/spacing.st.css";
+import { classes as spacing } from "@actionishope/shelley/styles/spacing.st.css";
 import { ProgressCircle } from "@actionishope/shelley";
 import { StatusIndicator } from "../StatusIndicator/StatusIndicator";
 import type { StatusOptions } from "../../typings/shared-types";
@@ -122,7 +122,7 @@ function PageActions<T extends { key: string }>(
     >
       <div className={classes.info}>
         <Text
-          as="div"
+          elementType="div"
           vol={1}
           className={st(spacing.mb1, classes.lastSaved)}
           data-id={dataId ? `${dataId}--last-saved` : undefined}
@@ -135,7 +135,7 @@ function PageActions<T extends { key: string }>(
 
       <div className={classes.actions}>
         <Text
-          as="div"
+          elementType="div"
           vol={1}
           className={st(spacing.mb1, classes.statusText)}
           data-id={dataId ? `${dataId}--status` : undefined}
@@ -151,7 +151,7 @@ function PageActions<T extends { key: string }>(
           <Button
             vol={4}
             variant="primary"
-            tone={reviewRequired ? 2 : 1}
+            tone={reviewRequired ? "support" : "lead"}
             className={classes.reviewButton}
             icon={
               isSaving && (
@@ -183,7 +183,7 @@ function PageActions<T extends { key: string }>(
               className={classes.menuTrigger}
               data-id={dataId ? `${dataId}--menuTrigger` : undefined}
               vol={4}
-              tone={1}
+              tone={"lead"}
             />
             <Menu
               onAction={(key) => onActionProp(key)}
