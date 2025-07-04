@@ -40,6 +40,10 @@
     padding-right: calc(var(--spacing-unit) * .5);
   }
 
+  Header::container {
+    display: contents;
+  }
+
   Header::siteName {
     background: #000;
     display: inline-block;
