@@ -109,6 +109,10 @@
     background-color: #0d727e;
   }
 
+  Card::mainButton::before {
+    background-color: transparent;
+  }
+
   /* CardMedia */
 
   Card::media {

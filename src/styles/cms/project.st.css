@@ -249,12 +249,12 @@
   --color-border-3: rgba(var(--color-ui-rgb), .4);
 
   /* = Modal colors */
-  --background-color-modal-backdrop: rgb(0 0 0 / 40%);
+  --modal-backdrop-bg: rgb(0 0 0 / 40%);
   --color-border-dialog: #fff;
 
   /* Dialog colors */
-  --color-dialog: var(--color-ui);
-  --background-color-dialog: var(--bg-main);
+  --dialog-color: var(--color-ui);
+  --dialog-bg: var(--bg-main);
 
   /* = Focus mode colors*/
   --color-focus-mode-background: #d2d2d2;
@@ -387,12 +387,12 @@
   --color-border-3: #6d6e71;
 
   /* = Modal colors */
-  --background-color-modal-backdrop: #51a0af75;
+  --modal-backdrop-bg: #51a0af75;
 
   /* Dialog colors */
-  --background-color-dialog: var(--bg-main);
+  --dialog-bg: var(--bg-main);
   --color-border-dialog: #51a0af;
-  --color-dialog: var(--color-ui);
+  --dialog-color: var(--color-ui);
 
   /* = Focus mode colors */
   --color-focus-mode-background: #000;
