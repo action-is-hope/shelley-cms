@@ -64,7 +64,7 @@
     "use-debounce": "^3.3.0"
   },
   "peerDependencies": {
-    "@actionishope/shelley": "^5.1.4"
+    "@actionishope/shelley": "^5.1.5"
   },
   "devDependencies": {
     "@actionishope/shelley": "^5.1.5",
