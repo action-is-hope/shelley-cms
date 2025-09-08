@@ -185,7 +185,7 @@
     grid-template-columns: 96px 1fr;
   }
 
-  MetaDataEditor Field:labelPosition(side)::input {
+  MetaDataEditor Field:labelPosition(side)::label {
     font-size: .85em;
     text-align: end;
   }

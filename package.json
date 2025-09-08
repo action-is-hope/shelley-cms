@@ -67,7 +67,7 @@
     "@actionishope/shelley": "^5.1.4"
   },
   "devDependencies": {
-    "@actionishope/shelley": "^5.1.4",
+    "@actionishope/shelley": "^5.1.5",
     "@storybook/addon-a11y": "^6.5.15",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-docs": "^6.5.15",
