@@ -3,6 +3,7 @@
   --spacing-unit,
   --grad-2,
   --color-background-2,
+  --color-background-3,
   --color-background-contrast-1,
   breakpoint-sm,
   breakpoint-md,
@@ -38,6 +39,7 @@
   ContentActions::addBlockButton {
     padding-left: 8%;
     padding-right: 8%;
+    background-color: var(--color-background-3);
   }
 
   .dialog {
