@@ -1,6 +1,6 @@
 {
   "name": "@actionishope/shelley-cms",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "license": "ISC",
   "description": "Shelley CMS UI.",
   "repository": {
@@ -64,10 +64,10 @@
     "use-debounce": "^3.3.0"
   },
   "peerDependencies": {
-    "@actionishope/shelley": "^5.1.7"
+    "@actionishope/shelley": "^5.1.8"
   },
   "devDependencies": {
-    "@actionishope/shelley": "^5.1.7",
+    "@actionishope/shelley": "^5.1.8",
     "@storybook/addon-a11y": "^6.5.15",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-docs": "^6.5.15",
