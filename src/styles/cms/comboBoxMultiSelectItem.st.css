@@ -7,7 +7,7 @@
 
 @st-scope CMS {
   ComboBoxMultiSelectItem:isFocused {
-    background-color: var(--color-background-listBox-option-hover);
+    /* background-color: var(--color-background-listBox-option-hover); */
     cursor: pointer;
   }
 }
